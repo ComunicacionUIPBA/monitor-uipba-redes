@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UIPBA • Monitor Integral de Inteligencia Social y Medios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,700&display=swap');
+        
+        :root {
+            --uipba-navy: #0D4492;
+            --uipba-blue: #0089E7;
+            --uipba-sky: #069EF3;
+            --uipba-light: #12BBFF;
+            --uipba-green: #1ED58E;
+            --uipba-slate: #82A2B9;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: #f4f7fa;
+            color: #1e293b;
+        }
+
+        .bg-uipba-navy { background-color: #0D4492; }
+        .bg-uipba-blue { background-color: #0089E7; }
+        .text-uipba-navy { color: #0D4492; }
+        .text-uipba-blue { color: #0089E7; }
+        .border-uipba-navy { border-color: #0D4492; }
+        .border-uipba-blue { border-color: #0089E7; }
+
+        .dashboard-card {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px -6px rgba(13, 68, 146, 0.12);
+            border-color: #0089E7;
+        }
+
+        .tab-btn {
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background-color: #0D4492;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(13, 68, 146, 0.3);
+        }
+
+        .badge-alert-high {
+            background-color: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .badge-alert-medium {
+            background-color: #ebf3fc;
+            color: #0D4492;
+            border: 1px solid #bae0ff;
+        }
+
+        .badge-alert-info {
+            background-color: #eefcf6;
+            color: #0c6b45;
+            border: 1px solid #a3f2d0;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #82A2B9;
+            border-radius: 10px;
+        }
+
+        @media print {
+            body { background-color: #ffffff !important; }
+            header, .tab-btn, button, .no-print { display: none !important; }
+            section { display: block !important; page-break-after: always; }
+            .dashboard-card { page-break-inside: avoid; border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            
+            <!-- LOGOTIPO OFICIAL UIPBA (Tipografía Institucional) -->
+            <div class="flex items-center space-x-3.5">
+                <div class="flex flex-col justify-center select-none">
+                    <span class="text-2xl sm:text-3xl font-extrabold text-uipba-navy tracking-tight leading-none" style="font-family: 'Ubuntu', sans-serif; font-weight: 700;">UIPBA</span>
+                    <span class="text-[9px] sm:text-[10px] font-normal text-uipba-navy tracking-wide leading-tight mt-1 uppercase">UNIÓN INDUSTRIAL DE LA</span>
+                    <span class="text-[9px] sm:text-[10px] font-normal text-uipba-navy tracking-wide leading-tight uppercase">PROVINCIA DE BUENOS AIRES</span>
+                </div>
+                <div class="hidden lg:block border-l border-slate-300 pl-3.5">
+                    <span class="text-xs font-bold text-slate-700 block leading-none">Monitor de Inteligencia Social y Medios</span>
+                    <span class="text-[9px] text-uipba-blue font-semibold uppercase tracking-wider">Tablero de Control Diario • Gestión Gentile</span>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <button onclick="exportToPDF()" class="bg-uipba-navy hover:bg-slate-900 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-sm flex items-center space-x-2 transition-all">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <span class="hidden sm:inline">Exportar PDF Ejecutivo</span>
+                    <span class="sm:hidden">PDF</span>
+                </button>
+                <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
+                    <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                    <span id="current-date-badge">29 Jul 2026</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-slate-100/90 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between py-2 overflow-x-auto custom-scrollbar">
+                <div class="flex space-x-2">
+                    <button onclick="switchTab('tab-sector')" id="btn-tab-sector" class="tab-btn active px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
+                        <span>1. Sector Industrial</span>
+                    </button>
+                    <button onclick="switchTab('tab-calle')" id="btn-tab-calle" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
+                        <span>2. La Calle Bonaerense</span>
+                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">4 Alertas</span>
+                    </button>
+                    <button onclick="switchTab('tab-clipping')" id="btn-tab-clipping" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
+                        <span>3. Clipping de Medios en Redes</span>
+                    </button>
+                </div>
+
+                <!-- Histórico de Fechas / Date Selector -->
+                <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
+                    <span>Fecha:</span>
+                    <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
+                        <option value="2026-07-29" selected>29/07/2026 (Hoy)</option>
+                        <option value="2026-07-28">28/07/2026</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-white border-b border-slate-200 py-3 shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Tasas TISH / Refinanciación BAPRO</span>
+            </div>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
+                <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
+                    <span>4.3 / 5.0</span>
+                    <span>🔥🔥🔥🔥</span>
+                </span>
+            </div>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 +38% vs Sem. Previa</span>
+            </div>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">4 Críticas (Inseguridad & Paritaria)</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full">
+
+        <!-- TAB 1: SECTOR INDUSTRIAL -->
+        <section id="tab-sector" class="space-y-6">
+            <div class="max-w-3xl">
+                <span class="text-xs font-bold text-uipba-navy uppercase tracking-widest bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">Escucha del Sector</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Termómetro del Sector Industrial Hoy</h2>
+                <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                    Debates reales detectados en comunidades de industriales, gerentes de planta, pymes y sindicatos.
+                </p>
+            </div>
+
+            <div id="container-sector" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Se renderiza dinámicamente desde el objeto JSON -->
+            </div>
+        </section>
+
+        <!-- TAB 2: LA CALLE BONAERENSE -->
+        <section id="tab-calle" class="hidden space-y-6">
+            <div class="max-w-3xl">
+                <span class="text-xs font-extrabold text-amber-800 uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">El Termómetro Vecinal</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">La Calle Bonaerense: Impacto e Intersección Industrial</h2>
+                <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                    De qué habla la sociedad en PBA. Puntos de conexión directos con las empresas donde UIPBA debe estar en alerta.
+                </p>
+            </div>
+
+            <div id="container-calle" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Se renderiza dinámicamente desde el objeto JSON -->
+            </div>
+        </section>
+
+        <!-- TAB 3: CLIPPING DE MEDIOS EN REDES -->
+        <section id="tab-clipping" class="hidden space-y-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                <div class="max-w-2xl">
+                    <span class="text-xs font-bold text-uipba-navy uppercase tracking-widest bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">Monitoreo Mediático</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Clipping de Medios en Redes Sociales</h2>
+                    <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                        Noticias con mayor tracción en X, Facebook e Instagram publicadas por portales Nacionales, Regionales y Municipales.
+                    </p>
+                </div>
+
+                <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold space-x-1 w-full md:w-auto">
+                    <button onclick="filterClipping('all')" class="clip-filter-btn active bg-white text-slate-900 px-3 py-1.5 rounded-lg shadow-sm">Todos</button>
+                    <button onclick="filterClipping('nacional')" class="clip-filter-btn text-slate-600 px-3 py-1.5 rounded-lg">Nacional</button>
+                    <button onclick="filterClipping('regional')" class="clip-filter-btn text-slate-600 px-3 py-1.5 rounded-lg">Regional PBA</button>
+                    <button onclick="filterClipping('local')" class="clip-filter-btn text-slate-600 px-3 py-1.5 rounded-lg">Local / Municipal</button>
+                </div>
+            </div>
+
+            <div id="container-clipping" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Se renderiza dinámicamente desde el objeto JSON -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-500">
+                <div class="flex items-center space-x-2">
+                    <span class="text-uipba-navy font-bold">&copy; 2026 UIPBA</span>
+                    <span>• Unión Industrial de la Provincia de Buenos Aires</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="exportToPDF()" class="bg-uipba-navy hover:bg-slate-900 text-white px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center space-x-2 shadow-md">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        <span>Descargar Reporte PDF Ejecutivo</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Nota Metodológica Obligatoria -->
+            <div class="pt-3 border-t border-slate-100 text-[10px] text-slate-400 leading-relaxed text-center italic">
+                <strong>Nota metodológica:</strong> Relevamiento asistido por Inteligencia Artificial sobre fuentes públicas, prensa económica y canales digitales bonaerenses. Este reporte sintetiza patrones de conversación cualitativos e indicadores de tracción relativa; no constituye una medición censal o encuesta estadística tradicional.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
+        const DASHBOARD_DATA = {
+            "2026-07-29": {
+                sector: [
+                    {
+                        id: "sec-1",
+                        network: "X (Twitter)",
+                        networkBadge: "bg-black text-white",
+                        hashtag: "#TasasMunicipales #TISEH",
+                        title: "Presión por Alícuotas TISEH y Exenciones Locales",
+                        quote: "Dueños de fábricas en La Plata, San Martín y Olavarría debaten las exenciones a la TISEH/TISH aprobadas en Concejos Deliberantes y reclaman que el resto de los municipios replique el alivio fiscal ante la caída de liquidez.",
+                        action: "Liderar el pedido de alícuotas 0% en Ingresos Brutos e insistir en la eliminación de tasas municipales sin servicios efectivos (Gestión Gentile).",
+                        source: { name: "X / Comunidad PyME PBA", link: "https://x.com", date: "29 Jul 2026, 09:15" },
+                        metrics: { temp: 5, volume: "Viral (18.4k menciones)", variation: "+42% vs sem. previa" }
+                    },
+                    {
+                        id: "sec-2",
+                        network: "LinkedIn",
+                        networkBadge: "bg-uipba-navy text-white",
+                        hashtag: "#ParitariaUOM #PisoSalarial",
+                        title: "Reactivación de la UOM y Fórmulas fuera del IPC",
+                        quote: "Debate entre directores de RRHH: con el Ingreso Mínimo Global de Referencia en $1.036.390, se negocia una nueva fórmula salarial que desenganche del IPC rígido y contemple la productividad real de cada rama.",
+                        action: "Avanzar en el proyecto de ley ICLO y conformar el cuerpo de peritos para reducir la litigiosidad y dar certidumbre laboral.",
+                        source: { name: "LinkedIn / Redes de RRHH", link: "https://linkedin.com", date: "29 Jul 2026, 08:30" },
+                        metrics: { temp: 4, volume: "Alto (8.9k iteraciones)", variation: "+15% vs sem. previa" }
+                    },
+                    {
+                        id: "sec-3",
+                        network: "Instagram",
+                        networkBadge: "bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white",
+                        hashtag: "#InnovacionPBA #FITBA",
+                        title: "Concurso Sustentable y Rondas B2B",
+                        quote: "Publicaciones de jóvenes empresarios por la convocatoria 'Innovación Tecnológica Sustentable Bonaerense 2026' de UIPBA y la búsqueda de financiamiento verde (AL-INVEST) para eficientizar procesos.",
+                        action: "Posicionar el programa de sostenibilidad y ciberseguridad para PyMEs como pilar de la nueva gestión institucional.",
+                        source: { name: "Instagram / @uipbajoven", link: "https://instagram.com", date: "28 Jul 2026, 18:40" },
+                        metrics: { temp: 3, volume: "Moderado (4.2k alcance)", variation: "🆕 Tendencia Emergente" }
+                    },
+                    {
+                        id: "sec-4",
+                        network: "Facebook",
+                        networkBadge: "bg-indigo-700 text-white",
+                        hashtag: "#EmbargosPyME #RefinanciacionBAPRO",
+                        title: "Refinanciación BAPRO y Suspensión de Cautelares",
+                        quote: "Grupos de industriales del Conurbano celebran el plan de refinanciación de deudas comerciales al 25.7% del Banco Provincia y apoyan el proyecto para suspender embargos bancarios de ARCA/AFIP.",
+                        action: "Respaldar públicamente iniciativas que destraben cuentas inmovilizadas y devuelvan liquidez operativa a las plantas.",
+                        source: { name: "Facebook / Polos Industriales PBA", link: "https://facebook.com", date: "29 Jul 2026, 07:50" },
+                        metrics: { temp: 4, volume: "Alto (12.1k compartidos)", variation: "+28% vs sem. previa" }
+                    }
+                ],
+                calle: [
+                    {
+                        id: "calle-1",
+                        riskLevel: "Alerta Crítica",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #1 en Redes PBA",
+                        title: "1. Inseguridad y Robos en Paradas / Corredores",
+                        streetTalk: "Robos recurrentes a trabajadores en paradas de colectivo (turno madrugada) y asaltos a camiones de reparto en accesos a La Matanza, San Martín y Moreno.",
+                        connection: [
+                            "Alto ausentismo y pedidos de cambio de turno por temor en los trayectos.",
+                            "Suba del 35% en costos de seguros de flete y custodia para abastecimiento PyME."
+                        ],
+                        uipbaPosition: "Solicitar Corredores Seguros e iluminación en Parques Industriales",
+                        source: { name: "Vecinos & Redes PBA", link: "#", date: "29 Jul 2026" },
+                        metrics: { temp: 5, volume: "Muy Alto (35k+ menciones)", variation: "+18% vs sem. previa" }
+                    },
+                    {
+                        id: "calle-2",
+                        riskLevel: "Impacto Masivo",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #2 en Redes PBA",
+                        title: "2. Precios, Tarifas de Servicios y Tarifarios de Energía",
+                        streetTalk: "Dificultad para pagar facturas de luz/gas residenciales y recortes en el consumo de productos de marca o artículos durables del hogar.",
+                        connection: [
+                            "Caída directa de demanda en la industria de consumo masivo y empaques.",
+                            "Doble impacto: parálisis de ventas + encarecimiento de tarifa eléctrica industrial."
+                        ],
+                        uipbaPosition: "Proponer cuadros tarifarios diferenciales para electrointensivas",
+                        source: { name: "Prensa & Redes Sociales", link: "#", date: "29 Jul 2026" },
+                        metrics: { temp: 4, volume: "Alto (22k menciones)", variation: "+5% vs sem. previa" }
+                    },
+                    {
+                        id: "calle-3",
+                        riskLevel: "Alerta Estructural",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #3 en Redes PBA",
+                        title: "3. Changarización y Salida hacia el Trabajo Informal",
+                        streetTalk: "Crecimiento de empleos informales, venta por redes sociales y talleres no registrados como único sustento en barrios del Conurbano.",
+                        connection: [
+                            "Fuga de oficiales calificados hacia la informalidad independiente.",
+                            "Competencia desleal con talleres que operan sin cargas sociales ni tributarias."
+                        ],
+                        uipbaPosition: "Impulsar incentivos para la formalización del empleo joven",
+                        source: { name: "Foros Locales & Grupos", link: "#", date: "28 Jul 2026" },
+                        metrics: { temp: 4, volume: "Moderado-Alto", variation: "+12% vs sem. previa" }
+                    },
+                    {
+                        id: "calle-4",
+                        riskLevel: "Traba Operativa",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #4 en Redes PBA",
+                        title: "4. Quejas por Burocracia e Inspecciones Municipales",
+                        streetTalk: "Comerciantes y vecinos denuncian trabas infinitas y excesiva discrecionalidad en habilitaciones locales e inspecciones.",
+                        connection: [
+                            "Retrasos de hasta 12 meses para obtener permisos de ampliación de plantas industriales.",
+                            "Falta de transparencia en el cálculo de tasas locales."
+                        ],
+                        uipbaPosition: "Promover la Ventanilla Única Digital Industrial en municipios",
+                        source: { name: "Cámaras Comerciales Locales", link: "#", date: "28 Jul 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Estable" }
+                    }
+                ],
+                clipping: [
+                    {
+                        id: "clip-1",
+                        category: "nacional",
+                        scopeTag: "Nacional • Infobae / X",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "ALERTA PARITARIA",
+                        title: "Se reactiva la mesa paritaria de la UOM: los gremios piden nueva fórmula de recomposición",
+                        summary: "Alta repercusión en X. Las cámaras ADIMRA y AFAC retoman diálogo tras semanas de cautela por resoluciones judiciales.",
+                        impact: "Ofrecer insumos técnicos sobre costo laboral real y productividad para equilibrar la negociación.",
+                        source: { name: "Infobae (X)", link: "https://infobae.com", date: "29 Jul 2026, 08:10" },
+                        metrics: { temp: 5, volume: "Alto (15k lecturas)", variation: "+30% vs sem. previa" }
+                    },
+                    {
+                        id: "clip-2",
+                        category: "regional",
+                        scopeTag: "Regional • El Día (La Plata) / FB",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "PRESIÓN FISCAL",
+                        title: "Tasas sin servicios: el peso tributario municipal ahoga a las PyMEs industriales bonaerenses",
+                        summary: "Suma cientos de compartidos en Facebook. Reportaje especial detallando cómo la suma de tributos locales ahoga la caja de las plantas.",
+                        impact: "Reafirmar el pedido de tope a las alícuotas municipales sin contraprestación efectiva.",
+                        source: { name: "El Día de La Plata", link: "https://eldia.com", date: "29 Jul 2026, 07:45" },
+                        metrics: { temp: 4, volume: "Viral Regional", variation: "+25% vs sem. previa" }
+                    },
+                    {
+                        id: "clip-3",
+                        category: "local",
+                        scopeTag: "Local • Olavarría Info / IG",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "ALIVIO LOCAL",
+                        title: "El HCD de Olavarría aprobó exenciones del 100% en TISH para pequeños comerciantes y pymes",
+                        summary: "Menciones virales en Instagram sobre las exenciones de la Tasa de Seguridad e Higiene para morigerar el impacto socioeconómico.",
+                        impact: "Aprovechar el precedente legislativo municipal para proyectar la exención en otros distritos productivos.",
+                        source: { name: "Olavarría Info (IG)", link: "https://olavarriainfo.com", date: "28 Jul 2026, 19:20" },
+                        metrics: { temp: 3, volume: "Alto Local", variation: "🆕 Precedente" }
+                    },
+                    {
+                        id: "clip-4",
+                        category: "nacional",
+                        scopeTag: "Nacional • El Esquiú / X",
+                        badgeClass: "badge-alert-info",
+                        badgeText: "LIQUIDEZ PYME",
+                        title: "Presentan proyecto para suspender por un año embargos y medidas cautelares a MiPyMEs",
+                        summary: "Tendencia en X. Busca la liberación automática de cuentas bancarias inmovilizadas por ARCA/AFIP para devolver liquidez.",
+                        impact: "Acompañar técnicamente medidas que protejan el capital de trabajo de las pymes industriales.",
+                        source: { name: "El Esquiú (X)", link: "https://elesquiu.com", date: "28 Jul 2026, 15:30" },
+                        metrics: { temp: 4, volume: "Moderado", variation: "+10% vs sem. previa" }
+                    },
+                    {
+                        id: "clip-5",
+                        category: "regional",
+                        scopeTag: "Regional • Banco Provincia / Web",
+                        badgeClass: "badge-alert-info",
+                        badgeText: "CRÉDITO Y MORA",
+                        title: "Banco Provincia lanzó refinanciación de deudas comerciales al 25.7% para PyMEs",
+                        summary: "Iniciativa anunciada por el Gobernador Kicillof para regularizar deudas comerciales hasta en 36 cuotas fijas.",
+                        impact: "Difundir la herramienta entre los socios de UIPBA para aliviar el costo financiero inmediato.",
+                        source: { name: "Prensa BAPRO", link: "https://bancoprovincia.com.ar", date: "28 Jul 2026, 11:00" },
+                        metrics: { temp: 5, volume: "Muy Alto", variation: "🆕 Novedad Oficial" }
+                    },
+                    {
+                        id: "clip-6",
+                        category: "local",
+                        scopeTag: "Local • Criterio Online / IG",
+                        badgeClass: "badge-alert-info",
+                        badgeText: "INNOVACIÓN",
+                        title: "UIPBA lanzó la convocatoria para el concurso 'Innovación Tecnológica Sustentable Bonaerense 2026'",
+                        summary: "Convocatoria abierta para proyectos escolares e industriales que resuelvan desafíos ambientales en municipios de PBA.",
+                        impact: "Difundir la iniciativa en escuelas técnicas y distritos industriales de toda la provincia.",
+                        source: { name: "Criterio Online", link: "https://criterioonline.com", date: "27 Jul 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "En desarrollo" }
+                    }
+                ]
+            }
+        };
+
+        function renderStars(temp) {
+            let stars = '';
+            for (let i = 0; i < 5; i++) {
+                stars += i < temp ? '🔥' : '⚪';
+            }
+            return stars;
+        }
+
+        function renderDashboard(dateKey) {
+            const data = DASHBOARD_DATA[dateKey] || DASHBOARD_DATA["2026-07-29"];
+
+            // 1. Render Sector
+            const sectorContainer = document.getElementById('container-sector');
+            sectorContainer.innerHTML = data.sector.map(item => `
+                <div class="dashboard-card bg-white rounded-2xl p-6 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <!-- Metric Badges (Claude Suggestion: 3 Indices) -->
+                        <div class="flex flex-wrap justify-between items-center gap-2 mb-3 pb-3 border-b border-slate-100 text-[10px] font-bold">
+                            <div class="flex items-center space-x-2">
+                                <span class="px-2.5 py-1 rounded-md uppercase tracking-wider ${item.networkBadge}">${item.network}</span>
+                                <span class="text-slate-500">${item.hashtag}</span>
+                            </div>
+                            <div class="flex items-center space-x-3 text-slate-600">
+                                <span title="Temperatura (1-5)">Temp: ${renderStars(item.metrics.temp)}</span>
+                                <span class="bg-slate-100 px-2 py-0.5 rounded text-slate-700">${item.metrics.volume}</span>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">${item.title}</h3>
+                        
+                        <div class="bg-amber-50/80 border-l-4 border-amber-500 p-3.5 rounded-r-xl mb-4 text-xs text-amber-950 italic">
+                            "${item.quote}"
+                        </div>
+                    </div>
+
+                    <div>
+                        <!-- Acción Sugerida UIPBA -->
+                        <div class="pt-3 border-t border-slate-100 mb-3">
+                            <span class="text-[9px] font-bold uppercase text-uipba-blue tracking-wider">Acción UIPBA Sugerida (Gestión Gentile):</span>
+                            <p class="text-xs text-slate-800 font-semibold mt-0.5">${item.action}</p>
+                        </div>
+
+                        <!-- Fuente Obligatoria (Claude Suggestion) -->
+                        <div class="flex justify-between items-center text-[10px] text-slate-400 bg-slate-50 p-2 rounded-lg border border-slate-100">
+                            <span>📌 <strong>Fuente:</strong> ${item.source.name}</span>
+                            <span>📅 ${item.source.date} | <span class="text-emerald-600 font-bold">${item.metrics.variation}</span></span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // 2. Render Calle
+            const calleContainer = document.getElementById('container-calle');
+            calleContainer.innerHTML = data.calle.map(item => `
+                <div class="dashboard-card bg-white rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-3 pb-2 border-b border-slate-100">
+                            <span class="${item.badgeClass} px-2.5 py-1 rounded-md text-[10px] font-bold uppercase">${item.riskLevel}</span>
+                            <div class="text-right">
+                                <span class="text-xs text-slate-500 font-bold block">${item.topicNumber}</span>
+                                <span class="text-[10px] text-amber-600 font-bold">${renderStars(item.metrics.temp)} (${item.metrics.volume})</span>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">${item.title}</h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                            <strong>Lo que habla la gente:</strong> ${item.streetTalk}
+                        </p>
+                        
+                        <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-2 mb-4">
+                            <div class="flex items-center space-x-2 text-uipba-navy text-xs font-bold">
+                                <span class="w-2 h-2 bg-uipba-navy rounded-full"></span>
+                                <span>Conexión y Alerta Industrial:</span>
+                            </div>
+                            <ul class="text-xs text-slate-700 space-y-1 pl-4 list-disc font-medium">
+                                ${item.connection.map(c => `<li>${c}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs mb-3">
+                            <span class="font-bold text-slate-500">Postura UIPBA:</span>
+                            <span class="font-bold text-uipba-navy text-right">${item.uipbaPosition}</span>
+                        </div>
+
+                        <!-- Fuente Obligatoria -->
+                        <div class="flex justify-between items-center text-[10px] text-slate-400 bg-slate-50 p-2 rounded-lg border border-slate-100">
+                            <span>📌 <strong>Fuente:</strong> ${item.source.name}</span>
+                            <span>📅 ${item.source.date} | <span class="text-emerald-600 font-bold">${item.metrics.variation}</span></span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // 3. Render Clipping
+            const clippingContainer = document.getElementById('container-clipping');
+            clippingContainer.innerHTML = data.clipping.map(item => `
+                <div class="clip-item ${item.category} dashboard-card bg-white rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3 text-[9px] font-bold">
+                            <span class="uppercase tracking-wider bg-uipba-navy text-white px-2 py-0.5 rounded">${item.scopeTag}</span>
+                            <span class="${item.badgeClass} px-2 py-0.5 rounded">${item.badgeText}</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-sm mb-2 hover:text-uipba-blue cursor-pointer">${item.title}</h4>
+                        <p class="text-xs text-slate-500 mb-4 leading-relaxed">${item.summary}</p>
+                    </div>
+
+                    <div>
+                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs mb-3">
+                            <span class="font-bold text-uipba-navy block mb-0.5">Impacto UIPBA:</span>
+                            <p class="text-slate-700 font-medium">${item.impact}</p>
+                        </div>
+
+                        <!-- Fuente e Índices -->
+                        <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-100 pt-2">
+                            <span>📌 ${item.source.name}</span>
+                            <span class="font-bold text-slate-600">${renderStars(item.metrics.temp)}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('main > section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('text-slate-600');
+            });
+
+            const targetSection = document.getElementById(tabId);
+            if (targetSection) targetSection.classList.remove('hidden');
+
+            const targetBtn = document.getElementById('btn-' + tabId);
+            if (targetBtn) {
+                targetBtn.classList.add('active');
+                targetBtn.classList.remove('text-slate-600');
+            }
+        }
+
+        function filterClipping(category) {
+            const items = document.querySelectorAll('.clip-item');
+            const buttons = document.querySelectorAll('.clip-filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm', 'active'));
+
+            event.target.classList.add('bg-white', 'text-slate-900', 'shadow-sm', 'active');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function loadDataForDate(dateVal) {
+            document.getElementById('current-date-badge').innerText = dateVal.split('-').reverse().join('/');
+            renderDashboard(dateVal);
+        }
+
+        function exportToPDF() {
+            const btn = event?.currentTarget;
+            const originalText = btn ? btn.innerHTML : '';
+            if (btn) btn.innerHTML = '<span class="animate-pulse">⌛ Generando PDF Ejecutivo...</span>';
+
+            const element = document.querySelector('main').cloneNode(true);
+            element.querySelectorAll('section').forEach(sec => sec.classList.remove('hidden'));
+
+            const opt = {
+                margin:       [0.3, 0.3, 0.3, 0.3],
+                filename:     `UIPBA_Reporte_Ejecutivo_${new Date().toISOString().split('T')[0]}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, logging: false },
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                if (btn) btn.innerHTML = originalText;
+            }).catch(err => {
+                console.error("Error al generar PDF:", err);
+                if (btn) btn.innerHTML = originalText;
+                window.print();
+            });
+        }
+
+        // Inicialización al cargar la página
+        window.onload = function() {
+            renderDashboard("2026-07-29");
+        };
+    </script>
+</body>
+</html>
