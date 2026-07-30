@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">29 Jul 2026</span>
+                    <span id="current-date-badge">30 Jul 2026</span>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                     </button>
                     <button onclick="switchTab('tab-calle')" id="btn-tab-calle" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>2. La Calle Bonaerense</span>
-                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">4 Alertas</span>
+                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">3 Alertas</span>
                     </button>
                     <button onclick="switchTab('tab-clipping')" id="btn-tab-clipping" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>3. Clipping de Medios en Redes</span>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-07-29" selected>29/07/2026 (Hoy)</option>
+                        <option value="2026-07-30" selected>30/07/2026 (Hoy)</option>
+                        <option value="2026-07-29">29/07/2026</option>
                         <option value="2026-07-28">28/07/2026</option>
                     </select>
                 </div>
@@ -151,22 +152,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Tasas TISH / Refinanciación BAPRO</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Paritaria UOM: Audiencia Decisiva sin Acuerdo</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>4.3 / 5.0</span>
+                    <span>3.9 / 5.0</span>
                     <span>🔥🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 +38% vs Sem. Previa</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (múltiples frentes abiertos)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">4 Críticas (Inseguridad & Paritaria)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (Inseguridad La Plata & Tarifas)</span>
             </div>
         </div>
     </section>
@@ -254,6 +255,163 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-07-30": {
+                sector: [
+                    {
+                        id: "sec-5",
+                        network: "X (Twitter)",
+                        networkBadge: "bg-black text-white",
+                        hashtag: "#ParitariaUOM #IndustriaMetalurgica",
+                        title: "Audiencia Decisiva de la UOM Termina sin Acuerdo",
+                        quote: "Referentes de cámaras metalúrgicas y de RRHH industrial siguieron de cerca la audiencia clave para destrabar la paritaria de la UOM: sin interlocutor gremial claro tras la intervención judicial, el desfase salarial acumulado frente a la inflación (13-14%) sigue sin resolverse y el Ingreso Mínimo Global de Referencia se mantiene en $1.036.390.",
+                        action: "Monitorear la resolución antes de fijar postura pública; preparar información de costo laboral real para cuando se reabra la mesa (Gestión Gentile).",
+                        source: { name: "Infobae", link: "https://www.infobae.com/politica/2026/07/29/comienza-una-audiencia-decisiva-para-definir-la-paritaria-de-la-uom-cual-es-la-nueva-formula-en-discusion/", date: "29 Jul 2026" },
+                        metrics: { temp: 4, volume: "Alto (seguimiento sostenido)", variation: "Sin resolución aún" }
+                    },
+                    {
+                        id: "sec-6",
+                        network: "Facebook",
+                        networkBadge: "bg-indigo-700 text-white",
+                        hashtag: "#TasasMunicipales #TISH",
+                        title: "Suba General de Tasas Municipales del 4,79% desde Julio",
+                        quote: "Industriales bonaerenses comparten el ajuste automático de tasas municipales vigente desde julio (algunos tributos subieron hasta 20%) y vuelven a reclamar reforma impositiva e incentivos a la competitividad, en un contexto donde el TISH ya representa hasta el 8% de la facturación en algunos distritos.",
+                        action: "Reforzar el pedido de topes a la TISH y exenciones para plantas en dificultad financiera (Gestión Gentile).",
+                        source: { name: "El Eco de Tandil", link: "https://www.eleco.com.ar/politica/las-tasas-municipales-volvieron-a-aumentar-desde-julio-el-ajuste-general-fue-de-479-y-algunos-tributos-subieron-hasta-20", date: "Jul 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Ajuste vigente desde julio" }
+                    },
+                    {
+                        id: "sec-7",
+                        network: "LinkedIn",
+                        networkBadge: "bg-uipba-navy text-white",
+                        hashtag: "#UIA #UIPBA #ProduccionIndustrial",
+                        title: "UIA Confirma Nueva Caída Industrial y UIPBA Pide Traslado a la Producción",
+                        quote: "Tras el informe de la UIA que marca una caída interanual de la producción industrial en junio, Gabriel Leiter (UIPBA) reconoció avances en la estabilización macroeconómica pero remarcó que sus efectos todavía no llegan al sector productivo ni a los hogares, y que UIPBA trabaja en propuestas para modificar impuestos distorsivos sin resignar recaudación provincial/municipal.",
+                        action: "Difundir el diagnóstico de Leiter como posición institucional oficial y avanzar en las propuestas técnicas de impuestos distorsivos.",
+                        source: { name: "Infobae", link: "https://www.infobae.com/economia/2026/07/27/la-industria-no-repunta-la-produccion-volvio-a-caer-en-junio-segun-la-uia/", date: "27 Jul 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Caída interanual confirmada" }
+                    },
+                    {
+                        id: "sec-8",
+                        network: "Instagram",
+                        networkBadge: "bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white",
+                        hashtag: "#ProvinciaEnMarcha #CreditoPyME",
+                        title: "Banco Provincia Amplía Refinanciación de Deudas y Créditos Productivos",
+                        quote: "PyMEs industriales comparten el plan de refinanciación de deudas comerciales del Banco Provincia (hasta 36 cuotas) junto con la ampliación del programa 'Provincia en Marcha', orientado a inversión productiva e insumos para industria, parques y agrupamientos industriales.",
+                        action: "Difundir activamente ambas herramientas entre los socios para aliviar capital de trabajo.",
+                        source: { name: "El Cronista", link: "https://www.cronista.com/finanzas-mercados/banco-provincia-lanzo-un-plan-para-refinanciar-deudas-de-empresas-asi-es-la-oferta-que-propone/", date: "Jul 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Herramienta vigente" }
+                    }
+                ],
+                calle: [
+                    {
+                        id: "calle-5",
+                        riskLevel: "Alerta Crítica",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #1 en Redes PBA",
+                        title: "1. Julio, el Mes con Más Homicidios del Año en La Plata",
+                        streetTalk: "Vecinos y comerciantes de La Plata reportan que julio se convirtió en el mes con más homicidios de 2026 en el partido, superando a marzo, abril, mayo y junio, en medio de reclamos por la falta de solución al narcomenudeo en zonas críticas.",
+                        connection: [
+                            "Mayor temor y ausentismo en turnos de madrugada para trabajadores de plantas y logística en el Gran La Plata.",
+                            "Presión adicional sobre costos de seguros de flete y custodia para distribución industrial en la zona."
+                        ],
+                        uipbaPosition: "Solicitar refuerzo de Corredores Seguros e iluminación en accesos a parques industriales del Gran La Plata",
+                        source: { name: "InfoPlatense", link: "https://www.infoplatense.com.ar/la-zona-roja-sigue-sin-solucion-al-narcomenudeo-mientras-julio-avanza-como-el-mes-mas-violento-del-ano/", date: "Jul 2026" },
+                        metrics: { temp: 5, volume: "Muy Alto", variation: "Récord del año" }
+                    },
+                    {
+                        id: "calle-6",
+                        riskLevel: "Impacto Masivo",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #2 en Redes PBA",
+                        title: "2. Nuevo Aumento de Tarifas de Luz y Gas en Julio",
+                        streetTalk: "Los hogares bonaerenses reciben los nuevos cuadros tarifarios de julio (+1,5% luz AMBA vía EDESUR/EDENOR, +3,01% gas nacional vía Metrogas/Naturgy BAN), con bonificaciones por subsidios prorrogadas pero cargos fijos sin subsidio que ya superan los $22.600 mensuales.",
+                        connection: [
+                            "Presión sobre el consumo de bienes durables y de marca que abastece la industria manufacturera local.",
+                            "Encarecimiento paralelo de la tarifa eléctrica industrial, sin subsidios equivalentes a los residenciales."
+                        ],
+                        uipbaPosition: "Insistir en cuadros tarifarios diferenciales para industrias electrointensivas",
+                        source: { name: "Infobae", link: "https://www.infobae.com/economia/2026/07/01/aumentos-de-luz-y-gas-publicaron-los-nuevos-cuadros-tarifarios-y-prorrogaron-las-bonificaciones-por-subsidios/", date: "Jul 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Vigente desde julio" }
+                    },
+                    {
+                        id: "calle-7",
+                        riskLevel: "Alerta Estructural",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #3 en Redes PBA",
+                        title: "3. Informalidad Laboral en Récord Histórico (44,2%)",
+                        streetTalk: "La informalidad laboral llegó a un récord histórico de 44,2% de los trabajadores (casi 10 millones a nivel nacional), con el conurbano bonaerense mostrando una suba de 2 puntos y barrios donde una alta proporción de hogares ya depende de intensificar 'changas' para llegar a fin de mes.",
+                        connection: [
+                            "Fuga de mano de obra calificada hacia la informalidad independiente en el Conurbano.",
+                            "Competencia desleal creciente frente a talleres y changas que operan sin cargas sociales ni tributarias."
+                        ],
+                        uipbaPosition: "Impulsar incentivos concretos a la formalización del empleo joven e industrial",
+                        source: { name: "NODAL", link: "https://www.nodal.am/2026/06/argentina-la-informalidad-asciende-a-record-historico-y-afecta-al-442-de-los-trabajadores/", date: "Jun-Jul 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Récord histórico" }
+                    }
+                ],
+                clipping: [
+                    {
+                        id: "clip-7",
+                        category: "nacional",
+                        scopeTag: "Nacional • Infobae",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "ALERTA PARITARIA",
+                        title: "No hubo acuerdo en la paritaria siderúrgica de la UOM y siguen las negociaciones",
+                        summary: "Audiencia decisiva sin resultado: la oferta empresarial fue rechazada y el gremio, sin interlocutor claro tras la intervención judicial, busca compensar un desfase de 13-14% frente a la inflación.",
+                        impact: "Preparar insumos técnicos de costo laboral real para cuando se retome la negociación.",
+                        source: { name: "Infobae", link: "https://www.infobae.com/politica/2026/07/29/comienza-una-audiencia-decisiva-para-definir-la-paritaria-de-la-uom-cual-es-la-nueva-formula-en-discusion/", date: "29 Jul 2026" },
+                        metrics: { temp: 5, volume: "Alto", variation: "Cobertura nacional" }
+                    },
+                    {
+                        id: "clip-8",
+                        category: "nacional",
+                        scopeTag: "Nacional • Infobae",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "CAÍDA INDUSTRIAL",
+                        title: "La industria no repunta: la producción volvió a caer en junio, según la UIA",
+                        summary: "El Centro de Estudios de la UIA marcó una caída interanual de ~1,8% en junio, con bienes durables y semidurables como principal arrastre; consumo masivo fue lo único con impacto positivo.",
+                        impact: "Usar el dato como respaldo cuantitativo del diagnóstico de UIPBA sobre la falta de traslado de la estabilización al sector productivo.",
+                        source: { name: "Infobae", link: "https://www.infobae.com/economia/2026/07/27/la-industria-no-repunta-la-produccion-volvio-a-caer-en-junio-segun-la-uia/", date: "27 Jul 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Cobertura nacional" }
+                    },
+                    {
+                        id: "clip-9",
+                        category: "regional",
+                        scopeTag: "Regional • El Eco de Tandil",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "PRESIÓN FISCAL",
+                        title: "Las tasas municipales volvieron a aumentar desde julio: ajuste general de 4,79%",
+                        summary: "El incremento automático previsto en la Ordenanza Fiscal 2026 llevó algunos tributos hasta un 20% de suba, reavivando el reclamo industrial por reforma impositiva municipal.",
+                        impact: "Reforzar el pedido de topes a la TISH y exenciones para plantas industriales bonaerenses.",
+                        source: { name: "El Eco de Tandil", link: "https://www.eleco.com.ar/politica/las-tasas-municipales-volvieron-a-aumentar-desde-julio-el-ajuste-general-fue-de-479-y-algunos-tributos-subieron-hasta-20", date: "Jul 2026" },
+                        metrics: { temp: 3, volume: "Regional", variation: "Ajuste vigente" }
+                    },
+                    {
+                        id: "clip-10",
+                        category: "nacional",
+                        scopeTag: "Nacional • El Cronista",
+                        badgeClass: "badge-alert-info",
+                        badgeText: "CRÉDITO Y MORA",
+                        title: "Banco Provincia lanzó un plan de refinanciación de deudas de empresas en hasta 36 cuotas fijas",
+                        summary: "La iniciativa busca combatir la morosidad de PyMEs, incluidas industriales, ofreciendo tasas de refinanciación accesibles para regularizar obligaciones vencidas.",
+                        impact: "Difundir la herramienta entre los socios de UIPBA para aliviar el costo financiero inmediato.",
+                        source: { name: "El Cronista", link: "https://www.cronista.com/finanzas-mercados/banco-provincia-lanzo-un-plan-para-refinanciar-deudas-de-empresas-asi-es-la-oferta-que-propone/", date: "Jul 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Novedad vigente" }
+                    },
+                    {
+                        id: "clip-11",
+                        category: "local",
+                        scopeTag: "Local • InfoPlatense",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "SEGURIDAD LOCAL",
+                        title: "La zona roja sigue sin solución al narcomenudeo mientras julio es el mes más violento del año en La Plata",
+                        summary: "Julio superó en homicidios a marzo, abril, mayo y junio combinados en el partido de La Plata, con reclamos vecinales por la falta de respuesta al narcomenudeo en zonas críticas.",
+                        impact: "Elevar el pedido de seguridad en accesos y parques industriales del Gran La Plata como prioridad de agenda.",
+                        source: { name: "InfoPlatense", link: "https://www.infoplatense.com.ar/la-zona-roja-sigue-sin-solucion-al-narcomenudeo-mientras-julio-avanza-como-el-mes-mas-violento-del-ano/", date: "Jul 2026" },
+                        metrics: { temp: 4, volume: "Alto Local", variation: "Récord del año" }
+                    }
+                ]
+            },
             "2026-07-29": {
                 sector: [
                     {
@@ -633,7 +791,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-07-29");
+            renderDashboard("2026-07-30");
         };
     </script>
 </body>
