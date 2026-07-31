@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">30 Jul 2026</span>
+                    <span id="current-date-badge">31 Jul 2026</span>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                     </button>
                     <button onclick="switchTab('tab-calle')" id="btn-tab-calle" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>2. La Calle Bonaerense</span>
-                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">3 Alertas</span>
+                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">1 Alerta</span>
                     </button>
                     <button onclick="switchTab('tab-clipping')" id="btn-tab-clipping" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>3. Clipping de Medios en Redes</span>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-07-30" selected>30/07/2026 (Hoy)</option>
+                        <option value="2026-07-31" selected>31/07/2026 (Hoy)</option>
+                        <option value="2026-07-30">30/07/2026</option>
                         <option value="2026-07-29">29/07/2026</option>
                         <option value="2026-07-28">28/07/2026</option>
                     </select>
@@ -152,22 +153,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Paritaria UOM: Audiencia Decisiva sin Acuerdo</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Apagón Sonoro y Cacerolazo Hoy en La Plata</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>3.9 / 5.0</span>
+                    <span>4.0 / 5.0</span>
                     <span>🔥🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (múltiples frentes abiertos)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (evento del día en curso)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (Inseguridad La Plata & Tarifas)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">1 Crítica (Apagón Sonoro La Plata)</span>
             </div>
         </div>
     </section>
@@ -255,6 +256,87 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-07-31": {
+                sector: [
+                    {
+                        id: "sec-9",
+                        network: "LinkedIn",
+                        networkBadge: "bg-uipba-navy text-white",
+                        hashtag: "#ParitariaUOM #IndustriaMetalurgica",
+                        title: "UOM Designa Nueva Comisión Paritaria; Rama Siderúrgica Sigue sin Acuerdo",
+                        quote: "El interventor judicial de la UOM designó una nueva comisión paritaria para negociar con las cámaras empresarias, mientras que en la rama siderúrgica el gremio y la Cámara Argentina del Acero llevan dos años sin lograr un aumento salarial pactado entre las partes. Es un tema de seguimiento constante entre cámaras metalúrgicas y áreas de RRHH industrial.",
+                        action: "Preparar información de costo laboral real para cuando la nueva comisión se siente a negociar (Gestión Gentile).",
+                        source: { name: "Mundo Gremial", link: "https://mundogremial.com/paritarias-uom-cuanto-cobran-los-metalurgicos-en-julio-2026-y-que-pasa-con-la-negociacion-salarial/", date: "Jul 2026" },
+                        metrics: { temp: 4, volume: "Alto (seguimiento sostenido)", variation: "Nueva comisión, sin acuerdo aún" }
+                    },
+                    {
+                        id: "sec-10",
+                        network: "LinkedIn",
+                        networkBadge: "bg-uipba-navy text-white",
+                        hashtag: "#Retenciones #ComercioExterior",
+                        title: "Baja de Retenciones Industriales: la UIA Celebra pero Pide Profundizar",
+                        quote: "Tras el Decreto 566/2026 —que elimina de inmediato los derechos de exportación en 743 posiciones arancelarias de manufacturas industriales y reduce otras gradualmente (0,375 puntos por mes hasta junio 2027)— la UIA celebró la medida, aunque cámaras sectoriales remarcan que el impacto todavía no se traduce en más actividad en planta.",
+                        action: "Capitalizar la baja de retenciones como resultado de gestiones sectoriales en la comunicación institucional, sin dejar de señalar que falta traslado a la producción.",
+                        source: { name: "Los Andes", link: "https://www.losandes.com.ar/economia/la-uia-celebro-la-decision-reducir-las-retenciones-la-exportacion-productos-industriales-n5992352", date: "Jul 2026" },
+                        metrics: { temp: 3, volume: "Moderado (cámaras y prensa especializada)", variation: "Vigente desde el 1° de julio" }
+                    }
+                ],
+                calle: [
+                    {
+                        id: "calle-8",
+                        riskLevel: "Alerta Crítica",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #1 en Redes PBA",
+                        title: "1. Hoy: Apagón Sonoro y Cacerolazo Vecinal contra la Inseguridad en La Plata",
+                        streetTalk: "Asambleas barriales de Los Hornos, Tolosa y Ringuelet convocaron para hoy 31/07: a las 20:45 apagón de luces domiciliario y desde las 21:00 cacerolazo, alarmas y bocinas bajo la consigna '¡Basta de inseguridad!', en un reclamo que —según la cobertura local— apunta directamente al Gobernador Kicillof y al intendente Alak.",
+                        connection: [
+                            "Escalada del reclamo vecinal por inseguridad que ya venía golpeando turnos y logística de plantas en el Gran La Plata.",
+                            "Mayor exposición mediática y política de la zona, con impacto directo en la agenda de seguridad que UIPBA viene reclamando para parques industriales."
+                        ],
+                        uipbaPosition: "Acompañar el reclamo de seguridad sin involucrarse en el planteo político puntual; reiterar el pedido técnico de Corredores Seguros para el Gran La Plata",
+                        source: { name: "Periódico Sin Límites / ImpulsoBaires", link: "https://periodicosinlimites.com.ar/vecinos-convocan-a-un-cacerolazo-bocinazo-y-apagon-por-la-inseguridad/", date: "31 Jul 2026" },
+                        metrics: { temp: 5, volume: "Viral (convocatoria activa en redes y barrios)", variation: "Evento en curso hoy" }
+                    }
+                ],
+                clipping: [
+                    {
+                        id: "clip-12",
+                        category: "nacional",
+                        scopeTag: "Nacional • El Cronista",
+                        badgeClass: "badge-alert-info",
+                        badgeText: "BAJA DE RETENCIONES",
+                        title: "El Gobierno bajó retenciones a la industria: cuántos ingresos resigna y el sector que quedó afuera",
+                        summary: "El Decreto 566/2026 elimina de inmediato derechos de exportación en 743 posiciones arancelarias industriales y reduce otras gradualmente hasta junio 2027; ya son 2.137 los productos que siguen alcanzados, contra 20.778 en 2023.",
+                        impact: "Difundir como resultado de las gestiones sectoriales ante los socios y usarlo como argumento en el reclamo por más incentivos a la competitividad.",
+                        source: { name: "El Cronista", link: "https://www.cronista.com/economia-politica/el-gobierno-bajo-retenciones-a-la-industria-cuantos-ingresos-resigna-y-el-sector-que-quedo-afuera/", date: "Jul 2026" },
+                        metrics: { temp: 3, volume: "Alto", variation: "Cobertura nacional" }
+                    },
+                    {
+                        id: "clip-13",
+                        category: "local",
+                        scopeTag: "Local • Periódico Sin Límites",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "ALERTA VECINAL",
+                        title: "Vecinos convocan a un cacerolazo, bocinazo y apagón por la inseguridad",
+                        summary: "La convocatoria surgida de asambleas barriales de Los Hornos, Tolosa y Ringuelet se viralizó en redes para el 31/07 a las 21hs, tras una seguidilla de robos y entraderas en las últimas semanas.",
+                        impact: "Monitorear la repercusión del reclamo como termómetro de la agenda de seguridad que UIPBA viene planteando para el Gran La Plata.",
+                        source: { name: "Periódico Sin Límites", link: "https://periodicosinlimites.com.ar/vecinos-convocan-a-un-cacerolazo-bocinazo-y-apagon-por-la-inseguridad/", date: "31 Jul 2026" },
+                        metrics: { temp: 5, volume: "Viral Local", variation: "Evento en curso hoy" }
+                    },
+                    {
+                        id: "clip-14",
+                        category: "regional",
+                        scopeTag: "Regional • ImpulsoBaires",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "PRESIÓN POLÍTICA",
+                        title: "Alarmazo en La Plata: la protesta vecinal que apunta a Kicillof y Alak",
+                        summary: "La cobertura regional encuadra el apagón sonoro como un reclamo que interpela directamente a las autoridades provinciales y municipales por la seguridad en la Región Capital.",
+                        impact: "Seguir de cerca la respuesta oficial, ya que puede derivar en anuncios de seguridad que afecten directamente a parques industriales del Gran La Plata.",
+                        source: { name: "ImpulsoBaires", link: "https://www.impulsobaires.com.ar/nota/325681/alarmazo-en-la-plata-la-protesta-vecinal-que-apunta-a-kicillof-y-alak/", date: "Jul 2026" },
+                        metrics: { temp: 4, volume: "Regional", variation: "Cobertura creciente" }
+                    }
+                ]
+            },
             "2026-07-30": {
                 sector: [
                     {
@@ -791,7 +873,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-07-30");
+            renderDashboard("2026-07-31");
         };
     </script>
 </body>
