@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">31 Jul 2026</span>
+                    <span id="current-date-badge">3 Ago 2026</span>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                     </button>
                     <button onclick="switchTab('tab-calle')" id="btn-tab-calle" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>2. La Calle Bonaerense</span>
-                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">1 Alerta</span>
+                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">0 Alertas</span>
                     </button>
                     <button onclick="switchTab('tab-clipping')" id="btn-tab-clipping" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>3. Clipping de Medios en Redes</span>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-07-31" selected>31/07/2026 (Hoy)</option>
+                        <option value="2026-08-03" selected>03/08/2026 (Hoy)</option>
+                        <option value="2026-07-31">31/07/2026</option>
                         <option value="2026-07-30">30/07/2026</option>
                         <option value="2026-07-29">29/07/2026</option>
                         <option value="2026-07-28">28/07/2026</option>
@@ -153,7 +154,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Apagón Sonoro y Cacerolazo Hoy en La Plata</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Cierre de Lamb Weston en Munro: 100 Despidos y Repudio Político</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
@@ -164,11 +165,11 @@
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (evento del día en curso)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (varios cierres y denuncias reales)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">1 Crítica (Apagón Sonoro La Plata)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">Foco en cierres industriales (Lamb Weston, Dass)</span>
             </div>
         </div>
     </section>
@@ -256,6 +257,105 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-08-03": {
+                sector: [
+                    {
+                        id: "sec-11",
+                        network: "Instagram",
+                        networkBadge: "bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white",
+                        hashtag: "#ElPyme #CrisisPyme",
+                        title: "@elpyme: el Fenómeno Viral que Retrata la Crisis Pyme con Humor",
+                        quote: "Miguel Jacobawsky, dueño de FADEP Envases (Munro) y creador de @elpyme, acumula 8 millones de reproducciones en cuatro meses mostrando en tono de humor los cheques rechazados, cortes de luz, caída de ventas y suba de tasas que atraviesan las pymes industriales — contenido genuino de un empresario real, no de una entidad.",
+                        action: "Usar el alcance genuino de @elpyme como termómetro real del humor de las pymes industriales; explorar un contacto institucional para amplificar reclamos comunes sin apropiarse del formato.",
+                        source: { name: "Instagram @elpyme / iProfesional", link: "https://www.instagram.com/elpyme/", date: "2026" },
+                        metrics: { temp: 4, volume: "Viral (8M+ reproducciones)", variation: "Fenómeno sostenido, 4 meses" }
+                    },
+                    {
+                        id: "sec-12",
+                        network: "X (Twitter)",
+                        networkBadge: "bg-black text-white",
+                        hashtag: "#Pymes #Quiebras",
+                        title: "IPA: \"La Crisis de Quiebras ya Superó los Niveles de la Pandemia\"",
+                        quote: "Daniel Rosato (@danielorosato), industrial pyme real y presidente de IPA, viene planteando en su cuenta que la ola de concursos preventivos y quiebras superó los niveles de la pandemia, y llevó el reclamo al Congreso ante la falta de respuesta del Gobierno nacional.",
+                        action: "Evaluar una articulación puntual con IPA para un reclamo conjunto ante el Congreso sobre embargos ejecutivos y quiebras de pymes industriales.",
+                        source: { name: "X @danielorosato", link: "https://twitter.com/danielorosato", date: "2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "+131,75% concursos preventivos (2023-2025)" }
+                    },
+                    {
+                        id: "sec-13",
+                        network: "X (Twitter)",
+                        networkBadge: "bg-black text-white",
+                        hashtag: "#LambWeston #Munro",
+                        title: "Diputada Vannelli Repudia el Cierre de Lamb Weston en Munro",
+                        quote: "La diputada bonaerense Sofía Vannelli (@SofiaVannelli) repudió públicamente el cierre de la planta de Lamb Weston en Munro (100 despidos), calificando la decisión como \"irresponsable\" y remarcando que las ganancias no pueden quedar afuera mientras las familias cargan el costo social.",
+                        action: "Monitorear la repercusión política del caso, ya que puede derivar en pedidos de audiencia o proyectos legislativos que afecten a otras plantas de la zona norte del conurbano.",
+                        source: { name: "X @SofiaVannelli / La Nación", link: "https://www.lanacion.com.ar/economia/negocios/lamb-weston-cierra-su-planta-de-munro-y-concentra-su-produccion-en-mar-del-plata-nid09012026/", date: "2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "100 despidos confirmados" }
+                    },
+                    {
+                        id: "sec-14",
+                        network: "LinkedIn",
+                        networkBadge: "bg-uipba-navy text-white",
+                        hashtag: "#IndustriaPyme #EmpleoIndustrial",
+                        title: "IPA Difunde en LinkedIn el Mapa Completo de Cierres Pyme",
+                        quote: "En su perfil profesional, Rosato difunde ante la comunidad empresarial el dato consolidado: 24.437 pymes cerraron entre noviembre de 2023 y 2026, dejando a 327.813 trabajadores sin cobertura de ART, con el textil y el calzado entre los sectores más golpeados.",
+                        action: "Usar estos datos como respaldo cuantitativo en la comunicación institucional sobre el impacto real de la crisis pyme industrial.",
+                        source: { name: "LinkedIn / Daniel Rosato (IPA)", link: "https://www.linkedin.com/in/danielorosato/", date: "2026" },
+                        metrics: { temp: 3, volume: "Moderado (comunidad profesional)", variation: "24.437 pymes cerradas" }
+                    }
+                ],
+                calle: [],
+                clipping: [
+                    {
+                        id: "clip-15",
+                        category: "regional",
+                        scopeTag: "Regional (Munro, PBA) • La Nación",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "CIERRE DE PLANTA",
+                        title: "Lamb Weston cierra su planta de Munro y concentra su producción en Mar del Plata",
+                        summary: "100 despidos confirmados. La empresa argumenta gestión de costos de la cadena de suministro; el sindicato STIA rechaza el cierre y sostiene que la planta es productivamente viable.",
+                        impact: "Seguir la repercusión política y sindical del caso como referencia para otras plantas de la zona norte bonaerense.",
+                        source: { name: "La Nación", link: "https://www.lanacion.com.ar/economia/negocios/lamb-weston-cierra-su-planta-de-munro-y-concentra-su-produccion-en-mar-del-plata-nid09012026/", date: "2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Cobertura regional y política" }
+                    },
+                    {
+                        id: "clip-16",
+                        category: "nacional",
+                        scopeTag: "Nacional • Canal26",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "CIERRE DE PLANTA",
+                        title: "Cierra su última planta en la Argentina el Grupo Dass, fabricante de Nike y Adidas: 150 despedidos",
+                        summary: "La empresa dejó de producir en el país en su planta de Eldorado, Misiones, tras un proceso de retracción que ya había cerrado la planta de Coronel Suárez en 2025.",
+                        impact: "Usar como caso testigo del riesgo de desindustrialización por apertura importadora en el debate de competitividad.",
+                        source: { name: "Canal26", link: "https://www.canal26.com/economia/2026/07/07/cierra-su-ultima-planta-en-la-argentina-el-grupo-dass-fabricante-de-nike-y-adidas-150-trabajadores-fueron-despedidos/", date: "Jul 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Cobertura nacional" }
+                    },
+                    {
+                        id: "clip-17",
+                        category: "nacional",
+                        scopeTag: "Nacional • Misiones Online",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "CRISIS PYME",
+                        title: "Industriales pymes alertan por el aumento de quiebras: \"la crisis ya superó los niveles de la pandemia\"",
+                        summary: "Los concursos preventivos crecieron 131,75% entre 2023 y 2025; el 98,5% de las empresas afectadas son pymes que no logran competir con productos importados a precio dumping.",
+                        impact: "Incorporar el dato como respaldo cuantitativo en la comunicación institucional sobre competitividad e importaciones.",
+                        source: { name: "Misiones Online", link: "https://misionesonline.net/2026/05/27/aumento-de-quiebras-y-concursos-preventivos-en-argentina/", date: "Mayo 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "+131,75% concursos preventivos" }
+                    },
+                    {
+                        id: "clip-18",
+                        category: "local",
+                        scopeTag: "Local (CABA) • Análisis Digital",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "TRABAJO ESCLAVO",
+                        title: "Rescataron a 22 víctimas de explotación laboral en talleres clandestinos en Buenos Aires",
+                        summary: "Operativo reciente de la Policía Federal en un taller textil clandestino, con menores de edad entre las víctimas rescatadas tras una denuncia anónima a la Línea 145.",
+                        impact: "Reforzar la postura institucional de UIPBA contra la competencia desleal de talleres no registrados, con foco en la formalización.",
+                        source: { name: "Análisis Digital", link: "https://www.analisisdigital.com.ar/policiales/2026/05/18/rescataron-22-victimas-de-explotacion-laboral-en-talleres-clandestinos-en-buenos-aires", date: "2026" },
+                        metrics: { temp: 5, volume: "Alto", variation: "Caso reciente confirmado" }
+                    }
+                ]
+            },
             "2026-07-31": {
                 sector: [
                     {
@@ -873,7 +973,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-07-31");
+            renderDashboard("2026-08-03");
         };
     </script>
 </body>
