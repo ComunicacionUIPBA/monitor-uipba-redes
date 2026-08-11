@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">3 Ago 2026</span>
+                    <span id="current-date-badge">11 Ago 2026</span>
                 </div>
             </div>
         </div>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-08-03" selected>03/08/2026 (Hoy)</option>
+                        <option value="2026-08-11" selected>11/08/2026 (Hoy)</option>
+                        <option value="2026-08-03">03/08/2026</option>
                         <option value="2026-07-31">31/07/2026</option>
                         <option value="2026-07-30">30/07/2026</option>
                         <option value="2026-07-29">29/07/2026</option>
@@ -154,22 +155,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Cierre de Lamb Weston en Munro: 100 Despidos y Repudio Político</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Cierre de Will Der en Tigre y Las Flores: 120+ Trabajadores en la Incertidumbre</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>4.0 / 5.0</span>
+                    <span>4.4 / 5.0</span>
                     <span>🔥🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (varios cierres y denuncias reales)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (dos cierres bonaerenses confirmados hoy)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">Foco en cierres industriales (Lamb Weston, Dass)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">Foco en cierres industriales (Will Der, John Foos)</span>
             </div>
         </div>
     </section>
@@ -257,6 +258,72 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-08-11": {
+                sector: [
+                    {
+                        id: "sec-15",
+                        network: "X (Twitter)",
+                        networkBadge: "bg-black text-white",
+                        hashtag: "#PymesEnAlerta #IndustriaArgentina",
+                        title: "Rosato (IPA): \"2026 sin Plan Industrial y con el Mercado Interno en Caída\"",
+                        quote: "Daniel Rosato (@danielorosato), presidente de IPA y pyme industrial real, volvió a reclamar medidas urgentes desde su cuenta, trazando un panorama crítico del sector manufacturero bajo la etiqueta #PYMES_EN_ALERTA, retomada por medios regionales.",
+                        action: "Mantener el contacto con IPA como voz genuina del sector pyme industrial para reclamos conjuntos.",
+                        source: { name: "X @danielorosato / Diario San Rafael", link: "https://x.com/Diariosanrafael/status/2007037580252975341", date: "2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Reclamo sostenido" }
+                    }
+                ],
+                calle: [],
+                clipping: [
+                    {
+                        id: "clip-19",
+                        category: "regional",
+                        scopeTag: "Regional (Tigre / Las Flores, PBA) • Zona Norte Diario",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "CIERRE DE PLANTA",
+                        title: "Cerró la textil Will Der: más de 120 trabajadores sin empleo en Tigre y Las Flores",
+                        summary: "Los trabajadores de General Pacheco encontraron la planta cerrada y fueron notificados por WhatsApp de que quedaban \"suspendidos\". El secretario de Producción de Las Flores, Cristian Chiodini, cuestionó que \"se le exige al municipio lo que no se le exige al gobierno nacional\".",
+                        impact: "Caso testigo real y muy reciente para el reclamo por competitividad textil frente a la apertura importadora.",
+                        source: { name: "Zona Norte Diario", link: "https://www.zonanortediario.com.ar/10/08/2026/cerro-la-textil-will-der-mas-de-120-trabajadores-quedaron-sin-empleo-en-tigre-y-las-flores/", date: "10-11 Ago 2026" },
+                        metrics: { temp: 5, volume: "Alto", variation: "Cierre confirmado hoy" }
+                    },
+                    {
+                        id: "clip-20",
+                        category: "regional",
+                        scopeTag: "Regional (Beccar, PBA) • La Política Online",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "CIERRE DE PLANTA",
+                        title: "John Foos cierra su planta de Beccar tras 40 años e importará zapatillas de Asia",
+                        summary: "La planta pasó de 400 a 50 empleados en un año. Trabajadores denuncian presión para aceptar indemnizaciones por debajo de lo legal y señalan que \"hace tiempo llegan contenedores de China\".",
+                        impact: "Ejemplo directo y con testimonios reales de trabajadores sobre el impacto de la apertura importadora en el empleo industrial bonaerense.",
+                        source: { name: "La Política Online", link: "https://www.lapoliticaonline.com/economia/john-foos-cierra-su-planta-de-beccar-e-importara-zapatillas-de-asia/", date: "Ago 2026" },
+                        metrics: { temp: 5, volume: "Alto", variation: "40 años de historia, empleo -87%" }
+                    },
+                    {
+                        id: "clip-21",
+                        category: "nacional",
+                        scopeTag: "Nacional • Letrap",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "INDUSTRIA EN RETROCESO",
+                        title: "Industria bonaerense: más del 80% de los sectores sigue por debajo de 2023",
+                        summary: "Solo petróleo y agro resisten; 13 de las 16 ramas manufactureras de la Provincia operan todavía por debajo de los niveles de 2023.",
+                        impact: "Dato cuantitativo de respaldo para el diagnóstico institucional sobre la falta de traslado de la estabilización al sector productivo.",
+                        source: { name: "Letrap", link: "https://www.letrap.com.ar/economia/industria-bonaerense-mas-del-80-los-sectores-sigue-debajo-2023-y-solo-resisten-petroleo-y-agro-n5425477", date: "Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "13 de 16 ramas por debajo de 2023" }
+                    },
+                    {
+                        id: "clip-22",
+                        category: "nacional",
+                        scopeTag: "Nacional • Todo NEA",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "ALERTA DE CIERRES",
+                        title: "Advierten que podrían cerrar más de 3.000 empresas industriales y perderse 105.000 empleos en 2026",
+                        summary: "Proyección sectorial que se suma a los cierres ya confirmados de Will Der y John Foos como evidencia de una tendencia, no de casos aislados.",
+                        impact: "Usar como marco de magnitud al comunicar los casos puntuales de cierre en territorio bonaerense.",
+                        source: { name: "Todo NEA", link: "https://www.todonea.com/2026/08/11/advierten-que-podrian-cerrar-mas-de-3-000-empresas-industriales-y-perderse-105-000-empleos-en-2026/", date: "11 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Proyección: -3.000 empresas / -105.000 empleos" }
+                    }
+                ]
+            },
             "2026-08-03": {
                 sector: [
                     {
@@ -973,7 +1040,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-08-03");
+            renderDashboard("2026-08-11");
         };
     </script>
 </body>
