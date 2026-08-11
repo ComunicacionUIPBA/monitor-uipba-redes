@@ -160,13 +160,13 @@
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>4.4 / 5.0</span>
+                    <span>3.9 / 5.0</span>
                     <span>🔥🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (dos cierres bonaerenses confirmados hoy)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (cierres, pero también inversión y reactivación real)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
@@ -270,6 +270,17 @@
                         action: "Mantener el contacto con IPA como voz genuina del sector pyme industrial para reclamos conjuntos.",
                         source: { name: "X @danielorosato / Diario San Rafael", link: "https://x.com/Diariosanrafael/status/2007037580252975341", date: "2026" },
                         metrics: { temp: 4, volume: "Alto", variation: "Reclamo sostenido" }
+                    },
+                    {
+                        id: "sec-16",
+                        network: "LinkedIn",
+                        networkBadge: "bg-uipba-navy text-white",
+                        hashtag: "#Industria40 #RoboticaPyme",
+                        title: "Joaquín Dahl (Doing+): Robots Reciclados de VW para Pymes Argentinas",
+                        quote: "Joaquín Dahl, emprendedor tecnológico real detrás de la startup Doing+, desarma brazos robóticos descartados por Volkswagen (120 de la línea Suran) y los reconvierte para paletizado industrial, ofreciéndolos a pymes por unos USD 50.000 — más barato que sostener personal estacional con alta rotación.",
+                        action: "Evaluar a Doing+ como proveedor accesible de automatización para pymes asociadas que buscan dar el salto a Industria 4.0 sin la inversión de un robot nuevo.",
+                        source: { name: "empre.ar (podcast)", link: "https://empre.ar/podcast/joaquin-dahl-la-clave-esta-en-reinventar-lo-repetitivo-y-potenciar-lo-creativo/", date: "2026" },
+                        metrics: { temp: 3, volume: "Moderado (nicho industrial)", variation: "Caso positivo, en crecimiento" }
                     }
                 ],
                 calle: [],
@@ -321,6 +332,42 @@
                         impact: "Usar como marco de magnitud al comunicar los casos puntuales de cierre en territorio bonaerense.",
                         source: { name: "Todo NEA", link: "https://www.todonea.com/2026/08/11/advierten-que-podrian-cerrar-mas-de-3-000-empresas-industriales-y-perderse-105-000-empleos-en-2026/", date: "11 Ago 2026" },
                         metrics: { temp: 4, volume: "Alto", variation: "Proyección: -3.000 empresas / -105.000 empleos" }
+                    },
+                    {
+                        id: "clip-23",
+                        category: "regional",
+                        scopeTag: "Regional (Suipacha, PBA) • La Razón de Chivilcoy",
+                        badgeClass: "badge-alert-info",
+                        badgeText: "REAPERTURA POR LUCHA OBRERA",
+                        title: "La Suipachense reincorpora trabajadores y busca volver a las góndolas",
+                        summary: "La histórica láctea de Suipacha reabrió tras nueve meses de acampe obrero para impedir el desmantelamiento de la planta. Ya reincorporó a 53 trabajadores y avanza en la reactivación bajo un alquiler judicial de dos años.",
+                        impact: "Contraejemplo real y positivo para la comunicación institucional: la lucha sostenida de los propios trabajadores, no una gestión de gobierno, fue lo que salvó la planta.",
+                        source: { name: "La Razón de Chivilcoy", link: "https://www.larazondechivilcoy.com.ar/locales/2026/8/8/tras-la-reapertura-la-suipachense-reincorpora-trabajadores-busca-volver-las-gondolas-198033.html", date: "8 Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "53 trabajadores reincorporados" }
+                    },
+                    {
+                        id: "clip-24",
+                        category: "regional",
+                        scopeTag: "Regional (La Plata, PBA) • El Editor Platense",
+                        badgeClass: "badge-alert-info",
+                        badgeText: "INVERSIÓN REAL",
+                        title: "El Parque Industrial II de La Plata suma una inversión de US$ 10 millones",
+                        summary: "Bagó acelera una inversión millonaria en el Parque Industrial II bonaerense, en paralelo a la consolidación de nuevos proyectos productivos en la zona.",
+                        impact: "Usar como contrapeso real a la agenda de cierres: hay inversión genuina conviviendo con la crisis, no es un panorama uniforme.",
+                        source: { name: "El Editor Platense", link: "https://eleditorplatense.com/politica/el-parque-industrial-ii-y-una-inversion-de-us-10-millones-n4974b824-4a34-4f75-99b4-10ae1b222020", date: "Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Inversión confirmada: US$10M" }
+                    },
+                    {
+                        id: "clip-25",
+                        category: "nacional",
+                        scopeTag: "Nacional (Tierra del Fuego) • La Licuadora TDF",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "PARO METALÚRGICO",
+                        title: "La UOM lanzó un paro contra el desmantelamiento del ensamble de aires acondicionados",
+                        summary: "Peligran 200 puestos de trabajo en Tierra del Fuego por el desmantelamiento de una línea de ensamble; el gremio metalúrgico respondió con una medida de fuerza concreta, no un comunicado.",
+                        impact: "Antecedente de acción gremial directa que puede replicarse en conflictos bonaerenses similares (Will Der, John Foos).",
+                        source: { name: "La Licuadora TDF", link: "https://www.lalicuadoratdf.com.ar/2026/08/peligran-200-puestos-de-trabajo-conflicto-en-tierra-del-fuego-la-uom-lanzo-un-paro-contra-el-desmantelamiento-del-ensamble-de-aires-acondicionados/", date: "Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "200 puestos en riesgo" }
                     }
                 ]
             },
