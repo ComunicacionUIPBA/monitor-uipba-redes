@@ -128,7 +128,7 @@
                     </button>
                     <button onclick="switchTab('tab-calle')" id="btn-tab-calle" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>2. La Calle Bonaerense</span>
-                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">0 Alertas</span>
+                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">3 Alertas</span>
                     </button>
                     <button onclick="switchTab('tab-clipping')" id="btn-tab-clipping" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>3. Clipping de Medios en Redes</span>
@@ -161,17 +161,17 @@
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>4.1 / 5.0</span>
+                    <span>3.8 / 5.0</span>
                     <span>🔥🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (conflicto Will Der sin resolver + resoluciones reales en Mirgor y UOM)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (Will Der sin resolver + robo de cargas + tarifas)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">Foco en Will Der (Tigre) sin resolver</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (Robo de Cargas & Tarifas)</span>
             </div>
         </div>
     </section>
@@ -271,9 +271,88 @@
                         action: "Acompañar el reclamo genuino de los operarios ante el Ministerio de Trabajo, más allá de la lectura política del caso.",
                         source: { name: "Mundo Gremial", link: "https://mundogremial.com/la-textil-will-der-cerro-su-planta-en-las-flores-y-denuncian-que-bloqueo-el-ingreso-de-120-trabajadores-en-pacheco/", date: "12 Ago 2026" },
                         metrics: { temp: 4, volume: "Alto local", variation: "Conflicto sin resolver, día 4" }
+                    },
+                    {
+                        id: "sec-21",
+                        network: "Instagram",
+                        networkBadge: "bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white",
+                        hashtag: "#ElPyme #CrisisPyme",
+                        title: "@elpyme Sigue Sumando Millones de Vistas Retratando la Crisis con Humor",
+                        quote: "Miguel Jacobawsky (dueño real de FADEP Envases, Munro) sostiene el fenómeno @elpyme: cheques rechazados, cortes de luz, caída de ventas y tasas, contadas en formato tragicómico. Arrancó como catarsis personal en octubre y ya lleva 8 millones de vistas en cuatro meses.",
+                        action: "Seguir este termómetro genuino del humor pyme industrial — no institucional, nace de un empresario real contando su propia experiencia.",
+                        source: { name: "Instagram @elpyme / iProfesional", link: "https://www.instagram.com/elpyme/", date: "2026" },
+                        metrics: { temp: 4, volume: "Viral (8M+ vistas)", variation: "Fenómeno sostenido" }
+                    },
+                    {
+                        id: "sec-22",
+                        network: "LinkedIn",
+                        networkBadge: "bg-uipba-navy text-white",
+                        hashtag: "#Industria40 #RoboticaPyme",
+                        title: "Joaquín Dahl (Doing+): Robots Reciclados de VW para Pymes Argentinas",
+                        quote: "Joaquín Dahl, emprendedor real detrás de la startup Doing+, desarma brazos robóticos descartados por Volkswagen (120 de la línea Suran) y los reconvierte para paletizado industrial, ofreciéndolos a pymes por unos USD 50.000 — más barato que sostener personal estacional.",
+                        action: "Evaluar a Doing+ como proveedor accesible de automatización para pymes asociadas.",
+                        source: { name: "empre.ar (podcast)", link: "https://empre.ar/podcast/joaquin-dahl-la-clave-esta-en-reinventar-lo-repetitivo-y-potenciar-lo-creativo/", date: "2026" },
+                        metrics: { temp: 3, volume: "Moderado (nicho industrial)", variation: "Caso positivo, en crecimiento" }
+                    },
+                    {
+                        id: "sec-23",
+                        network: "X (Twitter)",
+                        networkBadge: "bg-black text-white",
+                        hashtag: "#TasasMunicipales #QueVergonzoso",
+                        title: "El Meme Colectivo de las Tasas Municipales Absurdas Sigue Circulando",
+                        quote: "Sin ningún referente al frente: cientos de dueños de pymes y comercios comparten sus propios ejemplos de tasas ridículas (el impuesto al metegol en Miramar, a inflar un Papá Noel en San Martín, al trencito de la alegría), en un fenómeno genuinamente colectivo que ya empujó al Gobierno a abrir un canal de denuncias.",
+                        action: "Recopilar estos ejemplos reales como evidencia concreta para el reclamo de UIPBA por una reforma de tasas municipales.",
+                        source: { name: "El Economista", link: "https://eleconomista.com.ar/economia/lo-municipios-cobran-tasas-pueden-explicar-n94245", date: "2026" },
+                        metrics: { temp: 3, volume: "Alto (fenómeno colectivo)", variation: "Sostenido, sin un único autor" }
                     }
                 ],
-                calle: [],
+                calle: [
+                    {
+                        id: "calle-9",
+                        riskLevel: "Alerta Crítica",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #1 en Redes PBA",
+                        title: "1. \"Tenemos que Rezar para que no nos Roben el Camión\": Robo de Cargas en la Provincia",
+                        streetTalk: "Un transportista describió sin vueltas la rutina en Cañuelas: \"Cada vez que salimos tenemos que rezar para que no se nos pongan al lado a robarnos el camión. Aparte de robarte, te pegan (...) sentimos que no hay respaldo de nadie\". Buenos Aires concentra el 52% de los robos de carga del país, con foco en Moreno, Cañuelas, La Matanza y Los Polvorines, mayormente entre medianoche y mediodía.",
+                        connection: [
+                            "Encarecimiento directo de fletes y seguros de logística para la industria bonaerense.",
+                            "Choferes que viajan de a dos o tres camiones juntos o esperan la luz del día para salir, perdiendo horas productivas."
+                        ],
+                        uipbaPosition: "Reforzar el pedido de Corredores Seguros y patrullaje en las rutas de mayor riesgo para la logística industrial",
+                        source: { name: "CEDAC", link: "https://cedac.com.ar/buenos-aires-crece-la-preocupacion-por-el-robo-de-camiones-en-canuelas/", date: "2026" },
+                        metrics: { temp: 5, volume: "Muy Alto", variation: "52% de los robos de carga del país" }
+                    },
+                    {
+                        id: "calle-10",
+                        riskLevel: "Impacto Masivo",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #2 en Redes PBA",
+                        title: "2. Nuevo Aumento de Luz y Gas desde el 1° de Agosto",
+                        streetTalk: "Rige desde el 1° de agosto una suba de 1,78% en Edenor, 1,71% en Edesur y cerca de 3% en gas a nivel nacional. Los subsidios se mantienen (62% luz, 75% gas) pero la suba se suma a una serie larga de ajustes que golpea directo al bolsillo.",
+                        connection: [
+                            "Presión adicional sobre el consumo de bienes que abastece la industria manufacturera bonaerense.",
+                            "Encarecimiento paralelo de la tarifa eléctrica industrial, sin el mismo esquema de subsidios que las residenciales."
+                        ],
+                        uipbaPosition: "Insistir en cuadros tarifarios diferenciales para industrias electrointensivas",
+                        source: { name: "La Nación", link: "https://www.lanacion.com.ar/economia/cuanto-aumentaran-las-tarifas-de-luz-y-gas-a-partir-de-agosto-nid31072026/", date: "31 Jul 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Vigente desde el 1° de agosto" }
+                    },
+                    {
+                        id: "calle-11",
+                        riskLevel: "Alerta Estructural",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #3 en Redes PBA",
+                        title: "3. Vecinos de Merlo Reclaman por un Desmonte junto al Parque Industrial",
+                        streetTalk: "Vecinos de los barrios Bosque Chañar, Las Moreras y otros sectores de Villa de Merlo presentaron un reclamo formal ante el Concejo Deliberante por tareas de desmonte y movimiento de suelo en un predio junto al Parque Industrial Eliseo Mercau, cerca de zonas residenciales, exigiendo conocer el impacto ambiental del proyecto.",
+                        connection: [
+                            "Tensión directa entre expansión de un parque industrial real y la comunidad vecina que rodea la planta.",
+                            "Un conflicto ambiental mal gestionado puede frenar o demorar futuras radicaciones industriales en la zona."
+                        ],
+                        uipbaPosition: "Promover mesas de diálogo temprano entre nuevas radicaciones industriales y vecinos, antes de que el reclamo escale",
+                        source: { name: "InfoMerlo", link: "https://www.infomerlo.com/noticias/2026/07/01/54202-vecinos-piden-frenar-un-desmonte-junto-al-parque-industrial-y-reclaman-informacion-sobre-el-proyecto", date: "2026" },
+                        metrics: { temp: 3, volume: "Moderado Local", variation: "Reclamo formal presentado" }
+                    }
+                ],
                 clipping: [
                     {
                         id: "clip-26",
