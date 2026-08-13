@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">11 Ago 2026</span>
+                    <span id="current-date-badge">13 Ago 2026</span>
                 </div>
             </div>
         </div>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-08-11" selected>11/08/2026 (Hoy)</option>
+                        <option value="2026-08-13" selected>13/08/2026 (Hoy)</option>
+                        <option value="2026-08-11">11/08/2026</option>
                         <option value="2026-08-03">03/08/2026</option>
                         <option value="2026-07-31">31/07/2026</option>
                         <option value="2026-07-30">30/07/2026</option>
@@ -155,22 +156,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Cierre de Will Der en Tigre y Las Flores: 120+ Trabajadores en la Incertidumbre</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Will Der: Trabajadores de Tigre Siguen sin Cobrar ni Tener Telegrama</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>3.9 / 5.0</span>
+                    <span>4.1 / 5.0</span>
                     <span>🔥🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (cierres, pero también inversión y reactivación real)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (conflicto Will Der sin resolver + resoluciones reales en Mirgor y UOM)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">Foco en cierres industriales (Will Der, John Foos)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">Foco en Will Der (Tigre) sin resolver</span>
             </div>
         </div>
     </section>
@@ -258,6 +259,84 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-08-13": {
+                sector: [
+                    {
+                        id: "sec-20",
+                        network: "Facebook",
+                        networkBadge: "bg-indigo-700 text-white",
+                        hashtag: "#WillDer #Pacheco",
+                        title: "Trabajadores de Will Der (Pacheco) Siguen Reclamando sin Ningún Vocero",
+                        quote: "Sin dirigente ni comunicado de por medio: los propios trabajadores de la planta de Pacheco siguen en asamblea reclamando que todavía no recibieron el telegrama de despido ni precisiones sobre sueldos, vacaciones e indemnizaciones adeudadas, mientras esperan que el Ministerio de Trabajo bonaerense intervenga.",
+                        action: "Acompañar el reclamo genuino de los operarios ante el Ministerio de Trabajo, más allá de la lectura política del caso.",
+                        source: { name: "Mundo Gremial", link: "https://mundogremial.com/la-textil-will-der-cerro-su-planta-en-las-flores-y-denuncian-que-bloqueo-el-ingreso-de-120-trabajadores-en-pacheco/", date: "12 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto local", variation: "Conflicto sin resolver, día 4" }
+                    }
+                ],
+                calle: [],
+                clipping: [
+                    {
+                        id: "clip-26",
+                        category: "regional",
+                        scopeTag: "Regional (Tigre, PBA) • Infocielo",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "SIN RESOLVER",
+                        title: "Otro golpe a la industria bonaerense: más de 120 trabajadores de Will Der reclaman respuestas",
+                        summary: "Los trabajadores de Pacheco denuncian que aún no recibieron notificación formal de despido ni el pago de haberes adeudados, mientras en Las Flores la empresa sí asumió el compromiso de pagar indemnizaciones.",
+                        impact: "Seguir de cerca la intervención del Ministerio de Trabajo bonaerense como termómetro de gestión de conflictos textiles.",
+                        source: { name: "Infocielo", link: "https://www.infocielo.com/politica-y-economia/otro-golpe-a-la-industria-bonaerense-cerro-una-fabrica-textil-y-mas-de-120-trabajadores-reclaman-respuestas", date: "12 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "140 trabajadores afectados en total" }
+                    },
+                    {
+                        id: "clip-27",
+                        category: "nacional",
+                        scopeTag: "Nacional • Infobae",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "PARITARIA CON RECHAZO INTERNO",
+                        title: "La UOM firmó la paritaria siderúrgica tras dos años sin acuerdo, pero una seccional la rechaza",
+                        summary: "El acuerdo incluye 6% no remunerativo en agosto-octubre, otro 6% en noviembre-diciembre y una suma extraordinaria de $1.600.000 para Rama 21 (Ternium, Siderar, Siderca, Acindar). Una seccional de base rechazó lo pactado por la conducción nacional.",
+                        impact: "Señal real de que la base no siempre convalida lo que negocia la conducción — matiz útil para entender el clima gremial de fondo.",
+                        source: { name: "Infobae", link: "https://www.infobae.com/politica/2026/08/12/luego-de-dos-anos-se-firmaron-las-paritarias-de-la-uom-en-la-siderurgia-pero-una-seccional-la-rechaza/", date: "12 Ago 2026" },
+                        metrics: { temp: 3, volume: "Alto", variation: "Acuerdo firmado, disputa interna abierta" }
+                    },
+                    {
+                        id: "clip-28",
+                        category: "nacional",
+                        scopeTag: "Nacional (Tierra del Fuego) • Radio Fueguina",
+                        badgeClass: "badge-alert-info",
+                        badgeText: "REINCORPORACIÓN ORDENADA",
+                        title: "Mirgor deberá reincorporar a los 296 trabajadores despedidos, por 15 días",
+                        summary: "El Ministerio de Trabajo de Tierra del Fuego dictó conciliación obligatoria: 223 empleados de la planta de calle Einstein y 73 del depósito 5 vuelven a sus puestos mientras se negocia una salida.",
+                        impact: "Antecedente de que la intervención estatal puede revertir, al menos temporalmente, un cierre o desvinculación masiva.",
+                        source: { name: "Radio Fueguina", link: "https://www.radiofueguina.com/2026/08/trabajo-dicto-conciliacion-trabajadores-mirgor-deberan-volver-puestos/", date: "12 Ago 2026" },
+                        metrics: { temp: 3, volume: "Alto", variation: "296 trabajadores reincorporados por 15 días" }
+                    },
+                    {
+                        id: "clip-29",
+                        category: "regional",
+                        scopeTag: "Regional (PBA) • Cuestión Entrerriana",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "CRISIS DEL CALZADO",
+                        title: "\"Tormenta perfecta\" en calzado: de 120 empleados a solo 15 en una fábrica bonaerense",
+                        summary: "Trabajadores describen condiciones cada vez más precarias (falta de agua potable, baños compartidos en mal estado) en una planta que redujo su plantel en un 87%, en línea con la caída del consumo per cápita de calzado (de 4 a 2 pares por año).",
+                        impact: "Ejemplo directo, con testimonios de base, del deterioro de condiciones laborales que acompaña a los cierres, no solo la pérdida de puestos.",
+                        source: { name: "Cuestión Entrerriana", link: "https://cuestionentrerriana.com.ar/tormenta-perfecta-en-la-industria-del-calzado-de-120-empleados-a-solo-15-en-una-fabrica-bonaerense/", date: "Ago 2026" },
+                        metrics: { temp: 5, volume: "Alto", variation: "-87% de personal" }
+                    },
+                    {
+                        id: "clip-30",
+                        category: "nacional",
+                        scopeTag: "Nacional • El Destape",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "TESTIMONIO OBRERO",
+                        title: "El drama de un trabajador por el cierre de John Foos: \"Cierra la industria nacional\"",
+                        summary: "Fernando Pérez, operario de John Foos, dio testimonio directo (no institucional) ante la Comisión de Economía de Diputados sobre el cierre de la planta de Beccar y el pase de la empresa a importar desde Asia.",
+                        impact: "Voz de un trabajador real y afectado, útil para contrastar con los anuncios corporativos de reconversión hacia la importación.",
+                        source: { name: "El Destape", link: "https://www.eldestapeweb.com/politica/el-drama-de-un-trabajador-por-el-cierre-de-john-foos-cierra-la-industria-nacional-202642410534", date: "2026" },
+                        metrics: { temp: 4, volume: "Moderado", variation: "Testimonio individual, caso puntual" }
+                    }
+                ]
+            },
             "2026-08-11": {
                 sector: [
                     {
@@ -1109,7 +1188,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-08-11");
+            renderDashboard("2026-08-13");
         };
     </script>
 </body>
