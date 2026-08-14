@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">13 Ago 2026</span>
+                    <span id="current-date-badge">14 Ago 2026</span>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                     </button>
                     <button onclick="switchTab('tab-calle')" id="btn-tab-calle" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>2. La Calle Bonaerense</span>
-                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">3 Alertas</span>
+                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">4 Alertas</span>
                     </button>
                     <button onclick="switchTab('tab-clipping')" id="btn-tab-clipping" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>3. Clipping de Medios en Redes</span>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-08-13" selected>13/08/2026 (Hoy)</option>
+                        <option value="2026-08-14" selected>14/08/2026 (Hoy)</option>
+                        <option value="2026-08-13">13/08/2026</option>
                         <option value="2026-08-11">11/08/2026</option>
                         <option value="2026-08-03">03/08/2026</option>
                         <option value="2026-07-31">31/07/2026</option>
@@ -156,7 +157,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Will Der: Trabajadores de Tigre Siguen sin Cobrar ni Tener Telegrama</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">"La Política Nos Hundió": Dueño de Will Der Anunció el Cierre entre Lágrimas</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
@@ -167,11 +168,11 @@
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (Will Der sin resolver + robo de cargas + tarifas)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (cierre muy humano, inseguridad y tarifas)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (Robo de Cargas & Tarifas)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (Inseguridad & Robo de Cargas)</span>
             </div>
         </div>
     </section>
@@ -259,6 +260,166 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-08-14": {
+                sector: [
+                    {
+                        id: "sec-24",
+                        network: "Facebook",
+                        networkBadge: "bg-indigo-700 text-white",
+                        hashtag: "#WillDer #LasFlores",
+                        title: "El Propio Dueño de Will Der, Llorando: \"La Política Nos Hundió\"",
+                        quote: "Sin comunicado de prensa ni vocero de cámara: el empresario dueño de Will Der comunicó en persona y entre lágrimas el cierre de sus dos plantas y los 120 despidos, diciendo que \"la política nos hundió\" — la voz de quien pierde su propia empresa, no la de alguien que habla en nombre de un sector.",
+                        action: "Tratar este testimonio con cuidado: es el relato de una pérdida personal real, no un posicionamiento institucional a instrumentalizar.",
+                        source: { name: "Minuto Uno / El Patagónico", link: "https://www.minutouno.com/sociedad/la-politica-nos-hundio-empresario-comunico-lagrimas-el-cierre-dos-fabricas-y-los-120-despidos-n6310577", date: "Ago 2026" },
+                        metrics: { temp: 5, volume: "Alto", variation: "Testimonio directo del dueño" }
+                    },
+                    {
+                        id: "sec-25",
+                        network: "X (Twitter)",
+                        networkBadge: "bg-black text-white",
+                        hashtag: "#Mirgor #TierraDelFuego",
+                        title: "Mirgor y la UOM Pasan a Cuarto Intermedio, Trabajadores Siguen Esperando",
+                        quote: "Sin acuerdo todavía: la audiencia de conciliación entre Mirgor y la UOM pasó a cuarto intermedio para hoy viernes, mientras los 296 trabajadores afectados (223 de la planta de Einstein y 73 del depósito 5) siguen sin saber si conservan el puesto más allá de los 15 días de reincorporación forzosa.",
+                        action: "Seguir el desenlace de hoy como antecedente concreto de cómo termina un conflicto de este tipo cuando el Estado interviene.",
+                        source: { name: "Radio Fueguina", link: "https://www.radiofueguina.com/2026/08/mirgor-uom-cuarto-intermedio-viernes-conciliacion/", date: "14 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Definición esperada hoy" }
+                    },
+                    {
+                        id: "sec-26",
+                        network: "Instagram",
+                        networkBadge: "bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white",
+                        hashtag: "#ElPyme #CrisisPyme",
+                        title: "@elpyme Sigue Siendo la Referencia Real del Humor sobre la Crisis Pyme",
+                        quote: "El fenómeno de Miguel Jacobawsky (@elpyme, FADEP Envases) sigue vigente como el termómetro más genuino y masivo del humor de las pymes industriales frente a cheques rechazados y caída de ventas — no encontramos un posteo puntual nuevo hoy, pero la cuenta y el fenómeno siguen activos.",
+                        action: "Mantenerlo como referencia de tono para comunicación propia dirigida a socios pyme.",
+                        source: { name: "Instagram @elpyme", link: "https://www.instagram.com/elpyme/", date: "2026" },
+                        metrics: { temp: 3, volume: "Viral (fenómeno sostenido)", variation: "Sin novedad puntual hoy" }
+                    },
+                    {
+                        id: "sec-27",
+                        network: "LinkedIn",
+                        networkBadge: "bg-uipba-navy text-white",
+                        hashtag: "#Industria40 #RoboticaPyme",
+                        title: "Doing+ (Joaquín Dahl) Sigue Reconvirtiendo Robots de VW para Pymes",
+                        quote: "El proyecto real de Joaquín Dahl de reciclar brazos robóticos de la línea Suran de VW para pymes argentinas sigue en pie como caso positivo de reconversión industrial genuina — sin anuncio nuevo hoy, pero el modelo de negocio sigue activo y es un contraejemplo real a la agenda de cierres.",
+                        action: "Considerar una nota de comunicación propia destacando este tipo de casos junto a la cobertura de cierres, para no transmitir solo un mensaje de crisis.",
+                        source: { name: "empre.ar (podcast)", link: "https://empre.ar/podcast/joaquin-dahl-la-clave-esta-en-reinventar-lo-repetitivo-y-potenciar-lo-creativo/", date: "2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Caso positivo sostenido" }
+                    }
+                ],
+                calle: [
+                    {
+                        id: "calle-12",
+                        riskLevel: "Alerta Crítica",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #1 en Redes PBA",
+                        title: "1. Menor Armado Asalta a un Vecino en Tres de Febrero",
+                        streetTalk: "Un menor de edad armado amenazó y despojó de sus pertenencias a un vecino en la esquina de Juan de Garay y Caseros, partido de Tres de Febrero, en pleno corredor por donde circulan a diario trabajadores hacia parques industriales de la zona.",
+                        connection: [
+                            "Mayor inseguridad percibida en los trayectos diarios de trabajadores industriales del corredor oeste del conurbano.",
+                            "Refuerza el reclamo sostenido por Corredores Seguros en accesos a parques industriales."
+                        ],
+                        uipbaPosition: "Reiterar el pedido de patrullaje reforzado en corredores de acceso a zonas industriales del conurbano oeste",
+                        source: { name: "Infobae", link: "https://www.infobae.com/sociedad/policiales/2026/08/12/inseguridad-en-el-conurbano-un-nene-armado-asalto-a-un-vecino-en-tres-de-febrero/", date: "12 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Caso puntual reciente" }
+                    },
+                    {
+                        id: "calle-13",
+                        riskLevel: "Impacto Directo",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #2 en Redes PBA",
+                        title: "2. Robo de Camiones de Carga Golpea Rutas Bonaerenses",
+                        streetTalk: "Moreno, Cañuelas, La Matanza y Los Polvorines se consolidan como los focos de robo a camiones de carga estacionados, con bandas que aprovechan los descansos de los choferes para llevarse la mercadería, en su mayoría alimentos y bebidas.",
+                        connection: [
+                            "Impacto directo en costos de seguros de flete y custodia para la logística de distribución industrial.",
+                            "Riesgo físico real y cotidiano para choferes que transportan insumos y productos de plantas bonaerenses."
+                        ],
+                        uipbaPosition: "Impulsar corredores logísticos seguros con paradores custodiados en las rutas más afectadas",
+                        source: { name: "CEDAC", link: "https://cedac.com.ar/buenos-aires-crece-la-preocupacion-por-el-robo-de-camiones-en-canuelas/", date: "Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Foco creciente en 4 partidos" }
+                    },
+                    {
+                        id: "calle-14",
+                        riskLevel: "Impacto Directo",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #3 en Redes PBA",
+                        title: "3. Nuevo Aumento de Tarifas de Luz y Gas desde Agosto",
+                        streetTalk: "Rige desde el 1° de agosto un aumento del 1,8% en luz (AMBA) y casi 3% en gas a nivel nacional, con cargos fijos en PBA que arrancan en $5.023,67 y llegan a $103.928,59 en los tramos de mayor consumo.",
+                        connection: [
+                            "Presión adicional sobre el consumo de bienes que abastece la industria manufacturera bonaerense.",
+                            "Encarecimiento paralelo de costos energéticos para las plantas, sin subsidios equivalentes a los residenciales."
+                        ],
+                        uipbaPosition: "Insistir en cuadros tarifarios diferenciales para industrias electrointensivas",
+                        source: { name: "iProfesional", link: "https://www.iprofesional.com/servicios/461264-aumentan-las-tarifas-de-luz-y-gas-en-agosto-2026-y-estos-son-los-consumos-que-tendran-subsidio", date: "Ago 2026" },
+                        metrics: { temp: 3, volume: "Alto", variation: "Vigente desde el 1° de agosto" }
+                    },
+                    {
+                        id: "calle-15",
+                        riskLevel: "Alerta Estructural",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #4 en Redes PBA",
+                        title: "4. Hasta las \"Changas\" Muestran Signos de Agotamiento",
+                        streetTalk: "La informalidad laboral llegó a un récord de 44,2% y el cuentapropismo crece más entre mujeres y jóvenes del conurbano; especialistas señalan que incluso el trabajo informal tradicional (changas) ya no alcanza para sostener los hogares más golpeados.",
+                        connection: [
+                            "Fuga de mano de obra calificada hacia changas o cuentapropismo de subsistencia.",
+                            "Competencia desleal creciente para talleres formales que sí pagan cargas sociales."
+                        ],
+                        uipbaPosition: "Impulsar incentivos concretos a la formalización del empleo joven en el sector industrial",
+                        source: { name: "El Destape", link: "https://www.eldestapeweb.com/economia/la-barrializacion-y-el-techo-de-la-changa-asi-vive-el-conurbano-el-terremoto-milei-20266260546", date: "2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Récord histórico de informalidad" }
+                    }
+                ],
+                clipping: [
+                    {
+                        id: "clip-31",
+                        category: "nacional",
+                        scopeTag: "Nacional • Minuto Uno",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "TESTIMONIO DEL DUEÑO",
+                        title: "\"La política nos hundió\": empresario comunicó entre lágrimas el cierre de dos fábricas y los 120 despidos",
+                        summary: "El dueño de Will Der anunció personalmente el cierre de sus plantas de Las Flores y Pacheco, que confeccionaban para marcas como Adidas, Puma y Salomon, atribuyendo la crisis a la caída de ventas y el avance de las importaciones.",
+                        impact: "Testimonio de alto valor humano para dimensionar el costo real de los cierres más allá de las cifras.",
+                        source: { name: "Minuto Uno", link: "https://www.minutouno.com/sociedad/la-politica-nos-hundio-empresario-comunico-lagrimas-el-cierre-dos-fabricas-y-los-120-despidos-n6310577", date: "Ago 2026" },
+                        metrics: { temp: 5, volume: "Alto", variation: "Cobertura nacional" }
+                    },
+                    {
+                        id: "clip-32",
+                        category: "nacional",
+                        scopeTag: "Nacional (Tierra del Fuego) • La Nación",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "CONCILIACIÓN EN CURSO",
+                        title: "Conflicto sindical en una planta de Mirgor en Tierra del Fuego sigue sin resolverse",
+                        summary: "La audiencia entre Mirgor, la UOM y el Ministerio de Trabajo de Tierra del Fuego pasó a cuarto intermedio para hoy viernes 14/08, con 296 trabajadores reincorporados de forma provisoria.",
+                        impact: "Antecedente directo de intervención estatal en un conflicto de despidos masivos por conflicto gremial.",
+                        source: { name: "La Nación", link: "https://www.lanacion.com.ar/economia/negocios/conflicto-sindical-en-una-planta-de-mirgor-en-tierra-del-fuego-nid10082026/", date: "10 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Definición esperada hoy" }
+                    },
+                    {
+                        id: "clip-33",
+                        category: "regional",
+                        scopeTag: "Regional (Tigre, PBA) • La Noticia 1",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "SIN TELEGRAMA",
+                        title: "Por el cierre de Will Der, más de un centenar de despidos sin telegrama en Tigre",
+                        summary: "Los trabajadores de la planta de Pacheco fueron informados verbalmente del cierre pero denuncian que aún no recibieron los telegramas para formalizar la desvinculación ni definiciones sobre lo adeudado.",
+                        impact: "Situación abierta a seguir de cerca por la falta de definición formal, a diferencia de Las Flores donde sí hay compromiso de pago.",
+                        source: { name: "La Noticia 1", link: "https://www.lanoticia1.com/noticia/por-el-cierre-de-una-textil-mas-de-un-centenar-de-despidos-en-las-plantas-de-las-flores-y-tigre", date: "Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Sin definición formal aún" }
+                    },
+                    {
+                        id: "clip-34",
+                        category: "nacional",
+                        scopeTag: "Nacional • La Noticia 1",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "ALERTA OFICIAL",
+                        title: "Bianco volvió a alertar por la ola de cierres y despidos en fábricas bonaerenses",
+                        summary: "El funcionario provincial calificó la situación como \"una crisis muy grave\", en línea con los casos recientes de Will Der, John Foos y otras plantas bonaerenses.",
+                        impact: "Contexto oficial que respalda con datos la magnitud de la crisis industrial bonaerense en curso.",
+                        source: { name: "La Noticia 1", link: "https://www.lanoticia1.com/noticia/bianco-volvio-a-alertar-por-ola-de-cierres-y-despidos-en-fabricas-bonaerenses-estamos-frente-a-una-crisis-muy-grave", date: "Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Contexto oficial" }
+                    }
+                ]
+            },
             "2026-08-13": {
                 sector: [
                     {
@@ -1267,7 +1428,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-08-13");
+            renderDashboard("2026-08-14");
         };
     </script>
 </body>
