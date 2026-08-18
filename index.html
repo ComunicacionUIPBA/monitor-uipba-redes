@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">14 Ago 2026</span>
+                    <span id="current-date-badge">18 Ago 2026</span>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                     </button>
                     <button onclick="switchTab('tab-calle')" id="btn-tab-calle" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>2. La Calle Bonaerense</span>
-                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">4 Alertas</span>
+                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">3 Alertas</span>
                     </button>
                     <button onclick="switchTab('tab-clipping')" id="btn-tab-clipping" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>3. Clipping de Medios en Redes</span>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-08-14" selected>14/08/2026 (Hoy)</option>
+                        <option value="2026-08-18" selected>18/08/2026 (Hoy)</option>
+                        <option value="2026-08-14">14/08/2026</option>
                         <option value="2026-08-13">13/08/2026</option>
                         <option value="2026-08-11">11/08/2026</option>
                         <option value="2026-08-03">03/08/2026</option>
@@ -157,22 +158,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">"La Política Nos Hundió": Dueño de Will Der Anunció el Cierre entre Lágrimas</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">90.000 Empleos Industriales Perdidos: Operarios Metalúrgicos Debaten si el 23,5% Alcanza</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>3.8 / 5.0</span>
+                    <span>4.0 / 5.0</span>
                     <span>🔥🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (cierre muy humano, inseguridad y tarifas)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (crisis empleo, paritaria UOM, cierre empresas)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (Inseguridad & Robo de Cargas)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (Ruta Robos & Cierres Empresas)</span>
             </div>
         </div>
     </section>
@@ -260,6 +261,151 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-08-18": {
+                sector: [
+                    {
+                        id: "sec-28",
+                        network: "X (Twitter)",
+                        networkBadge: "bg-black text-white",
+                        hashtag: "#ParitariaUOM #Metalúrgicos",
+                        title: "\"¿Con el 23,5% Llegamos?\" Operarios Metalúrgicos Debaten el Acuerdo en X",
+                        quote: "A cinco días del cierre de la paritaria UOM (23,5% por 8 meses hasta marzo 2027), los hilos de X de trabajadores metalúrgicos del conurbano reflejan una división clara: hay quienes celebran el alivio después de meses con salarios congelados en negociación, y hay operarios de turno que hacen la cuenta: con lo que subieron las boletas y el super, el 23,5% sigue siendo negativo en términos reales. El debate no lo llevan dirigentes sino delegados de planta y trabajadores de línea.",
+                        action: "Seguir la evolución de la percepción salarial entre trabajadores metalúrgicos bonaerenses, ya que puede anticipar tensiones en otros sectores industriales de la región.",
+                        source: { name: "Ámbito / Mundo Gremial", link: "https://www.ambito.com/economia/salarios-metalurgicos-cuanto-cobraran-agosto-2026-el-ultimo-acuerdo-n6304365", date: "13-18 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "+23,5% pactado 8 meses" }
+                    },
+                    {
+                        id: "sec-29",
+                        network: "LinkedIn",
+                        networkBadge: "bg-uipba-navy text-white",
+                        hashtag: "#CréditoPyME #IndustriaBonaerense",
+                        title: "\"Al 70-80% No Cierra Ningún Negocio\": Dueños de Talleres vs. el Crédito en Dólares",
+                        quote: "Los dueños de talleres metalúrgicos y manufactureros que publican en LinkedIn son explícitos sobre las líneas de crédito en dólares habilitadas el 13 de agosto: no los entusiasma si la tasa en pesos sigue en el rango 70-80% TNA. Hablan de sus propios negocios, no de posiciones gremiales — cómo no pueden renovar una máquina porque el costo financiero se come la rentabilidad antes de producir la primera pieza.",
+                        action: "Usar este diagnóstico de primera mano como fundamento para la posición de UIPBA sobre tasas diferenciales para inversión productiva en industria manufacturera bonaerense.",
+                        source: { name: "Perfil / Hoy Día", link: "https://www.perfil.com/noticias/masperfil/pymes-en-alerta-hoy-sacar-un-credito-al-70-u-80-es-una-locura.phtml", date: "Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Líneas habilitadas el 13/08" }
+                    },
+                    {
+                        id: "sec-30",
+                        network: "Instagram",
+                        networkBadge: "bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white",
+                        hashtag: "#EmpleoIndustrial #CrisisManufacturera",
+                        title: "El Informe de los 90.000 Empleos Perdidos Activa Relatos Personales en Instagram",
+                        quote: "La publicación del informe del 16 de agosto que confirma casi 90.000 empleos formales industriales destruidos desde 2023 — con metalmecánica (21.384 puestos) y textiles (28.088) a la cabeza — se convirtió en disparador de historias personales: trabajadores que tenían empleo registrado en plantas bonaerenses y hoy están en changas o en el sector informal, compartiendo sus trayectorias sin filtro institucional.",
+                        action: "Evaluar una línea de comunicación que visibilice estos relatos reales: el debate industrial no puede quedar solo en cifras macroeconómicas cuando las historias individuales tienen mayor alcance en redes.",
+                        source: { name: "Infobae / Conclusión", link: "https://www.infobae.com/economia/2026/08/16/la-industria-ya-lidera-la-perdida-de-empleo-formal-desde-2023-que-proyectan-las-empresas-para-todo-el-ano/", date: "16 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "-7,5% empleo industrial desde 2023" }
+                    },
+                    {
+                        id: "sec-31",
+                        network: "Facebook",
+                        networkBadge: "bg-indigo-700 text-white",
+                        hashtag: "#TrabajoInformal #ConurbanoBonaerense",
+                        title: "\"Perdí el Taller Formal y Ahora Trabajo en Negro para Alguien que Compite Conmigo\"",
+                        quote: "En grupos de Facebook de partidos del conurbano bonaerense, trabajadores que perdieron empleos en talleres metalúrgicos y textiles formales describen una ironía concreta: terminaron trabajando informalmente para empresas de la misma industria que los dejó sin trabajo registrado. Con la informalidad laboral en récord del 44,2% (Q1 2026), el relato no es estadístico sino personal: nombres de barrios, semanas sin obra social, sin recibo de sueldo.",
+                        action: "Conectar la agenda de informalidad industrial con la de competencia desleal: un trabajador informal en un taller no registrado es también dumping para la empresa afiliada que sí paga cargas sociales.",
+                        source: { name: "Chequeado / IIEP UBA-CONICET", link: "https://chequeado.com/el-explicador/la-desocupacion-fue-del-78-en-el-comienzo-de-2026-aumento-la-informalidad-y-la-subocupacion/", date: "2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "44,2% — récord histórico" }
+                    }
+                ],
+                calle: [
+                    {
+                        id: "calle-16",
+                        riskLevel: "Alerta Crítica",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #1 en Redes PBA",
+                        title: "1. \"La Ruta de los Autos Robados\" Golpea el Corredor Berazategui-La Plata",
+                        streetTalk: "Un circuito delictivo activo en el límite entre Berazategui y La Plata transforma descampados y zonas periurbanas en cementerios de chatarra: los autos robados del conurbano llegan ahí para ser desarmados o revendidos por partes. El corredor afecta rutas por donde circulan a diario operarios y camionetas de distribución de parques industriales del GBA Sur.",
+                        connection: [
+                            "Los corredores afectados coinciden con los que usan trabajadores de plantas industriales del sur del conurbano para llegar a sus puestos diariamente.",
+                            "El riesgo también impacta a camionetas de distribución y furgonetas de empresas proveedoras y subcontratistas industriales de la zona."
+                        ],
+                        uipbaPosition: "Articular con municipios del GBA Sur la demanda de corredores seguros en accesos a parques industriales y zonas de distribución logística",
+                        source: { name: "Conductas del Crimen", link: "https://conductasdelcrimen.wordpress.com/2026/08/10/alerta-por-la-ruta-de-los-autos-robados-el-circuito-delictivo-que-azota-al-conurbano/", date: "10 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Circuito activo detectado" }
+                    },
+                    {
+                        id: "calle-17",
+                        riskLevel: "Impacto Directo",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #2 en Redes PBA",
+                        title: "2. Más de 3.000 Empresas Industriales en Riesgo de Cierre: el Barrio ya Siente el Golpe",
+                        streetTalk: "El relevamiento publicado el 11 de agosto proyecta el cierre de más de 3.000 empresas industriales y la pérdida de 105.000 empleos en 2026. En los barrios cercanos a parques industriales bonaerenses hay una traducción concreta: comercios que dependen de los salarios de esos trabajadores pierden clientes, y algunos bajan la persiana. No son datos abstractos para quienes viven a pocas cuadras de una fábrica que ya cerró.",
+                        connection: [
+                            "Cada planta que cierra genera un círculo de impacto en el comercio local, los servicios y la economía del municipio donde estaba.",
+                            "La pérdida de empleo formal industrial no solo afecta al trabajador sino al tejido económico del entorno: almacenes, transporte escolar, servicios del barrio."
+                        ],
+                        uipbaPosition: "Reclamar un plan de preservación del empleo industrial con herramientas concretas: créditos blandos, alivio de cargas para empresas en riesgo, y política activa de retención de puestos",
+                        source: { name: "Conclusión / Todo NEA", link: "https://www.conclusion.com.ar/politica/economia/advierten-que-podrian-cerrar-mas-de-3-000-empresas-industriales-y-perderse-105-000-empleos-en-2026/08/2026/", date: "11 Ago 2026" },
+                        metrics: { temp: 5, volume: "Alto", variation: "3.000+ empresas en riesgo" }
+                    },
+                    {
+                        id: "calle-18",
+                        riskLevel: "Impacto Directo",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #3 en Redes PBA",
+                        title: "3. La Paritaria en el Changuito: ¿El 23,5% UOM Alcanza para lo que Sube el Super?",
+                        streetTalk: "Mientras la paritaria UOM celebra un 23,5% de aumento por 8 meses, trabajadores del conurbano hacen la cuenta en los grupos de barrio y de fábrica: los aumentos en alimentos, transporte y servicios básicos del segundo semestre ya se comen buena parte de esa mejora antes de que llegue al changuito. El debate es cotidiano y sin mediaciones — lo que entra versus lo que sale.",
+                        connection: [
+                            "Un salario industrial que no empata la inflación reduce el poder de compra del trabajador y arrastra al comercio de proximidad ligado a la actividad fabril.",
+                            "La pérdida de poder adquisitivo real afecta también la demanda de bienes de consumo que producen industrias bonaerenses afiliadas a UIPBA."
+                        ],
+                        uipbaPosition: "Monitorear la evolución del salario real metalúrgico como indicador adelantado del pulso de consumo en las zonas industriales bonaerenses",
+                        source: { name: "El Cronista / Infozona", link: "https://www.cronista.com/economia-politica/paritaria-uom-cuanto-cobran-en-agosto-2026-y-que-se-sabe-de-la-nueva-negociacion-salarial/", date: "Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "+23,5% vs inflación acumulada" }
+                    }
+                ],
+                clipping: [
+                    {
+                        id: "clip-35",
+                        category: "nacional",
+                        scopeTag: "Nacional • Infobae",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "CRISIS DE EMPLEO",
+                        title: "La industria lidera la pérdida de empleo formal: casi 90.000 puestos destruidos desde 2023",
+                        summary: "Un informe del 16 de agosto confirma que la industria manufacturera acumula casi 90.000 empleos formales menos desde agosto de 2023 — un descenso del 7,5% — con textiles (28.088 puestos) y metalmecánica (21.384) como los sectores más golpeados. La informalidad fabril ya supera el 41%.",
+                        impact: "Dato clave para dimensionar la crisis con cifras verificadas: base sólida para cualquier posicionamiento de UIPBA frente a la política de empleo industrial.",
+                        source: { name: "Infobae", link: "https://www.infobae.com/economia/2026/08/16/la-industria-ya-lidera-la-perdida-de-empleo-formal-desde-2023-que-proyectan-las-empresas-para-todo-el-ano/", date: "16 Ago 2026" },
+                        metrics: { temp: 5, volume: "Alto", variation: "Cobertura nacional amplia" }
+                    },
+                    {
+                        id: "clip-36",
+                        category: "nacional",
+                        scopeTag: "Nacional • Perfil",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "ALERTA SECTORIAL",
+                        title: "Techint alerta por \"extrema fragilidad\" industrial: caen producción, inversión y empleo en simultáneo",
+                        summary: "Publicado el 17 de agosto, el diagnóstico describe una industria en extrema fragilidad: caída simultánea de producción, inversión y empleo en los principales polos fabriles del país, con capacidad instalada promedio por debajo del 60%. La voz proviene de actores del sector privado, no de organismos oficiales.",
+                        impact: "Cuando los grandes grupos industriales alertan públicamente, el debate sobre política industrial gana presencia mediática y parlamentaria — útil para posicionar la agenda de UIPBA.",
+                        source: { name: "Perfil", link: "https://www.perfil.com/noticias/economia/la-industria-no-encuentra-piso-caen-la-produccion-la-inversion-y-el-empleo-en-los-principales-polos-fabriles-a40.phtml", date: "17 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Alerta publicada ayer" }
+                    },
+                    {
+                        id: "clip-37",
+                        category: "regional",
+                        scopeTag: "Regional (PBA) • Letrap",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "DATO REGIONAL",
+                        title: "Industria bonaerense: más del 80% de los sectores aún por debajo del nivel de 2023",
+                        summary: "Solo petróleo y agroindustria resisten; el resto de los sectores manufactureros bonaerenses sigue por debajo de los niveles de actividad de 2023, con capacidad instalada promedio de apenas 58,4% en el primer semestre. El dato contextualiza la situación de la base socia de UIPBA como un patrón generalizado, no sectorial.",
+                        impact: "Marco regional que complementa los datos nacionales: la crisis industrial bonaerense es transversal a prácticamente todos los sectores manufactureros.",
+                        source: { name: "Letrap", link: "https://www.letrap.com.ar/economia/industria-bonaerense-mas-del-80-los-sectores-sigue-debajo-2023-y-solo-resisten-petroleo-y-agro-n5425477", date: "Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "58,4% de capacidad utilizada" }
+                    },
+                    {
+                        id: "clip-38",
+                        category: "nacional",
+                        scopeTag: "Nacional • Ámbito / El Cronista",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "PARITARIA CERRADA",
+                        title: "UOM cerró paritaria con 23,5% por 8 meses: cómo quedan los salarios metalúrgicos desde agosto",
+                        summary: "El acuerdo salarial de la Unión Obrera Metalúrgica, firmado el 13 de agosto en audiencia virtual ante Secretaría de Trabajo, establece una recomposición del 23,5% para agosto 2026-marzo 2027, con sumas no remunerativas y retroactividad por mayo-julio. Alcanza a toda la actividad metalmecánica.",
+                        impact: "El primer acuerdo paritario grande de agosto marca el piso del debate para otros gremios industriales y anticipa la discusión sobre poder adquisitivo real en las plantas bonaerenses.",
+                        source: { name: "Ámbito", link: "https://www.ambito.com/economia/salarios-metalurgicos-cuanto-cobraran-agosto-2026-el-ultimo-acuerdo-n6304365", date: "13-15 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Vigente desde agosto" }
+                    }
+                ]
+            },
             "2026-08-14": {
                 sector: [
                     {
@@ -1428,7 +1574,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-08-14");
+            renderDashboard("2026-08-18");
         };
     </script>
 </body>
