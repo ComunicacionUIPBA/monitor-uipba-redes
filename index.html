@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">18 Ago 2026</span>
+                    <span id="current-date-badge">19 Ago 2026</span>
                 </div>
             </div>
         </div>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-08-18" selected>18/08/2026 (Hoy)</option>
+                        <option value="2026-08-19" selected>19/08/2026 (Hoy)</option>
+                        <option value="2026-08-18">18/08/2026</option>
                         <option value="2026-08-14">14/08/2026</option>
                         <option value="2026-08-13">13/08/2026</option>
                         <option value="2026-08-11">11/08/2026</option>
@@ -158,22 +159,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">90.000 Empleos Industriales Perdidos: Operarios Metalúrgicos Debaten si el 23,5% Alcanza</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Will Der Textil: 140 Trabajadores Sin Empleo en Las Flores y Pacheco — Llegaron al Turno y Encontraron el Portón Cerrado</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>4.0 / 5.0</span>
+                    <span>3.8 / 5.0</span>
                     <span>🔥🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (crisis empleo, paritaria UOM, cierre empresas)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (cierre Will Der, semáforo fiscal, tarifas agosto, informalidad)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (Ruta Robos & Cierres Empresas)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (Will Der cierre & inseguridad costa)</span>
             </div>
         </div>
     </section>
@@ -261,6 +262,151 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-08-19": {
+                sector: [
+                    {
+                        id: "sec-32",
+                        network: "X (Twitter)",
+                        networkBadge: "bg-black text-white",
+                        hashtag: "#WillDer #CierreFábrica #Pacheco",
+                        title: "\"Llegamos y Estaba Cerrado\": Los Trabajadores de Will Der Pacheco Narran el Lunes Negro",
+                        quote: "El lunes 18, los 120 trabajadores de la planta de General Pacheco de Will Der llegaron a su turno y se encontraron con el portón cerrado bajo custodia de seguridad privada. En X, compañeros de planta y vecinos del barrio industrial volcaron el momento: no hubo aviso previo, no pudieron retirar sus pertenencias, no recibieron nada firmado. El relato corre por personas que vivieron el cierre de adentro — sin comunicado institucional ni vocero gremial, solo el testimonio directo de quienes perdieron su trabajo ese lunes.",
+                        action: "Usar este caso como argumento concreto para impulsar una normativa de preaviso de cierre industrial en PBA: el testimonio de los trabajadores de Pacheco es más elocuente que cualquier estadística.",
+                        source: { name: "La Nación / Nova Bonaerense", link: "https://www.lanacion.com.ar/economia/el-dramatico-mensaje-de-los-duenos-de-una-textil-que-cerro-y-despidio-a-120-personas-piensen-la-nid16082026/", date: "16-18 Ago 2026" },
+                        metrics: { temp: 5, volume: "Alto", variation: "120 trabajadores sin empleo desde el lunes" }
+                    },
+                    {
+                        id: "sec-33",
+                        network: "LinkedIn",
+                        networkBadge: "bg-uipba-navy text-white",
+                        hashtag: "#SemáforoFiscal #TISH #MunicipiosBonaerenses",
+                        title: "Fabricantes del Conurbano Comparan su Municipio en el Semáforo Fiscal",
+                        quote: "Desde el lanzamiento del Semáforo Fiscal (14 de agosto), dueños de talleres metalúrgicos, imprentas y fábricas textiles del conurbano publican en LinkedIn con la misma pregunta: ¿en qué color quedó mi municipio? Los de Hurlingham (3,16%), Lanús (3,06%) y Marcos Paz (2,88%) ven el rojo y lo conectan directamente con lo que pagan por tasas de seguridad e higiene. No es análisis económico: son dueños de su propio taller hablando de su propia boleta. Uno de San Pedro (0,52%) lo comparte para preguntar si alguien se anima a instalarse allá.",
+                        action: "Usar el Semáforo Fiscal como herramienta de diagnóstico propio: UIPBA puede cruzar sus datos con los de afiliadas en municipios de alta presión para construir un mapa propio de competitividad territorial industrial.",
+                        source: { name: "La Nación / Infobae", link: "https://www.lanacion.com.ar/politica/diego-valenzuela-presento-un-semaforo-fiscal-para-comparar-las-tasas-impositivas-de-los-municipios-nid14082026/", date: "14-19 Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Hurlingham 3,16% vs San Pedro 0,52%" }
+                    },
+                    {
+                        id: "sec-34",
+                        network: "Instagram",
+                        networkBadge: "bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white",
+                        hashtag: "#TarifasAgosto #BolethaDeLuz #Microempresa",
+                        title: "Primeras Boletas de Agosto: Talleres Familiares Comparten el Impacto del Aumento Tarifario",
+                        quote: "Con las nuevas tarifas de luz (+1,8%) y gas (+3%) en vigor desde el 1° de agosto, empiezan a llegar las primeras facturas y en Instagram aparecen las fotos: no son grandes empresas, son operarios con taller propio o empleados que alquilan un local y pagan el servicio. El comentario recurrente es que el porcentaje de aumento parece chico en el papel, pero sobre una boleta de invierno ya alta la diferencia en pesos se siente. Para una microindustria sin tarifa industrial especial, el gas para producción y el gas para calefacción vienen en la misma boleta.",
+                        action: "Relevar cuántas empresas afiliadas pequeñas pagan tarifa residencial o comercial en lugar de industrial: ese universo absorbe aumentos sin amortiguación y es el que más necesita una tarifa diferencial.",
+                        source: { name: "La Nación / iProfesional", link: "https://www.lanacion.com.ar/economia/cuanto-aumentaran-las-tarifas-de-luz-y-gas-a-partir-de-agosto-nid31072026/", date: "Desde 1° Ago 2026" },
+                        metrics: { temp: 3, volume: "Alto", variation: "+1,8% luz / +3% gas en facturas de agosto" }
+                    },
+                    {
+                        id: "sec-35",
+                        network: "Facebook",
+                        networkBadge: "bg-indigo-700 text-white",
+                        hashtag: "#Changas #EmpleoInformal #ConurbanoBonaerense",
+                        title: "\"Salí de la Fábrica Formal y Hoy Hago Changas para Llegar a Fin de Mes\"",
+                        quote: "En grupos de Facebook de barrios del conurbano —empleos de Florencio Varela, changas en Lomas, trabajo en Berazategui— se multiplican los mensajes de vecinos que perdieron empleo formal industrial y hoy resuelven con changas. El relato es siempre sin estadísticas: sin obra social, sin recibo de sueldo, trabajando para alguien del mismo rubro que los dejó ir. La informalidad en el Gran Buenos Aires trepó al 44,2% en el primer trimestre de 2026, y en algunos barrios el 44% de los hogares recurre al trabajo eventual como única salida.",
+                        action: "El pulso de estos grupos de Facebook es un indicador cualitativo temprano del mercado laboral informal en zonas industriales: monitorear qué tipo de trabajo se ofrece y se busca permite anticipar presiones sobre el empleo registrado.",
+                        source: { name: "El Destape / Chequeado", link: "https://chequeado.com/el-explicador/la-desocupacion-fue-del-78-en-el-comienzo-de-2026-aumento-la-informalidad-y-la-subocupacion/", date: "Q1 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "44,2% informalidad récord — Q1 2026" }
+                    }
+                ],
+                calle: [
+                    {
+                        id: "calle-19",
+                        riskLevel: "Alerta Crítica",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #1 en Redes PBA",
+                        title: "1. Inseguridad en la Costa Bonaerense: Robos y Homicidios Impulsan Marchas Vecinales",
+                        streetTalk: "El 18 de agosto, robos a jubilados, asaltos a comercios y homicidios sin resolver acumularon meses de hartazgo en el Partido de La Costa y en General Pueyrredon. Vecinos salieron a marchar en ambas zonas. La franja costera bonaerense no es solo turismo: concentra industria de alimentos, procesamiento pesquero, logística y distribución regional. Los mismos corredores donde se mueve la mercancía son los que se insegurizan de noche.",
+                        connection: [
+                            "Los talleres y plantas de procesamiento de alimentos de la costa comparten el entorno de inseguridad que afecta a vecinos y comerciantes: el riesgo no es solo del barrio residencial sino del corredor productivo.",
+                            "La distribución de insumos y la logística por rutas costeras están expuestas al mismo circuito delictivo que golpea a comerciantes: un costo de seguridad oculto que encarece la operación."
+                        ],
+                        uipbaPosition: "Articular con municipios costeros la demanda de seguridad en corredores logísticos y zonas de procesamiento industrial, más allá del reclamo residencial",
+                        source: { name: "Conductas del Crimen", link: "https://conductasdelcrimen.wordpress.com/2026/08/18/inseguridad-en-la-costa-bonaerense-los-casos-y-las-marchas-en-el-partido-de-la-costa-y-en-general-pueyrredon/", date: "18 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Marchas vecinales activas en dos partidos" }
+                    },
+                    {
+                        id: "calle-20",
+                        riskLevel: "Impacto Directo",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #2 en Redes PBA",
+                        title: "2. La Changarización del Conurbano: Ex-Operarios Industriales Recurren al Trabajo Informal",
+                        streetTalk: "Con desempleo en 9,7% en el Gran Buenos Aires y casi la mitad de los hogares de algunos partidos recurriendo a changas, el mapa del trabajo informal ya es la norma. Los puestos formales industriales que se destruyen no se reemplazan por otros empleos registrados: se reemplazan por trabajo en negro, changas o búsqueda de obra social propia. El dato es del Q1 2026, pero en los grupos barriales de Facebook el relato llega todos los días en tiempo real.",
+                        connection: [
+                            "El taller no registrado que compite con precios más bajos lo hace porque no paga paritaria, ART ni cargas sociales: es competencia desleal dentro del mismo municipio para la empresa afiliada que sí cumple.",
+                            "La changarización de ex-operarios de proveedores industriales debilita la cadena de valor: menos trabajadores registrados en la cadena significa más fragilidad en toda la red productiva."
+                        ],
+                        uipbaPosition: "Conectar la agenda de informalidad industrial con la de competencia desleal: la empresa que blanquea a su personal no puede competir en precio con quien opera en negro bajo el mismo techo",
+                        source: { name: "Infoecos / El Destape", link: "https://infoecos.com.ar/index.php/se-crece-cuando-hay-trabajo-el-desempleo-sigue-en-aumento-y-varias-ciudades-bonaerenses-figuran-entre-las-mas-afectadas/", date: "2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "9,7% desempleo GBA / 44,2% informalidad" }
+                    },
+                    {
+                        id: "calle-21",
+                        riskLevel: "Impacto Directo",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #3 en Redes PBA",
+                        title: "3. Tarifas de Agosto: La Boleta que Llega y el Presupuesto que No Cierra",
+                        streetTalk: "Las nuevas tarifas de luz (+1,8%) y gas (+3%) ya están en vigor desde el 1° de agosto y las facturas empiezan a llegar a talleres y hogares. Trabajadores de zonas industriales bonaerenses comentan en redes que el porcentaje parece chico en papel, pero sobre facturas de invierno ya altas se siente en pesos. Para un taller familiar que paga tarifa comercial y no accede a subsidios ni a cuadros tarifarios industriales, el gas para producción y para calefacción viene en la misma boleta.",
+                        connection: [
+                            "Una microempresa industrial que paga tarifa residencial o comercial absorbe el aumento tarifario directo en costos, sin poder trasladarlo fácilmente al precio de venta ante un mercado con demanda caída.",
+                            "La presión tarifaria acumulada mes a mes es uno de los factores que empuja a pequeñas industrias a reducir turnos o a pasar parte de la producción a la informalidad para bajar costos."
+                        ],
+                        uipbaPosition: "Reclamar tarifa eléctrica y gasífera diferencial para micro y pequeñas industrias bonaerenses que no acceden a los cuadros tarifarios industriales pero tampoco son hogares residenciales",
+                        source: { name: "La Nación / iProfesional", link: "https://www.lanacion.com.ar/economia/cuanto-aumentaran-las-tarifas-de-luz-y-gas-a-partir-de-agosto-nid31072026/", date: "1 Ago 2026" },
+                        metrics: { temp: 3, volume: "Alto", variation: "+1,8% luz / +3% gas — en efecto desde agosto" }
+                    }
+                ],
+                clipping: [
+                    {
+                        id: "clip-39",
+                        category: "regional",
+                        scopeTag: "Regional (PBA) • La Nación",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "CIERRE INDUSTRIAL",
+                        title: "Will Der cierra Las Flores y Pacheco: 140 trabajadores sin empleo, algunos sin poder entrar a buscar sus cosas",
+                        summary: "La textil Will Der cerró sus dos plantas bonaerenses en agosto: la de Las Flores (sobre Ruta 3) y la de General Pacheco (Tigre). Los 120 trabajadores de Pacheco llegaron a su turno del lunes y encontraron el portón cerrado bajo seguridad privada. Sin preaviso formal, sin protocolo de egreso. El total de afectados entre ambas plantas llega a 140 personas. El dueño comunicó el cierre en persona entre lágrimas, pero la situación laboral concreta de los trabajadores sigue sin resolverse.",
+                        impact: "Ejemplo emblematico de cierre abrupto en el sector textil bonaerense: evidencia directa sobre la ausencia de regulación de cierres sin previo aviso en PBA y la dimensión humana de la crisis manufacturera.",
+                        source: { name: "La Nación", link: "https://www.lanacion.com.ar/economia/el-dramatico-mensaje-de-los-duenos-de-una-textil-que-cerro-y-despidio-a-120-personas-piensen-la-nid16082026/", date: "16 Ago 2026" },
+                        metrics: { temp: 5, volume: "Alto", variation: "Cobertura nacional y regional amplia" }
+                    },
+                    {
+                        id: "clip-40",
+                        category: "regional",
+                        scopeTag: "Regional (PBA) • Página 12",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "RETROCESO INDUSTRIAL",
+                        title: "Los puertos bonaerenses revelan el retroceso: exportaciones crecen en agroindustria pero la manufactura se contrae",
+                        summary: "El análisis publicado el 16 de agosto muestra que aunque los puertos públicos bonaerenses registran su mayor movimiento exportador desde 2019, la expansión se concentra en agroindustria (granos, harinas, aceites). La manufactura diversificada sigue contrayéndose. Entre noviembre de 2023 y abril de 2026, la provincia perdió 91.270 empleos registrados — el 26,7% del total nacional de empleos industriales destruidos en el período.",
+                        impact: "Los datos portuarios revelan una economía bonaerense que exporta commodities mientras pierde capacidad manufacturera: argumento concreto para separar el debate sobre exportaciones del debate sobre desarrollo industrial.",
+                        source: { name: "Página 12", link: "https://www.pagina12.com.ar/2026/08/16/los-puertos-bonaerenses-revelan-el-retroceso-industrial/", date: "16 Ago 2026" },
+                        metrics: { temp: 4, volume: "Moderado", variation: "-91.270 empleos en PBA desde nov. 2023" }
+                    },
+                    {
+                        id: "clip-41",
+                        category: "regional",
+                        scopeTag: "Regional (PBA) • Infobae / La Nación",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "PRESIÓN FISCAL",
+                        title: "Semáforo Fiscal bonaerense: Hurlingham, Lanús y Marcos Paz con mayor presión tributaria municipal",
+                        summary: "Presentado el 14 de agosto, el Semáforo Fiscal clasifica los 135 municipios bonaerenses por presión fiscal, habilitaciones y empleo. La dispersión es extrema: Hurlingham cobra tasas equivalentes al 3,16% de la facturación; San Pedro, apenas 0,52%. La herramienta está disponible en menosimpuestos.com.ar y permite cruzar datos por tipo de actividad económica.",
+                        impact: "Herramienta concreta para que industriales bonaerenses comparen su municipio con el vecino: útil para diagnosticar competitividad territorial y fundamentar reclamos de reducción de tasas TISH/TISEH.",
+                        source: { name: "Infobae", link: "https://www.infobae.com/economia/2026/08/14/un-nuevo-semaforo-fiscal-muestra-los-municipios-bonaerenses-con-tasas-mas-altas-el-ranking-de-la-voracidad-tributaria/", date: "14 Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "3,16% vs 0,52% en extremos del ranking" }
+                    },
+                    {
+                        id: "clip-42",
+                        category: "nacional",
+                        scopeTag: "Nacional • La Nación / iProfesional",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "TARIFAS",
+                        title: "Aumentan luz y gas en agosto: +1,8% electricidad y +3% gas para hogares y comercios",
+                        summary: "El Gobierno oficializó los nuevos cuadros tarifarios desde el 1° de agosto: la electricidad sube 1,8% en el AMBA y el gas casi 3% en todo el país. El cargo fijo de Metrogas pasa a $5.023,67 y el variable a $157,32 por m³. Los subsidios residenciales se mantienen para quienes califican, pero las PyMEs que no acceden a tarifas industriales diferenciadas absorben el aumento sin ninguna amortiguación.",
+                        impact: "Cada aumento tarifario de invierno pesa más que en verano por el componente gas: para talleres y microindustrias sin categoría tarifaria industrial, es un aumento real de costos en el peor momento del año.",
+                        source: { name: "La Nación", link: "https://www.lanacion.com.ar/economia/cuanto-aumentaran-las-tarifas-de-luz-y-gas-a-partir-de-agosto-nid31072026/", date: "31 Jul / 1 Ago 2026" },
+                        metrics: { temp: 3, volume: "Alto", variation: "+1,8% electricidad / +3% gas — vigente" }
+                    }
+                ]
+            },
             "2026-08-18": {
                 sector: [
                     {
@@ -1574,7 +1720,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-08-18");
+            renderDashboard("2026-08-19");
         };
     </script>
 </body>
