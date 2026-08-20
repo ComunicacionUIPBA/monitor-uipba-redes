@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">19 Ago 2026</span>
+                    <span id="current-date-badge">20 Ago 2026</span>
                 </div>
             </div>
         </div>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-08-19" selected>19/08/2026 (Hoy)</option>
+                        <option value="2026-08-20" selected>20/08/2026 (Hoy)</option>
+                        <option value="2026-08-19">19/08/2026</option>
                         <option value="2026-08-18">18/08/2026</option>
                         <option value="2026-08-14">14/08/2026</option>
                         <option value="2026-08-13">13/08/2026</option>
@@ -159,22 +160,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Will Der Textil: 140 Trabajadores Sin Empleo en Las Flores y Pacheco — Llegaron al Turno y Encontraron el Portón Cerrado</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Industria en "Extrema Fragilidad": Techint alerta por 85.500 empleos formales manufactureros perdidos desde 2023</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>3.8 / 5.0</span>
-                    <span>🔥🔥🔥🔥</span>
+                    <span>3.3 / 5.0</span>
+                    <span>🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (cierre Will Der, semáforo fiscal, tarifas agosto, informalidad)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Moderado-Alto (informe Techint fragilidad, bono UOM, Congreso Productivo, talleres informales)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (Will Der cierre & inseguridad costa)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">1 Crítica (bono UOM vs inflación real) + 2 de impacto directo (empleo joven, talleres informales)</span>
             </div>
         </div>
     </section>
@@ -262,6 +263,151 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-08-20": {
+                sector: [
+                    {
+                        id: "sec-36",
+                        network: "X (Twitter)",
+                        networkBadge: "bg-black text-white",
+                        hashtag: "#BonusUOM #ReciboDeSueldo #Metalúrgicos",
+                        title: "\"¿Me lo Pagaron Bien?\": Metalúrgicos Revisan el Recibo de Agosto con el Bono $210.000 en la Mano",
+                        quote: "Con los recibos de agosto llegando a los trabajadores metalúrgicos del conurbano, X se llenó de capturas de pantalla y preguntas muy concretas: ¿me pagaron los $210.000 de bono?, ¿por qué la empresa dice que lo paga en cuotas?, ¿el IMGR de $1.117.862 ya figura en mi recibo? No son debates sobre la conducción sindical — son operarios de turno haciendo la aritmética de su sueldo de agosto en tiempo real y preguntando a sus compañeros de planta si a ellos les pasó lo mismo.",
+                        action: "Monitorear si la liquidación del bono de $210.000 UOM se aplica correctamente en el universo de empresas metalúrgicas bonaerenses: un bono mal liquidado es un conflicto de planta que se incuba antes de que llegue al gremio.",
+                        source: { name: "Rosario3 / Ámbito", link: "https://www.rosario3.com/-economia-negocios-agro-/paritarias-de-la-uom-cuanto-cobraran-los-metalurgicos-desde-agosto-y-como-se-paga-el-bono-de-210.000-20260818-0067.html", date: "18-20 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "IMGR $1.117.862 / bono $210.000 en recibos agosto" }
+                    },
+                    {
+                        id: "sec-37",
+                        network: "LinkedIn",
+                        networkBadge: "bg-uipba-navy text-white",
+                        hashtag: "#TresArgentinasIndustriales #ExtremaFragilidad #IndustriaArgentina",
+                        title: "\"¿En Cuál de las Tres Argentinas Estoy?\": El Diagnóstico Techint Activa Debate entre Ingenieros y Gerentes de Planta",
+                        quote: "El informe publicado por Techint el 16 de agosto — que divide la industria argentina en un núcleo moderno exportador, una red amplia orientada al mercado interno, y un segmento informal de baja productividad — generó en LinkedIn una pregunta muy directa de parte de ingenieros y jefes de producción de PyMEs bonaerenses: ¿en cuál de esas tres categorías está mi empresa? Dueños de talleres de 20 a 80 personas responden desde su propia experiencia: cómo compiten, si exportan algo, si pueden renovar máquinas, qué parte de su cadena de proveedores ya está en negro.",
+                        action: "El diagnóstico de las 'tres Argentinas industriales' es una herramienta de comunicación que UIPBA puede adaptar para visibilizar la situación concreta del segundo segmento — el más numeroso en PBA — ante tomadores de decisión de política pública.",
+                        source: { name: "La Nación / Techint", link: "https://www.lanacion.com.ar/economia/la-industria-lidera-la-perdida-de-empleo-privado-formal-con-milei-y-un-informe-publicado-por-techint-nid16082026/", date: "16-20 Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "-89.667 empleos industriales registrados desde ago. 2023" }
+                    },
+                    {
+                        id: "sec-38",
+                        network: "Instagram",
+                        networkBadge: "bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white",
+                        hashtag: "#CongresoProductivoBonaerense #PyMEBonaerense #ProducirEnBuenosAires",
+                        title: "El 4° Congreso Productivo Bonaerense Abre Inscripciones y Pequeños Productores lo Comparten en Instagram",
+                        quote: "La apertura de inscripciones al 4° Congreso Productivo Bonaerense (8 y 9 de septiembre, Pasaje Dardo Rocha, La Plata) circula en Instagram compartida por pequeños productores, emprendedores industriales y artesanos que ven en el evento una chance de visibilidad. No son cámaras ni funcionarios quienes más lo comparten: son productores de municipios del interior bonaerense preguntando si alguien más va, qué sesiones valen la pena, o si hay algo específico para su rubro. La inscripción es gratuita y en congresoproductivo.mp.gba.gob.ar.",
+                        action: "Evaluar la participación activa de UIPBA en el Congreso Productivo Bonaerense como espacio para conectar con el segmento de industriales que no pertenece a cámaras sectoriales y que llega por redes sociales.",
+                        source: { name: "Criterio Online / GBA.gob.ar", link: "https://www.criterioonline.com/2026/08/ya-esta-abierta-la-inscripcion-al-4o-congreso-productivo-bonaerense-sera-en-septiembre-en-la-plata", date: "Ago 2026" },
+                        metrics: { temp: 2, volume: "Moderado", variation: "Congreso 8-9 sept — inscripción abierta" }
+                    },
+                    {
+                        id: "sec-39",
+                        network: "Facebook",
+                        networkBadge: "bg-indigo-700 text-white",
+                        hashtag: "#TallerInformal #CompetenciaDesleal #ConurbanoBonaerense",
+                        title: "\"Nos Compiten con el Mismo Producto pero sin Pagar lo que Pagamos Nosotros\"",
+                        quote: "En grupos de Facebook de municipios industriales del conurbano bonaerense, dueños de talleres registrados —metalúrgicos, madereros, textiles chicos— describen la presión de competidores informales que operan en el mismo rubro pero sin paritaria, sin TISH, sin ART ni cargas sociales. El relato no es abstract: es el vecino de la cuadra de atrás que les saca trabajo a precio dumping porque no paga lo mismo. Con la informalidad en el 44,2%, la densidad de talleres no registrados en zonas de tradición industrial es cada vez más alta.",
+                        action: "La competencia desleal del sector informal es un problema que UIPBA puede llevar a la agenda municipal con datos concretos: el taller que blanquea su personal no puede competir en precio contra el que opera en negro en la misma cuadra.",
+                        source: { name: "Chequeado / UNSAM", link: "https://chequeado.com/el-explicador/la-desocupacion-fue-del-78-en-el-comienzo-de-2026-aumento-la-informalidad-y-la-subocupacion/", date: "Q1 2026" },
+                        metrics: { temp: 3, volume: "Alto", variation: "44,2% informalidad — récord Q1 2026" }
+                    }
+                ],
+                calle: [
+                    {
+                        id: "calle-22",
+                        riskLevel: "Impacto Directo",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #1 en Redes PBA",
+                        title: "1. Paritaria UOM vs Inflación Real: El Aumento del 23,5% Llega y los Precios del Barrio No Esperaron",
+                        streetTalk: "Con el primer recibo de agosto incluyendo el nuevo IMGR de $1.117.862 y el bono de $210.000 de la UOM, los trabajadores metalúrgicos del conurbano hacen la cuenta del poder de compra real. El 23.5% se pactó el 13 de agosto, pero el gas subió el 1° de agosto, las góndolas del super acumularon meses de aumento, y el alquiler ya fue. La conversación en barrios de zona sur y oeste del GBA es muy concreta: el recibo subió, pero el mes igual no cierra.",
+                        connection: [
+                            "Si la paritaria metalúrgica —que funciona como referencia para otras negociaciones industriales— no cubre la inflación real, la demanda de bienes de consumo durable fabricados en PyMEs bonaerenses sigue deprimida.",
+                            "La pérdida de poder adquisitivo sostenida en trabajadores industriales del conurbano retroalimenta la caída de pedidos en talleres y manufacturas locales: menos plata en el bolsillo del trabajador, menos venta para la fábrica del barrio."
+                        ],
+                        uipbaPosition: "Sostener que la discusión paritaria no puede ir aislada del costo de los servicios: un aumento del 23,5% sobre salarios que ya perdieron frente a la inflación acumulada no recupera el consumo que las PyMEs necesitan para operar",
+                        source: { name: "Ámbito / Rosario3", link: "https://www.ambito.com/economia/salarios-metalurgicos-cuanto-cobraran-agosto-2026-el-ultimo-acuerdo-n6304365", date: "13-20 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "+23,5% pactado vs inflación acumulada" }
+                    },
+                    {
+                        id: "calle-23",
+                        riskLevel: "Impacto Directo",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #2 en Redes PBA",
+                        title: "2. El Primer Empleo que Ya No Está: Jóvenes del Conurbano y la Puerta Cerrada de la Industria Formal",
+                        streetTalk: "El primer cordón del conurbano bonaerense es identificado por el informe Techint de agosto como el principal foco de retroceso manufacturero. El impacto más silencioso es en jóvenes de 18 a 25 años que buscan su primer trabajo en plantas industriales y encuentran contrataciones congeladas o directamente portones cerrados. Las fábricas que cerraron o redujeron personal son las mismas donde trabajaron sus padres. La salida que encuentran es la informalidad: delivery, changas, talleres en negro.",
+                        connection: [
+                            "La interrupción del ingreso de jóvenes al empleo industrial formal debilita la transmisión de saberes técnicos dentro de las plantas: sin renovación generacional, la capacidad productiva se erosiona aunque la máquina siga encendida.",
+                            "Cada joven que no entra al circuito formal es un futuro trabajador que no acumula antigüedad, que no paga aportes, y que en el mediano plazo no tiene acceso a crédito hipotecario ni jubilación — un costo social que termina transfiriéndose a la industria como falta de demanda interna."
+                        ],
+                        uipbaPosition: "Incorporar la agenda de primer empleo industrial en PBA como eje productivo: sin reposición de trabajadores jóvenes en el sector formal, el sistema técnico-productivo bonaerense pierde capacidad en el mediano plazo",
+                        source: { name: "La Nación / Infobae", link: "https://www.lanacion.com.ar/economia/la-industria-lidera-la-perdida-de-empleo-privado-formal-con-milei-y-un-informe-publicado-por-techint-nid16082026/", date: "16-20 Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "GBA: mayor concentración de cierre de plantas industriales" }
+                    },
+                    {
+                        id: "calle-24",
+                        riskLevel: "Impacto Directo",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #3 en Redes PBA",
+                        title: "3. El Taller de la Vuelta de la Esquina: Informalidad Industrial como Competencia Desleal",
+                        streetTalk: "En zonas de tradición industrial del conurbano —La Matanza, Quilmes, Berazategui, Lomas de Zamora— la expansión de talleres no registrados que operan en el mismo rubro que las empresas formales genera una presión de precios que las PyMEs registradas no pueden sostener. No pagan TISH, no liquidan paritaria, no tienen ART. El diferencial de costos les permite ofrecer precios menores al vecino formal que sí cumple. Con la informalidad laboral en 44,2%, el fenómeno tiene escala suficiente para impactar en la rentabilidad del sector registrado.",
+                        connection: [
+                            "El taller informal que compite en precios con la empresa afiliada registrada genera un efecto de dumping local: la empresa que cumple con las leyes laborales y fiscales tiene estructuras de costo que la dejan fuera de precio en su propio barrio.",
+                            "Si la respuesta de las PyMEs registradas al dumping informal es también bajar costos operando parcialmente en negro, el problema se retroalimenta: cae la recaudación municipal, cae la base de trabajadores formales, cae la cobertura de salud y previsional del sector."
+                        ],
+                        uipbaPosition: "Llevar la agenda de informalidad industrial a los municipios con herramientas concretas: fiscalización diferenciada en zonas de alta concentración de talleres informales, con propuesta de blanqueo gradual y reducción de tasas municipales como incentivo",
+                        source: { name: "UNSAM / Chequeado", link: "https://chequeado.com/el-explicador/la-desocupacion-fue-del-78-en-el-comienzo-de-2026-aumento-la-informalidad-y-la-subocupacion/", date: "Q1 2026" },
+                        metrics: { temp: 3, volume: "Alto", variation: "44,2% informalidad / primer cordón GBA el más afectado" }
+                    }
+                ],
+                clipping: [
+                    {
+                        id: "clip-43",
+                        category: "nacional",
+                        scopeTag: "Nacional • La Nación",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "CRISIS INDUSTRIAL",
+                        title: "Techint alerta por \"extrema fragilidad\" de la industria: lidera pérdida de empleo formal con 85.500 puestos menos desde 2023",
+                        summary: "Un boletín de Techint firmado por los economistas Bernardo Kosacoff y Diego Coatz diagnosticó que la industria argentina atraviesa una situación de \"extrema fragilidad\". El sector lidera la pérdida de empleo privado formal: entre noviembre de 2023 y mayo de 2026, la manufactura aportó 85.561 de los 241.176 puestos formales destruidos — el 35,5% del total. El informe describe tres segmentos industriales y advierte que el deterioro manufacturero excede a la gestión actual.",
+                        impact: "El diagnóstico de una firma como Techint tiene peso institucional y mediático que amplifica la agenda de crisis industrial: sirve como respaldo para cualquier posición que UIPBA lleve a negociaciones con Nación o Provincia sobre política industrial.",
+                        source: { name: "La Nación", link: "https://www.lanacion.com.ar/economia/la-industria-lidera-la-perdida-de-empleo-privado-formal-con-milei-y-un-informe-publicado-por-techint-nid16082026/", date: "16 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "-85.561 empleos manufactureros desde nov. 2023" }
+                    },
+                    {
+                        id: "clip-44",
+                        category: "nacional",
+                        scopeTag: "Nacional • Ámbito",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "EMPLEO INDUSTRIAL",
+                        title: "\"Extrema fragilidad\": la industria lidera la pérdida de empleo formal y crece la alerta por cierre de empresas",
+                        summary: "Ámbito amplió el análisis del informe Techint-Kosacoff-Coatz publicado el 16 de agosto, subrayando que desde 2023 la industria perdió el 7,5% de sus trabajadores registrados. El sector textil fue el más golpeado con una contracción del 23%. La industria química, alimentaria y metalúrgica también acumulan bajas. El documento alerta que sin intervención en materia de política industrial, el deterioro continuará.",
+                        impact: "La cobertura de Ámbito pone los datos del informe Techint en el circuito de medios económicos y financieros, ampliando el alcance más allá del espacio sindical: es el momento en que el problema industrial empieza a leerse también como riesgo sistémico para la economía.",
+                        source: { name: "Ámbito", link: "https://www.ambito.com/economia/extrema-fragilidad-la-industria-lidera-la-perdida-empleo-formal-y-crece-la-alerta-el-cierre-empresas-n6311515", date: "Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "-7,5% empleo industrial registrado desde 2023" }
+                    },
+                    {
+                        id: "clip-45",
+                        category: "regional",
+                        scopeTag: "Regional (PBA) • Criterio Online",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "AGENDA PRODUCTIVA",
+                        title: "4° Congreso Productivo Bonaerense: abierta la inscripción para el encuentro del 8 y 9 de septiembre en La Plata",
+                        summary: "La inscripción al 4° Congreso Productivo Bonaerense está abierta en congresoproductivo.mp.gba.gob.ar. El evento se realizará el 8 y 9 de septiembre en el Pasaje Dardo Rocha de La Plata, bajo el lema 'El valor de producir'. Participarán representantes de los 135 municipios, empresas, cooperativas, cámaras, sindicatos y universidades. En las tres ediciones anteriores el congreso reunió a más de 6.600 participantes.",
+                        impact: "El Congreso Productivo Bonaerense es el espacio de debate de política productiva más amplio de la Provincia: UIPBA puede posicionar allí sus prioridades (TISH, tarifas, informalidad) ante una audiencia que incluye a funcionarios provinciales y municipales.",
+                        source: { name: "Criterio Online", link: "https://www.criterioonline.com/2026/08/ya-esta-abierta-la-inscripcion-al-4o-congreso-productivo-bonaerense-sera-en-septiembre-en-la-plata", date: "Ago 2026" },
+                        metrics: { temp: 2, volume: "Moderado", variation: "8-9 sept, La Plata — inscripción gratuita abierta" }
+                    },
+                    {
+                        id: "clip-46",
+                        category: "nacional",
+                        scopeTag: "Nacional • Rosario3 / Ámbito",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "PARITARIA UOM",
+                        title: "Paritaria UOM: cómo se paga el bono de $210.000 y cuánto cobran los metalúrgicos desde agosto",
+                        summary: "El cierre de la paritaria UOM del 13 de agosto establece un IMGR de $1.117.862 mensual desde agosto, que llega a $1.264.080 en marzo de 2027. Además, los trabajadores metalúrgicos cobran un bono de $210.000 por única vez en agosto, en concepto de retroactividad parcial de los meses de mayo, junio y julio. El acuerdo tiene vigencia de 8 meses y fue firmado en audiencia virtual convocada por la Secretaría de Trabajo.",
+                        impact: "La paritaria UOM funciona como referencia para otras negociaciones salariales en el sector industrial bonaerense: el 23,5% por 8 meses define el piso de recomposición y el bono de $210.000 es el dato que los trabajadores están revisando en sus recibos de agosto.",
+                        source: { name: "Rosario3", link: "https://www.rosario3.com/-economia-negocios-agro-/paritarias-de-la-uom-cuanto-cobraran-los-metalurgicos-desde-agosto-y-como-se-paga-el-bono-de-210.000-20260818-0067.html", date: "18 Ago 2026" },
+                        metrics: { temp: 3, volume: "Alto", variation: "+23,5% en 8 meses / bono $210.000 agosto" }
+                    }
+                ]
+            },
             "2026-08-19": {
                 sector: [
                     {
@@ -1720,7 +1866,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-08-19");
+            renderDashboard("2026-08-20");
         };
     </script>
 </body>
