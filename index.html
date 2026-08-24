@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">20 Ago 2026</span>
+                    <span id="current-date-badge">24 Ago 2026</span>
                 </div>
             </div>
         </div>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-08-20" selected>20/08/2026 (Hoy)</option>
+                        <option value="2026-08-24" selected>24/08/2026 (Hoy)</option>
+                        <option value="2026-08-20">20/08/2026</option>
                         <option value="2026-08-19">19/08/2026</option>
                         <option value="2026-08-18">18/08/2026</option>
                         <option value="2026-08-14">14/08/2026</option>
@@ -160,22 +161,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Industria en "Extrema Fragilidad": Techint alerta por 85.500 empleos formales manufactureros perdidos desde 2023</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Semáforo Fiscal: Hurlingham paga el triple que San Pedro — la brecha tarifaria municipal que asfixia a las PyMEs bonaerenses</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>3.3 / 5.0</span>
+                    <span>3.0 / 5.0</span>
                     <span>🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Moderado-Alto (informe Techint fragilidad, bono UOM, Congreso Productivo, talleres informales)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Moderado (semáforo fiscal PBA, tarifas energéticas agosto, changarización conurbano, crédito PyME)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">1 Crítica (bono UOM vs inflación real) + 2 de impacto directo (empleo joven, talleres informales)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">1 Crítica (tarifas energéticas PyMEs industriales) + 2 estructurales (semáforo fiscal, barrialización del empleo)</span>
             </div>
         </div>
     </section>
@@ -263,6 +264,139 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-08-24": {
+                sector: [
+                    {
+                        id: "sec-40",
+                        network: "X (Twitter)",
+                        networkBadge: "bg-black text-white",
+                        hashtag: "#FacturasDeAgosto #LuzYGas #PyMEArgentina",
+                        title: "\"¿Cuánto Subió tu Factura de Luz?\": Dueños de Talleres Hacen la Cuenta Pública en X",
+                        quote: "Con las facturas de agosto llegando a los domicilios industriales del conurbano, X se llenó de fotos de boletas y preguntas muy directas: ¿cuánto subió la factura de luz de agosto?, ¿es el mismo porcentaje para empresas que para residencias? Dueños de talleres de 10 a 50 personas que publican sus propias facturas para comparar con otros de su rubro: quienes tienen mayor consumo eléctrico (tornería, soldadura, plástico) reportan aumentos acumulados que empiezan a pesar sobre los costos fijos más que la TISH. La pregunta que más aparece: ¿por qué a nosotros no nos aplican la bonificación del 25% que tiene el vecino de al lado?",
+                        action: "Monitorear cómo el incremento tarifario energético de agosto —luz +1,78% (Edesur) y gas +2,99% (Metrogas)— impacta en el costo fijo de las PyMEs industriales del conurbano que pagan tarifa plena sin los subsidios residenciales.",
+                        source: { name: "La Nación / Energía Online", link: "https://www.lanacion.com.ar/economia/cuanto-aumentaran-las-tarifas-de-luz-y-gas-a-partir-de-agosto-nid31072026/", date: "31 Jul – 1 Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Luz +1,78% (Edesur) / Gas +2,99% (Metrogas) vigentes desde 1 ago." }
+                    },
+                    {
+                        id: "sec-41",
+                        network: "LinkedIn",
+                        networkBadge: "bg-uipba-navy text-white",
+                        hashtag: "#SemáforoFiscal #TasasMunicipales #PyMEBonaerense",
+                        title: "\"El Mismo Producto, el Mismo Trabajo: ¿Por Qué Pago 6 Veces Más que Mi Competidor del Interior?\"",
+                        quote: "La publicación del Semáforo Fiscal bonaerense (14 de agosto) que muestra la alícuota industrial de Hurlingham en 3,16% frente a San Pedro en 0,52% generó en LinkedIn una pregunta muy concreta de parte de dueños de talleres y pequeños industriales: ¿cómo compiten dos empresas que hacen exactamente lo mismo si una paga 6 veces más de tasa municipal que la otra? Emprendedores del primer cordón del conurbano comparten sus propias experiencias: que consideraron mudarse, que no pudieron porque el galpón está en ese municipio, que la tasa municipal terminó siendo la diferencia entre cerrar o sobrevivir en el año.",
+                        action: "El Semáforo Fiscal es una herramienta con datos comparables que UIPBA puede usar en negociaciones municipales: el ranking de alícuotas convierte el reclamo genérico en un argumento medido.",
+                        source: { name: "Infobae / La Nación", link: "https://www.infobae.com/economia/2026/08/14/un-nuevo-semaforo-fiscal-muestra-los-municipios-bonaerenses-con-tasas-mas-altas-el-ranking-de-la-voracidad-tributaria/", date: "14 Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Hurlingham 3,16% vs San Pedro 0,52% — factor 6x en alícuota industrial PBA" }
+                    },
+                    {
+                        id: "sec-42",
+                        network: "Instagram",
+                        networkBadge: "bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white",
+                        hashtag: "#ChangaConurbano #SinLaburoEnFábrica #EconomíaDeBarrio",
+                        title: "Reels del \"Día de Changa\": Jóvenes del Conurbano Documentan la Búsqueda de Empleo Industrial que No Encuentran",
+                        quote: "En Instagram circulan reels de jóvenes de 20 a 27 años del conurbano bonaerense que documentan su búsqueda de trabajo en fábricas y talleres: portones cerrados, turnos congelados, listas de espera que no avanzan. El mismo relato aparece repetido por chicos de La Matanza, Quilmes, Lanús: 'mandé el CV a cinco fábricas del barrio, ninguna llama'. La salida es delivery, pintura, changa de electricista o carpintería. No es queja abstracta — es el retrato visible de la interrupción del ingreso joven al empleo industrial formal en la zona con mayor concentración manufacturera del país.",
+                        action: "El déficit de incorporación joven al empleo industrial formal no es solo un problema de mercado laboral: es el corte de la cadena de transmisión de saberes técnicos dentro de las plantas, un daño que no se recupera rápido cuando la demanda vuelva.",
+                        source: { name: "El Destape / Capital24 / Observatorio Conurbano UNGS", link: "https://www.eldestapeweb.com/economia/la-barrializacion-y-el-techo-de-la-changa-asi-vive-el-conurbano-el-terremoto-milei-20266260546", date: "Jun-Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "44,2% informalidad Q1 2026 / GBA primer cordón el más afectado en empleo industrial" }
+                    },
+                    {
+                        id: "sec-43",
+                        network: "Facebook",
+                        networkBadge: "bg-indigo-700 text-white",
+                        hashtag: "#CréditoPyME #LineaBCRA #TasaAlta",
+                        title: "\"¿Vale la Pena Endeudarse al 49%?\": Dueños de Talleres Debaten en Facebook si el Crédito BCRA Llega de Verdad",
+                        quote: "En grupos de Facebook de industriales y comerciantes bonaerenses, la publicidad de líneas de crédito PyME del BCRA (tasa máxima del 49% TNA para el segundo semestre de 2026) genera un debate muy práctico: ¿conviene endeudarse al 49% para comprar máquinas cuando la inflación baja pero los costos fijos suben? Dueños de talleres con 15 a 40 empleados comparten sus experiencias intentando acceder: que el banco pidió garantías que no tienen, que el monto aprobado fue mucho menor al pedido, que el trámite tardó tanto que el proveedor ya cambió el precio. El crédito existe en el papel; la pregunta es si llega en la práctica.",
+                        action: "El acceso real al crédito PyME —no solo su existencia nominal— es una demanda concreta que UIPBA puede articular con datos de campo: ¿cuántas empresas solicitan líneas BCRA PyME y cuántas efectivamente acceden al monto pedido?",
+                        source: { name: "CreditoLab / BCRA / Ámbito", link: "https://creditolab.com/ar/noticias/linea-credito-pyme-bcra-argentina-2026", date: "Jul-Ago 2026" },
+                        metrics: { temp: 2, volume: "Moderado", variation: "49% TNA tope BCRA vs 78% TNA tasa de mercado — brecha de acceso real" }
+                    }
+                ],
+                calle: [
+                    {
+                        id: "calle-25",
+                        riskLevel: "Impacto Directo",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #1 en Redes PBA",
+                        title: "1. Facturas de Agosto: Luz y Gas Suben para PyMEs Industriales sin el Subsidio que Tienen los Vecinos",
+                        streetTalk: "Mientras los usuarios residenciales con subsidio SEF mantienen una bonificación del 25% en gas y del 16,59% en electricidad desde agosto, las PyMEs industriales del conurbano pagan la tarifa plena: +1,78% en luz (Edesur) y +2,99% en gas (Metrogas). Para un taller con maquinaria eléctrica intensiva y consumo de calor en proceso, la factura de agosto puede superar los $400.000 a $600.000 mensuales. El problema no es el porcentaje de un mes aislado: es la acumulación de seis meses en que los costos fijos crecieron por encima de la capacidad de trasladarlos a precios sin perder competitividad.",
+                        connection: [
+                            "Para las PyMEs industriales del conurbano que no califican para subsidios energéticos residenciales, el aumento tarifario de agosto es un costo fijo que se suma directamente a la estructura de costos sin posibilidad de absorción vía productividad.",
+                            "El diferencial de costos energéticos entre una empresa con tarifa plena y un competidor informal que usa energía domiciliaria amplía el dumping de precio que ya golpea a las PyMEs registradas: el taller formal paga más por el mismo kilovatio."
+                        ],
+                        uipbaPosition: "Impulsar la revisión de la categoría tarifaria industrial para PyMEs de hasta 50 empleados: no son grandes consumidores ni pueden absorber aumentos sucesivos sin trasladarlos a precios, lo que reduce su competitividad frente a informales y grandes empresas",
+                        source: { name: "La Nación / Infobae / Energía Online", link: "https://www.lanacion.com.ar/economia/cuanto-aumentaran-las-tarifas-de-luz-y-gas-a-partir-de-agosto-nid31072026/", date: "31 Jul – 1 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "+1,78% luz / +2,99% gas vigentes desde 1 ago. / tarifa plena para PyMEs industriales" }
+                    },
+                    {
+                        id: "calle-26",
+                        riskLevel: "Riesgo Estructural",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #2 en Redes PBA",
+                        title: "2. Semáforo Fiscal Bonaerense: Hurlingham Cobra 6 Veces Más que San Pedro por Tener una Fábrica",
+                        streetTalk: "El Semáforo Fiscal publicado el 14 de agosto deja un dato que ya circula entre industriales bonaerenses: Hurlingham cobra el 3,16% de alícuota industrial, San Pedro el 0,52%. Para una misma PyME con $10 millones de facturación mensual, eso significa pagar $316.000 por mes en Hurlingham contra $52.000 en San Pedro — una diferencia de $264.000 mensuales, solo por el municipio donde está el galpón. La paradoja es que los municipios de mayor presión fiscal industrial son generalmente los del conurbano más poblado, donde la PyME no puede mudarse fácilmente porque ahí está su mano de obra.",
+                        connection: [
+                            "La desigualdad de alícuotas municipales genera una competencia fiscal entre distritos: los municipios de menor presión atraen inversión industrial mientras los de mayor presión la ahuyentan, concentrando el deterioro productivo en los cordones más poblados y pobres del conurbano.",
+                            "Una PyME que paga 3,16% de alícuota municipal sobre facturación tiene menos margen para paritaria, para renovar maquinaria y para absorber aumentos tarifarios: el efecto cascada de la presión fiscal municipal no es solo contable, es también laboral e industrial."
+                        ],
+                        uipbaPosition: "Proponer desde UIPBA un corredor máximo de alícuota municipal industrial bonaerense que elimine la brecha de 6x entre los municipios de mayor y menor presión fiscal — un techo compartido que proteja la radicación industrial en el conurbano",
+                        source: { name: "Infobae / La Nación / Cadena Nueve", link: "https://www.infobae.com/economia/2026/08/14/un-nuevo-semaforo-fiscal-muestra-los-municipios-bonaerenses-con-tasas-mas-altas-el-ranking-de-la-voracidad-tributaria/", date: "14 Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Ranking 135 municipios PBA — brecha 6x en alícuota industrial (Hurlingham 3,16% vs San Pedro 0,52%)" }
+                    },
+                    {
+                        id: "calle-27",
+                        riskLevel: "Tensión Social",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #3 en Redes PBA",
+                        title: "3. El Boleto que se Comió el Sueldo: Transporte y el Costo Real de Ir a Trabajar en una Fábrica del Conurbano",
+                        streetTalk: "Con el boleto de colectivo en el conurbano bonaerense superando los $1.000 por viaje, un trabajador que hace dos transbordos por día para llegar a la planta gasta más de $4.000 por jornada solo en transporte. En un mes de 22 días hábiles, eso son cerca de $90.000 de bolsillo — sobre un sueldo metalúrgico neto de $900.000 aproximados. El traslado pesa entre el 9 y el 15% del ingreso neto antes de comer. En los barrios más alejados de las zonas industriales, la ecuación hace que la changa cercana compita económicamente con el trabajo registrado lejano: el beneficio del empleo formal se diluye antes de llegar al barrio del trabajador.",
+                        connection: [
+                            "Cuando el costo de movilidad acerca el salario de bolsillo del empleo industrial formal al ingreso de una changa cercana, la ventaja del trabajo registrado —jubilación, ART, obra social, paritaria— se diluye en la percepción inmediata del trabajador de turno.",
+                            "Las plantas industriales alejadas de núcleos residenciales del conurbano tienen mayor dificultad para retener personal en turno noche y turno tarde: los trabajadores que pueden eligen opciones más cercanas aunque menos formales, lo que aumenta la rotación y baja la productividad de planta."
+                        ],
+                        uipbaPosition: "Incorporar el costo real de transporte como variable en el análisis del salario neto industrial: un IMGR de $1.117.862 que pierde entre $70.000 y $100.000 mensuales en movilidad no es el salario real que llega al barrio del trabajador — y esa diferencia tiene consecuencias en retención de personal y en elecciones laborales",
+                        source: { name: "Capital24 / El Destape / Observatorio Conurbano UNGS", link: "https://capital24.com.ar/contenido/14876/buscar-trabajo-se-volvio-una-carrera-de-fondo-cae-el-empleo-formal-y-crece-la-pr", date: "Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Boleto >$1.000 / hasta 15% del sueldo neto metalúrgico en movilidad mensual" }
+                    }
+                ],
+                clipping: [
+                    {
+                        id: "clip-47",
+                        category: "regional",
+                        scopeTag: "Regional (PBA) • Infobae",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "PRESIÓN FISCAL",
+                        title: "Semáforo Fiscal: Hurlingham, Lanús y Marcos Paz, los municipios bonaerenses con mayor carga tributaria sobre la industria",
+                        summary: "Un Semáforo Fiscal bonaerense publicado el 14 de agosto compara la presión tributaria de los 135 municipios de la provincia. En materia de alícuota industrial, Hurlingham (3,16%), Lanús (3,06%) y Marcos Paz (2,88%) encabezan el ranking de mayor carga, mientras San Pedro (0,52%), Tres de Febrero (0,55%) y San Nicolás (0,75%) son los de menor presión. La herramienta fue presentada por el senador Diego Valenzuela y permite comparar tasas, alícuotas, tamaño del Estado e infraestructura por distrito.",
+                        impact: "Los datos del Semáforo Fiscal le dan a UIPBA por primera vez un argumento comparado y medible para negociaciones municipales: la brecha de 6x entre los municipios de mayor y menor presión fiscal sobre la industria deja de ser una percepción y se convierte en un dato de política pública.",
+                        source: { name: "Infobae", link: "https://www.infobae.com/economia/2026/08/14/un-nuevo-semaforo-fiscal-muestra-los-municipios-bonaerenses-con-tasas-mas-altas-el-ranking-de-la-voracidad-tributaria/", date: "14 Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Ranking 135 municipios PBA — alícuota industrial mín 0,52% / máx 3,16%" }
+                    },
+                    {
+                        id: "clip-48",
+                        category: "nacional",
+                        scopeTag: "Nacional • La Nación / Infobae",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "TARIFAS ENERGÍA",
+                        title: "Aumentos de luz y gas vigentes desde agosto: +1,78% electricidad y +2,99% gas para usuarios sin subsidio en el conurbano",
+                        summary: "El Gobierno nacional oficializó a fines de julio los nuevos cuadros tarifarios vigentes desde el 1° de agosto. Para distribuidoras del conurbano bonaerense, la electricidad subió un 1,78% (Edesur) y el gas un 2,99% (Metrogas, Resoluciones 366 y 367/2026 del ENREGE). Los usuarios residenciales con Régimen SEF mantienen una bonificación del 25% en gas y del 16,59% en electricidad. Las PyMEs industriales, al no calificar para esas categorías, abonan la tarifa plena desde el primer día del mes.",
+                        impact: "Los aumentos tarifarios de agosto se suman sobre una estructura de costos industriales que ya incorporó subas en paritarias, tasas municipales y logística: para las PyMEs medianas, la factura energética empieza a ser el costo fijo más visible junto con la masa salarial.",
+                        source: { name: "La Nación / Energía Online", link: "https://www.lanacion.com.ar/economia/cuanto-aumentaran-las-tarifas-de-luz-y-gas-a-partir-de-agosto-nid31072026/", date: "31 Jul 2026" },
+                        metrics: { temp: 3, volume: "Alto", variation: "+1,78% luz / +2,99% gas desde 1 ago. — tarifa plena para uso industrial" }
+                    },
+                    {
+                        id: "clip-49",
+                        category: "nacional",
+                        scopeTag: "Nacional • El Economista / El Destape",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "MERCADO LABORAL",
+                        title: "Barrialización del trabajo en el conurbano: informalidad al 44,2% y jóvenes que buscan fábrica y encuentran changa",
+                        summary: "Análisis de agosto identifican al conurbano bonaerense como el territorio donde la combinación de caída del empleo industrial formal e informalidad al 44,2% genera un efecto de 'barrialización del trabajo': los jóvenes que no consiguen ingresar a fábricas o talleres formales migran hacia changas de proximidad que pagan menos pero están más cerca y no implican viajes costosos. El fenómeno es especialmente marcado en el primer y segundo cordón del GBA, donde la densidad manufacturera histórica convive con el mayor volumen de trabajadores informales.",
+                        impact: "La barrialización del trabajo en el conurbano industrial erosiona el capital humano técnico disponible para las plantas: la informalidad no compite solo en precio sino también en proximidad geográfica, y esa ventaja se amplía a medida que sube el costo del transporte.",
+                        source: { name: "El Economista / El Destape", link: "https://eleconomista.com.ar/economia/el-conurbano-bonaerense-esta-poniendo-argentina-su-encrucijada-mas-dificil-n42492", date: "Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "44,2% informalidad Q1 2026 / changarización en ascenso en primer y segundo cordón GBA" }
+                    }
+                ]
+            },
             "2026-08-20": {
                 sector: [
                     {
@@ -1866,7 +2000,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-08-20");
+            renderDashboard("2026-08-24");
         };
     </script>
 </body>
