@@ -200,12 +200,32 @@
 
         <!-- TAB 2: LA CALLE BONAERENSE -->
         <section id="tab-calle" class="hidden space-y-6">
-            <div class="max-w-3xl">
-                <span class="text-xs font-extrabold text-amber-800 uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">El Termómetro Vecinal</span>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">La Calle Bonaerense: Impacto e Intersección Industrial</h2>
-                <p class="text-slate-600 text-sm mt-1 leading-relaxed">
-                    De qué habla la sociedad en PBA. Puntos de conexión directos con las empresas donde UIPBA debe estar en alerta.
-                </p>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                <div class="max-w-2xl">
+                    <span class="text-xs font-extrabold text-amber-800 uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">El Termómetro Vecinal</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">La Calle Bonaerense</h2>
+                    <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                        De qué habla la sociedad en PBA: agenda cotidiana completa (inseguridad, tarifas, informalidad,
+                        trabas municipales, y lo que surja), tenga o no una conexión directa con la industria. Sirve
+                        para entender el ecosistema social donde opera UIPBA, no solo lo que la roza.
+                    </p>
+                </div>
+
+                <div class="flex items-center space-x-2 text-xs text-slate-500 font-medium">
+                    <span>Región:</span>
+                    <select id="calle-region-filter" onchange="filterCalle(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1.5 focus:outline-none focus:border-uipba-navy">
+                        <option value="all">Todas las regiones</option>
+                        <option value="general">General / Toda la Provincia</option>
+                        <option value="conurbano-norte">Conurbano Norte</option>
+                        <option value="conurbano-oeste">Conurbano Oeste</option>
+                        <option value="conurbano-sur">Conurbano Sur</option>
+                        <option value="la-plata">La Plata y Región</option>
+                        <option value="costa-atlantica">Costa Atlántica</option>
+                        <option value="centro">Centro</option>
+                        <option value="noroeste">Noroeste</option>
+                        <option value="sudoeste">Sudoeste</option>
+                    </select>
+                </div>
             </div>
 
             <div id="container-calle" class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -314,6 +334,7 @@
                 calle: [
                     {
                         id: "calle-25",
+                        region: "general",
                         riskLevel: "Impacto Directo",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #1 en Redes PBA",
@@ -329,6 +350,7 @@
                     },
                     {
                         id: "calle-26",
+                        region: "general",
                         riskLevel: "Riesgo Estructural",
                         badgeClass: "badge-alert-medium",
                         topicNumber: "Tema #2 en Redes PBA",
@@ -344,6 +366,7 @@
                     },
                     {
                         id: "calle-27",
+                        region: "general",
                         riskLevel: "Tensión Social",
                         badgeClass: "badge-alert-medium",
                         topicNumber: "Tema #3 en Redes PBA",
@@ -447,6 +470,7 @@
                 calle: [
                     {
                         id: "calle-22",
+                        region: "general",
                         riskLevel: "Impacto Directo",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #1 en Redes PBA",
@@ -462,6 +486,7 @@
                     },
                     {
                         id: "calle-23",
+                        region: "general",
                         riskLevel: "Impacto Directo",
                         badgeClass: "badge-alert-medium",
                         topicNumber: "Tema #2 en Redes PBA",
@@ -477,6 +502,7 @@
                     },
                     {
                         id: "calle-24",
+                        region: "general",
                         riskLevel: "Impacto Directo",
                         badgeClass: "badge-alert-medium",
                         topicNumber: "Tema #3 en Redes PBA",
@@ -592,6 +618,7 @@
                 calle: [
                     {
                         id: "calle-19",
+                        region: "costa-atlantica",
                         riskLevel: "Alerta Crítica",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #1 en Redes PBA",
@@ -607,6 +634,7 @@
                     },
                     {
                         id: "calle-20",
+                        region: "general",
                         riskLevel: "Impacto Directo",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #2 en Redes PBA",
@@ -622,6 +650,7 @@
                     },
                     {
                         id: "calle-21",
+                        region: "general",
                         riskLevel: "Impacto Directo",
                         badgeClass: "badge-alert-medium",
                         topicNumber: "Tema #3 en Redes PBA",
@@ -737,6 +766,7 @@
                 calle: [
                     {
                         id: "calle-16",
+                        region: "conurbano-sur",
                         riskLevel: "Alerta Crítica",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #1 en Redes PBA",
@@ -752,6 +782,7 @@
                     },
                     {
                         id: "calle-17",
+                        region: "general",
                         riskLevel: "Impacto Directo",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #2 en Redes PBA",
@@ -767,6 +798,7 @@
                     },
                     {
                         id: "calle-18",
+                        region: "general",
                         riskLevel: "Impacto Directo",
                         badgeClass: "badge-alert-medium",
                         topicNumber: "Tema #3 en Redes PBA",
@@ -882,6 +914,7 @@
                 calle: [
                     {
                         id: "calle-12",
+                        region: "conurbano-oeste",
                         riskLevel: "Alerta Crítica",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #1 en Redes PBA",
@@ -897,6 +930,7 @@
                     },
                     {
                         id: "calle-13",
+                        region: "conurbano-oeste",
                         riskLevel: "Impacto Directo",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #2 en Redes PBA",
@@ -912,6 +946,7 @@
                     },
                     {
                         id: "calle-14",
+                        region: "general",
                         riskLevel: "Impacto Directo",
                         badgeClass: "badge-alert-medium",
                         topicNumber: "Tema #3 en Redes PBA",
@@ -927,6 +962,7 @@
                     },
                     {
                         id: "calle-15",
+                        region: "general",
                         riskLevel: "Alerta Estructural",
                         badgeClass: "badge-alert-medium",
                         topicNumber: "Tema #4 en Redes PBA",
@@ -1042,6 +1078,7 @@
                 calle: [
                     {
                         id: "calle-9",
+                        region: "general",
                         riskLevel: "Alerta Crítica",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #1 en Redes PBA",
@@ -1057,6 +1094,7 @@
                     },
                     {
                         id: "calle-10",
+                        region: "general",
                         riskLevel: "Impacto Masivo",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #2 en Redes PBA",
@@ -1072,6 +1110,7 @@
                     },
                     {
                         id: "calle-11",
+                        region: "conurbano-oeste",
                         riskLevel: "Alerta Estructural",
                         badgeClass: "badge-alert-medium",
                         topicNumber: "Tema #3 en Redes PBA",
@@ -1411,6 +1450,7 @@
                 calle: [
                     {
                         id: "calle-8",
+                        region: "la-plata",
                         riskLevel: "Alerta Crítica",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #1 en Redes PBA",
@@ -1514,6 +1554,7 @@
                 calle: [
                     {
                         id: "calle-5",
+                        region: "la-plata",
                         riskLevel: "Alerta Crítica",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #1 en Redes PBA",
@@ -1529,6 +1570,7 @@
                     },
                     {
                         id: "calle-6",
+                        region: "general",
                         riskLevel: "Impacto Masivo",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #2 en Redes PBA",
@@ -1544,6 +1586,7 @@
                     },
                     {
                         id: "calle-7",
+                        region: "general",
                         riskLevel: "Alerta Estructural",
                         badgeClass: "badge-alert-medium",
                         topicNumber: "Tema #3 en Redes PBA",
@@ -1671,6 +1714,7 @@
                 calle: [
                     {
                         id: "calle-1",
+                        region: "conurbano-oeste",
                         riskLevel: "Alerta Crítica",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #1 en Redes PBA",
@@ -1686,6 +1730,7 @@
                     },
                     {
                         id: "calle-2",
+                        region: "general",
                         riskLevel: "Impacto Masivo",
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #2 en Redes PBA",
@@ -1701,6 +1746,7 @@
                     },
                     {
                         id: "calle-3",
+                        region: "general",
                         riskLevel: "Alerta Estructural",
                         badgeClass: "badge-alert-medium",
                         topicNumber: "Tema #3 en Redes PBA",
@@ -1716,6 +1762,7 @@
                     },
                     {
                         id: "calle-4",
+                        region: "general",
                         riskLevel: "Traba Operativa",
                         badgeClass: "badge-alert-medium",
                         topicNumber: "Tema #4 en Redes PBA",
@@ -1815,6 +1862,19 @@
             return stars;
         }
 
+        function linkedSource(source) {
+            const hasLink = source.link && source.link !== '#';
+            const name = escapeHtml(source.name);
+            if (!hasLink) return name;
+            return `<a href="${source.link}" target="_blank" rel="noopener noreferrer" class="underline decoration-dotted hover:text-uipba-blue hover:decoration-solid">${name}</a>`;
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
         function renderDashboard(dateKey) {
             const data = DASHBOARD_DATA[dateKey] || DASHBOARD_DATA["2026-07-29"];
 
@@ -1851,7 +1911,7 @@
 
                         <!-- Fuente Obligatoria (Claude Suggestion) -->
                         <div class="flex justify-between items-center text-[10px] text-slate-400 bg-slate-50 p-2 rounded-lg border border-slate-100">
-                            <span>📌 <strong>Fuente:</strong> ${item.source.name}</span>
+                            <span>📌 <strong>Fuente:</strong> ${linkedSource(item.source)}</span>
                             <span>📅 ${item.source.date} | <span class="text-emerald-600 font-bold">${item.metrics.variation}</span></span>
                         </div>
                     </div>
@@ -1861,7 +1921,7 @@
             // 2. Render Calle
             const calleContainer = document.getElementById('container-calle');
             calleContainer.innerHTML = data.calle.map(item => `
-                <div class="dashboard-card bg-white rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                <div class="calle-item ${item.region || 'general'} dashboard-card bg-white rounded-2xl p-6 shadow-sm flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-start mb-3 pb-2 border-b border-slate-100">
                             <span class="${item.badgeClass} px-2.5 py-1 rounded-md text-[10px] font-bold uppercase">${item.riskLevel}</span>
@@ -1875,7 +1935,8 @@
                         <p class="text-xs text-slate-600 mb-4 leading-relaxed">
                             <strong>Lo que habla la gente:</strong> ${item.streetTalk}
                         </p>
-                        
+
+                        ${item.connection && item.connection.length ? `
                         <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-2 mb-4">
                             <div class="flex items-center space-x-2 text-uipba-navy text-xs font-bold">
                                 <span class="w-2 h-2 bg-uipba-navy rounded-full"></span>
@@ -1885,6 +1946,11 @@
                                 ${item.connection.map(c => `<li>${c}</li>`).join('')}
                             </ul>
                         </div>
+                        ` : `
+                        <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl mb-4">
+                            <span class="text-[10px] text-slate-500 italic">Contexto de agenda social — sin conexión industrial directa detectada.</span>
+                        </div>
+                        `}
                     </div>
 
                     <div>
@@ -1895,7 +1961,7 @@
 
                         <!-- Fuente Obligatoria -->
                         <div class="flex justify-between items-center text-[10px] text-slate-400 bg-slate-50 p-2 rounded-lg border border-slate-100">
-                            <span>📌 <strong>Fuente:</strong> ${item.source.name}</span>
+                            <span>📌 <strong>Fuente:</strong> ${linkedSource(item.source)}</span>
                             <span>📅 ${item.source.date} | <span class="text-emerald-600 font-bold">${item.metrics.variation}</span></span>
                         </div>
                     </div>
@@ -1923,7 +1989,7 @@
 
                         <!-- Fuente e Índices -->
                         <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-100 pt-2">
-                            <span>📌 ${item.source.name}</span>
+                            <span>📌 ${linkedSource(item.source)}</span>
                             <span class="font-bold text-slate-600">${renderStars(item.metrics.temp)}</span>
                         </div>
                     </div>
@@ -1961,6 +2027,17 @@
 
             items.forEach(item => {
                 if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function filterCalle(region) {
+            const items = document.querySelectorAll('.calle-item');
+            items.forEach(item => {
+                if (region === 'all' || item.classList.contains(region)) {
                     item.style.display = 'flex';
                 } else {
                     item.style.display = 'none';
