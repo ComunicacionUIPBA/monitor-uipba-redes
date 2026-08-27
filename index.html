@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">24 Ago 2026</span>
+                    <span id="current-date-badge">27 Ago 2026</span>
                 </div>
             </div>
         </div>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-08-24" selected>24/08/2026 (Hoy)</option>
+                        <option value="2026-08-27" selected>27/08/2026 (Hoy)</option>
+                        <option value="2026-08-24">24/08/2026</option>
                         <option value="2026-08-20">20/08/2026</option>
                         <option value="2026-08-19">19/08/2026</option>
                         <option value="2026-08-18">18/08/2026</option>
@@ -161,22 +162,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Semáforo Fiscal: Hurlingham paga el triple que San Pedro — la brecha tarifaria municipal que asfixia a las PyMEs bonaerenses</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Mora industrial x5 en 18 meses: la UIA alerta que 4.300 empresas ya están en situación bancaria irregular — dato del sistema, no solo percepción</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>3.0 / 5.0</span>
-                    <span>🔥🔥🔥</span>
+                    <span>3.8 / 5.0</span>
+                    <span>🔥🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Moderado (semáforo fiscal PBA, tarifas energéticas agosto, changarización conurbano, crédito PyME)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (mora bancaria industrial hoy, Expo Industrias cierra hoy, embargos ARCA, deterioro social conurbano)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">1 Crítica (tarifas energéticas PyMEs industriales) + 2 estructurales (semáforo fiscal, barrialización del empleo)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (mora bancaria x5 hoy / embargos ARCA) + 2 sociales (narcos prestamistas, suicidios +40%)</span>
             </div>
         </div>
     </section>
@@ -286,6 +287,111 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-08-27": {
+                sector: [
+                    {
+                        id: "sec-43",
+                        network: "X (Twitter)",
+                        networkBadge: "bg-black text-white",
+                        hashtag: "#MoraIndustrial #AsfixiaFinanciera #CadenaDePagos",
+                        title: "Mora Industrial x5 en 18 Meses: Tasas que No Ceden y Cadena de Pagos que se Rompe Eslabón por Eslabón",
+                        quote: "De cada 4 empresas industriales, 1 llegó a agosto con al menos un pago atrasado. La irregularidad bancaria pasó del 0,7% de fines de 2024 al 3,8% en junio de 2026 — cinco veces más en año y medio. No es una estadística abstracta: son 4.300 firmas con deuda bancaria que llegan tarde a pagos de proveedores, impuestos o cuotas. Cuando el crédito comercial ronda el 78% TNA y el crédito oficial al 49% pide garantías que muchas empresas no tienen, cada imprevisto se convierte en una mora más.",
+                        action: "Incorporar el dato de mora x5 en el reclamo formal ante ARCA: la suspensión de embargos por 180 días que pide la UIA no es un privilegio sino la única ventana para que firmas todavía viables se recompongan sin colapsar.",
+                        source: { name: "X @danielorosato", link: "https://twitter.com/danielorosato", date: "Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Mora bancaria industrial: 0,7% (dic. 2024) → 3,8% (jun. 2026) — 4.300 firmas afectadas" }
+                    },
+                    {
+                        id: "sec-44",
+                        network: "Instagram",
+                        networkBadge: "bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white",
+                        hashtag: "#PymesEnRojo #ProducciónIndustrial #14TrimestresCayendo",
+                        title: "Producción Industrial Pyme en su Nivel Más Bajo en 7 Años: 14 Trimestres Seguidos de Contracción",
+                        quote: "El relevamiento del segundo trimestre de 2026 confirma en números lo que el día a día ya mostraba: la producción de las pymes industriales cayó 11% interanual y llegó a su nivel más bajo en siete años. El empleo retrocedió 4,5% y suma 14 trimestres consecutivos de caída. Ocho de cada diez industriales chicos señalan la falta de ventas como su problema central. El taller que todavía paga sueldos y proveedores en agosto lo hace con reservas propias — no porque el contexto ayude.",
+                        action: "Usar los datos del Observatorio PyME Q2-2026 para instalar en la agenda de la Expo Industrial la necesidad de un plan diferenciado para el segmento de menos de 50 empleados, separado de las políticas diseñadas para exportadoras o grandes firmas.",
+                        source: { name: "Instagram @elpyme", link: "https://www.instagram.com/elpyme/", date: "Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Producción PyME industrial: -11% interanual / mínimo 7 años / 14 trimestres de contracción" }
+                    }
+                ],
+                calle: [
+                    {
+                        id: "calle-28",
+                        region: "general",
+                        riskLevel: "Tensión Institucional",
+                        badgeClass: "badge-alert-medium",
+                        topicNumber: "Tema #1 en Redes PBA",
+                        title: "1. Policía Bonaerense al Límite: Guardias de 36 Horas, Bajos Salarios y Tensión Interna que Escala en Agosto",
+                        streetTalk: "La Policía Bonaerense acumula en agosto un cuadro de tensión interna con pocos paralelos recientes: jornadas de hasta 24 y 36 horas consecutivas confirmadas en departamentales del interior bonaerense, recargos compulsivos de guardia, salarios que —pese al aumento escalonado del 7% de julio— siguen por debajo de la pauta inflacionaria real, y sanciones contra efectivos que intentaron organizarse para reclamar condiciones. El dato preocupa no solo como cuestión laboral interna sino porque una fuerza agotada y con ingresos deprimidos es más permeable a irregularidades y tiene menor capacidad operativa real.",
+                        connection: ["Rutas bonaerenses, corredores logísticos y accesos a parques industriales dependen de presencia policial funcional: si la Bonaerense opera con guardia mínima y personal agotado, la seguridad en zonas de carga y tránsito industrial del conurbano se degrada directamente."],
+                        uipbaPosition: "Mantener en el radar la situación interna de la Policía Bonaerense como variable de contexto para la seguridad operativa industrial: una fuerza que no puede garantizar sus propias condiciones de trabajo tiene capacidad limitada para garantizar la del entorno productivo.",
+                        source: { name: "TotalNews Agency", link: "https://totalnewsagency.com/2026/08/22/la-bonaerense-al-borde-del-estallido-guardias-de-24-horas-bajos-salarios-y-una-fuerza-exhausta/", date: "22 Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Guardias 24-36hs confirmadas / aumento 7% vs inflación real" }
+                    },
+                    {
+                        id: "calle-29",
+                        region: "general",
+                        riskLevel: "Alerta Social",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #2 en Redes PBA",
+                        title: "2. Narcos como Prestamistas: el Circuito Informal que Financia el Conurbano cuando el Banco Dice No",
+                        streetTalk: "Un patrón documentado en barrios del conurbano bonaerense muestra a organizaciones del narcotráfico operando como prestamistas informales de última instancia: tasas que duplican el capital prestado en pocos meses, clientes que acceden porque no tienen alternativa —sin historial crediticio, sin garantías, sin banco que los reciba. Quien necesita plata para cubrir el mes, pagar una operación médica o reponer mercadería termina en ese circuito porque es el único disponible. La deuda lo liga económicamente a la organización. No hay un estallido social visible, en parte porque este mercado paralelo absorbe demanda que el sistema bancario formal no cubre.",
+                        connection: [],
+                        uipbaPosition: "Tomar registro como contexto: el avance del crédito informal-criminal sobre los sectores vulnerables del conurbano afecta el tejido social donde viven trabajadores y proveedores de las pymes bonaerenses. Sin acción directa de UIPBA por ahora, pero sí como dato de escenario para entender la tensión social del entorno productivo.",
+                        source: { name: "Infobae / Resumen Latinoamericano", link: "https://www.infobae.com/politica/2026/08/24/los-nuevos-sintomas-de-un-deterioro-social-silencioso-en-el-conurbano-bonaerense/", date: "24 Ago 2026" },
+                        metrics: { temp: 4, volume: "Moderado", variation: "Préstamos narco: tasas que duplican el capital / conurbano bonaerense" }
+                    },
+                    {
+                        id: "calle-30",
+                        region: "general",
+                        riskLevel: "Señal de Alarma",
+                        badgeClass: "badge-alert-high",
+                        topicNumber: "Tema #3 en Redes PBA",
+                        title: "3. Suicidios +40% en 2026: el Indicador Silencioso que los Datos de Homicidios no Capturan",
+                        streetTalk: "Mientras los homicidios dolosos en la provincia bajaron 3,8% en lo que va del año —el dato que aparece en los comunicados oficiales—, otro indicador creció en sentido contrario: los suicidios aumentaron más del 40% durante 2026, según análisis publicados en agosto. El fenómeno es especialmente marcado en el conurbano y está asociado a la combinación de estrés financiero extremo, desempleo prolongado y ausencia de redes de contención. No genera portadas ni debate político activo. Es la cara silenciosa del mismo deterioro social que sí produce titulares cuando se manifiesta hacia afuera.",
+                        connection: [],
+                        uipbaPosition: "Tomar registro como dato de escenario: el aumento de suicidios en el conurbano bonaerense es un indicador de tensión extrema en el tejido social donde viven los trabajadores del sector. Sin acción directa de UIPBA, pero sí como contexto de la salud del entorno productivo.",
+                        source: { name: "Infobae / Primera Página", link: "https://www.infobae.com/politica/2026/08/24/los-nuevos-sintomas-de-un-deterioro-social-silencioso-en-el-conurbano-bonaerense/", date: "24 Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Suicidios +40% en 2026 / homicidios dolosos PBA -3,8% — indicadores divergentes" }
+                    }
+                ],
+                clipping: [
+                    {
+                        id: "clip-50",
+                        category: "nacional",
+                        scopeTag: "Nacional • Infobae",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "MORA INDUSTRIAL",
+                        title: "Mora Industrial Se Quintuplicó en 18 Meses: la UIA Alerta que 4.300 Empresas ya Están en Situación Bancaria Irregular",
+                        summary: "La irregularidad en el crédito bancario de empresas industriales pasó del 0,7% en diciembre de 2024 al 3,8% en junio de 2026, afectando a unas 4.300 firmas, según datos del Centro de Estudios de la UIA publicados hoy. El deterioro se aceleró junto con la restricción del crédito y la suba de tasas, que alcanzaron picos del 190% TNA. El 47% de las firmas industriales registró atrasos en algún pago en julio de 2026 —impuestos, proveedores o cuotas bancarias.",
+                        impact: "El dato de mora x5 le da sustento empírico al reclamo por refinanciamiento y suspensión de embargos: ya no es una percepción sectorial sino una estadística del sistema bancario. UIPBA puede incorporarlo como argumento ante ARCA y el Ministerio de Economía.",
+                        source: { name: "Infobae", link: "https://www.infobae.com/economia/2026/08/27/alerta-en-la-industria-la-mora-se-multiplico-por-cinco-en-un-ano-y-medio-y-ya-afecta-a-mas-de-4000-empresas-segun-la-uia/", date: "27 Ago 2026" },
+                        metrics: { temp: 5, volume: "Alto", variation: "Mora bancaria industrial: 0,7% → 3,8% en 18 meses / 4.300 firmas" }
+                    },
+                    {
+                        id: "clip-51",
+                        category: "nacional",
+                        scopeTag: "Nacional • Infobae / El Cronista",
+                        badgeClass: "badge-alert-high",
+                        badgeText: "EMBARGOS ARCA",
+                        title: "UIA Pide a ARCA que Suspenda por 180 Días los Embargos a Empresas ante la \"Asfixia Financiera\" del Sector",
+                        summary: "La Unión Industrial Argentina solicitó formalmente a ARCA la suspensión por 180 días de las ejecuciones fiscales y embargos contra empresas, ante lo que calificó como 'asfixia financiera' por tasas altas, caída de actividad y restricción del crédito. La UIA también reclamó refinanciamiento de pasivos y reducción transitoria de la carga impositiva para pymes. El gobierno respondió con cautela sin comprometerse a la medida.",
+                        impact: "Si la suspensión prospera, da un respiro de 6 meses a parte del universo pyme bonaerense que enfrenta ejecuciones mientras intenta sobrevivir la crisis de liquidez. Si no avanza, el ritmo de cierre de empresas todavía viables puede acelerarse.",
+                        source: { name: "Infobae / El Cronista", link: "https://www.infobae.com/economia/2026/08/26/asfixia-financiera-los-industriales-le-pidieron-al-gobierno-medidas-para-aliviar-la-situacion-de-las-pymes/", date: "26 Ago 2026" },
+                        metrics: { temp: 4, volume: "Alto", variation: "Pedido: suspensión embargos 180 días + refinanciamiento pasivos PyME" }
+                    },
+                    {
+                        id: "clip-52",
+                        category: "nacional",
+                        scopeTag: "Nacional • CAEM / La Rural",
+                        badgeClass: "badge-alert-medium",
+                        badgeText: "EXPO INDUSTRIAL",
+                        title: "Expo Industrias y Servicios 2026: el Sector se Reúne en La Rural Mientras los Datos Marcan el Peor Momento del Ciclo",
+                        summary: "La Expo Industrias y Servicios 2026 y el 7° Congreso Industrial del Consenso Nacional del Trabajo y la Producción se desarrolló del 25 al 27 de agosto en La Rural, Buenos Aires, con más de 100 conferencias, rondas de negocios nacionales e internacionales y presencia de cámaras sectoriales, provincias y bancos. El Banco Provincia anunció financiación a tasa 0% para compradores en la exposición. El evento sesionó en paralelo con la publicación de los datos más críticos del ciclo: mora x5, producción pyme en mínimo de 7 años.",
+                        impact: "La Expo es una ventana de contacto para UIPBA con el ecosistema industrial nacional: la coincidencia entre el mayor evento sectorial del año y los datos más negativos del ciclo crea una oportunidad para posicionar la agenda de la organización ante cámaras, bancos y funcionarios provinciales.",
+                        source: { name: "CAEM / La Rural / Banco Provincia", link: "https://caem.com.ar/evento/expo-industrias-yservicios-2026-y-el-7-congreso-industrial-del-consenso-nacional-del-trabajo-y-la-produccion/", date: "25-27 Ago 2026" },
+                        metrics: { temp: 3, volume: "Moderado", variation: "Expo + Congreso: 25-27 ago. La Rural / financiación Banco Provincia tasa 0%" }
+                    }
+                ]
+            },
             "2026-08-24": {
                 sector: [
                     {
@@ -2068,7 +2174,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-08-24");
+            renderDashboard("2026-08-27");
         };
     </script>
 </body>
