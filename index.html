@@ -271,7 +271,7 @@
                 </div>
                 <div class="flex items-center space-x-4">
                     <button onclick="exportToPDF()" class="bg-uipba-navy hover:bg-slate-900 text-white px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center space-x-2 shadow-md">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012 0h5.586a2 2 0 01.707.293l5.414 5.414a2 2 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                         <span>Descargar Reporte PDF Ejecutivo</span>
                     </button>
                 </div>
@@ -287,6 +287,214 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-08-28": {
+                "sector": [
+                    {
+                        "id": "sec-45",
+                        "network": "LinkedIn",
+                        "networkBadge": "bg-uipba-navy text-white",
+                        "hashtag": "#IndustriaBonaerense #ZarateCampana #RIGI #InversionIndustrial",
+                        "title": "Nuevas inversiones energéticas abren oportunidades para la cadena industrial del corredor Zárate-Campana",
+                        "quote": "La agenda industrial de esta semana pone el foco en nuevas inversiones energéticas: un proyecto de Tecpetrol por US$ 6.400 millones en el hub norte de Vaca Muerta y nuevos desarrollos de generación renovable aparecen como oportunidades para ampliar la participación de proveedores nacionales y del corredor Zárate-Campana.",
+                        "action": "Seguir el desarrollo de los proyectos energéticos y mapear oportunidades concretas para proveedores industriales bonaerenses, especialmente en logística, mantenimiento, metalmecánica e infraestructura.",
+                        "source": {
+                            "name": "LinkedIn — Unión Industrial de Zárate (publicación del 28/08)",
+                            "link": "https://ar.linkedin.com/in/uni%C3%B3n-industrial-de-z%C3%A1rate-uiz-278a7986",
+                            "date": "28 Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 4,
+                            "volume": "Alto",
+                            "variation": "Posteo publicado hoy; foco en inversión energética y oportunidades para la cadena Zárate-Campana"
+                        }
+                    },
+                    {
+                        "id": "sec-46",
+                        "network": "LinkedIn",
+                        "networkBadge": "bg-uipba-navy text-white",
+                        "hashtag": "#IndustriaFrigorifica #CalidadAlimentaria #Trazabilidad",
+                        "title": "La trazabilidad y el control de procesos como ventaja industrial para exportar alimentos",
+                        "quote": "El control de calidad empieza en el proceso: medición del pH, registro documentado y seguimiento de cada lote son presentados como prácticas indispensables para asegurar calidad, vida útil y seguridad del producto. La publicación muestra cómo el trabajo técnico cotidiano sostiene la competitividad de una industria alimentaria con clientes en Argentina y en mercados externos.",
+                        "action": "Tomar el caso como referencia positiva para mostrar que productividad, calidad y trazabilidad también son activos competitivos de la industria bonaerense, especialmente en cadenas con potencial exportador.",
+                        "source": {
+                            "name": "LinkedIn — Frigolar S.A. (publicación verificada)",
+                            "link": "https://ar.linkedin.com/company/frigolar",
+                            "date": "28 Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 3,
+                            "volume": "Moderado",
+                            "variation": "Publicación actual de empresa industrial radicada en La Plata"
+                        }
+                    },
+                    {
+                        "id": "sec-47",
+                        "network": "LinkedIn",
+                        "networkBadge": "bg-uipba-navy text-white",
+                        "hashtag": "#EmpleoIndustrial #Crecimiento #Canning",
+                        "title": "Una empresa industrial bonaerense vuelve a ampliar su estructura operativa y busca responsables para una nueva sucursal",
+                        "quote": "La apertura de una búsqueda para liderar la operación de una sucursal en Canning incluye responsabilidades sobre ventas, costos, stock, rentabilidad y equipos de trabajo. La publicación refleja una señal concreta de expansión operativa y demanda de perfiles de gestión dentro de una empresa industrial bonaerense.",
+                        "action": "Monitorear estas señales micro de expansión y demanda laboral como contrapeso a la agenda de cierres: no toda la industria presenta el mismo comportamiento y conviene identificar dónde aparecen oportunidades de crecimiento.",
+                        "source": {
+                            "name": "LinkedIn — Frigolar S.A. (búsqueda publicada hoy)",
+                            "link": "https://ar.linkedin.com/company/frigolar",
+                            "date": "28 Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 2,
+                            "volume": "Moderado",
+                            "variation": "Búsqueda publicada hoy; operación comercial en Canning"
+                        }
+                    }
+                ],
+                "calle": [
+                    {
+                        "id": "calle-31",
+                        "region": "general",
+                        "riskLevel": "Impacto Directo",
+                        "badgeClass": "badge-alert-medium",
+                        "topicNumber": "Tema #1 en Agenda PBA",
+                        "title": "1. El transporte provincial aumentará desde el 1° de septiembre y vuelve a pesar sobre el presupuesto familiar",
+                        "streetTalk": "El Ministerio de Transporte bonaerense informó hoy que los valores del transporte automotor interurbano provincial se actualizarán desde el 1° de septiembre, de acuerdo con la variación acumulada del IPC del INDEC. La medida impactará en los viajes de media y larga distancia dentro de la Provincia y vuelve a poner el costo de movilidad en el centro de la conversación cotidiana.",
+                        "connection": [],
+                        "uipbaPosition": "Tomar el costo de movilidad como variable social de contexto: el aumento afecta el presupuesto de trabajadores y estudiantes que dependen de viajes interurbanos y puede modificar decisiones de traslado y acceso al empleo.",
+                        "source": {
+                            "name": "Ministerio de Transporte de la Provincia de Buenos Aires",
+                            "link": "https://www.gba.gob.ar/transporte/noticias/actualizaci%C3%B3n_tarifaria",
+                            "date": "28 Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 3,
+                            "volume": "Alto",
+                            "variation": "Nueva actualización tarifaria desde 1 Sep 2026"
+                        }
+                    },
+                    {
+                        "id": "calle-32",
+                        "region": "conurbano-norte",
+                        "riskLevel": "Alerta Social",
+                        "badgeClass": "badge-alert-high",
+                        "topicNumber": "Tema #2 en Agenda PBA",
+                        "title": "2. Denuncias vecinales activaron una investigación por presunto narcomenudeo en un barrio de Pilar",
+                        "streetTalk": "En el barrio Monterrey, Pilar, denuncias de vecinos impulsaron una investigación que terminó con dos allanamientos y dos detenidos acusados de comercialización de drogas. La Policía informó el secuestro de 194 dosis de cocaína y $1.479.000 entre ambos domicilios. El caso vuelve a mostrar cómo los reclamos barriales funcionan como disparador de intervenciones sobre problemas de seguridad de proximidad.",
+                        "connection": [],
+                        "uipbaPosition": "Registrar el episodio como indicador de la agenda de seguridad barrial del conurbano norte, sin extrapolar el caso puntual a una tendencia provincial no demostrada.",
+                        "source": {
+                            "name": "Infobae",
+                            "link": "https://www.infobae.com/sociedad/policiales/2026/08/28/cayo-una-pareja-acusada-de-comercializar-cocaina-en-un-barrio-de-pilar/",
+                            "date": "28 Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 4,
+                            "volume": "Alto local",
+                            "variation": "Investigación iniciada por denuncias vecinales"
+                        }
+                    },
+                    {
+                        "id": "calle-33",
+                        "region": "conurbano-sur",
+                        "riskLevel": "Alerta Social",
+                        "badgeClass": "badge-alert-high",
+                        "topicNumber": "Tema #3 en Agenda PBA",
+                        "title": "3. Un robo de mercadería por $60 millones en Avellaneda vuelve a poner la logística en el centro del problema de seguridad",
+                        "streetTalk": "Un fletero fue asaltado durante una entrega en Avellaneda y le robaron una camioneta con bebidas valuadas en unos $60 millones. La investigación derivó en cuatro allanamientos y tres detenidos en Avellaneda y Lanús, mientras continúa la búsqueda de otro sospechoso. El caso combina inseguridad urbana con un problema cotidiano para quienes mueven mercadería por el conurbano.",
+                        "connection": [],
+                        "uipbaPosition": "Seguir la evolución de los robos a cargas como parte de la agenda social y logística bonaerense, especialmente en corredores donde circulan trabajadores, proveedores y distribución de bienes.",
+                        "source": {
+                            "name": "Infobae",
+                            "link": "https://www.infobae.com/sociedad/policiales/2026/08/28/robaron-un-flete-con-una-carga-valuada-en-60-millones-en-avellaneda-y-quedaron-detenidos/",
+                            "date": "28 Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 4,
+                            "volume": "Alto",
+                            "variation": "Carga valuada en $60 millones; tres detenidos"
+                        }
+                    }
+                ],
+                "clipping": [
+                    {
+                        "id": "clip-53",
+                        "category": "regional",
+                        "scopeTag": "Regional (PBA) • El Cronista",
+                        "badgeClass": "badge-alert-high",
+                        "badgeText": "INGRESOS BRUTOS",
+                        "title": "ARBA admite que la reforma tributaria bonaerense requiere un contexto de mayor crecimiento y la industria insiste con Ingresos Brutos",
+                        "summary": "En una reunión con la UIA, el titular de ARBA, Cristian Girard, señaló que una reforma tributaria debe darse con crecimiento consolidado, mientras reconoció la necesidad de eliminar impuestos distorsivos. La industria mantiene el reclamo por la carga de Ingresos Brutos y su impacto sobre la competitividad.",
+                        "impact": "El debate tributario bonaerense entra en una fase concreta: hay reconocimiento oficial de la necesidad de reducir distorsiones, pero la discusión sobre tiempos y condiciones sigue abierta.",
+                        "source": {
+                            "name": "El Cronista",
+                            "link": "https://www.cronista.com/economia-politica/el-futuro-de-la-reforma-tributaria-las-senales-de-arba-y-el-reclamo-de-la-industria-por-ingresos-brutos/",
+                            "date": "28 Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 5,
+                            "volume": "Alto",
+                            "variation": "Reunión ARBA-UIA y reclamo industrial por IIBB"
+                        }
+                    },
+                    {
+                        "id": "clip-54",
+                        "category": "nacional",
+                        "scopeTag": "Nacional • APF Digital",
+                        "badgeClass": "badge-alert-medium",
+                        "badgeText": "PRODUCCIÓN Y EMPLEO",
+                        "title": "Empresarios PyME, trabajadores y entidades productivas convocan a reconstruir el diálogo por la producción y el empleo",
+                        "summary": "Más de 300 representantes empresariales, sindicales, productivos y académicos participaron de la jornada “Argentina Produce: Diálogo que Construye”. El encuentro puso el foco en recuperar canales de diálogo y discutir condiciones para la producción y el empleo.",
+                        "impact": "La convocatoria muestra una convergencia amplia entre actores productivos y laborales y puede convertirse en un espacio relevante para seguir la agenda de política industrial nacional.",
+                        "source": {
+                            "name": "APF Digital",
+                            "link": "https://www.apfdigital.com.ar/noticias/2026/08/28/468776-argentina-produce-empresarios-pyme-y-representantes-de-los-trabajadores-convocan-a-reconstruir-el-dialogo-por-la-produccion-y-el-empleo",
+                            "date": "28 Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 4,
+                            "volume": "Alto",
+                            "variation": "Más de 300 representantes en la jornada"
+                        }
+                    },
+                    {
+                        "id": "clip-55",
+                        "category": "regional",
+                        "scopeTag": "Regional (PBA) • Infobán",
+                        "badgeClass": "badge-alert-info",
+                        "badgeText": "ACTIVIDAD INDUSTRIAL",
+                        "title": "Expo Industria Moreno cerró con más de 1.700 entrevistas de negocios",
+                        "summary": "La quinta edición de Expo Industria Moreno terminó tras dos jornadas en el Parque Industrial Municipal II, con más de 1.700 entrevistas de negocios. El encuentro reunió empresas, proveedores y actores del entramado productivo local y mostró actividad comercial concreta en un parque industrial bonaerense.",
+                        "impact": "Es una señal territorial positiva que permite complementar el diagnóstico de dificultades industriales con casos de articulación empresarial y generación de negocios en municipios de la Provincia.",
+                        "source": {
+                            "name": "Infobán",
+                            "link": "https://www.infoban.com.ar/28/08/2026/finalizo-la-expo-industria-moreno-2026-con-mas-de-1700-entrevistas-de-negocios/",
+                            "date": "28 Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 3,
+                            "volume": "Alto local",
+                            "variation": "Más de 1.700 entrevistas de negocios"
+                        }
+                    },
+                    {
+                        "id": "clip-56",
+                        "category": "regional",
+                        "scopeTag": "Regional (PBA) • La Letra Chica",
+                        "badgeClass": "badge-alert-high",
+                        "badgeText": "PYMES BONAERENSES",
+                        "title": "FEBA llevó al Senado bonaerense un diagnóstico crítico sobre ventas, tarifas e importaciones",
+                        "summary": "Representantes de la Federación Económica de la Provincia de Buenos Aires expusieron ante una comisión del Senado sobre la retracción del consumo, los aumentos tarifarios, la apertura importadora y la presión impositiva. También reclamaron una norma provincial de protección para pymes y centros comerciales de barrio.",
+                        "impact": "El reclamo territorial suma una señal política relevante sobre el deterioro de ventas y costos de las pymes bonaerenses y abre un frente legislativo para seguir de cerca.",
+                        "source": {
+                            "name": "La Letra Chica",
+                            "link": "https://laletrachica.com/nota/26298/empresarios-pymes-advirtieron-sobre-el-cierre-de-comercios-y-piden-un-auxilio/",
+                            "date": "28 Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 4,
+                            "volume": "Alto",
+                            "variation": "Presentación de FEBA ante comisión del Senado bonaerense"
+                        }
+                    }
+                ]
+            },
             "2026-08-27": {
                 sector: [
                     {
@@ -1196,7 +1404,7 @@
                         badgeClass: "badge-alert-high",
                         topicNumber: "Tema #2 en Redes PBA",
                         title: "2. Nuevo Aumento de Luz y Gas desde el 1° de Agosto",
-                        streetTalk: "Rige desde el 1° de agosto una suba de 1,78% en Edenor, 1,71% en Edesur y cerca de 3% en gas a nivel nacional. Los subsidios se mantienen (62% luz, 75% gas) pero la suba se suma a una serie larga de ajustes que golpea directo al bolsillo.",
+                        streetTalk: "Rige desde el 1° de agosto una suba de 1,8% en luz (AMBA) y cerca de 3% en gas a nivel nacional. Los subsidios se mantienen (62% luz, 75% gas) pero la suba se suma a una serie larga de ajustes que golpea directo al bolsillo.",
                         connection: [
                             "Presión adicional sobre el consumo de bienes que abastece la industria manufacturera bonaerense.",
                             "Encarecimiento paralelo de la tarifa eléctrica industrial, sin el mismo esquema de subsidios que las residenciales."
@@ -1262,7 +1470,7 @@
                     {
                         id: "clip-29",
                         category: "regional",
-                        scopeTag: "Regional (PBA) • Cuestión Entrerriana",
+                        scopeTag: "Regional (Suipacha, PBA) • La Razón de Chivilcoy",
                         badgeClass: "badge-alert-high",
                         badgeText: "CRISIS DEL CALZADO",
                         title: "\"Tormenta perfecta\" en calzado: de 120 empleados a solo 15 en una fábrica bonaerense",
