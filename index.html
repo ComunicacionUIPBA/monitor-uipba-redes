@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">27 Ago 2026</span>
+                    <span id="current-date-badge">1 Sep 2026</span>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                     </button>
                     <button onclick="switchTab('tab-calle')" id="btn-tab-calle" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>2. La Calle Bonaerense</span>
-                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">3 Alertas</span>
+                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">4 Alertas</span>
                     </button>
                     <button onclick="switchTab('tab-clipping')" id="btn-tab-clipping" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>3. Clipping de Medios en Redes</span>
@@ -139,7 +139,9 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-08-27" selected>27/08/2026 (Hoy)</option>
+                        <option value="2026-09-01" selected>01/09/2026 (Hoy)</option>
+                        <option value="2026-08-28">28/08/2026</option>
+                        <option value="2026-08-27">27/08/2026</option>
                         <option value="2026-08-24">24/08/2026</option>
                         <option value="2026-08-20">20/08/2026</option>
                         <option value="2026-08-19">19/08/2026</option>
@@ -162,22 +164,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Mora industrial x5 en 18 meses: la UIA alerta que 4.300 empresas ya están en situación bancaria irregular — dato del sistema, no solo percepción</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Tarifas energéticas en vigor desde hoy y presión por IIBB mantienen la tensión sobre costos industriales bonaerenses</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>3.8 / 5.0</span>
+                    <span>4.0 / 5.0</span>
                     <span>🔥🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (mora bancaria industrial hoy, Expo Industrias cierra hoy, embargos ARCA, deterioro social conurbano)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (tarifas energéticas desde hoy, 28.262 PyMEs cerradas, municipales cortan ruta, UOM paritaria septiembre)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (mora bancaria x5 hoy / embargos ARCA) + 2 sociales (narcos prestamistas, suicidios +40%)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (cierres 28.262 PyME / municipales cortan ruta) + 2 contexto (IIBB industrial / informalidad 44,2%)</span>
             </div>
         </div>
     </section>
@@ -287,6 +289,216 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-09-01": {
+                "sector": [
+                    {
+                        "id": "sec-48",
+                        "network": "X (Twitter)",
+                        "networkBadge": "bg-black text-white",
+                        "hashtag": "#IIBB #IngresosBrutos #IndustriaArgentina #CadenadeValor",
+                        "title": "El IIBB se acumula en cada eslabón de la cadena industrial y eleva el costo del producto nacional",
+                        "quote": "El Impuesto a los Ingresos Brutos aplica en cada etapa de la cadena productiva: quien fabrica paga, quien distribuye paga de nuevo, quien vende al público paga una vez más. Esa superposición de alícuotas genera un efecto cascada que encarece el producto final y comprime los márgenes en todo el circuito manufacturero, un debate que sigue siendo central en la agenda tributaria bonaerense.",
+                        "action": "Sostener el reclamo de eliminación del IIBB para la industria manufacturera bonaerense como eje de la agenda de competitividad, articulándolo con la discusión abierta entre ARBA y la UIA.",
+                        "source": {
+                            "name": "X @ImpuestosyE",
+                            "link": "https://x.com/ImpuestosyE/status/1947504090835042651",
+                            "date": "Jul-Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 4,
+                            "volume": "Alto",
+                            "variation": "Debate activo; ARBA-UIA se reunieron el 28/8 sobre reforma tributaria bonaerense"
+                        }
+                    },
+                    {
+                        "id": "sec-49",
+                        "network": "X (Twitter)",
+                        "networkBadge": "bg-black text-white",
+                        "hashtag": "#IFP #FinanciamientoPyME #TasasArgentina #MercadoCapitales",
+                        "title": "Tasas de financiamiento PyME en el mercado de capitales bajaron a 25,3% TNA, el nivel más bajo del ciclo",
+                        "quote": "En mayo de 2026, las pymes accedieron al financiamiento bursátil a una tasa promedio ponderada de 25,33% TNA según el Índice de Financiamiento PyME elaborado por Veta Capital, contra el pico de 59,06% registrado un año antes. La reducción en el costo de fondeo vía mercado de capitales es significativa, aunque el acceso efectivo al crédito bancario sigue siendo el principal cuello de botella para las pymes industriales que no operan con instrumentos bursátiles.",
+                        "action": "Contrastar el dato de tasas en el mercado de capitales con la realidad del crédito bancario para pymes industriales bonaerenses y articular el acceso a instrumentos de financiamiento alternativos para el sector.",
+                        "source": {
+                            "name": "X @arg_endatos",
+                            "link": "https://x.com/arg_endatos/status/2072053546577506592",
+                            "date": "Jul 2026"
+                        },
+                        "metrics": {
+                            "temp": 3,
+                            "volume": "Moderado",
+                            "variation": "IFP mayo 2026: 25,33% TNA vs. pico anual de 59,06%"
+                        }
+                    }
+                ],
+                "calle": [
+                    {
+                        "id": "calle-34",
+                        "region": "general",
+                        "riskLevel": "Impacto Directo",
+                        "badgeClass": "badge-alert-medium",
+                        "topicNumber": "Tema #1 en Agenda PBA",
+                        "title": "1. Septiembre arranca con suba de tarifas: gas +1,4% en todo el país y luz +1,75% en el AMBA desde hoy",
+                        "streetTalk": "Desde este 1° de septiembre rigen nuevos valores de energía: el gas natural sube 1,4% a nivel nacional y la electricidad 1,75% en el AMBA, en línea con la Resolución 682/2026 del Ministerio de Infraestructura provincial que aplica ajustes adicionales del 1 al 2,4% en PBA. Los aumentos se ubican levemente por debajo de la inflación de julio (2,1%) y el Gobierno amplió el techo del consumo eléctrico subsidiado a 200 kWh mensuales, revirtiendo la reducción que estaba planificada.",
+                        "connection": ["Impacto directo sobre costos de producción del sector industrial bonaerense, en especial en ramas de alto consumo energético"],
+                        "uipbaPosition": "Monitorear el efecto acumulado de los ajustes tarifarios energéticos sobre los costos industriales; contemplarlos en la negociación de tarifas diferenciales para el sector productivo.",
+                        "source": {
+                            "name": "Infobae",
+                            "link": "https://www.infobae.com/economia/2026/09/01/cuanto-aumentaran-el-gas-y-la-luz-en-septiembre-y-que-pasara-con-los-hogares-con-subsidios/",
+                            "date": "1 Sep 2026"
+                        },
+                        "metrics": {
+                            "temp": 4,
+                            "volume": "Alto",
+                            "variation": "Gas +1,4% nacional; luz +1,75% AMBA desde hoy"
+                        }
+                    },
+                    {
+                        "id": "calle-35",
+                        "region": "general",
+                        "riskLevel": "Alerta Social",
+                        "badgeClass": "badge-alert-high",
+                        "topicNumber": "Tema #2 en Agenda PBA",
+                        "title": "2. Municipales bonaerenses activan plan de lucha con cortes de ruta: pérdida salarial del 80-90% y sin paritaria provincial",
+                        "streetTalk": "Trabajadores municipales de múltiples distritos bonaerenses iniciaron un plan de lucha que incluyó cortes en las rutas 6 y 205 a la altura de Cañuelas. Los gremios denuncian que el salario municipal real acumula entre un 80 y un 90% de caída en el poder adquisitivo y exigen la apertura de una paritaria provincial centralizada, el cese de la precarización laboral y la convocatoria al Consejo del Empleo Municipal.",
+                        "connection": [],
+                        "uipbaPosition": "Registrar como indicador de tensión laboral en el sector público municipal bonaerense; los conflictos activos pueden afectar la prestación de servicios a parques industriales y empresas del territorio.",
+                        "source": {
+                            "name": "Indymedia Argentina",
+                            "link": "https://argentina.indymedia.org/2026/09/01/municipales-bonaerenses-sufrieron-una-perdida-salarial-de-entre-el-80-y-el-90/",
+                            "date": "1 Sep 2026"
+                        },
+                        "metrics": {
+                            "temp": 4,
+                            "volume": "Alto",
+                            "variation": "Cortes en rutas 6 y 205 en Cañuelas; plan de lucha activo"
+                        }
+                    },
+                    {
+                        "id": "calle-36",
+                        "region": "general",
+                        "riskLevel": "Contexto Social",
+                        "badgeClass": "badge-alert-medium",
+                        "topicNumber": "Tema #3 en Agenda PBA",
+                        "title": "3. Informalidad laboral en el conurbano llega al 44,2%: récord del período y changarización creciente",
+                        "streetTalk": "En el primer trimestre de 2026, el 44,2% de los trabajadores del conurbano bonaerense se desempeña en condiciones informales, 2,2 puntos porcentuales más que el mismo período del año anterior. En distritos como La Matanza, Merlo y Moreno el desempleo formal supera el doble dígito. La changarización de la economía cotidiana —donde el rebusque reemplaza al empleo estable— se consolida como estrategia de subsistencia central en los hogares del conurbano.",
+                        "connection": ["Erosión de la base de trabajadores registrados disponibles para la industria formal", "Competencia del mercado informal sobre talleres y proveedores que tributan y aportan"],
+                        "uipbaPosition": "Mantener en el radar como variable estructural del ecosistema laboral en el que opera UIPBA; relevante para la agenda de formalización y empleo industrial de calidad.",
+                        "source": {
+                            "name": "El Destape",
+                            "link": "https://www.eldestapeweb.com/economia/la-barrializacion-y-el-techo-de-la-changa-asi-vive-el-conurbano-el-terremoto-milei-20266260546",
+                            "date": "Jun 2026"
+                        },
+                        "metrics": {
+                            "temp": 3,
+                            "volume": "Moderado",
+                            "variation": "Informalidad conurbano Q1 2026: 44,2%, +2,2 pp interanual"
+                        }
+                    },
+                    {
+                        "id": "calle-37",
+                        "region": "general",
+                        "riskLevel": "Contexto Social",
+                        "badgeClass": "badge-alert-medium",
+                        "topicNumber": "Tema #4 en Agenda PBA",
+                        "title": "4. Entra en vigencia el nuevo régimen penal juvenil: baja a 14 años la edad mínima de responsabilidad penal",
+                        "streetTalk": "Septiembre estrena en la Provincia el nuevo régimen de responsabilidad penal juvenil que reduce a 14 años la edad mínima. La medida llega en un contexto en que los fenómenos que preocupan en el conurbano van más allá de los homicidios dolosos: crecen la violencia intrafamiliar, las redes de préstamo informal con raíces en el narco y el desgaste del sistema policial, configurando un cuadro de deterioro social que el nuevo marco legal deberá enfrentar operativamente.",
+                        "connection": [],
+                        "uipbaPosition": "Mantener en el radar como factor del ecosistema de seguridad y justicia bonaerense; sin acción institucional directa prevista desde UIPBA.",
+                        "source": {
+                            "name": "Infobae",
+                            "link": "https://www.infobae.com/politica/2026/08/24/los-nuevos-sintomas-de-un-deterioro-social-silencioso-en-el-conurbano-bonaerense/",
+                            "date": "24 Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 3,
+                            "volume": "Moderado",
+                            "variation": "Nueva normativa penal juvenil en vigor desde septiembre 2026"
+                        }
+                    }
+                ],
+                "clipping": [
+                    {
+                        "id": "clip-57",
+                        "category": "nacional",
+                        "scopeTag": "Nacional • Ámbito Financiero",
+                        "badgeClass": "badge-alert-high",
+                        "badgeText": "CIERRES PyME",
+                        "title": "Más de 5.600 empresas cerraron en lo que va de 2026: el acumulado desde dic. 2023 llega a 28.262 bajas",
+                        "summary": "Datos de Ámbito Financiero registran que durante 2026 cerraron más de 5.600 empresas en el país, elevando el total acumulado desde el inicio de la gestión Milei a 28.262 bajas. El ritmo de cierres sigue siendo la señal más preocupante de deterioro estructural de la base PyME argentina, con impacto directo sobre el empleo y la densidad del tejido productivo.",
+                        "impact": "El dato consolida una tendencia de destrucción de la base productiva PyME que excede la rotación empresarial habitual y se convierte en el principal indicador de alerta de la agenda industrial.",
+                        "source": {
+                            "name": "Ámbito Financiero",
+                            "link": "https://www.ambito.com/economia/crisis-empresas-se-perdieron-mas-5600-2026-y-ya-son-28262-las-bajas-la-era-javier-milei-n6299443",
+                            "date": "Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 5,
+                            "volume": "Alto",
+                            "variation": "+5.600 en 2026; 28.262 bajas acumuladas desde dic. 2023"
+                        }
+                    },
+                    {
+                        "id": "clip-58",
+                        "category": "regional",
+                        "scopeTag": "Regional (PBA) • Ámbito Financiero",
+                        "badgeClass": "badge-alert-high",
+                        "badgeText": "INGRESOS BRUTOS",
+                        "title": "Industriales bonaerenses le piden a Kicillof eliminar Ingresos Brutos para el sector manufacturero",
+                        "summary": "La industria bonaerense presentó ante el gobernador Kicillof el reclamo de eximir al sector manufacturero del Impuesto sobre los Ingresos Brutos. El argumento central es de competitividad interprovincial: la presión efectiva de IIBB sobre el valor agregado industrial alcanza el 4,7% en PBA, frente al 3,5% en Córdoba y el 3,6% en Santa Fe.",
+                        "impact": "El reclamo introduce una discusión concreta de competitividad fiscal que puede abrir un frente de negociación relevante para la agenda industrial bonaerense en el segundo semestre.",
+                        "source": {
+                            "name": "Ámbito Financiero",
+                            "link": "https://www.ambito.com/economia/los-industriales-bonaerenses-le-pidieron-axel-kicillof-eximir-al-sector-ingresos-brutos-n6315244",
+                            "date": "Ago 2026"
+                        },
+                        "metrics": {
+                            "temp": 5,
+                            "volume": "Alto",
+                            "variation": "IIBB industrial PBA: 4,7% vs. Córdoba 3,5% y Santa Fe 3,6%"
+                        }
+                    },
+                    {
+                        "id": "clip-59",
+                        "category": "nacional",
+                        "scopeTag": "Nacional • Ámbito Financiero",
+                        "badgeClass": "badge-alert-medium",
+                        "badgeText": "PARITARIA UOM",
+                        "title": "Metalúrgicos cobran en septiembre $1.131.201 de básico más bono de $40.000 según el acuerdo UOM 2026-2027",
+                        "summary": "Con el convenio paritario UOM vigente hasta marzo de 2027 (suscripto con ADIMRA, AFARTE, CAIAMA, FEDEHOGAR y CAMIMA), los metalúrgicos percibirán en septiembre un salario mínimo (IMGR) de $1.131.201 más un bono extraordinario de $40.000. El acuerdo contempla un incremento acumulado del 23,5% hacia el cierre del período, con escalonamiento mensual hasta marzo 2027.",
+                        "impact": "La previsibilidad del esquema escalonado facilita la planificación de costos laborales del sector metalmecánico, aunque la mejora real sigue siendo negativa frente a la inflación acumulada.",
+                        "source": {
+                            "name": "Ámbito Financiero",
+                            "link": "https://www.ambito.com/economia/salarios-y-paritarias-metalurgicos-cuanto-cobraran-septiembre-2026-el-nuevo-acuerdo-n6314144",
+                            "date": "Sep 2026"
+                        },
+                        "metrics": {
+                            "temp": 3,
+                            "volume": "Moderado",
+                            "variation": "IMGR sep 2026: $1.131.201 + bono extraordinario $40.000"
+                        }
+                    },
+                    {
+                        "id": "clip-60",
+                        "category": "regional",
+                        "scopeTag": "Regional (PBA) • La Razón de Chivilcoy",
+                        "badgeClass": "badge-alert-medium",
+                        "badgeText": "TARIFAS ENERGÉTICAS",
+                        "title": "Gas sube 1,4% en todo el país y luz 1,75% en el AMBA: nuevas tarifas en vigor desde este 1° de septiembre",
+                        "summary": "Desde hoy rigen los nuevos valores energéticos dispuestos por el Gobierno nacional: el gas natural sube 1,4% en todo el territorio y la electricidad 1,75% en el AMBA, con ajustes adicionales del 1 al 2,4% en PBA según la Resolución 682/2026. Como contrapeso, el techo del consumo eléctrico subsidiado se amplía a 200 kWh mensuales.",
+                        "impact": "Los ajustes del 1° de septiembre se suman a la acumulación tarifaria del año y afectan de forma directa los costos de producción de la industria bonaerense y el presupuesto de los hogares trabajadores.",
+                        "source": {
+                            "name": "La Razón de Chivilcoy",
+                            "link": "https://www.larazondechivilcoy.com.ar/argentina/2026/9/1/habilitan-suba-de-gas-en-el-pais-luz-en-el-amba-pero-con-mas-subsidios-198829.html",
+                            "date": "1 Sep 2026"
+                        },
+                        "metrics": {
+                            "temp": 4,
+                            "volume": "Alto",
+                            "variation": "Gas +1,4% nacional; luz +1,75% AMBA en vigor desde hoy"
+                        }
+                    }
+                ]
+            },
             "2026-08-28": {
                 "sector": [
                     {
@@ -2382,7 +2594,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-08-27");
+            renderDashboard("2026-09-01");
         };
     </script>
 </body>
