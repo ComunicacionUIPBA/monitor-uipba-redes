@@ -1,0 +1,38 @@
+name: Apply Monitor UIPBA daily update
+on:
+  push:
+    paths:
+      - '.monitor-update-02-09.txt'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply update
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          block = Path('.monitor-update-02-09.txt').read_text(encoding='utf-8')
+          if '"2026-09-02": {' not in s:
+              marker = '        const DASHBOARD_DATA = {\n'
+              s = s.replace(marker, marker + block + '\n', 1)
+          s = s.replace('<span id="current-date-badge">1 Sep 2026</span>', '<span id="current-date-badge">2 Sep 2026</span>', 1)
+          s = s.replace('<option value="2026-09-01" selected>01/09/2026 (Hoy)</option>', '<option value="2026-09-02" selected>02/09/2026 (Hoy)</option>\n                        <option value="2026-09-01">01/09/2026</option>', 1)
+          s = s.replace('Tarifas energéticas en vigor desde hoy y presión por IIBB mantienen la tensión sobre costos industriales bonaerenses', 'Día de la Industria pone en primer plano producción, inversión, empleo y competitividad', 1)
+          s = s.replace('<span>4.0 / 5.0</span>\n                    <span>🔥🔥🔥🔥</span>', '<span>4.4 / 5.0</span>\n                    <span>🔥🔥🔥🔥</span>', 1)
+          s = s.replace('📈 Alto (tarifas energéticas desde hoy, 28.262 PyMEs cerradas, municipales cortan ruta, UOM paritaria septiembre)', '📈 Alto (Día de la Industria, crisis PyME, GNC, paro UNLP, alerta climática)', 1)
+          s = s.replace('2 Críticas (cierres 28.262 PyME / municipales cortan ruta) + 2 contexto (IIBB industrial / informalidad 44,2%)', '2 Críticas (crisis PyME / GNC) + 2 contexto (paro UNLP / alerta climática)', 1)
+          s = s.replace('renderDashboard("2026-09-01");', 'renderDashboard("2026-09-02");', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+          git config user.name "ComunicacionUIPBA"
+          git config user.email "comunicacion@uipba.org.ar"
+          rm -f .monitor-update-02-09.txt
+          rm -f .github/workflows/apply-monitor-update.yml
+          git add index.html .monitor-update-02-09.txt .github/workflows/apply-monitor-update.yml
+          git commit -m "Update Monitor UIPBA 02/09/2026" || exit 0
+          git push
