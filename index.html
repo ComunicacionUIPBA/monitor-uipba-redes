@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">1 Sep 2026</span>
+                    <span id="current-date-badge">2 Sep 2026</span>
                 </div>
             </div>
         </div>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-09-01" selected>01/09/2026 (Hoy)</option>
+                        <option value="2026-09-02" selected>02/09/2026 (Hoy)</option>
+                        <option value="2026-09-01">01/09/2026</option>
                         <option value="2026-08-28">28/08/2026</option>
                         <option value="2026-08-27">27/08/2026</option>
                         <option value="2026-08-24">24/08/2026</option>
@@ -164,22 +165,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Tarifas energéticas en vigor desde hoy y presión por IIBB mantienen la tensión sobre costos industriales bonaerenses</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Día de la Industria pone en primer plano producción, inversión, empleo y competitividad</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>4.0 / 5.0</span>
+                    <span>4.4 / 5.0</span>
                     <span>🔥🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (tarifas energéticas desde hoy, 28.262 PyMEs cerradas, municipales cortan ruta, UOM paritaria septiembre)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (Día de la Industria, crisis PyME, GNC, paro UNLP, alerta climática)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (cierres 28.262 PyME / municipales cortan ruta) + 2 contexto (IIBB industrial / informalidad 44,2%)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (crisis PyME / GNC) + 2 contexto (paro UNLP / alerta climática)</span>
             </div>
         </div>
     </section>
@@ -289,6 +290,147 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+            "2026-09-02": {
+                "sector": [
+                    {
+                        "id": "sec-50",
+                        "network": "LinkedIn",
+                        "networkBadge": "bg-uipba-navy text-white",
+                        "hashtag": "#DíaDeLaIndustria #IndustriaArgentina #Producción #Empleo",
+                        "title": "La industria argentina reivindica la producción, la inversión y el empleo como ejes del desarrollo",
+                        "quote": "En el Día de la Industria, la agenda vuelve a poner en el centro la producción, la inversión, el empleo y el desarrollo de capacidades propias. La fecha recuerda el primer embarque de productos manufacturados que partió desde Buenos Aires en 1587 y conecta esa historia con los desafíos actuales del entramado industrial.",
+                        "action": "Tomar la jornada como oportunidad para reforzar la agenda de competitividad industrial, inversión y empleo, con foco en las condiciones necesarias para sostener y ampliar la producción bonaerense.",
+                        "source": {"name": "LinkedIn — publicación directa", "link": "https://es.linkedin.com/posts/union-industrial-argentina_por-qu%C3%A9-el-2-de-septiembre-es-el-d%C3%ADa-de-activity-7498115410983104512-BTVV", "date": "2 Sep 2026"},
+                        "metrics": {"temp": 5, "volume": "Alto", "variation": "Día de la Industria; producción, inversión, empleo y capacidades propias"}
+                    },
+                    {
+                        "id": "sec-51",
+                        "network": "LinkedIn",
+                        "networkBadge": "bg-uipba-navy text-white",
+                        "hashtag": "#Financiamiento #Energía #MercadoDeCapitales #Industria",
+                        "title": "El mercado de capitales abre una nueva alternativa de financiamiento de largo plazo para el sector energético",
+                        "quote": "Una nueva emisión de Obligaciones Negociables vinculada a CGC ofrece una alternativa de financiamiento en dólares a 36 meses, con colocación prevista para este 2 de septiembre. El instrumento vuelve a mostrar el papel del mercado de capitales para canalizar recursos hacia proyectos de energía e infraestructura.",
+                        "action": "Monitorear instrumentos de financiamiento de largo plazo que puedan generar oportunidades de inversión y demanda para proveedores industriales bonaerenses vinculados a energía, infraestructura y servicios especializados.",
+                        "source": {"name": "LinkedIn — publicación directa", "link": "https://es.linkedin.com/posts/puente-hnos_somospuente-cgc-mercadodecapitales-activity-7500205662023368705-XSTq", "date": "2 Sep 2026"},
+                        "metrics": {"temp": 4, "volume": "Moderado", "variation": "ON en dólares a 36 meses; colocación prevista para 2 Sep 2026"}
+                    },
+                    {
+                        "id": "sec-52",
+                        "network": "LinkedIn",
+                        "networkBadge": "bg-uipba-navy text-white",
+                        "hashtag": "#IA #Industria4_0 #TransformaciónDigital #Productividad",
+                        "title": "La inteligencia artificial gana peso como herramienta para transformar operaciones y generar valor empresarial",
+                        "quote": "La agenda empresarial incorpora cada vez más la inteligencia artificial como herramienta para transformar la forma de innovar, operar y generar valor. El encuentro SAP NOW AI Tour Argentina reúne hoy experiencias y soluciones orientadas a acelerar esa transformación en las organizaciones.",
+                        "action": "Seguir la adopción de IA y herramientas de Industria 4.0 como variable de productividad y competitividad para las PyMEs industriales bonaerenses, especialmente en procesos, gestión y operaciones.",
+                        "source": {"name": "LinkedIn — publicación directa", "link": "https://es.linkedin.com/posts/accenturear_sap-now-ai-tour-argentina-2026-activity-7500287818284474368-Dkb2", "date": "2 Sep 2026"},
+                        "metrics": {"temp": 4, "volume": "Alto", "variation": "SAP NOW AI Tour Argentina; IA aplicada a innovación, operaciones y generación de valor"}
+                    }
+                ],
+                "calle": [
+                    {
+                        "id": "calle-38",
+                        "region": "la-plata",
+                        "riskLevel": "Alerta Social",
+                        "badgeClass": "badge-alert-high",
+                        "topicNumber": "Tema #1 en Agenda PBA",
+                        "title": "1. La falta de GNC en La Plata, Berisso y Ensenada escala y taxistas y remiseros preparan un corte de la Autopista",
+                        "streetTalk": "Las restricciones al abastecimiento de GNC llevan más de una semana en La Plata, Berisso y Ensenada y las estaciones reciben hasta un 50% menos de gas. La situación afecta a taxistas, remiseros, fleteros y conductores de aplicaciones, que organizan medidas de protesta ante la falta de normalización del suministro.",
+                        "connection": [],
+                        "uipbaPosition": "Registrar el conflicto como indicador de tensión sobre movilidad y actividad cotidiana en la Región; las restricciones de combustible pueden afectar tiempos de traslado y prestación de servicios.",
+                        "source": {"name": "Municipio de Berisso", "link": "https://munideberisso.com.ar/novedades/sin-gnc-taxistas-y-remiseros-cortaran-la-autopista-la-plata-buenos-aires", "date": "2 Sep 2026"},
+                        "metrics": {"temp": 5, "volume": "Alto", "variation": "Restricciones de GNC por más de una semana; protesta anunciada"}
+                    },
+                    {
+                        "id": "calle-39",
+                        "region": "la-plata",
+                        "riskLevel": "Tensión Institucional",
+                        "badgeClass": "badge-alert-medium",
+                        "topicNumber": "Tema #2 en Agenda PBA",
+                        "title": "2. La UNLP inicia un nuevo paro docente de 24 horas por el fracaso de la paritaria nacional",
+                        "streetTalk": "Los docentes universitarios realizan este miércoles 2 de septiembre un paro de 24 horas que afecta a la Universidad Nacional de La Plata. La medida fue convocada después de que la paritaria nacional terminara sin acuerdo y con una propuesta oficial de 3% de aumento para septiembre, considerada insuficiente por los gremios.",
+                        "connection": [],
+                        "uipbaPosition": "Monitorear el conflicto universitario como parte de la agenda social y educativa de La Plata, especialmente por su impacto sobre estudiantes, familias y la actividad cotidiana de la ciudad.",
+                        "source": {"name": "0221", "link": "https://www.0221.com.ar/universidad/la-unlp-arranca-un-nuevo-paro-el-fracaso-la-paritaria-docente-nivel-nacional-n133526", "date": "2 Sep 2026"},
+                        "metrics": {"temp": 4, "volume": "Alto", "variation": "Paro docente universitario de 24 horas; oferta salarial de 3% para septiembre"}
+                    },
+                    {
+                        "id": "calle-40",
+                        "region": "general",
+                        "riskLevel": "Alerta Climática",
+                        "badgeClass": "badge-alert-high",
+                        "topicNumber": "Tema #3 en Agenda PBA",
+                        "title": "3. Un frente de tormentas atraviesa la Provincia y el SMN mantiene alerta amarilla en distintos sectores bonaerenses",
+                        "streetTalk": "Un frente frío avanza sobre la provincia de Buenos Aires durante este miércoles y puede generar tormentas localmente fuertes, ráfagas, actividad eléctrica y granizo localizado. El fenómeno se desplaza del sur hacia el centro y norte provincial y alcanzará el AMBA entre la noche del miércoles y la madrugada del jueves.",
+                        "connection": [],
+                        "uipbaPosition": "Mantener el alerta meteorológico en el radar operativo por su posible impacto sobre circulación, logística, actividad comercial y servicios en distintos corredores bonaerenses.",
+                        "source": {"name": "La Nación", "link": "https://www.lanacion.com.ar/sociedad/a-que-hora-llegan-las-tormentas-fuertes-a-buenos-aires-segun-el-smn-nid01092026/", "date": "2 Sep 2026"},
+                        "metrics": {"temp": 4, "volume": "Alto", "variation": "Alerta amarilla; tormentas, ráfagas y posible granizo"}
+                    },
+                    {
+                        "id": "calle-41",
+                        "region": "conurbano-norte",
+                        "riskLevel": "Prevención",
+                        "badgeClass": "badge-alert-medium",
+                        "topicNumber": "Tema #4 en Agenda PBA",
+                        "title": "4. La Provincia terminó el saneamiento del Canal José León Suárez para mejorar la respuesta ante eventos climáticos",
+                        "streetTalk": "El Ministerio de Infraestructura bonaerense finalizó los trabajos de saneamiento del Canal José León Suárez, en San Martín. La intervención se enmarca en el Plan de Gestión del Riesgo frente al Cambio Climático y busca fortalecer la prevención y la capacidad de respuesta ante fenómenos meteorológicos extremos.",
+                        "connection": [],
+                        "uipbaPosition": "Seguir las obras de prevención hídrica y gestión del riesgo como parte de la infraestructura crítica que condiciona la movilidad y la actividad económica en el conurbano.",
+                        "source": {"name": "Provincia de Buenos Aires", "link": "https://gba.gob.ar/infraestructura/noticias/en_san_mart%C3%ADn_la_provincia_finaliz%C3%B3_el_saneamiento_del_canal_jos%C3%A9_le%C3%B3n", "date": "1 Sep 2026"},
+                        "metrics": {"temp": 3, "volume": "Moderado", "variation": "Saneamiento finalizado; gestión del riesgo climático en San Martín"}
+                    }
+                ],
+                "clipping": [
+                    {
+                        "id": "clip-61",
+                        "category": "regional",
+                        "scopeTag": "Regional (PBA) • TN",
+                        "badgeClass": "badge-alert-high",
+                        "badgeText": "DÍA DE LA INDUSTRIA",
+                        "title": "Industriales se reúnen en Malvinas Argentinas con foco en reactivación, impuestos y competitividad",
+                        "summary": "La UIA realiza este miércoles su acto por el Día de la Industria en la planta de Elea Phoenix, en Malvinas Argentinas, con más de 200 empresarios. La agenda pone el foco en la reactivación del sector, la carga tributaria y las condiciones de competitividad, en un contexto de caída de la producción industrial durante el primer semestre.",
+                        "impact": "El encuentro vuelve a concentrar en territorio bonaerense el debate sobre competitividad industrial, presión tributaria y recuperación de la actividad, ejes centrales para la agenda de UIPBA.",
+                        "source": {"name": "TN", "link": "https://tn.com.ar/economia/2026/09/02/con-poca-presencia-oficial-los-industriales-se-reunen-para-discutir-la-reactivacion-economica-y-la-baja-de-impuestos/", "date": "2 Sep 2026"},
+                        "metrics": {"temp": 5, "volume": "Alto", "variation": "Más de 200 industriales; reactivación, impuestos y competitividad"}
+                    },
+                    {
+                        "id": "clip-62",
+                        "category": "nacional",
+                        "scopeTag": "Nacional • Nota al Pie",
+                        "badgeClass": "badge-alert-high",
+                        "badgeText": "EMPLEO Y EMPRESAS",
+                        "title": "La industria llega al Día de la Industria con 31.174 empleadores menos y 448.354 puestos registrados perdidos",
+                        "summary": "Un informe de coyuntura industrial PyME de IPA señala que desde diciembre de 2023 se perdieron 31.174 empleadores aportantes y 448.354 puestos de trabajo registrados. El relevamiento también ubica la capacidad ociosa industrial en 40,9% y señala que 87% de los directivos fabriles no espera mejoras para el trimestre agosto-octubre.",
+                        "impact": "La combinación de destrucción de empresas, pérdida de empleo y elevada capacidad ociosa refuerza la alerta sobre la profundidad de la contracción del entramado productivo y la dificultad de una recuperación homogénea.",
+                        "source": {"name": "Nota al Pie", "link": "https://www.notaalpie.com.ar/2026/09/02/industria-31-174-empresas-menos/", "date": "2 Sep 2026"},
+                        "metrics": {"temp": 5, "volume": "Alto", "variation": "31.174 empleadores menos; 448.354 empleos registrados menos desde dic. 2023"}
+                    },
+                    {
+                        "id": "clip-63",
+                        "category": "nacional",
+                        "scopeTag": "Nacional • APF Digital",
+                        "badgeClass": "badge-alert-high",
+                        "badgeText": "PYMES INDUSTRIALES",
+                        "title": "APYME advierte que la industria necesita un cambio de rumbo ante la caída de actividad y capacidad ociosa",
+                        "summary": "APYME advirtió por el deterioro de la actividad industrial, la capacidad instalada por debajo del 40%, el avance de las importaciones y las dificultades de las empresas para sostener su cadena de pagos. La entidad planteó que el escenario exige modificar el rumbo económico para evitar una mayor pérdida de empresas y empleos.",
+                        "impact": "El diagnóstico suma una voz PyME al debate del Día de la Industria y refuerza la presión para discutir condiciones de producción, financiamiento y competitividad.",
+                        "source": {"name": "APF Digital", "link": "https://www.apfdigital.com.ar/noticias/2026/09/02/469332-en-el-dia-de-la-industria-apyme-advirtio-o-cambiamos-de-rumbo-o-nos-resignamos-a-desaparecer", "date": "2 Sep 2026"},
+                        "metrics": {"temp": 5, "volume": "Alto", "variation": "Capacidad instalada por debajo del 40%; alerta sobre empresas y empleo"}
+                    },
+                    {
+                        "id": "clip-64",
+                        "category": "regional",
+                        "scopeTag": "Regional (PBA) • El Día",
+                        "badgeClass": "badge-alert-medium",
+                        "badgeText": "INDUSTRIA LOCAL",
+                        "title": "La industria platense celebra su día con unas 500 empresas y miles de puestos de trabajo",
+                        "summary": "El Día de la Industria encuentra a La Plata con un entramado de unas 500 industrias y miles de puestos de trabajo vinculados al sector. La fecha vuelve a poner en agenda el peso de la actividad fabril local y su aporte al empleo y la economía de la ciudad.",
+                        "impact": "Aporta una mirada territorial sobre el peso de la industria en la capital bonaerense y permite complementar el diagnóstico nacional con la dimensión productiva local.",
+                        "source": {"name": "El Día", "link": "https://www.eldia.com/la-ciudad/la-industria-local-celebra-su-dia-la-ciudad_1788327476", "date": "2 Sep 2026"},
+                        "metrics": {"temp": 4, "volume": "Moderado", "variation": "La Plata: alrededor de 500 industrias y miles de empleos"}
+                    }
+                ]
+            },
             "2026-09-01": {
                 "sector": [
                     {
@@ -2594,7 +2736,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-09-01");
+            renderDashboard("2026-09-02");
         };
     </script>
 </body>
