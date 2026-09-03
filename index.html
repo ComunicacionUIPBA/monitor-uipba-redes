@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">2 Sep 2026</span>
+                    <span id="current-date-badge">3 Sep 2026</span>
                 </div>
             </div>
         </div>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-09-02" selected>02/09/2026 (Hoy)</option>
+                        <option value="2026-09-03" selected>03/09/2026 (Hoy)</option>
+                        <option value="2026-09-02">02/09/2026</option>
                         <option value="2026-09-01">01/09/2026</option>
                         <option value="2026-08-28">28/08/2026</option>
                         <option value="2026-08-27">27/08/2026</option>
@@ -165,22 +166,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">Día de la Industria pone en primer plano producción, inversión, empleo y competitividad</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">La industria vuelve a poner producción, inversión, empleo y competitividad en el centro de la agenda</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>4.4 / 5.0</span>
+                    <span>4.6 / 5.0</span>
                     <span>🔥🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (Día de la Industria, crisis PyME, GNC, paro UNLP, alerta climática)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (industria, exportaciones, paro de transporte y clima)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (crisis PyME / GNC) + 2 contexto (paro UNLP / alerta climática)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (seguridad / transporte) + 1 contexto (alerta climática)</span>
             </div>
         </div>
     </section>
@@ -290,6 +291,217 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+        "2026-09-03": {
+                    "sector": [
+                                {
+                                            "id": "sec-53",
+                                            "network": "LinkedIn",
+                                            "networkBadge": "bg-uipba-navy text-white",
+                                            "hashtag": "#Industria #DíaDeLaIndustria #Producción #Empleo",
+                                            "title": "La UIA vuelve a poner producción, inversión y empleo en el centro de la agenda industrial",
+                                            "quote": "La cuenta oficial de la Unión Industrial Argentina publicó hoy un mensaje que plantea una Argentina que produzca, invierta, genere empleo y desarrolle capacidades propias, ubicando a la industria como parte central de esa construcción.",
+                                            "action": "Monitorear cómo evoluciona la agenda de competitividad, inversión y empleo planteada por la UIA luego del Día de la Industria, especialmente en relación con las condiciones para sostener producción en las PyMEs.",
+                                            "source": {
+                                                        "name": "UIA — cuenta oficial de LinkedIn",
+                                                        "link": "https://ar.linkedin.com/company/union-industrial-argentina",
+                                                        "date": "3 Sep 2026"
+                                            },
+                                            "metrics": {
+                                                        "temp": 5,
+                                                        "volume": "Alto",
+                                                        "variation": "Publicación reciente sobre producción, inversión, empleo y capacidades propias"
+                                            }
+                                },
+                                {
+                                            "id": "sec-54",
+                                            "network": "LinkedIn",
+                                            "networkBadge": "bg-uipba-navy text-white",
+                                            "hashtag": "#IndustriaMetalúrgica #Producción #Empleo #Argentina",
+                                            "title": "ADIMRA reivindica talento, trabajo y producción como pilares de la industria argentina",
+                                            "quote": "La cuenta oficial de ADIMRA publicó hoy un mensaje por el Día de la Industria que destaca el talento, el trabajo y la producción y reivindica a quienes todos los días sostienen la actividad industrial argentina.",
+                                            "action": "Seguir el posicionamiento de la industria metalúrgica como señal de clima sectorial y de las demandas vinculadas con producción, empleo y competitividad.",
+                                            "source": {
+                                                        "name": "ADIMRA — cuenta oficial de LinkedIn",
+                                                        "link": "https://ar.linkedin.com/company/adimra",
+                                                        "date": "3 Sep 2026"
+                                            },
+                                            "metrics": {
+                                                        "temp": 5,
+                                                        "volume": "Alto",
+                                                        "variation": "Publicación reciente; foco en talento, trabajo y producción"
+                                            }
+                                },
+                                {
+                                            "id": "sec-55",
+                                            "network": "LinkedIn",
+                                            "networkBadge": "bg-uipba-navy text-white",
+                                            "hashtag": "#IndustriaQuímica #Petroquímica #Sustentabilidad #Competitividad",
+                                            "title": "La industria química y petroquímica destaca innovación, empleo y sustentabilidad en su agenda sectorial",
+                                            "quote": "El Instituto Petroquímico Argentino publicó hoy un mensaje que reivindica el aporte estratégico de la industria química y petroquímica al desarrollo nacional, con énfasis en innovación, empleo de calidad, sustentabilidad y competitividad.",
+                                            "action": "Registrar la agenda de sectores industriales intensivos en conocimiento y energía, especialmente sus demandas de competitividad y las oportunidades de encadenamiento con otras ramas productivas.",
+                                            "source": {
+                                                        "name": "IPA — cuenta oficial de LinkedIn",
+                                                        "link": "https://ar.linkedin.com/company/ipa-instituto-petroquimico-argentino",
+                                                        "date": "3 Sep 2026"
+                                            },
+                                            "metrics": {
+                                                        "temp": 4,
+                                                        "volume": "Alto",
+                                                        "variation": "Publicación reciente; innovación, empleo, sustentabilidad y competitividad"
+                                            }
+                                }
+                    ],
+                    "calle": [
+                                {
+                                            "id": "calle-42",
+                                            "region": "conurbano-norte",
+                                            "riskLevel": "Alerta Social",
+                                            "badgeClass": "badge-alert-high",
+                                            "topicNumber": "Tema #1 en Agenda PBA",
+                                            "title": "1. Vecinos de Garín salieron a protestar tras una violenta entradera y reclaman mayor seguridad",
+                                            "streetTalk": "Una violenta entradera ocurrida en Garín dejó a un hombre herido de bala en ambas piernas. Horas después, vecinos de la localidad escobarense se manifestaron en la colectora de Panamericana para reclamar mayor seguridad.",
+                                            "connection": [],
+                                            "uipbaPosition": "Registrar la inseguridad como una preocupación cotidiana de fuerte impacto territorial; los episodios de violencia y las protestas vecinales afectan la percepción de seguridad de trabajadores, comercios y empresas.",
+                                            "source": {
+                                                        "name": "Pilar a Diario",
+                                                        "link": "https://www.pilaradiario.com/policiales/violenta-entradera-garin-le-dispararon-ambas-piernas-n5445483",
+                                                        "date": "3 Sep 2026"
+                                            },
+                                            "metrics": {
+                                                        "temp": 5,
+                                                        "volume": "Alto",
+                                                        "variation": "Entradera violenta y protesta vecinal en Garín"
+                                            }
+                                },
+                                {
+                                            "id": "calle-43",
+                                            "region": "general",
+                                            "riskLevel": "Impacto Directo",
+                                            "badgeClass": "badge-alert-high",
+                                            "topicNumber": "Tema #2 en Agenda PBA",
+                                            "title": "2. El paro de transporte altera la movilidad y deja terminales y estaciones con fuerte caída de circulación",
+                                            "streetTalk": "La jornada de paro afecta el transporte público en distintos puntos bonaerenses. En Pilar no circulan trenes y funcionan pocas líneas de colectivos, mientras la terminal y el centro de trasbordo presentan una actividad muy inferior a la habitual.",
+                                            "connection": [
+                                                        "Impacto sobre traslados de trabajadores y logística cotidiana",
+                                                        "Posibles demoras y menor movilidad en corredores productivos"
+                                            ],
+                                            "uipbaPosition": "Monitorear el impacto de la medida sobre movilidad laboral, logística y funcionamiento de empresas y parques industriales bonaerenses.",
+                                            "source": {
+                                                        "name": "Pilar a Diario",
+                                                        "link": "https://www.pilaradiario.com/informacion-general/asi-se-vive-la-jornada-paro-pilar-n5467898",
+                                                        "date": "3 Sep 2026"
+                                            },
+                                            "metrics": {
+                                                        "temp": 5,
+                                                        "volume": "Alto",
+                                                        "variation": "Trenes sin servicio y colectivos con circulación restringida en Pilar"
+                                            }
+                                },
+                                {
+                                            "id": "calle-44",
+                                            "region": "la-plata",
+                                            "riskLevel": "Alerta Climática",
+                                            "badgeClass": "badge-alert-medium",
+                                            "topicNumber": "Tema #3 en Agenda PBA",
+                                            "title": "3. La Plata atraviesa una mañana de tormentas y lluvias antes de una mejora durante la tarde",
+                                            "streetTalk": "El SMN anticipó para este jueves una jornada húmeda e inestable en La Plata, con tormentas aisladas durante la mañana y una mejora hacia la tarde. La temperatura máxima prevista ronda los 18 °C.",
+                                            "connection": [],
+                                            "uipbaPosition": "Mantener el clima en el radar operativo por sus efectos sobre circulación, logística y actividad comercial, especialmente durante las primeras horas de la jornada.",
+                                            "source": {
+                                                        "name": "0221",
+                                                        "link": "https://www.0221.com.ar/la-plata/jueves-gris-y-lluvias-la-plata-la-previa-una-seguidilla-mananas-heladas-n133591",
+                                                        "date": "3 Sep 2026"
+                                            },
+                                            "metrics": {
+                                                        "temp": 4,
+                                                        "volume": "Alto",
+                                                        "variation": "Tormentas aisladas por la mañana; mejora prevista durante la tarde"
+                                            }
+                                }
+                    ],
+                    "clipping": [
+                                {
+                                            "id": "clip-65",
+                                            "category": "regional",
+                                            "scopeTag": "Regional (PBA) • La Provincia en Vivo",
+                                            "badgeClass": "badge-alert-high",
+                                            "badgeText": "INDUSTRIA JUNÍN",
+                                            "title": "Junín destaca a la industria como segunda actividad generadora de ingresos del distrito",
+                                            "summary": "El intendente Juan Fiorini encabezó un encuentro con industriales locales y destacó el compromiso y la inversión del sector, señalando su peso en la generación de ingresos, empleo y nuevas oportunidades para la ciudad.",
+                                            "impact": "Aporta una mirada territorial sobre el rol de la industria en el interior bonaerense y sobre la relación entre inversión, ampliación de plantas, incorporación de maquinaria y empleo.",
+                                            "source": {
+                                                        "name": "La Provincia en Vivo",
+                                                        "link": "https://laprovinciaenvivo.com/2026/09/03/fiorini-destaco-el-aporte-de-la-industria-al-desarrollo-de-junin/",
+                                                        "date": "3 Sep 2026"
+                                            },
+                                            "metrics": {
+                                                        "temp": 5,
+                                                        "volume": "Alto",
+                                                        "variation": "Encuentro con industriales; inversión, empleo y desarrollo local"
+                                            }
+                                },
+                                {
+                                            "id": "clip-66",
+                                            "category": "nacional",
+                                            "scopeTag": "Nacional • Forbes Argentina",
+                                            "badgeClass": "badge-alert-medium",
+                                            "badgeText": "EXPORTACIONES",
+                                            "title": "Buenos Aires volvió a encabezar las exportaciones argentinas durante el primer semestre",
+                                            "summary": "Forbes Argentina informó que Buenos Aires lideró el valor de las exportaciones argentinas en el primer semestre de 2026, seguida por Santa Fe y Córdoba. Las tres jurisdicciones concentraron una parte relevante del comercio exterior nacional.",
+                                            "impact": "El liderazgo exportador bonaerense refuerza la importancia de la competitividad industrial y logística provincial para sostener el aporte de Buenos Aires al comercio exterior.",
+                                            "source": {
+                                                        "name": "Forbes Argentina",
+                                                        "link": "https://www.forbesargentina.com/money/el-ranking-provincias-mas-exportaron-primer-semestre-2026-seis-concentraron-casi-80-total-n97030",
+                                                        "date": "3 Sep 2026"
+                                            },
+                                            "metrics": {
+                                                        "temp": 5,
+                                                        "volume": "Alto",
+                                                        "variation": "Buenos Aires lidera exportaciones del primer semestre 2026"
+                                            }
+                                },
+                                {
+                                            "id": "clip-67",
+                                            "category": "regional",
+                                            "scopeTag": "Regional (PBA) • Pilar a Diario",
+                                            "badgeClass": "badge-alert-high",
+                                            "badgeText": "TRANSPORTE",
+                                            "title": "El paro de colectivos reduce la circulación en Pilar y carga la Panamericana",
+                                            "summary": "Pilar a Diario registró durante la jornada de paro una circulación muy reducida de colectivos, con trenes sin servicio y una Panamericana más cargada de lo habitual por el traslado de pasajeros hacia otras alternativas.",
+                                            "impact": "La medida tiene impacto directo sobre movilidad de trabajadores y logística en uno de los corredores industriales del norte bonaerense.",
+                                            "source": {
+                                                        "name": "Pilar a Diario",
+                                                        "link": "https://www.pilaradiario.com/informacion-general/se-cumple-el-paro-colectivos-pilar-circulan-las-lineas-57-176-276-y-510-pero-restricciones-panamericana-mas-cargada-lo-habitual-n5461471",
+                                                        "date": "3 Sep 2026"
+                                            },
+                                            "metrics": {
+                                                        "temp": 5,
+                                                        "volume": "Alto",
+                                                        "variation": "Transporte restringido; mayor carga sobre Panamericana"
+                                            }
+                                },
+                                {
+                                            "id": "clip-68",
+                                            "category": "regional",
+                                            "scopeTag": "Regional (PBA) • 0221",
+                                            "badgeClass": "badge-alert-medium",
+                                            "badgeText": "CLIMA LA PLATA",
+                                            "title": "La Plata transita una mañana gris y lluviosa con mejora prevista para la tarde",
+                                            "summary": "0221 informó que La Plata atraviesa una jornada húmeda e inestable, con tormentas aisladas durante la mañana y mejora hacia la tarde, según el pronóstico del Servicio Meteorológico Nacional.",
+                                            "impact": "El episodio climático es relevante para la agenda cotidiana por sus posibles efectos sobre circulación, actividad comercial y logística urbana.",
+                                            "source": {
+                                                        "name": "0221",
+                                                        "link": "https://www.0221.com.ar/la-plata/jueves-gris-y-lluvias-la-plata-la-previa-una-seguidilla-mananas-heladas-n133591",
+                                                        "date": "3 Sep 2026"
+                                            },
+                                            "metrics": {
+                                                        "temp": 4,
+                                                        "volume": "Alto",
+                                                        "variation": "Tormentas aisladas por la mañana; mejora durante la tarde"
+                                            }
+                                }
+                    ]
+        },
             "2026-09-02": {
                 "sector": [
                     {
