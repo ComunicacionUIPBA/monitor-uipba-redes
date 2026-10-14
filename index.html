@@ -163,7 +163,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge" class="date-badge">10/10/2026</span>
+                    <span id="current-date-badge" class="date-badge">14/10/2026</span>
                 </div>
             </div>
         </div>
@@ -186,7 +186,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-10-10" selected>10/10/2026 (Último informe)</option>
+                        <option value="2026-10-14" selected>14/10/2026 (Último informe)</option>
+                        <option value="2026-10-10">10/10/2026</option>
                         <option value="2026-10-09">09/10/2026</option>
                         <option value="2026-10-08">08/10/2026</option>
                         <option value="2026-09-29">29/09/2026</option>
@@ -356,6 +357,335 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+        "2026-10-14": {
+    "analysisPeriod": {
+        "date": "2026-10-13",
+        "start": "2026-10-13T00:00:00-03:00",
+        "end": "2026-10-13T23:59:59-03:00",
+        "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "sector": [
+        {
+            "id": "red-x",
+            "network": "X",
+            "networkBadge": "bg-slate-900 text-white",
+            "hashtag": "Tema destacado · sin tendencia acreditada",
+            "title": "La electrificación transforma la cadena automotriz",
+            "quote": "Una publicación de EY Argentina plantea que la electrificación y el desarrollo tecnológico están transformando la industria automotriz.",
+            "action": "El cambio tecnológico puede modificar componentes, capacidades y requisitos de proveedores de la cadena automotriz. Para los socios industriales bonaerenses, el contenido funciona como señal para observar la evolución de inversiones y demanda de autopartes; esta lectura es una inferencia, no un anuncio de inversión local.",
+            "watch": "Nuevos proyectos de producción de vehículos electrificados, desarrollo local de autopartes y cambios en la demanda de proveedores argentinos.",
+            "evidence": "El índice público de X muestra una publicación de EY Argentina fechada el 13/10/2026. Se identificó un post específico y otro post industrial distinto de otra cuenta, pero no dos publicaciones adicionales sobre electrificación automotriz; la apertura directa no permitió confirmar métricas de interacción. Por eso se rotula como tema destacado, no tendencia.",
+            "source": {
+                "name": "EY Argentina — X",
+                "link": "https://x.com/EY_Argentina/status/2110007655964012548",
+                "date": "13/10/2026 · fecha expuesta por el índice público · relevado 14/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin tendencia acreditada",
+                "variation": "Un post verificable; sin contraste suficiente"
+            }
+        },
+        {
+            "id": "red-linkedin",
+            "network": "LinkedIn",
+            "networkBadge": "bg-blue-100 text-blue-800",
+            "hashtag": "Tema destacado · excepción temporal",
+            "title": "La economía espacial busca articular industria, ciencia y nuevas cadenas de valor",
+            "quote": "Una publicación sobre Argentina Space 2026 describe el encuentro previsto en Salta como un espacio de conexión entre industria, tecnología, inversión y oportunidades de negocio.",
+            "action": "La industria espacial puede abrir oportunidades para proveedores de electrónica, metalmecánica, software, energía y servicios técnicos. Para los socios de UIPBA, el post sirve como referencia sectorial para observar qué capacidades y vínculos de negocio se proponen; no prueba oportunidades contratables ni participación bonaerense.",
+            "watch": "Agenda de rondas B2B, perfiles de expositores y convocatorias de proveedores del encuentro previsto para noviembre.",
+            "evidence": "Publicación específica de Alejandro Temporetti Olivera con contenido original vinculado a industria espacial. LinkedIn expone «3 semanas», no una fecha absoluta; no corresponde al 13/10. No se observan métricas de interacción ni dos publicaciones adicionales que permitan afirmar tendencia. Se usa como excepción temporal, distinta de las siete ediciones revisadas.",
+            "source": {
+                "name": "Alejandro Temporetti Olivera — LinkedIn",
+                "link": "https://es.linkedin.com/posts/alejandro-temporetti-olivera-108a8629_argentinaspace-argentinaspace2026-salta-activity-7508165423423623169-cM94",
+                "date": "Fecha no expuesta por el índice público · LinkedIn: «3 semanas» · relevado 14/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin tendencia acreditada",
+                "variation": "Excepción temporal; sin métricas públicas"
+            }
+        },
+        {
+            "id": "red-instagram",
+            "network": "Instagram",
+            "networkBadge": "bg-pink-100 text-pink-800",
+            "hashtag": "Evidencia insuficiente",
+            "title": "Sin tendencia industrial nueva verificable en Instagram",
+            "quote": "No se verificó un post industrial fechado el 13/10 ni una alternativa reciente con fecha comprobable y vínculo industrial directo.",
+            "action": "Sin una publicación verificable no es posible atribuir una conversación destacada a esta red ni extraer una señal útil para UIPBA y sus socios. Esto no permite concluir que no haya habido conversación industrial.",
+            "watch": "Publicaciones originales con fecha visible sobre producción, proveedores, empleo industrial, inversiones o innovación aplicada a manufactura.",
+            "evidence": "Se buscó Instagram por industria, producción, PyMEs industriales y fecha 13/10. Los resultados visibles fueron irrelevantes, antiguos o no expusieron la fecha de publicación; no se consiguieron cinco candidatos industriales recientes de cuentas distintas ni señales comparables.",
+            "source": {
+                "name": "Sin publicación industrial reciente verificable",
+                "link": "",
+                "date": "Sin post del 13/10 verificable · relevado 14/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin tendencia acreditada",
+                "variation": "Candidatos insuficientes"
+            }
+        },
+        {
+            "id": "red-facebook",
+            "network": "Facebook",
+            "networkBadge": "bg-blue-100 text-blue-800",
+            "hashtag": "Evidencia insuficiente",
+            "title": "Sin tendencia industrial nueva verificable en Facebook",
+            "quote": "No se verificó un post industrial fechado el 13/10 ni una alternativa reciente con fecha comprobable y vínculo industrial directo.",
+            "action": "La falta de un post industrial verificable impide identificar un tema destacado para UIPBA y sus socios en esta red. No implica que no haya existido conversación industrial.",
+            "watch": "Publicaciones originales de cámaras, empresas, sindicatos, trabajadores y organismos productivos con fecha comprobable y enlace al post específico.",
+            "evidence": "Se revisaron resultados de cuentas distintas sobre actividad minera, proveedores energéticos, manufactura y cierres fabriles. Las fechas técnicas no quedaron expuestas; varios resultados eran publicaciones promocionales o piezas de medios, no voces sociales verificables del período. No se alcanzaron cinco candidatos recientes con fecha comprobable ni señales de tendencia.",
+            "source": {
+                "name": "Sin publicación industrial reciente verificable",
+                "link": "",
+                "date": "Sin post del 13/10 verificable · relevado 14/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin tendencia acreditada",
+                "variation": "Candidatos insuficientes"
+            }
+        }
+    ],
+    "calle": [
+        {
+            "id": "calle-1",
+            "region": "la-plata",
+            "riskLevel": "Agenda social",
+            "badgeClass": "badge-alert-info",
+            "topicNumber": "Tema 1",
+            "title": "Villa Alba, La Plata: un conflicto por terrenos terminó con un detenido",
+            "streetTalk": "El 13/10, vecinos que denunciaron una presunta estafa en la compra de lotes volvieron a un predio de Villa Alba, en Villa Elvira. El operativo derivó en enfrentamientos, uso de municiones disuasivas y una detención. El conflicto expone una disputa habitacional y de seguridad que afecta a familias de la zona.",
+            "connection": [],
+            "uipbaPosition": "Información de contexto provincial; sin posición institucional atribuida.",
+            "source": {
+                "name": "0221",
+                "link": "https://www.0221.com.ar/la-plata/vecinos-la-plata-intentaron-ocupar-un-terreno-una-supuesta-estafa-y-se-enfrentaron-la-policia-n135697",
+                "date": "13/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales",
+                "variation": "Publicado 13/10"
+            }
+        },
+        {
+            "id": "calle-2",
+            "region": "general",
+            "riskLevel": "Agenda social",
+            "badgeClass": "badge-alert-info",
+            "topicNumber": "Tema 2",
+            "title": "ABSA habilitó un plan de pago en cuotas para deudas de agua",
+            "streetTalk": "El 13/10 se informó que usuarios con tres o más facturas adeudadas podrán regularizar el servicio en hasta diez cuotas sin interés, con un anticipo del 30%, sujeto a exclusiones. La medida alcanza el área de concesión de ABSA en distintos municipios bonaerenses y modifica las opciones disponibles para los hogares con deuda.",
+            "connection": [],
+            "uipbaPosition": "Información de contexto provincial; sin posición institucional atribuida.",
+            "source": {
+                "name": "0221",
+                "link": "https://www.0221.com.ar/provincia/absa-ofrece-un-plan-10-cuotas-interes-regularizar-deudas-agua-n135720",
+                "date": "13/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales",
+                "variation": "Publicado 13/10"
+            }
+        },
+        {
+            "id": "calle-3",
+            "region": "general",
+            "riskLevel": "Agenda social",
+            "badgeClass": "badge-alert-info",
+            "topicNumber": "Tema 3",
+            "title": "La Provincia lanzó un plan de educación vial para escuelas y municipios",
+            "streetTalk": "El 13/10 se difundió un programa bonaerense que prevé contenidos de seguridad vial en escuelas, formación para agentes públicos y actividades abiertas a la comunidad. La ejecución se coordinará con municipios y se adaptará a las necesidades de cada distrito, con el objetivo de prevenir siniestros y mejorar la convivencia en el espacio público.",
+            "connection": [],
+            "uipbaPosition": "Información de contexto provincial; sin posición institucional atribuida.",
+            "source": {
+                "name": "0221",
+                "link": "https://www.0221.com.ar/provincia/la-provincia-lanzo-un-plan-educacion-vial-escuelas-municipios-y-toda-la-comunidad-n135706",
+                "date": "13/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales",
+                "variation": "Publicado 13/10"
+            }
+        }
+    ],
+    "clipping": [
+        {
+            "id": "clip-1",
+            "category": "regional",
+            "scopeTag": "Provincial · Quilmes y Conurbano Sur",
+            "badgeClass": "badge-alert-info",
+            "badgeText": "INDUSTRIA",
+            "title": "La metalurgia del Conurbano Sur acumula caída de actividad y alerta por empleo",
+            "summary": "Diario NCO publicó el 13/10 que la actividad metalúrgica acumula una contracción del 5,5% en 2026 y que la UOM Quilmes advirtió sobre cierres y pérdida de puestos en la región. La nota vincula el deterioro con talleres, proveedores y empresas manufactureras del Conurbano Sur.",
+            "impact": "La evolución de la metalurgia afecta empleo fabril y pedidos a proveedores de la cadena. Para socios bonaerenses, importa seguir actividad sectorial, continuidad de establecimientos y puestos registrados; el reporte no permite inferir por sí solo el impacto en cada empresa.",
+            "source": {
+                "name": "Diario NCO — Florencia Belén Mogno",
+                "link": "https://diario-nco.net/2026/10/13/metalurgica-enfrenta-una-caida/",
+                "date": "13/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales",
+                "variation": "Publicado 13/10"
+            },
+            "industrialVerified": true
+        },
+        {
+            "id": "clip-2",
+            "category": "nacional",
+            "scopeTag": "Provincial · La Plata · Energía y minería",
+            "badgeClass": "badge-alert-info",
+            "badgeText": "INDUSTRIA",
+            "title": "Proveedores energéticos y mineros buscan integrarse a nuevas rondas de negocios",
+            "summary": "El Cronista informó el 13/10 que cerraba la inscripción a la primera ronda de negocios del RIGI y que el gobernador bonaerense recibiría a unas 100 proveedoras de energía y minería en La Plata. La nota se enfoca en la vinculación de empresas locales con las cadenas de suministro de grandes proyectos.",
+            "impact": "El acceso a rondas de negocio puede ser una vía de articulación entre fabricantes y compradores de energía y minería. Para UIPBA y sus socios, conviene observar requisitos de calidad, escala, certificaciones y resultados concretos de las reuniones, sin asumir contratos ni beneficios ya materializados.",
+            "source": {
+                "name": "El Cronista — Natalí Risso",
+                "link": "https://www.cronista.com/economia-politica/semana-clave-para-los-proveedores-del-boom-energetico-rondas-rigi-y-cumbre-con-kicillof/",
+                "date": "13/10/2026 · 09:39"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales",
+                "variation": "Publicado 13/10"
+            },
+            "industrialVerified": true
+        }
+    ],
+    "audit": {
+        "reviewedEditions": [
+            "2026-10-10",
+            "2026-10-09",
+            "2026-10-08",
+            "2026-09-29",
+            "2026-09-28",
+            "2026-09-27",
+            "2026-09-26"
+        ],
+        "rule": "Se revisaron las siete ediciones publicadas más recientes del historial disponible. No hay ediciones para 11–13/10; la última edición previa a esta actualización era 10/10. Se conservaron todas las claves anteriores. Se comprobaron cuentas, enlaces y temas sociales para evitar reutilizaciones; no se repite un hecho entre secciones de esta edición.",
+        "minimumCandidatesMet": false,
+        "limitations": {
+            "X": "Se identificaron cuatro candidatos con publicación industrial reciente indexada; no cinco. Solo se verificó un post sobre electrificación automotriz y no aparecieron dos contrastes adicionales del mismo tema. Se selecciona como tema destacado, no tendencia.",
+            "LinkedIn": "No se verificó un post del 13/10. Se halló una publicación industrial original de Alejandro Temporetti Olivera indexada como «3 semanas»; fecha absoluta y métricas de interacción no expuestas. Se usa como excepción temporal, sin afirmar tendencia.",
+            "Instagram": "La búsqueda por separado no produjo cinco candidatos industriales recientes verificables. Los resultados indexados eran irrelevantes, antiguos o sin fecha técnica comprobable.",
+            "Facebook": "Se encontraron cinco publicaciones potencialmente relacionadas con industria, pero ninguna con fecha de publicación técnica comprobable para el período. Varias eran piezas de medios o promociones. No se selecciona ninguna como conversación nueva."
+        },
+        "candidates": [
+            {
+                "network": "X",
+                "author": "EY Argentina",
+                "url": "https://x.com/EY_Argentina/status/2110007655964012548",
+                "date": "13/10/2026 según índice público",
+                "decision": "Seleccionado como tema destacado: electrificación y cambio tecnológico en la industria automotriz. El índice expone un post, no tendencia; apertura directa y métricas no confirmadas."
+            },
+            {
+                "network": "X",
+                "author": "Radio Salta AM 840",
+                "url": "https://x.com/RadioSaltaAM840/status/2110036317006410096",
+                "date": "13/10/2026 según índice público",
+                "decision": "Candidato industrial sobre un encuentro del sector espacial, descartado para selección por no haber contraste de otras cuentas sobre el mismo tema."
+            },
+            {
+                "network": "X",
+                "author": "J. P. Marino",
+                "url": "https://x.com/jpmarino79/status/2109968639503798727",
+                "date": "13/10/2026 según índice público",
+                "decision": "Candidato vinculado a la agenda de indicadores de capacidad instalada industrial, descartado: anuncia una publicación estadística y no aporta señales de conversación temática compartida."
+            },
+            {
+                "network": "X",
+                "author": "Ámbito",
+                "url": "https://x.com/Ambitocom/status/2110081050965643355",
+                "date": "13/10/2026 según índice público",
+                "decision": "Candidato industrial sobre actividad hidrocarburífera; descartado para evitar presentar una mención aislada como tendencia y por falta de contraste."
+            },
+            {
+                "network": "X",
+                "author": "INDEC Argentina",
+                "url": "https://x.com/INDECArgentina/status/2090151880307458079",
+                "date": "Fecha de publicación no expuesta por el índice; relevado 14/10/2026",
+                "decision": "Descartado: el contenido refiere a la confianza empresarial manufacturera de julio y no se comprobó publicación el 13/10."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Alejandro Temporetti Olivera",
+                "url": "https://es.linkedin.com/posts/alejandro-temporetti-olivera-108a8629_argentinaspace-argentinaspace2026-salta-activity-7508165423423623169-cM94",
+                "date": "Fecha no expuesta; índice: «3 semanas»",
+                "decision": "Seleccionado como excepción temporal: publicación original sobre industria espacial y cadenas de valor, distinta de las siete ediciones revisadas. No acredita conversación del 13/10 ni tendencia."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Fundación Ship2B",
+                "url": "https://es.linkedin.com/posts/ship2bfoundation_side-events-ship2b-impact-forum-13-octubre-activity-7508818709277487104-8WhO",
+                "date": "Fecha técnica no expuesta; el texto refiere a eventos del 13/10",
+                "decision": "Descartado: el post trata de economía e innovación social, sin vínculo industrial directo verificable. Fecha del evento no equivale a fecha de publicación."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Newmark Argentina",
+                "url": "https://es.linkedin.com/posts/newmarkargentina_mercado-industrial-am%C3%A9rica-latina-1s-2026-activity-7509251499953324032-QaCr",
+                "date": "Fecha exacta no verificada; índice mezcla referencias de 2 meses y 3 días",
+                "decision": "Descartado: fecha y publicación original no pudieron separarse con confianza."
+            },
+            {
+                "network": "Instagram",
+                "author": "Resultados del índice: cuentas no atribuibles a conversación industrial argentina",
+                "url": "",
+                "date": "Sin publicaciones industriales con fecha verificable",
+                "decision": "Descartados resultados de entretenimiento, perfiles genéricos y publicaciones sin post industrial específico; el índice no permitió reunir cinco candidatos verificables."
+            },
+            {
+                "network": "Facebook",
+                "author": "Proyecto Integrado MARA",
+                "url": "https://www.facebook.com/ProyectoIntegradoMARA/videos/as%C3%AD-fue-nuestro-paso-por-la-expo-san-juan-minera-2026-junto-a-glencore-pach%C3%B3n-du/906206345781567/",
+                "date": "Fecha técnica no expuesta; índice indica última visualización 13/10",
+                "decision": "Descartado: vínculo con minería, pero fecha de publicación no comprobada para el período."
+            },
+            {
+                "network": "Facebook",
+                "author": "Ciudad FM Tartagal",
+                "url": "https://www.facebook.com/ciudadfmtartagal/videos/cierre-de-una-f%C3%A1brica-textil-en-pacheco-m%C3%A1s-de-140-trabajadores-quedaron-afectad/1663667741845433/",
+                "date": "Fecha técnica no expuesta",
+                "decision": "Descartado: el índice describe una pieza de medio sobre un cierre fabril; fecha de post y publicación original no verificables."
+            },
+            {
+                "network": "Facebook",
+                "author": "Argentina Mining",
+                "url": "https://www.facebook.com/argentinamining/videos/le-damos-la-bienvenida-a-silex-argentina-como-sponsor-platinum-de-la-xix-convenc/1786465809264767/",
+                "date": "Fecha técnica no expuesta",
+                "decision": "Descartado: promoción de evento minero, sin fecha comprobable ni señales de conversación del 13/10."
+            },
+            {
+                "network": "Facebook",
+                "author": "Programa Propymes",
+                "url": "https://www.facebook.com/programapropymes/videos/qu%C3%A9-oportunidades-abre-vaca-muerta-para-la-industria-argentina-c%C3%B3mo-cuidamos-y-p/1280739507512463/",
+                "date": "Fecha técnica no expuesta",
+                "decision": "Descartado: pieza audiovisual sobre proveedores de Vaca Muerta sin fecha técnica verificable."
+            },
+            {
+                "network": "Facebook",
+                "author": "La Fábrica Podcast",
+                "url": "https://www.facebook.com/lafabricapodcast/videos/ayud%C3%A1-a-osso-juguetes-de-dise%C3%B1o-a-ganar-el-premio-al-emprendedor-industrial-2026/946637225141663/",
+                "date": "Fecha técnica no expuesta",
+                "decision": "Descartado: promoción de una candidatura a premio emprendedor; no se verificó fecha ni conversación compartida."
+            }
+        ],
+        "searches": [
+            "X: búsquedas separadas por industria, manufactura, PyMEs, Argentina Space, electrificación automotriz y fecha 13/10/2026; cuatro publicaciones industriales con fecha indexada y una sin fecha exacta.",
+            "LinkedIn: búsquedas separadas por industria argentina y publicaciones del 13/10/2026; revisión de publicaciones de industria espacial, mercado industrial y resultados generales. No se verificó post industrial de esa fecha.",
+            "Instagram: búsquedas separadas por industria, PyMEs, manufactura y 13/10/2026; resultados no industriales, antiguos o sin fecha.",
+            "Facebook: búsquedas separadas por industria, proveedores de energía, minería, manufactura y cierres fabriles; cinco candidatos de cuentas distintas, sin fecha de publicación técnica verificable."
+        ],
+        "editorialCheck": "Cuatro tarjetas sociales: X y LinkedIn contienen posts industriales específicos con sus fechas reales o limitación temporal; Instagram y Facebook explicitan falta de tendencia nueva verificable. No se presentan métricas inexistentes ni tendencias sin contraste. Calle: tres hechos bonaerenses del 13/10, sin conexión industrial forzada. Clipping: dos noticias periodísticas industriales del 13/10. No se repite ningún enlace ni hecho entre secciones."
+    }
+},
 "2026-10-10": {
   "analysisPeriod": {
     "date": "2026-10-09",
