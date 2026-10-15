@@ -163,7 +163,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge" class="date-badge">14/10/2026</span>
+                    <span id="current-date-badge" class="date-badge">15/10/2026</span>
                 </div>
             </div>
         </div>
@@ -186,7 +186,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-10-14" selected>14/10/2026 (Último informe)</option>
+                        <option value="2026-10-15" selected>15/10/2026 (Último informe)</option>
+                        <option value="2026-10-14">14/10/2026</option>
                         <option value="2026-10-10">10/10/2026</option>
                         <option value="2026-10-09">09/10/2026</option>
                         <option value="2026-10-08">08/10/2026</option>
@@ -357,6 +358,355 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+        "2026-10-15": {
+    "analysisPeriod": {
+        "date": "2026-10-14",
+        "start": "2026-10-14T00:00:00-03:00",
+        "end": "2026-10-14T23:59:59-03:00",
+        "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "sector": [
+        {
+            "id": "red-x",
+            "network": "X",
+            "networkBadge": "bg-slate-900 text-white",
+            "hashtag": "Evidencia insuficiente",
+            "title": "Sin tendencia nueva verificable en X",
+            "quote": "No se verificó una publicación industrial del 14/10 ni una alternativa reciente distinta con evidencia suficiente para seleccionar un tema en esta red.",
+            "action": "La evidencia disponible no permite identificar una señal industrial para UIPBA y sus socios. La limitación del relevamiento no demuestra ausencia de conversación en la plataforma.",
+            "watch": "Publicaciones originales sobre producción, empleo fabril, inversión, proveedores y competitividad con autor y fecha visibles.",
+            "evidence": "Las búsquedas separadas por red y fecha no reunieron cinco candidatos industriales recientes de cuentas distintas. No se atribuyen tendencias ni métricas no observadas.",
+            "source": {
+                "name": "Sin publicación industrial seleccionable",
+                "link": "",
+                "date": "Período: 14/10/2026 · relevado 15/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin tendencia acreditada",
+                "variation": "Candidatos verificables insuficientes"
+            }
+        },
+        {
+            "id": "red-linkedin",
+            "network": "LinkedIn",
+            "networkBadge": "bg-blue-100 text-blue-800",
+            "hashtag": "Tema destacado · excepción temporal",
+            "title": "La IA aplicada a fábricas pone el foco en procesos, datos y equipos",
+            "quote": "Una convocatoria de la Muestra Industrial de Rafaela propone debatir cómo llevar la IA a procesos productivos y preparar a los equipos para su aplicación.",
+            "action": "Para los socios industriales de UIPBA, el contenido aporta una referencia sobre adopción de IA en operaciones. Evaluar calidad de datos y capacidades del personal es una lectura práctica; el post no demuestra mejoras de productividad ni inversiones realizadas.",
+            "watch": "Casos de uso industriales con resultados medidos, requisitos de datos y capacitación de operarios y mandos medios.",
+            "evidence": "Post original del organizador con una intervención de un usuario visible. No hay métricas comparables ni dos publicaciones adicionales de otras cuentas que acrediten una tendencia. La página muestra «5 días» y la búsqueda «1 semana»: no se convierte esa antigüedad relativa en fecha exacta. Las fechas 14–16/10 corresponden al evento, no al post.",
+            "source": {
+                "name": "Muestra Industrial Argentina – Rafaela 2026 · LinkedIn",
+                "link": "https://es.linkedin.com/posts/muestra-industrial-argentina-rafaela-2026_inteligencia-artificial-moda-o-verdadera-activity-7511796543436390400-unNQ",
+                "date": "Fecha no expuesta por el índice público · antigüedad relativa: 5 días / 1 semana · excepción temporal · relevado 15/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin tendencia acreditada",
+                "variation": "Un comentario visible; sin cifras de interacción"
+            }
+        },
+        {
+            "id": "red-instagram",
+            "network": "Instagram",
+            "networkBadge": "bg-pink-100 text-pink-800",
+            "hashtag": "Evidencia insuficiente",
+            "title": "Sin tendencia nueva verificable en Instagram",
+            "quote": "No se verificó una publicación industrial del 14/10 ni una alternativa reciente distinta con evidencia suficiente para seleccionar un tema en esta red.",
+            "action": "La evidencia disponible no permite identificar una señal industrial para UIPBA y sus socios. La limitación del relevamiento no demuestra ausencia de conversación en la plataforma.",
+            "watch": "Publicaciones originales sobre producción, empleo fabril, inversión, proveedores y competitividad con autor y fecha visibles.",
+            "evidence": "Las búsquedas separadas por red y fecha no reunieron cinco candidatos industriales recientes de cuentas distintas. No se atribuyen tendencias ni métricas no observadas.",
+            "source": {
+                "name": "Sin publicación industrial seleccionable",
+                "link": "",
+                "date": "Período: 14/10/2026 · relevado 15/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin tendencia acreditada",
+                "variation": "Candidatos verificables insuficientes"
+            }
+        },
+        {
+            "id": "red-facebook",
+            "network": "Facebook",
+            "networkBadge": "bg-blue-100 text-blue-800",
+            "hashtag": "Evidencia insuficiente",
+            "title": "Sin tendencia nueva verificable en Facebook",
+            "quote": "No se verificó una publicación industrial del 14/10 ni una alternativa reciente distinta con evidencia suficiente para seleccionar un tema en esta red.",
+            "action": "La evidencia disponible no permite identificar una señal industrial para UIPBA y sus socios. La limitación del relevamiento no demuestra ausencia de conversación en la plataforma.",
+            "watch": "Publicaciones originales sobre producción, empleo fabril, inversión, proveedores y competitividad con autor y fecha visibles.",
+            "evidence": "Las búsquedas separadas por red y fecha no reunieron cinco candidatos industriales recientes de cuentas distintas. No se atribuyen tendencias ni métricas no observadas.",
+            "source": {
+                "name": "Sin publicación industrial seleccionable",
+                "link": "",
+                "date": "Período: 14/10/2026 · relevado 15/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin tendencia acreditada",
+                "variation": "Candidatos verificables insuficientes"
+            }
+        }
+    ],
+    "calle": [
+        {
+            "id": "calle-1",
+            "region": "la-plata",
+            "riskLevel": "Agenda social",
+            "badgeClass": "badge-alert-info",
+            "topicNumber": "Tema 1",
+            "title": "La Plata refuerza la medición de arroyos para anticipar crecidas",
+            "streetTalk": "El 14/10 se informó la instalación de escalas y cámaras en los arroyos Maldonado y Martín, con nuevos puntos previstos en El Gato, Regimiento y Carnaval. El reemplazo de equipos dañados busca mejorar la alerta temprana de inundaciones para los barrios alcanzados.",
+            "connection": [],
+            "uipbaPosition": "Contexto provincial; sin posición institucional atribuida.",
+            "source": {
+                "name": "0221",
+                "link": "https://www.0221.com.ar/la-plata/instalan-arroyos-la-plata-nuevas-escalas-medicion-y-camaras-controlar-las-crecidas-n135804",
+                "date": "14/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales verificadas",
+                "variation": "Fuente publicada 14/10"
+            }
+        },
+        {
+            "id": "calle-2",
+            "region": "la-plata",
+            "riskLevel": "Agenda social",
+            "badgeClass": "badge-alert-info",
+            "topicNumber": "Tema 2",
+            "title": "La Plata: repararon la Escuela Primaria N°120 y habilitaron las clases",
+            "streetTalk": "La nota del 14/10 informa trabajos realizados durante el fin de semana tras el desprendimiento de cielorraso: cubierta, desagües e instalación eléctrica. Infraestructura Escolar habilitó las clases; continúan intervenciones para resolver filtraciones. Afecta la seguridad y continuidad educativa de la comunidad de 17 entre 35 y 36.",
+            "connection": [],
+            "uipbaPosition": "Contexto provincial; sin posición institucional atribuida.",
+            "source": {
+                "name": "0221",
+                "link": "https://www.0221.com.ar/la-plata/la-municipalidad-la-plata-y-la-provincia-realizaron-obras-la-escuela-primaria-n120-n135775",
+                "date": "14/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales verificadas",
+                "variation": "Fuente publicada 14/10"
+            }
+        },
+        {
+            "id": "calle-3",
+            "region": "la-plata",
+            "riskLevel": "Agenda social",
+            "badgeClass": "badge-alert-info",
+            "topicNumber": "Tema 3",
+            "title": "La Plata y Ensenada: cinco muertes viales en los primeros doce días de octubre",
+            "streetTalk": "Un balance publicado el 14/10 registró cinco fallecidos en cuatro siniestros durante los primeros doce días del mes. El reporte vuelve a poner en agenda la prevención vial y la respuesta de emergencias en la región; no son cinco hechos ocurridos el día 14.",
+            "connection": [],
+            "uipbaPosition": "Contexto provincial; sin posición institucional atribuida.",
+            "source": {
+                "name": "0221",
+                "link": "https://www.0221.com.ar/policiales/en-menos-dos-semanas-la-plata-y-la-region-ya-alcanzaron-el-promedio-mensual-muertes-accidentes-n135722",
+                "date": "14/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales verificadas",
+                "variation": "Fuente publicada 14/10"
+            }
+        }
+    ],
+    "clipping": [
+        {
+            "id": "clip-1",
+            "category": "regional",
+            "scopeTag": "Provincial · Pergamino",
+            "badgeClass": "badge-alert-info",
+            "badgeText": "EMPLEO TEXTIL",
+            "title": "Confeccionistas y sindicato alertan por el empleo textil en Pergamino",
+            "summary": "El Tiempo publicó el 14/10 el diagnóstico de la Cámara de Confeccionistas y Sutiv sobre despidos, suspensiones y ventas debilitadas. El sindicato señala más de 500 empleos directos perdidos desde mediados de 2024 en Pergamino y su zona; la cámara advierte por costos y crédito.",
+            "impact": "El caso afecta capacidad productiva y empleo de la confección bonaerense. Para UIPBA y sus socios importa seguir continuidad de talleres y fábricas, pedidos y acceso al capital de trabajo; las cifras son declaraciones recogidas por el medio.",
+            "source": {
+                "name": "El Tiempo de Pergamino",
+                "link": "https://eltiempodepergamino.com.ar/26977-generales-crisis-textil-en-pergamino-confeccionistas-y-sindicato-advierten-por-la-perdida-de-empleo",
+                "date": "14/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales",
+                "variation": "Publicado 14/10"
+            },
+            "industrialVerified": true
+        },
+        {
+            "id": "clip-2",
+            "category": "nacional",
+            "scopeTag": "Nacional · General Racedo, Entre Ríos",
+            "badgeClass": "badge-alert-info",
+            "badgeText": "INVERSIÓN AVÍCOLA",
+            "title": "Calisa 2 accedió al RINI tras una inversión acumulada de US$45 millones",
+            "summary": "Elonce informó el 14/10 la entrega de la adhesión al régimen provincial a la planta del Grupo Motta. La instalación continúa en puesta en marcha; la firma informa 670 trabajadores y 60 incorporaciones en los últimos tres meses. La inversión acumulada apunta a ampliar procesamiento y exportaciones de carne aviar.",
+            "impact": "La ampliación industrial es relevante para cadenas de equipos, envases, frío y servicios técnicos. Para UIPBA permite observar inversiones de una cadena alimentaria nacional; la noticia no acredita contratos para proveedores bonaerenses.",
+            "source": {
+                "name": "Elonce",
+                "link": "https://www.elonce.com/politica/frigerio-entrego-la-adhesion-al-rini-a-calisa-2-que-invirtio-45-millones-de-dolares-para-ampliar-su-capacidad-productiva-en-entre-rios.htm",
+                "date": "14/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales",
+                "variation": "Publicado 14/10"
+            },
+            "industrialVerified": true
+        },
+        {
+            "id": "clip-3",
+            "category": "nacional",
+            "scopeTag": "Nacional · Cadena automotriz",
+            "badgeClass": "badge-alert-info",
+            "badgeText": "COMPETENCIA INDUSTRIAL",
+            "title": "Importaciones de vehículos chinos: alertas sobre integración productiva local",
+            "summary": "El Norte publicó el 14/10 una nota sobre el crecimiento de compras de automóviles chinos y las advertencias del titular de Ternium Argentina sobre competencia e integración productiva. El artículo distingue el debate industrial de las inquietudes internacionales por los datos de vehículos conectados.",
+            "impact": "La integración local de vehículos involucra acero y autopartes. Para UIPBA y sus socios resulta relevante observar contenido nacional, producción e importaciones; las advertencias empresariales no prueban por sí solas pérdida futura de pedidos.",
+            "source": {
+                "name": "El Norte · San Nicolás",
+                "link": "https://diarioelnorte.com.ar/el-avance-chino-sobre-el-mercado-automotor-suma-nuevas-alertas-para-la-industria-argentina/",
+                "date": "14/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales",
+                "variation": "Publicado 14/10"
+            },
+            "industrialVerified": true
+        }
+    ],
+    "audit": {
+        "reviewedEditions": [
+            "2026-10-14",
+            "2026-10-10",
+            "2026-10-09",
+            "2026-10-08",
+            "2026-09-29",
+            "2026-09-28",
+            "2026-09-27"
+        ],
+        "minimumCandidatesMet": false,
+        "limitations": {
+            "X": "No se consiguieron cinco posts industriales recientes verificables de cuentas distintas; sin selección.",
+            "LinkedIn": "Se compararon más de cinco cuentas industriales, pero ninguna publicación tiene fecha absoluta verificada del 14/10. Se selecciona una excepción reciente argentina, sin prueba de tendencia.",
+            "Instagram": "No se consiguieron cinco posts industriales recientes verificables; sin selección.",
+            "Facebook": "No se consiguieron cinco voces sociales industriales recientes verificables; se descartó un post periodístico del 14/10."
+        },
+        "candidates": [
+            {
+                "network": "LinkedIn",
+                "author": "Muestra Industrial Argentina – Rafaela 2026",
+                "url": "https://es.linkedin.com/posts/muestra-industrial-argentina-rafaela-2026_inteligencia-artificial-moda-o-verdadera-activity-7511796543436390400-unNQ",
+                "date": "5 días / 1 semana; sin fecha absoluta",
+                "decision": "Seleccionado como excepción reciente argentina sobre IA en fábricas; no tendencia."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Congreso Internacional de la Industria Plástica – Perú",
+                "url": "https://es.linkedin.com/posts/congreso-industria-plastica-peru_programa-del-viii-ciip-activity-7511887053459197952-w36P",
+                "date": "1 semana; sin fecha absoluta",
+                "decision": "Descartado: convocatoria a evento del 06/10, sin novedad del 14/10."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "CCMTY",
+                "url": "https://es.linkedin.com/posts/ccm-centro-de-competitividad-de-monterrey-a-c-_eoe2026-savethedate-lean-activity-7455391379611996160-WfSs",
+                "date": "5 meses",
+                "decision": "Descartado: antiguo, sin impacto argentino documentado."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Responsabilidad Integral | Colombia",
+                "url": "https://es.linkedin.com/posts/responsabilidad-integral-colombia_summitindustriaqu%C3%ADmica-summitindustriaqu%C3%ADmica-activity-7503822181890453504-a8Ff",
+                "date": "1 mes",
+                "decision": "Descartado: cuenta y asunto usados el 10/10; evento del 08/10."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Arpel",
+                "url": "https://es.linkedin.com/posts/arpel_del-26-al-29-de-octubre-buenos-aires-ser%C3%A1-activity-7503923577084223488-qf45",
+                "date": "Índice: 1 día; fecha absoluta no expuesta",
+                "decision": "Descartado: apertura no disponible y ausencia de contraste."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Nicolás Cádiz",
+                "url": "https://es.linkedin.com/posts/nicolaseduardocadizflores_oktobertech2026-oktobertech2026-industria40-activity-7508174330275713024-4fbO",
+                "date": "Índice: 2 días; evento 08/10; cronología no concluyente",
+                "decision": "Descartado: no acredita novedad del período ni impacto argentino."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "AESEMI",
+                "url": "https://es.linkedin.com/posts/asociaci%C3%B3n-espa%C3%B1ola-de-la-industria-de-semiconductores_el-pr%C3%B3ximo-14-de-octubre-se-celebra-la-segunda-activity-7502642043702165504-2Gyt",
+                "date": "4 días; fecha absoluta no expuesta",
+                "decision": "Descartado: convocatoria extranjera sin impacto argentino concreto."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Intronica",
+                "url": "https://es.linkedin.com/posts/intronica-ltda_expointronica-intronica-fluke-activity-7500538195374338048-tAFR",
+                "date": "1 mes",
+                "decision": "Descartado: convocatoria antigua de capacitación en Chile."
+            },
+            {
+                "network": "Facebook",
+                "author": "Radio City 97.9",
+                "url": "https://www.facebook.com/Radiocity979/posts/14-10-2026-el-mercado-laboral-en-crisis-se-perdieron-m%C3%A1s-de-136-mil-empleos-regi/1650354506883952/",
+                "date": "Contenido: 14/10/2026; fecha técnica no verificada",
+                "decision": "Descartado: contenido periodístico y empleo general; no usar como voz social industrial."
+            },
+            {
+                "network": "Facebook",
+                "author": "Info SITP Bogotá",
+                "url": "https://www.facebook.com/INFOSITPBTA/posts/ya-est%C3%A1-en-colombia-el-primer-tren-del-metro-de-bogot%C3%A1-lleg%C3%B3-al-pa%C3%ADs-por-cartage/1305260828283404/",
+                "date": "3 de septiembre; año no expuesto",
+                "decision": "Descartado: antiguo y sin vínculo industrial argentino."
+            },
+            {
+                "network": "X",
+                "author": "Clarín",
+                "url": "https://x.com/clarincom/status/2062685838647914775",
+                "date": "05/06/2026",
+                "decision": "Descartado: antiguo y pieza de medio."
+            },
+            {
+                "network": "X",
+                "author": "Olga Rodríguez Francisco",
+                "url": "https://x.com/olgarodriguezfr/status/2037125166723965246",
+                "date": "26/03/2026",
+                "decision": "Descartado: antiguo y sin vínculo industrial argentino."
+            }
+        ],
+        "rule": "Cuentas, enlaces, títulos y asuntos de las siete últimas ediciones disponibles revisados. No se reutilizan fuentes sociales ni temas seleccionados; las tarjetas sin evidencia no describen conversaciones. Los huecos históricos no se completan ni se modifican.",
+        "searches": [
+            "X: site:x.com industria Argentina Oct 14 2026; industria argentina octubre 14 2026; producción Oct 14, 2026; industria 2026-10-14.",
+            "Instagram: site:instagram.com industria Argentina 14 de octubre 2026; industria argentina octubre 2026 pymes; industria October 2026 Argentina; site:instagram.com/reel/ industriaargentina 2026; site:instagram.com/p/ pymesindustriales 2026.",
+            "Facebook: site:facebook.com industria Argentina 14 de octubre 2026; industria argentina octubre 2026 pymes; industria octubre 2026 Argentina; producción industrial octubre 2026.",
+            "LinkedIn: site:linkedin.com/posts industria Argentina octubre 2026; industria 14 de octubre 2026. Comparación de candidatos de cuentas distintas."
+        ],
+        "excludedMedia": [
+            {
+                "url": "https://primerapagina.info/nota/22562/la-industria-bonaerense-perdio-30-748-empleos-durante-el-gobierno-de-milei/",
+                "reason": "Fecha real 13/10; descartado aunque el buscador señalara ayer."
+            },
+            {
+                "url": "https://www.pagina12.com.ar/2026/10/14/la-ficcion-argentina-se-junta-para-sortear-la-crisis/",
+                "reason": "La URL contiene 14/10, pero la fecha visible es 15/10 03:01; fuera del período."
+            },
+            {
+                "url": "https://www.infogremiales.com.ar/la-industria-del-calzado-perdio-10-000-puestos-en-tres-anos-y-buscan-declarar-la-emergencia-por-un-ano-en-la-provincia-de-buenos-aires/",
+                "reason": "Publicada 14/10 14:22, modificada 15/10 00:02. Se prefieren fuentes sin mezcla de actualizaciones del día de ejecución."
+            }
+        ]
+    }
+},
         "2026-10-14": {
     "analysisPeriod": {
         "date": "2026-10-13",
