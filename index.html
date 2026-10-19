@@ -163,7 +163,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge" class="date-badge">16/10/2026</span>
+                    <span id="current-date-badge" class="date-badge">17/10/2026</span>
                 </div>
             </div>
         </div>
@@ -186,7 +186,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-10-16" selected>16/10/2026 (Último informe)</option>
+                        <option value="2026-10-17" selected>17/10/2026 (Último informe)</option>
+                        <option value="2026-10-16">16/10/2026</option>
                         <option value="2026-10-15">15/10/2026</option>
                         <option value="2026-10-14">14/10/2026</option>
                         <option value="2026-10-10">10/10/2026</option>
@@ -359,6 +360,607 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+        "2026-10-17": {
+    "analysisPeriod": {
+        "date": "2026-10-16",
+        "start": "2026-10-16T00:00:00-03:00",
+        "end": "2026-10-16T23:59:59-03:00",
+        "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "sector": [
+        {
+            "id": "red-x",
+            "network": "X",
+            "networkBadge": "bg-slate-900 text-white",
+            "hashtag": "Evidencia insuficiente",
+            "title": "Sin tendencia nueva verificable en X",
+            "quote": "No se verificó un post industrial del 16/10 ni una alternativa reciente distinta que permita seleccionar un tema destacado en esta red.",
+            "action": "La evidencia disponible no permite extraer una señal industrial para UIPBA y sus socios. La limitación del relevamiento no demuestra ausencia de conversación en la plataforma.",
+            "watch": "Publicaciones originales sobre producción, empleo fabril, inversión y proveedores con fecha visible y enlace específico.",
+            "evidence": "Se buscó por separado esta red, con términos industriales y fechas del período. No se alcanzaron cinco candidatos recientes verificables de cuentas distintas ni señales comparables; no se asignan cifras de interacción.",
+            "source": {
+                "name": "Sin publicación industrial seleccionable",
+                "link": "",
+                "date": "Período: 16/10/2026 · relevado 17/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin tendencia acreditada",
+                "variation": "Candidatos verificables insuficientes"
+            }
+        },
+        {
+            "id": "red-linkedin",
+            "network": "LinkedIn",
+            "networkBadge": "bg-blue-100 text-blue-800",
+            "hashtag": "Tema destacado en LinkedIn · excepción temporal",
+            "title": "La formación en soldadura conecta universidades y empresas en Avellaneda",
+            "quote": "Un antecedente de UTN Avellaneda describe demostraciones de soldadura y la articulación con UNDAV y una empresa del rubro para desarrollar saberes metalmecánicos.",
+            "action": "La calificación en soldadura se vincula directamente con procesos de fabricación metalmecánica. Para socios de UIPBA es una referencia de formación técnica local; no prueba una nueva demanda laboral ni resultados productivos medidos.",
+            "watch": "Convocatorias vigentes, contenidos técnicos y requisitos de calificación publicados por las instituciones; no asumir que siguen abiertas las inscripciones del post.",
+            "evidence": "Post específico con un comentario visible. La página muestra «3 semanas» y la búsqueda «3 días», sin fecha absoluta. Un segundo post de la misma cuenta contrasta la oferta formativa; no se verificaron dos voces adicionales del período. No es tendencia del 16/10.",
+            "source": {
+                "name": "UTN Avellaneda · LinkedIn",
+                "link": "https://es.linkedin.com/posts/utn-avellaneda-95713048_universidad-comunidad-e-industria-activity-7509210064034095105-4R9e",
+                "date": "Fecha no expuesta por el índice público · página: «3 semanas» / búsqueda: «3 días» · excepción temporal · relevado 17/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Un comentario visible",
+                "variation": "Sin tendencia ni fecha del período acreditadas"
+            },
+            "evidenceLinks": [
+                {
+                    "name": "UTN Avellaneda · cursos de soldadura",
+                    "link": "https://es.linkedin.com/posts/utn-avellaneda-95713048_escuela-interuniversitaria-de-soldadura-activity-7505629340987043840-9Rso"
+                }
+            ]
+        },
+        {
+            "id": "red-instagram",
+            "network": "Instagram",
+            "networkBadge": "bg-pink-100 text-pink-800",
+            "hashtag": "Evidencia insuficiente",
+            "title": "Sin tendencia nueva verificable en Instagram",
+            "quote": "No se verificó un post industrial del 16/10 ni una alternativa reciente distinta que permita seleccionar un tema destacado en esta red.",
+            "action": "La evidencia disponible no permite extraer una señal industrial para UIPBA y sus socios. La limitación del relevamiento no demuestra ausencia de conversación en la plataforma.",
+            "watch": "Publicaciones originales sobre producción, empleo fabril, inversión y proveedores con fecha visible y enlace específico.",
+            "evidence": "Se buscó por separado esta red, con términos industriales y fechas del período. No se alcanzaron cinco candidatos recientes verificables de cuentas distintas ni señales comparables; no se asignan cifras de interacción.",
+            "source": {
+                "name": "Sin publicación industrial seleccionable",
+                "link": "",
+                "date": "Período: 16/10/2026 · relevado 17/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin tendencia acreditada",
+                "variation": "Candidatos verificables insuficientes"
+            }
+        },
+        {
+            "id": "red-facebook",
+            "network": "Facebook",
+            "networkBadge": "bg-blue-100 text-blue-800",
+            "hashtag": "Evidencia insuficiente",
+            "title": "Sin tendencia nueva verificable en Facebook",
+            "quote": "No se verificó un post industrial del 16/10 ni una alternativa reciente distinta que permita seleccionar un tema destacado en esta red.",
+            "action": "La evidencia disponible no permite extraer una señal industrial para UIPBA y sus socios. La limitación del relevamiento no demuestra ausencia de conversación en la plataforma.",
+            "watch": "Publicaciones originales sobre producción, empleo fabril, inversión y proveedores con fecha visible y enlace específico.",
+            "evidence": "Se buscó por separado esta red, con términos industriales y fechas del período. No se alcanzaron cinco candidatos recientes verificables de cuentas distintas ni señales comparables; no se asignan cifras de interacción.",
+            "source": {
+                "name": "Sin publicación industrial seleccionable",
+                "link": "",
+                "date": "Período: 16/10/2026 · relevado 17/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin tendencia acreditada",
+                "variation": "Candidatos verificables insuficientes"
+            }
+        }
+    ],
+    "calle": [
+        {
+            "id": "calle-1",
+            "region": "general",
+            "riskLevel": "Agenda social",
+            "badgeClass": "badge-alert-info",
+            "topicNumber": "Tema 1",
+            "title": "Provincia: el Colegio de Médicos advirtió por la atención de afiliados de PAMI",
+            "streetTalk": "El 16/10 se difundió una advertencia del Colegio de Médicos bonaerense sobre deudas con prestadores y dificultades de atención de jubilados. La entidad sostiene que la demanda se desplaza hacia hospitales provinciales y municipales y pidió una mesa de diálogo. Es una alerta institucional, no una medición de ocupación hospitalaria.",
+            "connection": [],
+            "uipbaPosition": "Contexto provincial; sin posición institucional atribuida.",
+            "source": {
+                "name": "0221",
+                "link": "https://www.0221.com.ar/provincia/el-colegio-medicos-advirtio-que-la-crisis-del-pami-amenaza-desbordar-los-hospitales-publicos-n135924",
+                "date": "16/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales verificadas",
+                "variation": "Publicado 16/10"
+            }
+        },
+        {
+            "id": "calle-2",
+            "region": "la-plata",
+            "riskLevel": "Agenda social",
+            "badgeClass": "badge-alert-info",
+            "topicNumber": "Tema 2",
+            "title": "La Plata: un asalto a un pediatra reactivó la preocupación por la seguridad",
+            "streetTalk": "Una nota del 16/10 informó un robo en una vivienda y consultorio de calle 4 entre 51 y 53, a metros de la Gobernación. Los delincuentes retuvieron al profesional y a otras personas durante cerca de dos horas. El caso afecta la seguridad de vecinos y pacientes de la zona; la investigación continúa.",
+            "connection": [],
+            "uipbaPosition": "Contexto provincial; sin posición institucional atribuida.",
+            "source": {
+                "name": "0221",
+                "link": "https://www.0221.com.ar/policiales/asaltaron-un-pediatra-su-casa-metros-la-gobernacion-y-retuvieron-pacientes-dos-horas-n135912",
+                "date": "16/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales verificadas",
+                "variation": "Publicado 16/10"
+            }
+        },
+        {
+            "id": "calle-3",
+            "region": "general",
+            "riskLevel": "Agenda social",
+            "badgeClass": "badge-alert-info",
+            "topicNumber": "Tema 3",
+            "title": "Provincia: el pronóstico del viernes anticipó un fin de semana más frío",
+            "streetTalk": "El pronóstico publicado el 16/10 anticipó una pausa de las lluvias y descenso térmico en el Gran La Plata, con mínimas cercanas a 5 °C, y posibles heladas suaves en el centro y sur bonaerense. Se registra lo difundido el viernes, no una observación meteorológica del día de ejecución.",
+            "connection": [],
+            "uipbaPosition": "Contexto provincial; sin posición institucional atribuida.",
+            "source": {
+                "name": "0221",
+                "link": "https://www.0221.com.ar/la-plata/cede-el-bloqueo-atmosferico-y-se-terminan-las-lluvias-la-plata-pero-llega-un-fin-semana-mucho-frio-n135950",
+                "date": "16/10/2026"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales verificadas",
+                "variation": "Publicado 16/10"
+            }
+        }
+    ],
+    "clipping": [
+        {
+            "id": "clip-1",
+            "category": "nacional",
+            "scopeTag": "Nacional · Reconversión manufacturera",
+            "badgeClass": "badge-alert-info",
+            "badgeText": "COMPETITIVIDAD",
+            "title": "Un relevamiento identifica distintas respuestas industriales frente a la apertura",
+            "summary": "Infobae publicó el 16/10 un análisis de Midas Consulting sobre movimientos empresariales expuestos a la competencia externa. En un subconjunto de 276 decisiones, el 59,1% fue clasificado como adaptación, defensa o reconfiguración. La muestra no representa un censo de todas las empresas industriales.",
+            "impact": "Para UIPBA importa distinguir estrategias de inversión, cambios operativos y reducción de actividad según capacidades y demanda. No debe leerse que seis de cada diez fábricas del país se reconvierten: el porcentaje corresponde a decisiones de la muestra relevada.",
+            "source": {
+                "name": "Infobae",
+                "link": "https://www.infobae.com/economia/2026/10/16/la-industria-se-reconfigura-por-la-apertura-comercial-6-de-cada-10-empresas-eligen-reconvertirse-antes-que-cerrar/",
+                "date": "16/10/2026 · 02:11 (Argentina)"
+            },
+            "publication": {
+                "published": "2026-10-16T05:11:27Z",
+                "method": "datePublished y article:published_time del HTML; convertido a UTC−3"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales",
+                "variation": "Publicado 16/10"
+            },
+            "industrialVerified": true
+        },
+        {
+            "id": "clip-2",
+            "category": "regional",
+            "scopeTag": "Provincial / Nacional · Logística productiva",
+            "badgeClass": "badge-alert-info",
+            "badgeText": "INFRAESTRUCTURA",
+            "title": "La Cumbre Federal de Logística puso en agenda la conectividad productiva",
+            "summary": "El Atlántico informó el 16/10 la apertura de la segunda Cumbre Federal de Logística del CFI en CABA, con gobernadores, empresas y cámaras. El encuentro aborda integración, infraestructura y competitividad del sistema logístico; la nota sitúa a Buenos Aires dentro de una estrategia federal de proyectos.",
+            "impact": "La logística incide en el movimiento de insumos y productos industriales. Para socios bonaerenses importa seguir qué proyectos avanzan, sus plazos y su alcance; la realización de la cumbre no acredita obras nuevas ejecutadas ni ahorros de costos.",
+            "source": {
+                "name": "El Atlántico · Mar del Plata",
+                "link": "https://diarioelatlantico.com.ar/2026/10/16/kicillof-participo-de-la-apertura-de-la-2-cumbre-federal-de-logistica/",
+                "date": "16/10/2026"
+            },
+            "publication": {
+                "published": "2026-10-16",
+                "method": "Fecha visible de la nota; hora no expuesta"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales",
+                "variation": "Publicado 16/10"
+            },
+            "industrialVerified": true
+        },
+        {
+            "id": "clip-3",
+            "category": "nacional",
+            "scopeTag": "Nacional · Catamarca · Industria alimentaria",
+            "badgeClass": "badge-alert-info",
+            "badgeText": "EMPLEO Y PRODUCCIÓN",
+            "title": "El Alto: continúa el paro de operarios por salarios adeudados",
+            "summary": "Inforama publicó el 16/10 que 32 operarios de la procesadora de aceitunas El Alto mantenían una medida de fuerza por tiempo indeterminado, según STIA. El reclamo incluye pagos pendientes de septiembre. También se informaron demoras salariales entre trabajadores rurales vinculados a la firma.",
+            "impact": "El conflicto afecta empleo y continuidad de una operación de procesamiento de alimentos. Para UIPBA aporta un caso sectorial para observar cadena de pagos y relaciones laborales; no permite generalizar la situación a toda la industria alimentaria.",
+            "source": {
+                "name": "Diario Inforama",
+                "link": "https://inforama.com.ar/actualidad/2026/10/16/conflicto-en-la-olivicola-el-alto-trabajadores-mantienen-el-paro-por-salarios-adeudados/",
+                "date": "16/10/2026"
+            },
+            "publication": {
+                "published": "2026-10-16",
+                "method": "Fecha visible de la nota; hora no expuesta"
+            },
+            "metrics": {
+                "temp": 0,
+                "volume": "Sin métricas sociales",
+                "variation": "Publicado 16/10"
+            },
+            "industrialVerified": true
+        }
+    ],
+    "audit": {
+        "reviewedEditions": [
+            "2026-10-16",
+            "2026-10-15",
+            "2026-10-14",
+            "2026-10-10",
+            "2026-10-09",
+            "2026-10-08",
+            "2026-09-29"
+        ],
+        "minimumCandidatesMet": false,
+        "limitations": {
+            "X": "No se recuperaron cinco posts industriales recientes verificables de cuentas distintas, ni una alternativa reciente seleccionable.",
+            "LinkedIn": "Se compararon más de cinco cuentas potencialmente industriales, pero no cinco posts publicados con certeza el 16/10. La selección es una excepción temporal y no acredita tendencia.",
+            "Instagram": "No se consiguieron cinco candidatos industriales recientes verificables con autor, post específico y fecha; se aplica la tarjeta sin tendencia nueva verificable.",
+            "Facebook": "No se consiguieron cinco voces industriales recientes verificables. Los resultados genéricos o periodísticos no se toman como conversación social."
+        },
+        "candidates": [
+            {
+                "network": "LinkedIn",
+                "author": "UTN Avellaneda",
+                "url": "https://es.linkedin.com/posts/utn-avellaneda-95713048_universidad-comunidad-e-industria-activity-7509210064034095105-4R9e",
+                "date": "Página: 3 semanas; búsqueda: 3 días; fecha absoluta no expuesta",
+                "decision": "Seleccionado como excepción temporal distinta: formación práctica en soldadura en Avellaneda. Un comentario visible, sin tendencia acreditada."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "UTN Avellaneda",
+                "url": "https://es.linkedin.com/posts/utn-avellaneda-95713048_escuela-interuniversitaria-de-soldadura-activity-7505629340987043840-9Rso",
+                "date": "Búsqueda: 4 semanas; fecha absoluta no expuesta",
+                "decision": "Contraste de la oferta formativa de la misma cuenta; no se cuenta como una segunda voz distinta."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "CAFMEI",
+                "url": "https://es.linkedin.com/posts/cafmei-camara-de-fabricantes-de-maquinas-y-equipos-para-la-industria_cafmei-industriaargentina-rigi-activity-7512888176332398592-T32w",
+                "date": "Fecha absoluta no expuesta; convocatoria a 29/10",
+                "decision": "Descartado: desarrollo de proveedores RIGI ya tratado; sin novedad del 16/10 verificada."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Unión Industrial de Zárate",
+                "url": "https://es.linkedin.com/posts/uni%C3%B3n-industrial-de-z%C3%A1rate-uiz-278a7986_uiz-unionindustrialzarate-desarrolloindustrial-activity-7516094452675969024-Lk1F",
+                "date": "14/10/2026 según texto e índice",
+                "decision": "Descartado: resumen de noticias del 14/10, no novedad del período; no hay señales comparables de conversación."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "NextWell",
+                "url": "https://es.linkedin.com/posts/nextwellsolutions_nextwell-wirelinemixer2026-wireline-activity-7495434730973286400-skCr",
+                "date": "Fecha absoluta no expuesta; evento 20/10",
+                "decision": "Descartado: convocatoria sin publicación del 16/10 acreditada ni contraste."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "GLOBAL METWIRE INJECTION",
+                "url": "https://es.linkedin.com/posts/global-metwire-injection_events-expoias2026-ias2026-activity-7507748167812112385-ZY1w",
+                "date": "Fecha absoluta no expuesta; evento 06–08/10",
+                "decision": "Descartado: anuncio previo de feria, sin novedad documentada."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Cámara de la Industria Química y Petroquímica Argentina",
+                "url": "https://es.linkedin.com/posts/camara-de-la-industria-quimica-y-petroquimica-de-la-republica-argentina_desde-la-c%C3%A1mara-de-la-industria-qu%C3%ADmica-y-activity-7494106897919320064-H1xY",
+                "date": "Índice: 1 semana; fecha absoluta no expuesta",
+                "decision": "Descartado: seguridad química ya tratada el 10/10; no hay novedad material verificada."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Cursos Técnicos para la Industria",
+                "url": "https://es.linkedin.com/posts/cursostecnicosparalaindustria_sbc-activity-7505626512793096193-Utww",
+                "date": "Índice: 2 días; fecha absoluta no expuesta",
+                "decision": "Descartado: prevención y seguridad industrial próxima al tema ya usado; no tendencia."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "CoNEIC XVIII Argentina",
+                "url": "https://es.linkedin.com/posts/coneic-xviii-argentina_nos-avalan-el-inti-y-cadhe-gracias-activity-7495951483868200960-7ttZ",
+                "date": "Índice: 1 mes; evento 13–16/10",
+                "decision": "Descartado: aval institucional antiguo; no post del día."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Envase, packaging y procesos",
+                "url": "https://es.linkedin.com/posts/expo-envase_envasealimentek-envasealimentek-envase-activity-7427335987355291649-xfH6",
+                "date": "8 meses",
+                "decision": "Descartado por antigüedad."
+            },
+            {
+                "network": "LinkedIn",
+                "author": "Muestra Industrial Argentina – Rafaela 2026",
+                "url": "https://es.linkedin.com/posts/muestra-industrial-argentina-rafaela-2026_inversi%C3%B3n-competitividad-y-desarrollo-la-activity-7511390173868216321-4adn",
+                "date": "2 semanas",
+                "decision": "Descartado: cuenta ya usada el 15/10; sin acontecimiento nuevo verificado."
+            }
+        ],
+        "priorSocialInventory": [
+            {
+                "date": "2026-10-16",
+                "posts": [
+                    {
+                        "network": "X",
+                        "title": "Sin tendencia nueva verificable en X",
+                        "author": "Sin publicación industrial seleccionable",
+                        "url": ""
+                    },
+                    {
+                        "network": "LinkedIn",
+                        "title": "Cosmética y domisanitarios: calidad, regulación y materiales en la agenda técnica",
+                        "author": "Cámara ALPHA · LinkedIn",
+                        "url": "https://es.linkedin.com/posts/camaraalpha_jadta2026-industria-asuntosregulatorios-activity-7514359407896383489-PbfF"
+                    },
+                    {
+                        "network": "Instagram",
+                        "title": "Sin tendencia nueva verificable en Instagram",
+                        "author": "Sin publicación industrial seleccionable",
+                        "url": ""
+                    },
+                    {
+                        "network": "Facebook",
+                        "title": "Sin tendencia nueva verificable en Facebook",
+                        "author": "Sin publicación industrial seleccionable",
+                        "url": ""
+                    }
+                ]
+            },
+            {
+                "date": "2026-10-15",
+                "posts": [
+                    {
+                        "network": "X",
+                        "title": "Sin tendencia nueva verificable en X",
+                        "author": "Sin publicación industrial seleccionable",
+                        "url": ""
+                    },
+                    {
+                        "network": "LinkedIn",
+                        "title": "La IA aplicada a fábricas pone el foco en procesos, datos y equipos",
+                        "author": "Muestra Industrial Argentina – Rafaela 2026 · LinkedIn",
+                        "url": "https://es.linkedin.com/posts/muestra-industrial-argentina-rafaela-2026_inteligencia-artificial-moda-o-verdadera-activity-7511796543436390400-unNQ"
+                    },
+                    {
+                        "network": "Instagram",
+                        "title": "Sin tendencia nueva verificable en Instagram",
+                        "author": "Sin publicación industrial seleccionable",
+                        "url": ""
+                    },
+                    {
+                        "network": "Facebook",
+                        "title": "Sin tendencia nueva verificable en Facebook",
+                        "author": "Sin publicación industrial seleccionable",
+                        "url": ""
+                    }
+                ]
+            },
+            {
+                "date": "2026-10-14",
+                "posts": [
+                    {
+                        "network": "X",
+                        "title": "La electrificación transforma la cadena automotriz",
+                        "author": "EY Argentina — X",
+                        "url": "https://x.com/EY_Argentina/status/2110007655964012548"
+                    },
+                    {
+                        "network": "LinkedIn",
+                        "title": "La economía espacial busca articular industria, ciencia y nuevas cadenas de valor",
+                        "author": "Alejandro Temporetti Olivera — LinkedIn",
+                        "url": "https://es.linkedin.com/posts/alejandro-temporetti-olivera-108a8629_argentinaspace-argentinaspace2026-salta-activity-7508165423423623169-cM94"
+                    },
+                    {
+                        "network": "Instagram",
+                        "title": "Sin tendencia industrial nueva verificable en Instagram",
+                        "author": "Sin publicación industrial reciente verificable",
+                        "url": ""
+                    },
+                    {
+                        "network": "Facebook",
+                        "title": "Sin tendencia industrial nueva verificable en Facebook",
+                        "author": "Sin publicación industrial reciente verificable",
+                        "url": ""
+                    }
+                ]
+            },
+            {
+                "date": "2026-10-10",
+                "posts": [
+                    {
+                        "network": "X",
+                        "title": "Sin tendencia nueva verificable en X",
+                        "author": "Sin publicación industrial reciente verificable",
+                        "url": ""
+                    },
+                    {
+                        "network": "LinkedIn",
+                        "title": "Seguridad y continuidad de procesos en la industria química: tema destacado reciente en LinkedIn",
+                        "author": "Responsabilidad Integral | Colombia — LinkedIn",
+                        "url": "https://es.linkedin.com/pulse/summit-industria-qu%C3%ADmica-2026-una-nueva-4vkoe"
+                    },
+                    {
+                        "network": "Instagram",
+                        "title": "Sin tendencia nueva verificable en Instagram",
+                        "author": "Sin publicación industrial reciente verificable",
+                        "url": ""
+                    },
+                    {
+                        "network": "Facebook",
+                        "title": "Sin tendencia nueva verificable en Facebook",
+                        "author": "Sin publicación industrial reciente verificable",
+                        "url": ""
+                    }
+                ]
+            },
+            {
+                "date": "2026-10-09",
+                "posts": [
+                    {
+                        "network": "X",
+                        "title": "El lanzamiento de Kingdom Hearts Collection activó a la comunidad gamer en X",
+                        "author": "StellaNoxEclair — X",
+                        "url": "https://x.com/StellaNoxEclair/status/2108226593588146478"
+                    },
+                    {
+                        "network": "LinkedIn",
+                        "title": "Resistencia antimicrobiana y nuevas tecnologías: tema destacado reciente en LinkedIn",
+                        "author": "La Web de La Salud — LinkedIn",
+                        "url": "https://es.linkedin.com/posts/la-web-de-la-salud-_panam%C3%A1-reunir%C3%A1-a-expertos-nacionales-e-internacionales-activity-7512901226636754945-2epI"
+                    },
+                    {
+                        "network": "Instagram",
+                        "title": "Clairo concentró una señal fuerte de interacción musical en Instagram",
+                        "author": "Clairo — Instagram",
+                        "url": "https://www.instagram.com/p/DeP8xcHEfnI/"
+                    },
+                    {
+                        "network": "Facebook",
+                        "title": "El reconocimiento a Air Supply reunió conversación de fans en Facebook",
+                        "author": "SoCal Filipinos — Facebook",
+                        "url": "https://www.facebook.com/socalfilipinos/posts/today-is-a-pretty-special-day-for-air-supply-%EF%B8%8Fafter-50-years-of-timeless-music-a/1782943423353951/"
+                    }
+                ]
+            },
+            {
+                "date": "2026-10-08",
+                "posts": [
+                    {
+                        "network": "X",
+                        "title": "Sin tendencia nueva verificable en X",
+                        "author": "Sin publicación verificable",
+                        "url": ""
+                    },
+                    {
+                        "network": "LinkedIn",
+                        "title": "La transformación de la hotelería: tema destacado reciente en LinkedIn",
+                        "author": "CIDH — LinkedIn",
+                        "url": "https://es.linkedin.com/posts/cidhglobal_el-futuro-de-la-hoteler%C3%ADa-no-se-espera-este-activity-7512542572070805504-nzjC"
+                    },
+                    {
+                        "network": "Instagram",
+                        "title": "Comunidad gamer: señal destacada en Instagram, con verificación limitada",
+                        "author": "World of Warcraft (@warcraft) — Instagram",
+                        "url": "https://www.instagram.com/reel/DeNFEOHMVDY/"
+                    },
+                    {
+                        "network": "Facebook",
+                        "title": "Reflexión religiosa cotidiana: tema destacado en Facebook, con evidencia limitada",
+                        "author": "TeleVID — Facebook",
+                        "url": "https://www.facebook.com/televid.tv/posts/evangelio-de-hoy-mi%C3%A9rcoles-7-octubre-2026-con-fray-carlos-villamomento-para-refl/1563450965813140/"
+                    }
+                ]
+            },
+            {
+                "date": "2026-09-29",
+                "posts": [
+                    {
+                        "network": "X",
+                        "title": "La industria textil opera con capacidad ociosa: sin tendencia nueva verificable en X",
+                        "author": "Política Argentina — X",
+                        "url": "https://x.com/Pol_Arg/status/2042324166825689126"
+                    },
+                    {
+                        "network": "LinkedIn",
+                        "title": "La reconversión automotriz abre debate sobre producción, importaciones y electrificación",
+                        "author": "Marcelo Mijlin — LinkedIn",
+                        "url": "https://es.linkedin.com/posts/marcelo-mijlin_industriaautomotriz-argentina-autos-activity-7502839851780780032-DAcV"
+                    },
+                    {
+                        "network": "Instagram",
+                        "title": "Fabricación nacional de herramientas: sin tendencia nueva verificable en Instagram",
+                        "author": "TS Wood Tools — Instagram",
+                        "url": "https://www.instagram.com/p/DGJqeImAE-Z/"
+                    },
+                    {
+                        "network": "Facebook",
+                        "title": "Identidad industrial y empleo local: sin tendencia nueva verificable en Facebook",
+                        "author": "Municipalidad de Avellaneda — Facebook",
+                        "url": "https://www.facebook.com/municipalidad.avellaneda/videos/-avellaneda-es-industria-avellaneda-es-trabajo-avellaneda-es-producci%C3%B3ntenemos-u/2311898692998187/"
+                    }
+                ]
+            }
+        ],
+        "rule": "Se revisaron autores, cuentas, enlaces, títulos y temas de las siete últimas ediciones disponibles. No se modifica ningún registro histórico. El tema social seleccionado —formación práctica en soldadura— no reutiliza una cuenta ni publicación anterior. No se afirma conversación del 16/10 cuando solo se dispone de un antecedente.",
+        "searches": [
+            {
+                "network": "X",
+                "queries": [
+                    "site:x.com industria \"Oct 16\" \"2026\"",
+                    "site:x.com industria Argentina since:2026-10-16 until:2026-10-17",
+                    "site:x.com producción \"Oct 16, 2026\"",
+                    "site:x.com industria \"Oct 16\""
+                ],
+                "result": "Sin cinco candidatos industriales recientes verificables; no se selecciona una publicación."
+            },
+            {
+                "network": "Instagram",
+                "queries": [
+                    "site:instagram.com industria Argentina octubre 2026",
+                    "site:instagram.com industriaargentina octubre 2026",
+                    "site:instagram.com/reel/ industria 2026",
+                    "site:instagram.com/p/ industria October 2026",
+                    "site:instagram.com industria \"16 de octubre de 2026\""
+                ],
+                "result": "Sin cinco candidatos industriales recientes verificables de cuentas distintas; no se incorpora actualidad ajena a industria."
+            },
+            {
+                "network": "Facebook",
+                "queries": [
+                    "site:facebook.com industria Argentina \"16 de octubre\" \"2026\"",
+                    "site:facebook.com industria \"16/10/2026\"",
+                    "site:facebook.com industria \"octubre de 2026\" producción",
+                    "site:facebook.com industria argentina octubre 2026",
+                    "site:facebook.com producción industrial \"16 de octubre\" \"2026\""
+                ],
+                "result": "Sin cinco voces industriales recientes verificables; los resultados periodísticos y genéricos no sustituyen voces sociales."
+            },
+            {
+                "network": "LinkedIn",
+                "queries": [
+                    "site:linkedin.com/posts industria Argentina octubre 2026",
+                    "site:linkedin.com/posts Argentina industria \"16 de octubre\" \"2026\"",
+                    "site:linkedin.com/posts Argentina eficiencia energética octubre 2026",
+                    "site:linkedin.com/posts Argentina soldadura octubre 2026",
+                    "Escuela Interuniversitaria de Soldadura site:linkedin.com/posts"
+                ],
+                "result": "Más de cinco cuentas potenciales comparadas, pero no cinco posts verificables del 16/10. Selección temporal excepcional sin prueba de tendencia."
+            }
+        ],
+        "excludedMedia": [
+            {
+                "url": "https://www.bancoprovincia.com.ar/Noticias/Panorama-Economico/pulsopba-la-economia-ingreso-en-recesion-tecnica-tras-dos-trimestres-consecutivos-de-caida-3336",
+                "reason": "El encabezado del sitio muestra 16/10, pero la nota está fechada 09/10/2026: excluida del período."
+            },
+            {
+                "url": "https://www.elterritorio.com.ar/noticias/2026/10/16/920801-la-industria-argentina-sigue-en-retroceso-y-casi-cuatro-de-cada-diez-maquinas-permanecieron-paradas-en-agosto",
+                "reason": "Fecha admisible pero mismo indicador de capacidad instalada tratado el 16/10; se priorizaron hechos distintos."
+            }
+        ],
+        "materialNovelty": "El nuevo análisis de reconversión publicado el 16/10 releva decisiones empresariales; no repite la visita a Longvie ni el diagnóstico de Pergamino publicados en ediciones anteriores. Se evita duplicar el indicador de capacidad instalada. Ningún hecho seleccionado aparece simultáneamente en dos secciones."
+    }
+},
         "2026-10-16": {
     "analysisPeriod": {
         "date": "2026-10-15",
