@@ -163,7 +163,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge" class="date-badge">17/10/2026</span>
+                    <span id="current-date-badge" class="date-badge">19/10/2026</span>
                 </div>
             </div>
         </div>
@@ -186,7 +186,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-10-17" selected>17/10/2026 (Último informe)</option>
+                        <option value="2026-10-19" selected>19/10/2026 (Último informe)</option>
+                        <option value="2026-10-17">17/10/2026</option>
                         <option value="2026-10-16">16/10/2026</option>
                         <option value="2026-10-15">15/10/2026</option>
                         <option value="2026-10-14">14/10/2026</option>
@@ -360,6 +361,553 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+        "2026-10-19":         {
+            "analysisPeriod": {
+                "date": "2026-10-18",
+                "start": "2026-10-18T00:00:00-03:00",
+                "end": "2026-10-18T23:59:59-03:00",
+                "timezone": "America/Argentina/Buenos_Aires"
+            },
+            "sector": [
+                {
+                    "id": "red-x",
+                    "network": "X",
+                    "networkBadge": "bg-slate-900 text-white",
+                    "hashtag": "Evidencia insuficiente",
+                    "title": "Sin tendencia nueva verificable en X",
+                    "quote": "No se verificó una publicación industrial específica de esta red fechada el 18/10/2026.",
+                    "action": "Sin un post industrial atribuible y fechado no hay una señal social defendible para UIPBA y sus socios. Esto describe una limitación de acceso y verificación, no la ausencia de conversación industrial.",
+                    "watch": "Posts originales del período sobre producción, empleo fabril, inversión, costos productivos o cadenas de valor; verificar fecha, autor y señales públicas.",
+                    "evidence": "Búsqueda separada por plataforma con términos industriales y fecha 18/10/2026. No se consiguieron cinco candidatos recientes verificables de cuentas distintas ni un post del período con fecha y contenido comprobables. No se sustituyen por noticias, perfiles ni publicaciones antiguas.",
+                    "source": {
+                        "name": "Sin publicación industrial seleccionable",
+                        "link": "",
+                        "date": "Período: 18/10/2026 · relevado 19/10/2026"
+                    },
+                    "metrics": {
+                        "temp": 0,
+                        "volume": "Sin tendencia acreditada",
+                        "variation": "Candidatos verificables insuficientes"
+                    }
+                },
+                {
+                    "id": "red-linkedin",
+                    "network": "LinkedIn",
+                    "networkBadge": "bg-blue-100 text-blue-800",
+                    "hashtag": "Evidencia insuficiente",
+                    "title": "Sin tendencia nueva verificable en LinkedIn",
+                    "quote": "No se verificó una publicación industrial específica de esta red fechada el 18/10/2026.",
+                    "action": "Sin un post industrial atribuible y fechado no hay una señal social defendible para UIPBA y sus socios. Esto describe una limitación de acceso y verificación, no la ausencia de conversación industrial.",
+                    "watch": "Posts originales del período sobre producción, empleo fabril, inversión, costos productivos o cadenas de valor; verificar fecha, autor y señales públicas.",
+                    "evidence": "Búsqueda separada por plataforma con términos industriales y fecha 18/10/2026. No se consiguieron cinco candidatos recientes verificables de cuentas distintas ni un post del período con fecha y contenido comprobables. No se sustituyen por noticias, perfiles ni publicaciones antiguas.",
+                    "source": {
+                        "name": "Sin publicación industrial seleccionable",
+                        "link": "",
+                        "date": "Período: 18/10/2026 · relevado 19/10/2026"
+                    },
+                    "metrics": {
+                        "temp": 0,
+                        "volume": "Sin tendencia acreditada",
+                        "variation": "Candidatos verificables insuficientes"
+                    }
+                },
+                {
+                    "id": "red-instagram",
+                    "network": "Instagram",
+                    "networkBadge": "bg-pink-100 text-pink-800",
+                    "hashtag": "Evidencia insuficiente",
+                    "title": "Sin tendencia nueva verificable en Instagram",
+                    "quote": "No se verificó una publicación industrial específica de esta red fechada el 18/10/2026.",
+                    "action": "Sin un post industrial atribuible y fechado no hay una señal social defendible para UIPBA y sus socios. Esto describe una limitación de acceso y verificación, no la ausencia de conversación industrial.",
+                    "watch": "Posts originales del período sobre producción, empleo fabril, inversión, costos productivos o cadenas de valor; verificar fecha, autor y señales públicas.",
+                    "evidence": "Búsqueda separada por plataforma con términos industriales y fecha 18/10/2026. No se consiguieron cinco candidatos recientes verificables de cuentas distintas ni un post del período con fecha y contenido comprobables. No se sustituyen por noticias, perfiles ni publicaciones antiguas.",
+                    "source": {
+                        "name": "Sin publicación industrial seleccionable",
+                        "link": "",
+                        "date": "Período: 18/10/2026 · relevado 19/10/2026"
+                    },
+                    "metrics": {
+                        "temp": 0,
+                        "volume": "Sin tendencia acreditada",
+                        "variation": "Candidatos verificables insuficientes"
+                    }
+                },
+                {
+                    "id": "red-facebook",
+                    "network": "Facebook",
+                    "networkBadge": "bg-blue-100 text-blue-800",
+                    "hashtag": "Evidencia insuficiente",
+                    "title": "Sin tendencia nueva verificable en Facebook",
+                    "quote": "No se verificó una publicación industrial específica de esta red fechada el 18/10/2026.",
+                    "action": "Sin un post industrial atribuible y fechado no hay una señal social defendible para UIPBA y sus socios. Esto describe una limitación de acceso y verificación, no la ausencia de conversación industrial.",
+                    "watch": "Posts originales del período sobre producción, empleo fabril, inversión, costos productivos o cadenas de valor; verificar fecha, autor y señales públicas.",
+                    "evidence": "Búsqueda separada por plataforma con términos industriales y fecha 18/10/2026. No se consiguieron cinco candidatos recientes verificables de cuentas distintas ni un post del período con fecha y contenido comprobables. No se sustituyen por noticias, perfiles ni publicaciones antiguas.",
+                    "source": {
+                        "name": "Sin publicación industrial seleccionable",
+                        "link": "",
+                        "date": "Período: 18/10/2026 · relevado 19/10/2026"
+                    },
+                    "metrics": {
+                        "temp": 0,
+                        "volume": "Sin tendencia acreditada",
+                        "variation": "Candidatos verificables insuficientes"
+                    }
+                }
+            ],
+            "calle": [
+                {
+                    "id": "calle-1",
+                    "region": "la-plata",
+                    "riskLevel": "Agenda social",
+                    "badgeClass": "badge-alert-info",
+                    "topicNumber": "Tema 1",
+                    "title": "City Bell: una base de seguridad municipal quedó bajo pedido de informes",
+                    "streetTalk": "Una nota del 18/10 informó que concejales pidieron precisiones sobre la refacción de la sede de la Guardia Urbana de Prevención en 19 y 472. El proyecto autorizado contempla $66.475.882 y un espacio para armería; el cuestionamiento se centra en funciones, custodia y controles. Es una obra proyectada, no un servicio ya operativo.",
+                    "connection": [],
+                    "uipbaPosition": "Contexto municipal; sin posición institucional atribuida.",
+                    "source": {
+                        "name": "0221",
+                        "link": "https://www.0221.com.ar/la-plata/la-refaccion-del-edificio-la-guardia-urbana-prevencion-city-bell-quedo-la-mira-la-oposicion-n135885",
+                        "date": "18/10/2026"
+                    },
+                    "metrics": {
+                        "temp": 0,
+                        "volume": "Sin métricas sociales verificadas",
+                        "variation": "Publicado 18/10"
+                    }
+                },
+                {
+                    "id": "calle-2",
+                    "region": "la-plata",
+                    "riskLevel": "Agenda social",
+                    "badgeClass": "badge-alert-info",
+                    "topicNumber": "Tema 2",
+                    "title": "La Plata: un siniestro en moto dejó dos heridos en Melchor Romero",
+                    "streetTalk": "El domingo 18/10, una moto cayó en la zona de 145 y 55. Una mujer de 38 años fue trasladada al Hospital Alejandro Korn y estabilizada tras sufrir un paro cardíaco durante la atención; otro ocupante también resultó herido. El hecho pone el foco en seguridad vial y respuesta de emergencias.",
+                    "connection": [],
+                    "uipbaPosition": "Contexto social; sin posición institucional atribuida.",
+                    "source": {
+                        "name": "0221",
+                        "link": "https://www.0221.com.ar/policiales/una-mujer-cayo-su-moto-la-plata-quedo-inconsciente-y-sufrio-un-paro-cardiaco-n135997",
+                        "date": "18/10/2026"
+                    },
+                    "metrics": {
+                        "temp": 0,
+                        "volume": "Sin métricas sociales verificadas",
+                        "variation": "Siniestro y nota del 18/10"
+                    }
+                },
+                {
+                    "id": "calle-3",
+                    "region": "mar-del-plata",
+                    "riskLevel": "Agenda social",
+                    "badgeClass": "badge-alert-info",
+                    "topicNumber": "Tema 3",
+                    "title": "Mar del Plata: salones reportan menos visitas y mayor cuidado del gasto",
+                    "streetTalk": "En una recorrida publicada el 18/10, tres comercios de peluquería y belleza describieron menor frecuencia de clientes y búsqueda de alternativas más económicas. Los testimonios refieren cambios percibidos desde agosto y distintos ritmos de recuperación; es evidencia cualitativa de esos locales, no una medición general del consumo.",
+                    "connection": [],
+                    "uipbaPosition": "Contexto social y de consumo; sin posición institucional atribuida.",
+                    "source": {
+                        "name": "0223",
+                        "link": "https://www.0223.com.ar/nota/2026-10-18-19-51-0-menos-clientes-visitas-mas-espaciadas-y-la-plata-justa-como-afecta-la-crisis-a-las-peluquerias-y-los-salones-de-belleza",
+                        "date": "18/10/2026 · 19:51"
+                    },
+                    "metrics": {
+                        "temp": 0,
+                        "volume": "Tres testimonios comerciales en la nota",
+                        "variation": "Publicado 18/10"
+                    }
+                }
+            ],
+            "clipping": [
+                {
+                    "id": "clip-1",
+                    "category": "nacional",
+                    "scopeTag": "Nacional · Biocombustibles y PyMEs",
+                    "badgeClass": "badge-alert-info",
+                    "badgeText": "PRODUCCIÓN",
+                    "title": "El debate por biocombustibles pone en discusión el cupo de las PyMEs",
+                    "summary": "Página/12 informó el 18/10 que Diputados debatía en comisión una reforma ya aprobada por el Senado. La nota advierte que la reducción de casi la mitad del cupo PyME podría comprometer 14 plantas y cerca de 10.000 empleos. Son riesgos planteados por el artículo, no cierres ocurridos.",
+                    "impact": "La regulación del corte y la asignación de cupos afecta directamente la demanda y continuidad de plantas elaboradoras. Para UIPBA y sus socios es pertinente seguir el texto legislativo, el efecto por escala y los eslabones aceiteros y de combustibles, sin atribuir una postura institucional.",
+                    "source": {
+                        "name": "Página/12",
+                        "link": "https://www.pagina12.com.ar/2026/10/18/una-ley-que-lleva-a-la-quiebra-a-decenas-de-pymes/",
+                        "date": "18/10/2026 · hora no expuesta"
+                    },
+                    "publication": {
+                        "published": "2026-10-18",
+                        "method": "Fecha en URL e índice; hora no expuesta"
+                    },
+                    "metrics": {
+                        "temp": 0,
+                        "volume": "Sin métricas sociales",
+                        "variation": "Publicado 18/10"
+                    },
+                    "industrialVerified": true
+                },
+                {
+                    "id": "clip-2",
+                    "category": "regional",
+                    "scopeTag": "Provincia de Buenos Aires · Empleo manufacturero",
+                    "badgeClass": "badge-alert-info",
+                    "badgeText": "EMPLEO INDUSTRIAL",
+                    "title": "UIPBA registra menos establecimientos y empleo manufacturero bonaerense",
+                    "summary": "Diario Anticipos publicó el 18/10 que, según un relevamiento de UIPBA, entre junio de 2023 y junio de 2026 hubo 1.374 establecimientos manufactureros menos (-6,3%) y 45.115 puestos industriales menos (-8,6%). La nota distingue esos universos de la caída de empleadores de SRT; no implica que toda baja registral sea un cierre definitivo.",
+                    "impact": "Los datos se refieren directamente al entramado fabril bonaerense y permiten seguir la evolución territorial del empleo y los establecimientos. Conviene mantener diferenciados los indicadores, períodos y fuentes antes de compararlos o extrapolarlos.",
+                    "source": {
+                        "name": "Diario Anticipos",
+                        "link": "https://diarioanticipos.com/2026/10/18/cuenta-regresiva-para-las-pymes-mas-de-5-800-empleadores-menos-en-la-provincia/",
+                        "date": "18/10/2026"
+                    },
+                    "publication": {
+                        "published": "2026-10-18",
+                        "method": "Fecha visible en la nota"
+                    },
+                    "metrics": {
+                        "temp": 0,
+                        "volume": "Relevamiento UIPBA citado por el medio",
+                        "variation": "Publicado 18/10"
+                    },
+                    "industrialVerified": true
+                },
+                {
+                    "id": "clip-3",
+                    "category": "nacional",
+                    "scopeTag": "Nacional · Neuquén · Empleo manufacturero",
+                    "badgeClass": "badge-alert-info",
+                    "badgeText": "EMPLEO Y VALOR AGREGADO",
+                    "title": "Neuquén informa un máximo histórico de empleo manufacturero",
+                    "summary": "NoticiasNQN publicó el 18/10 que la industria neuquina registró 14.382 empleos en el primer trimestre de 2026, máximo de la serie desde 1996, con crecimiento del 64% frente a 2021. La nota atribuye los datos a estadísticas nacionales procesadas por la Subsecretaría de Industria provincial y detalla el peso de maquinaria, metal y alimentos.",
+                    "impact": "El caso muestra una evolución regional ligada a proveedores y actividades industriales asociadas a la energía. Para socios de UIPBA sirve como comparación de articulación productiva y empleo; no es evidencia de un efecto equivalente en Buenos Aires.",
+                    "source": {
+                        "name": "NoticiasNQN",
+                        "link": "https://www.noticiasnqn.com.ar/noticias/2026/10/18/357083-vaca-muerta-impulsa-el-empleo-industrial-en-neuquen-ya-hay-mas-de-14000-trabajadores",
+                        "date": "18/10/2026"
+                    },
+                    "publication": {
+                        "published": "2026-10-18",
+                        "method": "Fecha visible en la nota"
+                    },
+                    "metrics": {
+                        "temp": 0,
+                        "volume": "14.382 empleos manufactureros reportados para T1 2026",
+                        "variation": "+64% frente a T1 2021 según fuente citada"
+                    },
+                    "industrialVerified": true
+                }
+            ],
+            "audit": {
+                "reviewedEditions": [
+                    "2026-10-17",
+                    "2026-10-16",
+                    "2026-10-15",
+                    "2026-10-14",
+                    "2026-10-10",
+                    "2026-10-09",
+                    "2026-10-08"
+                ],
+                "minimumCandidatesMet": false,
+                "limitations": {
+                    "X": "Búsquedas específicas por red y fecha: no se verificaron cinco posts industriales recientes de cuentas distintas ni publicación del 18/10.",
+                    "LinkedIn": "Resultados recuperados de semanas/meses/años previos o con referencia al día como fecha de evento, no de publicación; mínimo de cinco posts fechados no alcanzado.",
+                    "Instagram": "El índice devolvió páginas/perfiles no pertinentes; no aparecieron cinco posts industriales recientes con URL y fecha verificables.",
+                    "Facebook": "Los resultados fueron ajenos al tema o sin fecha; no se verificaron cinco posts industriales recientes de autores distintos."
+                },
+                "candidates": [
+                    {
+                        "network": "LinkedIn",
+                        "author": "Dra. Hilda Zulema Zárate",
+                        "url": "https://es.linkedin.com/posts/dra-hilda-zulema-z%C3%A1rate-241b3746_historia-y-legado-de-lozadur-sa-la-f%C3%A1brica-activity-7399266219654107136-uive",
+                        "date": "Índice: mes pasado",
+                        "decision": "Descartado: publicación histórica sobre Lozadur, no del período."
+                    },
+                    {
+                        "network": "LinkedIn",
+                        "author": "Analytical Technologies S.A.",
+                        "url": "https://es.linkedin.com/posts/analytical-technologies-s-a-_cursos-capacitaci%C3%B3n-analytical-activity-7245459127546597377-L5yo",
+                        "date": "Índice: 2 años",
+                        "decision": "Descartado por antigüedad."
+                    },
+                    {
+                        "network": "LinkedIn",
+                        "author": "SmartPyme",
+                        "url": "https://es.linkedin.com/posts/smart-pyme_prep%C3%A1rate-para-la-revoluci%C3%B3n-empresarial-activity-7119756657940643841--fnV",
+                        "date": "Índice: 2 años",
+                        "decision": "Descartado por antigüedad."
+                    },
+                    {
+                        "network": "LinkedIn",
+                        "author": "Susana Muñoz Enríquez",
+                        "url": "https://es.linkedin.com/posts/susana-munoz-enriquez_china-shangh%C3%A1i-yiwu-activity-7450869488180412416-nLHf",
+                        "date": "Índice: 3 meses",
+                        "decision": "Descartado: viaje de negocios en el texto, pero post antiguo y no del 18/10."
+                    },
+                    {
+                        "network": "LinkedIn",
+                        "author": "Fundación Empretec Argentina",
+                        "url": "https://es.linkedin.com/posts/fundaci%C3%B3n-empretec-argentina_finaliz%C3%B3-una-nueva-edici%C3%B3n-del-taller-activity-7386077651016388608-_UVG",
+                        "date": "Índice: mes pasado",
+                        "decision": "Descartado: actividad anterior al período."
+                    }
+                ],
+                "historyRule": "Se revisaron las siete ediciones disponibles: 17, 16, 15, 14, 10, 09 y 08/10. Se anotaron cuentas, links, títulos y temas; no se reutilizan autores/temas recientes. Sin uso de puertos en X ni nanotecnología en LinkedIn.",
+                "searches": [
+                    {
+                        "network": "X",
+                        "queries": [
+                            "site:x.com industria fábrica PyME manufactura producción Argentina after:2026-10-17 before:2026-10-19",
+                            "site:x.com biocombustibles biodiesel UIPBA 18/10/2026"
+                        ],
+                        "result": "Sin post industrial del día verificable; cinco candidatos no alcanzados."
+                    },
+                    {
+                        "network": "LinkedIn",
+                        "queries": [
+                            "site:linkedin.com/posts industria/fábrica/PyME manufactura Argentina 18/10/2026",
+                            "site:linkedin.com/posts biocombustibles UIPBA industria 18 de octubre"
+                        ],
+                        "result": "Resultados antiguos o con fecha ambigua; ninguno elegible."
+                    },
+                    {
+                        "network": "Instagram",
+                        "queries": [
+                            "site:instagram.com/p industria Argentina October 18 2026",
+                            "site:instagram.com/p 18/10/2026 industria manufactura PyME",
+                            "site:instagram.com/reel industria argentina octubre 2026"
+                        ],
+                        "result": "Sin cinco posts verificables ni uno del período."
+                    },
+                    {
+                        "network": "Facebook",
+                        "queries": [
+                            "site:facebook.com/posts industria Argentina 18 octubre 2026",
+                            "site:facebook.com industria PyME manufactura after:2026-10-17 before:2026-10-19",
+                            "site:facebook.com biocombustibles industria 18/10/2026"
+                        ],
+                        "result": "Sin cinco voces industriales verificables; resultados irrelevantes/sin fecha."
+                    }
+                ],
+                "excludedMedia": [
+                    {
+                        "url": "https://revistalatecla.com.ar/170469-cuenta-regresiva-para-las-pymes-miles-de-empresas-bajaron-la-persiana-en-la-provincia",
+                        "reason": "Mismo hecho y datos que Diario Anticipos; duplicación evitada."
+                    },
+                    {
+                        "url": "https://mundoempresarial.ar/durax-produce-250-000-piezas-diarias-y-exporta-a-6-paises/",
+                        "reason": "Byline 18/10 pero encabezado de página fechado 19/10; fuera del período."
+                    },
+                    {
+                        "url": "https://www.0221.com.ar/policiales/el-dramatico-relato-del-pediatra-la-plata-asaltado-su-consultorio-la-nena-lloraba-todo-el-tiempo-n135988",
+                        "reason": "Seguimiento del mismo asalto incluido el 17/10; excluido por repetición."
+                    }
+                ],
+                "priorSocialInventory": [
+                    {
+                        "date": "2026-10-17",
+                        "posts": [
+                            {
+                                "network": "X",
+                                "title": "Sin tendencia nueva verificable en X",
+                                "author": "Sin publicación industrial seleccionable",
+                                "url": ""
+                            },
+                            {
+                                "network": "LinkedIn",
+                                "title": "La formación en soldadura conecta universidades y empresas en Avellaneda",
+                                "author": "UTN Avellaneda · LinkedIn",
+                                "url": "https://es.linkedin.com/posts/utn-avellaneda-95713048_universidad-comunidad-e-industria-activity-7509210064034095105-4R9e"
+                            },
+                            {
+                                "network": "Instagram",
+                                "title": "Sin tendencia nueva verificable en Instagram",
+                                "author": "Sin publicación industrial seleccionable",
+                                "url": ""
+                            },
+                            {
+                                "network": "Facebook",
+                                "title": "Sin tendencia nueva verificable en Facebook",
+                                "author": "Sin publicación industrial seleccionable",
+                                "url": ""
+                            }
+                        ]
+                    },
+                    {
+                        "date": "2026-10-16",
+                        "posts": [
+                            {
+                                "network": "X",
+                                "title": "Sin tendencia nueva verificable en X",
+                                "author": "Sin publicación industrial seleccionable",
+                                "url": ""
+                            },
+                            {
+                                "network": "LinkedIn",
+                                "title": "Cosmética y domisanitarios: calidad, regulación y materiales en la agenda técnica",
+                                "author": "Cámara ALPHA · LinkedIn",
+                                "url": "https://es.linkedin.com/posts/camaraalpha_jadta2026-industria-asuntosregulatorios-activity-7514359407896383489-PbfF"
+                            },
+                            {
+                                "network": "Instagram",
+                                "title": "Sin tendencia nueva verificable en Instagram",
+                                "author": "Sin publicación industrial seleccionable",
+                                "url": ""
+                            },
+                            {
+                                "network": "Facebook",
+                                "title": "Sin tendencia nueva verificable en Facebook",
+                                "author": "Sin publicación industrial seleccionable",
+                                "url": ""
+                            }
+                        ]
+                    },
+                    {
+                        "date": "2026-10-15",
+                        "posts": [
+                            {
+                                "network": "X",
+                                "title": "Sin tendencia nueva verificable en X",
+                                "author": "Sin publicación industrial seleccionable",
+                                "url": ""
+                            },
+                            {
+                                "network": "LinkedIn",
+                                "title": "La IA aplicada a fábricas pone el foco en procesos, datos y equipos",
+                                "author": "Muestra Industrial Argentina – Rafaela 2026 · LinkedIn",
+                                "url": "https://es.linkedin.com/posts/muestra-industrial-argentina-rafaela-2026_inteligencia-artificial-moda-o-verdadera-activity-7511796543436390400-unNQ"
+                            },
+                            {
+                                "network": "Instagram",
+                                "title": "Sin tendencia nueva verificable en Instagram",
+                                "author": "Sin publicación industrial seleccionable",
+                                "url": ""
+                            },
+                            {
+                                "network": "Facebook",
+                                "title": "Sin tendencia nueva verificable en Facebook",
+                                "author": "Sin publicación industrial seleccionable",
+                                "url": ""
+                            }
+                        ]
+                    },
+                    {
+                        "date": "2026-10-14",
+                        "posts": [
+                            {
+                                "network": "X",
+                                "title": "La electrificación transforma la cadena automotriz",
+                                "author": "EY Argentina — X",
+                                "url": "https://x.com/EY_Argentina/status/2110007655964012548"
+                            },
+                            {
+                                "network": "LinkedIn",
+                                "title": "La economía espacial busca articular industria, ciencia y nuevas cadenas de valor",
+                                "author": "Alejandro Temporetti Olivera — LinkedIn",
+                                "url": "https://es.linkedin.com/posts/alejandro-temporetti-olivera-108a8629_argentinaspace-argentinaspace2026-salta-activity-7508165423423623169-cM94"
+                            },
+                            {
+                                "network": "Instagram",
+                                "title": "Sin tendencia industrial nueva verificable en Instagram",
+                                "author": "Sin publicación industrial reciente verificable",
+                                "url": ""
+                            },
+                            {
+                                "network": "Facebook",
+                                "title": "Sin tendencia industrial nueva verificable en Facebook",
+                                "author": "Sin publicación industrial reciente verificable",
+                                "url": ""
+                            }
+                        ]
+                    },
+                    {
+                        "date": "2026-10-10",
+                        "posts": [
+                            {
+                                "network": "X",
+                                "title": "Sin tendencia nueva verificable en X",
+                                "author": "Sin publicación industrial reciente verificable",
+                                "url": ""
+                            },
+                            {
+                                "network": "LinkedIn",
+                                "title": "Seguridad y continuidad de procesos en la industria química: tema destacado reciente en LinkedIn",
+                                "author": "Responsabilidad Integral | Colombia — LinkedIn",
+                                "url": "https://es.linkedin.com/pulse/summit-industria-qu%C3%ADmica-2026-una-nueva-4vkoe"
+                            },
+                            {
+                                "network": "Instagram",
+                                "title": "Sin tendencia nueva verificable en Instagram",
+                                "author": "Sin publicación industrial reciente verificable",
+                                "url": ""
+                            },
+                            {
+                                "network": "Facebook",
+                                "title": "Sin tendencia nueva verificable en Facebook",
+                                "author": "Sin publicación industrial reciente verificable",
+                                "url": ""
+                            }
+                        ]
+                    },
+                    {
+                        "date": "2026-10-09",
+                        "posts": [
+                            {
+                                "network": "X",
+                                "title": "El lanzamiento de Kingdom Hearts Collection activó a la comunidad gamer en X",
+                                "author": "StellaNoxEclair — X",
+                                "url": "https://x.com/StellaNoxEclair/status/2108226593588146478"
+                            },
+                            {
+                                "network": "LinkedIn",
+                                "title": "Resistencia antimicrobiana y nuevas tecnologías: tema destacado reciente en LinkedIn",
+                                "author": "La Web de La Salud — LinkedIn",
+                                "url": "https://es.linkedin.com/posts/la-web-de-la-salud-_panam%C3%A1-reunir%C3%A1-a-expertos-nacionales-e-internacionales-activity-7512901226636754945-2epI"
+                            },
+                            {
+                                "network": "Instagram",
+                                "title": "Clairo concentró una señal fuerte de interacción musical en Instagram",
+                                "author": "Clairo — Instagram",
+                                "url": "https://www.instagram.com/p/DeP8xcHEfnI/"
+                            },
+                            {
+                                "network": "Facebook",
+                                "title": "El reconocimiento a Air Supply reunió conversación de fans en Facebook",
+                                "author": "SoCal Filipinos — Facebook",
+                                "url": "https://www.facebook.com/socalfilipinos/posts/today-is-a-pretty-special-day-for-air-supply-%EF%B8%8Fafter-50-years-of-timeless-music-a/1782943423353951/"
+                            }
+                        ]
+                    },
+                    {
+                        "date": "2026-10-08",
+                        "posts": [
+                            {
+                                "network": "X",
+                                "title": "Sin tendencia nueva verificable en X",
+                                "author": "Sin publicación verificable",
+                                "url": ""
+                            },
+                            {
+                                "network": "LinkedIn",
+                                "title": "La transformación de la hotelería: tema destacado reciente en LinkedIn",
+                                "author": "CIDH — LinkedIn",
+                                "url": "https://es.linkedin.com/posts/cidhglobal_el-futuro-de-la-hoteler%C3%ADa-no-se-espera-este-activity-7512542572070805504-nzjC"
+                            },
+                            {
+                                "network": "Instagram",
+                                "title": "Comunidad gamer: señal destacada en Instagram, con verificación limitada",
+                                "author": "World of Warcraft (@warcraft) — Instagram",
+                                "url": "https://www.instagram.com/reel/DeNFEOHMVDY/"
+                            },
+                            {
+                                "network": "Facebook",
+                                "title": "Reflexión religiosa cotidiana: tema destacado en Facebook, con evidencia limitada",
+                                "author": "TeleVID — Facebook",
+                                "url": "https://www.facebook.com/televid.tv/posts/evangelio-de-hoy-mi%C3%A9rcoles-7-octubre-2026-con-fray-carlos-villamomento-para-refl/1563450965813140/"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
         "2026-10-17": {
     "analysisPeriod": {
         "date": "2026-10-16",
