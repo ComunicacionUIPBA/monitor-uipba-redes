@@ -163,7 +163,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge" class="date-badge">19/10/2026</span>
+                    <span id="current-date-badge" class="date-badge">22/10/2026</span>
                 </div>
             </div>
         </div>
@@ -186,7 +186,7 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-10-19" selected>19/10/2026 (Último informe)</option>
+                        <option value="2026-10-22" selected>22/10/2026 (Último informe)</option>
                         <option value="2026-10-17">17/10/2026</option>
                         <option value="2026-10-16">16/10/2026</option>
                         <option value="2026-10-15">15/10/2026</option>
@@ -361,6 +361,576 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+
+        "2026-10-22": {
+                "analysisPeriod": "Contenido relevado: 21/10/2026, 00:00–23:59 (America/Argentina/Buenos_Aires). Fecha del informe: 22/10/2026. Excepciones sociales consignan fecha real o falta de fecha pública.",
+                "sector": [
+                        {
+                                "id": "social-x-2026-10-22",
+                                "network": "X",
+                                "networkBadge": "bg-black text-white",
+                                "hashtag": "Tema destacado · gas para la industria",
+                                "title": "El acceso al gas de Vaca Muerta vuelve al debate por los costos industriales",
+                                "quote": "Dos publicaciones de cuentas distintas vincularon la extensión de infraestructura gasífera con menores costos productivos y más disponibilidad energética para la industria.",
+                                "action": "La disponibilidad y costo del gas inciden en los gastos operativos manufactureros. Para UIPBA y sus socios importa seguir cobertura industrial y costos, sin atribuir una posición institucional.",
+                                "watch": "Observar anuncios verificables de obras, cobertura de usuarios industriales y condiciones de acceso.",
+                                "evidence": "@economisiones (20:12 ART) y @Infobae (13:50 ART), ambos 21/10: https://x.com/economisiones/status/2113045762460250130 · https://x.com/infobae/status/2112949533999251822. Dos cuentas; sin métricas públicas y sin cinco candidatos verificados; tema destacado, no tendencia.",
+                                "source": {
+                                        "name": "Economisiones · X",
+                                        "link": "https://x.com/economisiones/status/2113045762460250130",
+                                        "date": "Publicado 21/10/2026, 20:12 ART · relevado 22/10/2026"
+                                },
+                                "metrics": {
+                                        "temp": 0,
+                                        "volume": "2 posts contrastados; interacciones no expuestas",
+                                        "variation": "Tema destacado en X · tendencia no acreditada"
+                                }
+                        },
+                        {
+                                "id": "social-linkedin-2026-10-22",
+                                "network": "LinkedIn",
+                                "networkBadge": "bg-blue-700 text-white",
+                                "hashtag": "#Ecolab · #GestiónDelAgua",
+                                "title": "La reutilización del agua gana lugar en la eficiencia de procesos industriales",
+                                "quote": "Una publicación desde Bahía Blanca presenta gestión, reúso y digitalización del agua como herramientas aplicadas a operaciones industriales.",
+                                "action": "El agua es insumo y condición operativa de procesos fabriles. Para los socios importa por su relación con eficiencia, continuidad y gestión ambiental; la publicación no cuantifica efectos en empresas bonaerenses.",
+                                "watch": "Observar casos con datos comparables de ahorro, reúso, calidad y continuidad de suministro.",
+                                "evidence": "Post de Nicolás Martin de Eugenio (Ecolab/Nalco Water), fechado por el índice como 21/10; hora e interacciones no expuestas. https://es.linkedin.com/posts/nicolasmde_ecolab-nalcowater-gesti%C3%B3ndelagua-activity-7516559347028791296-V8LH. Un post verificable; cinco candidatos fechados no alcanzados.",
+                                "source": {
+                                        "name": "Nicolás Martin de Eugenio · LinkedIn",
+                                        "link": "https://es.linkedin.com/posts/nicolasmde_ecolab-nalcowater-gesti%C3%B3ndelagua-activity-7516559347028791296-V8LH",
+                                        "date": "Publicado 21/10/2026 (hora no expuesta) · relevado 22/10/2026"
+                                },
+                                "metrics": {
+                                        "temp": 0,
+                                        "volume": "Interacciones públicas no expuestas",
+                                        "variation": "Tema destacado en LinkedIn · tendencia no acreditada"
+                                }
+                        },
+                        {
+                                "id": "social-instagram-2026-10-22",
+                                "network": "Instagram",
+                                "networkBadge": "bg-gradient-to-r from-purple-600 to-pink-500 text-white",
+                                "hashtag": "#Robótica · #Manufactura",
+                                "title": "Robots humanoides entran en una línea de producción de vehículos",
+                                "quote": "El post describe la puesta en marcha de una línea de fabricación XPeng en la que se incorporan robots humanoides IRON; se trata de manufactura, no solo de una demostración tecnológica.",
+                                "action": "La incorporación de robótica a una planta automotriz es innovación aplicada a producción. Importa seguir usos, escala y desempeño de la automatización sin extrapolar resultados a otras plantas.",
+                                "watch": "Verificar continuidad de la línea, tareas automatizadas y datos sobre volumen, calidad y empleo.",
+                                "evidence": "Índice público muestra @inventos publicado 21/10/2026 16:13 ART y describe la línea productiva: https://www.instagram.com/p/DewzxXSAnZE/. Un post industrial fechable; otros resultados no pertinentes; sin métricas ni cinco candidatos industriales comparables.",
+                                "source": {
+                                        "name": "@inventos · Instagram",
+                                        "link": "https://www.instagram.com/p/DewzxXSAnZE/",
+                                        "date": "Publicado 21/10/2026, 16:13 ART · relevado 22/10/2026"
+                                },
+                                "metrics": {
+                                        "temp": 0,
+                                        "volume": "Interacciones públicas no expuestas",
+                                        "variation": "Tema destacado en Instagram · tendencia no acreditada"
+                                }
+                        },
+                        {
+                                "id": "social-facebook-2026-10-22",
+                                "network": "Facebook",
+                                "networkBadge": "bg-blue-800 text-white",
+                                "hashtag": "Tema destacado · movilidad en La Plata",
+                                "title": "El recital de BTS activa cortes de tránsito y un operativo especial en La Plata",
+                                "quote": "Agencia DIB informa cortes y un operativo municipal de seguridad, prevención y asistencia para las funciones del 21, 23 y 24 de octubre.",
+                                "action": "No se identifica vínculo industrial directo verificable. Se conserva como conversación social local, sin traducirla en impacto productivo ni atribuir posición institucional a UIPBA.",
+                                "watch": "Separar las fechas del evento y seguir avisos municipales de cortes y desvíos.",
+                                "evidence": "Post específico: https://www.facebook.com/AgenciaDib/posts/-bts-en-la-plata-cortes-de-tr%C3%A1nsito-y-operativo-especial-para-el-primer-recitall/1791897289605675/. El índice no expone fecha del post ni interacciones; texto refiere a recitales desde 21/10. No se presenta como tendencia ni publicación fechada 21/10.",
+                                "source": {
+                                        "name": "Agencia DIB · Facebook",
+                                        "link": "https://www.facebook.com/AgenciaDib/posts/-bts-en-la-plata-cortes-de-tr%C3%A1nsito-y-operativo-especial-para-el-primer-recitall/1791897289605675/",
+                                        "date": "Fecha no expuesta por el índice público · relevado 22/10/2026"
+                                },
+                                "metrics": {
+                                        "temp": 0,
+                                        "volume": "Fecha e interacciones no expuestas",
+                                        "variation": "Tema destacado en Facebook · fecha no expuesta"
+                                }
+                        }
+                ],
+                "calle": [
+                        {
+                                "id": "calle-2026-10-22-alerta",
+                                "region": "local",
+                                "riskLevel": "ALERTA METEOROLÓGICA",
+                                "badgeClass": "badge-alert-medium",
+                                "topicNumber": "La Plata y región",
+                                "title": "Alerta amarilla por tormentas para La Plata y localidades cercanas",
+                                "streetTalk": "Nota del 21/10 informó un alerta amarillo para el jueves 22, con tormentas, posible granizo y acumulados previstos de 40 a 70 mm. Es una advertencia anticipada, no lluvia ocurrida el 21.",
+                                "connection": [],
+                                "uipbaPosition": "Contexto social; sin posición institucional atribuida ni impacto industrial afirmado.",
+                                "source": {
+                                        "name": "0221",
+                                        "link": "https://www.0221.com.ar/la-plata/lanzan-un-alerta-amarillo-la-plata-y-la-region-tormentas-y-posible-caida-granizo-n136198",
+                                        "date": "Publicado 21/10/2026; alerta para 22/10"
+                                },
+                                "metrics": {
+                                        "temp": 0,
+                                        "volume": "Fuente del día verificada",
+                                        "variation": "Publicado 21/10"
+                                }
+                        },
+                        {
+                                "id": "calle-2026-10-22-docentes",
+                                "region": "regional",
+                                "riskLevel": "EDUCACIÓN",
+                                "badgeClass": "badge-alert-medium",
+                                "topicNumber": "Provincia de Buenos Aires",
+                                "title": "La protesta docente de SUTEBA Multicolor tuvo jornada de paro el 21 de octubre",
+                                "streetTalk": "Cobertura del 21/10 consignó paro de la corriente Multicolor ese día y otra medida de FEB para el 22/10, tras una oferta salarial provincial de 6% en dos tramos. La adhesión varía por distrito.",
+                                "connection": [],
+                                "uipbaPosition": "Contexto social; sin posición institucional atribuida ni impacto industrial afirmado.",
+                                "source": {
+                                        "name": "Prisma Juárez",
+                                        "link": "https://www.prismajuarez.com.ar/2026/10/21/paro-docente-en-la-provincia-de-buenos-aires-cuando-sera-y-que-reclaman-los-gremios",
+                                        "date": "Publicado 21/10/2026"
+                                },
+                                "metrics": {
+                                        "temp": 0,
+                                        "volume": "Fuente del día verificada",
+                                        "variation": "Publicado 21/10"
+                                }
+                        },
+                        {
+                                "id": "calle-2026-10-22-autopista",
+                                "region": "regional",
+                                "riskLevel": "SEGURIDAD VIAL",
+                                "badgeClass": "badge-alert-info",
+                                "topicNumber": "Autopista Buenos Aires–La Plata",
+                                "title": "Piden reforzar la seguridad en los accesos platenses de la autopista",
+                                "streetTalk": "Iniciativa del Concejo Deliberante de La Plata pidió a AUBASA prevención ante robos, ataques y piedras, con foco en accesos a la ciudad.",
+                                "connection": [],
+                                "uipbaPosition": "Contexto social; sin posición institucional atribuida ni impacto industrial afirmado.",
+                                "source": {
+                                        "name": "El Editor Platense",
+                                        "link": "https://eleditorplatense.com/politica/piden-reforzar-la-seguridad-en-la-autopista-buenos-aires-la-plata-n89367656-784c-49e1-b393-8853138c422e",
+                                        "date": "Publicado 21/10/2026, 16:45 ART"
+                                },
+                                "metrics": {
+                                        "temp": 0,
+                                        "volume": "Fuente del día verificada",
+                                        "variation": "Publicado 21/10"
+                                }
+                        }
+                ],
+                "clipping": [
+                        {
+                                "id": "clip-2026-10-22-stellantis",
+                                "category": "nacional",
+                                "scopeTag": "Nacional · industria automotriz",
+                                "badgeClass": "badge-alert-info",
+                                "badgeText": "INDUSTRIA",
+                                "title": "Stellantis llegó a 1,5 millones de vehículos fabricados en Córdoba y ratificó inversiones industriales",
+                                "summary": "La planta de Ferreyra alcanzó el hito; la nota informa una línea local de motores Multijet 2.2 prevista para 2027 dentro de un programa de inversión de USD 385 millones.",
+                                "impact": "El hito y la línea local refieren a capacidad, proveedores y empleo industriales. Es referencia nacional sectorial; ocurrió en Córdoba, no en Buenos Aires.",
+                                "source": {
+                                        "name": "La Nación",
+                                        "link": "https://www.lanacion.com.ar/autos/stellantis-alcanzo-15-millones-de-vehiculos-fabricados-en-cordoba-y-ratifico-sus-planes-industriales-nid21102026/",
+                                        "date": "Publicado 21/10/2026, 06:00 ART"
+                                },
+                                "publication": "2026-10-21",
+                                "metrics": {
+                                        "temp": 0,
+                                        "volume": "Producción acumulada: 1,5 millones",
+                                        "variation": "Noticia del 21/10"
+                                },
+                                "industrialVerified": true
+                        },
+                        {
+                                "id": "clip-2026-10-22-energia",
+                                "category": "nacional",
+                                "scopeTag": "Nacional · energía industrial",
+                                "badgeClass": "badge-alert-medium",
+                                "badgeText": "INDUSTRIA",
+                                "title": "Cambios en el mercado mayorista eléctrico facilitan el ingreso de grandes usuarios",
+                                "summary": "Ámbito informó el 21/10 condiciones de entrada mensual y contratación para grandes usuarios industriales y comerciales, ampliando alternativas de proveedor.",
+                                "impact": "Las reglas de contratación eléctrica pueden cambiar alternativas de abastecimiento y costos de plantas intensivas en energía. Importa seguir acceso y efectos observables en contratos y facturas.",
+                                "source": {
+                                        "name": "Ámbito",
+                                        "link": "https://www.ambito.com/energia/el-gobierno-flexibilizo-el-mercado-mayorista-y-facilito-el-ingreso-grandes-usuarios-n6336475",
+                                        "date": "Publicado 21/10/2026, 18:04 ART"
+                                },
+                                "publication": "2026-10-21",
+                                "metrics": {
+                                        "temp": 0,
+                                        "volume": "Medida para grandes usuarios",
+                                        "variation": "Noticia del 21/10"
+                                },
+                                "industrialVerified": true
+                        },
+                        {
+                                "id": "clip-2026-10-22-palmar",
+                                "category": "nacional",
+                                "scopeTag": "Nacional · manufactura y automatización",
+                                "badgeClass": "badge-alert-info",
+                                "badgeText": "INDUSTRIA",
+                                "title": "La cordobesa Palmar anunció una línea robotizada para ampliar su capacidad fabril",
+                                "summary": "Perfil informó el 21/10 una inversión de USD 15 millones en robotización y un aumento previsto de 30% en capacidad de fabricación.",
+                                "impact": "Caso de inversión privada en automatización y capacidad manufacturera; permite seguir inversión fabril sin asumir que el resultado se replica en otras empresas.",
+                                "source": {
+                                        "name": "Perfil",
+                                        "link": "https://www.perfil.com/noticias/cordoba/palmar-cumple-100-anos-y-apuesta-a-la-robotizacion-con-una-inversion-de-us-15-millones.phtml",
+                                        "date": "Publicado 21/10/2026"
+                                },
+                                "publication": "2026-10-21",
+                                "metrics": {
+                                        "temp": 0,
+                                        "volume": "Inversión: USD 15 millones; capacidad prevista: +30%",
+                                        "variation": "Noticia del 21/10"
+                                },
+                                "industrialVerified": true
+                        }
+                ],
+                "audit": {
+                        "reviewedEditions": [
+                                "2026-10-19",
+                                "2026-10-17",
+                                "2026-10-16",
+                                "2026-10-15",
+                                "2026-10-14",
+                                "2026-10-10",
+                                "2026-10-09"
+                        ],
+                        "minimumCandidatesMet": false,
+                        "limitations": {
+                                "X": "2 posts industriales verificados y fechados, no cinco; métricas de interacción no expuestas.",
+                                "LinkedIn": "1 post industrial fechado, hora e interacciones no expuestas; no cinco candidatos.",
+                                "Instagram": "1 post industrial fechable; demás resultados recientes revisados no eran industriales; no cinco candidatos industriales.",
+                                "Facebook": "Múltiples páginas de agenda local revisadas; el índice no fecha el post seleccionado ni las interacciones, no cinco candidatos industriales fechados."
+                        },
+                        "candidates": [
+                                {
+                                        "network": "X",
+                                        "author": "Economisiones",
+                                        "url": "https://x.com/economisiones/status/2113045762460250130",
+                                        "date": "21/10 20:12 ART",
+                                        "decision": "Seleccionado: gas, costos productivos e industria."
+                                },
+                                {
+                                        "network": "X",
+                                        "author": "Infobae",
+                                        "url": "https://x.com/infobae/status/2112949533999251822",
+                                        "date": "21/10 13:50 ART",
+                                        "decision": "Contraste desde otra cuenta; insuficiente para tendencia."
+                                },
+                                {
+                                        "network": "LinkedIn",
+                                        "author": "Nicolás Martin de Eugenio · Ecolab/Nalco Water",
+                                        "url": "https://es.linkedin.com/posts/nicolasmde_ecolab-nalcowater-gesti%C3%B3ndelagua-activity-7516559347028791296-V8LH",
+                                        "date": "Índice: 21/10, hora no expuesta",
+                                        "decision": "Seleccionado: reúso de agua aplicado a industria."
+                                },
+                                {
+                                        "network": "LinkedIn",
+                                        "author": "Resultados de publicaciones industriales",
+                                        "url": "",
+                                        "date": "Fecha no verificable",
+                                        "decision": "Descartados para ventana: posts antiguos, fecha de evento confundida con publicación o sin fecha."
+                                },
+                                {
+                                        "network": "Instagram",
+                                        "author": "@inventos",
+                                        "url": "https://www.instagram.com/p/DewzxXSAnZE/",
+                                        "date": "21/10 16:13 ART, según índice",
+                                        "decision": "Seleccionado: robótica en línea de fabricación."
+                                },
+                                {
+                                        "network": "Instagram",
+                                        "author": "@taisapizzi",
+                                        "url": "",
+                                        "date": "Índice 21/10, post no verificable",
+                                        "decision": "Descartado: consumo/retail, sin hecho manufacturero."
+                                },
+                                {
+                                        "network": "Instagram",
+                                        "author": "@BOM",
+                                        "url": "",
+                                        "date": "Índice 21/10, URL no verificada",
+                                        "decision": "Descartado: entretenimiento."
+                                },
+                                {
+                                        "network": "Instagram",
+                                        "author": "@bocajrs",
+                                        "url": "",
+                                        "date": "Índice 21/10, URL no verificada",
+                                        "decision": "Descartado: deporte."
+                                },
+                                {
+                                        "network": "Instagram",
+                                        "author": "@rebecaruizre",
+                                        "url": "",
+                                        "date": "Índice 21/10, URL no verificada",
+                                        "decision": "Descartado: moda sin vínculo industrial."
+                                },
+                                {
+                                        "network": "Facebook",
+                                        "author": "Agencia DIB",
+                                        "url": "https://www.facebook.com/AgenciaDib/posts/-bts-en-la-plata-cortes-de-tr%C3%A1nsito-y-operativo-especial-para-el-primer-recitall/1791897289605675/",
+                                        "date": "Fecha no expuesta",
+                                        "decision": "Respaldo social local; no se presenta como tendencia."
+                                },
+                                {
+                                        "network": "Facebook",
+                                        "author": "Municipalidad de La Plata",
+                                        "url": "https://www.facebook.com/MunicipalidadDeLaPlata/posts/la-pasi%C3%B3n-por-bts-tambi%C3%A9n-se-comparte-en-laplatacapital-del-22-al-24-de-octubre-/1579933037492820/",
+                                        "date": "Fecha no expuesta",
+                                        "decision": "Descartado para atribución temporal."
+                                },
+                                {
+                                        "network": "Facebook",
+                                        "author": "Noticias de Villa Elvira / C5N / El Editor Platense",
+                                        "url": "",
+                                        "date": "Fecha y URLs específicas no verificadas",
+                                        "decision": "Resultados hallados, descartados por falta de fecha verificable."
+                                }
+                        ],
+                        "historyRule": "Se compararon cuentas, enlaces, títulos y temas de las siete ediciones previas. Sin repeticiones de publicaciones/cuentas seleccionadas ni hechos duplicados entre secciones.",
+                        "searches": [
+                                {
+                                        "network": "X",
+                                        "queries": [
+                                                "site:x.com industria fábrica PyME manufactura Argentina after:2026-10-20 before:2026-10-22",
+                                                "site:x.com UIA gas industrial Vaca Muerta after:2026-10-20 before:2026-10-22"
+                                        ],
+                                        "result": "2 posts pertinentes fechados, de cuentas distintas."
+                                },
+                                {
+                                        "network": "LinkedIn",
+                                        "queries": [
+                                                "site:linkedin.com/posts industria manufactura agua eficiencia after:2026-10-20 before:2026-10-22"
+                                        ],
+                                        "result": "1 post industrial fechado; mínimo de cinco no alcanzado."
+                                },
+                                {
+                                        "network": "Instagram",
+                                        "queries": [
+                                                "site:instagram.com/p robots fabricación industria 21 octubre 2026",
+                                                "site:instagram.com/p PyME fábrica manufactura Argentina 21 octubre 2026"
+                                        ],
+                                        "result": "5 resultados recientes de cuentas distintas revisados; solo 1 cumplió el filtro industrial."
+                                },
+                                {
+                                        "network": "Facebook",
+                                        "queries": [
+                                                "site:facebook.com/posts industria producción 21 octubre 2026",
+                                                "site:facebook.com/posts La Plata tránsito 21 octubre BTS"
+                                        ],
+                                        "result": "Posts de agenda local revisados; fechas no expuestas y sin evidencia para tendencia industrial."
+                                }
+                        ],
+                        "excludedMedia": [
+                                "No se usaron artículos periodísticos como voz social. El hecho de infraestructura gasífera tratado en X no se repite en clipping."
+                        ],
+                        "priorSocialInventory": [
+                                {
+                                        "date": "2026-10-19",
+                                        "posts": [
+                                                {
+                                                        "network": "X",
+                                                        "title": "Messi y sus dos goles generan una señal pública de alta interacción en X",
+                                                        "author": "All About Argentina (@AlbicelesteTalk)",
+                                                        "url": "https://x.com/AlbicelesteTalk/status/2111625783341207650"
+                                                },
+                                                {
+                                                        "network": "LinkedIn",
+                                                        "title": "Una reflexión personal por el Día de la Madre circula en LinkedIn",
+                                                        "author": "Luis Berdiñas Richard",
+                                                        "url": "https://es.linkedin.com/pulse/fel%C3%ADz-dia-mam%C3%A1-luis-berdi%C3%B1as-richard-xa7nf"
+                                                },
+                                                {
+                                                        "network": "Instagram",
+                                                        "title": "El saludo por el Día de la Madre llega a Instagram desde Rivadavia",
+                                                        "author": "Sergio Miodowsky (@miodowskysergio)",
+                                                        "url": "https://www.instagram.com/reel/Denqz0fhk34/"
+                                                },
+                                                {
+                                                        "network": "Facebook",
+                                                        "title": "Las tapas de los diarios del domingo reúnen la agenda informativa en Facebook",
+                                                        "author": "Infopromos",
+                                                        "url": "https://www.facebook.com/Infopromos/posts/1572999208175627/"
+                                                }
+                                        ]
+                                },
+                                {
+                                        "date": "2026-10-17",
+                                        "posts": [
+                                                {
+                                                        "network": "X",
+                                                        "title": "Sin tendencia nueva verificable en X",
+                                                        "author": "Sin publicación industrial seleccionable",
+                                                        "url": ""
+                                                },
+                                                {
+                                                        "network": "LinkedIn",
+                                                        "title": "La formación en soldadura conecta universidades y empresas en Avellaneda",
+                                                        "author": "UTN Avellaneda · LinkedIn",
+                                                        "url": "https://es.linkedin.com/posts/utn-avellaneda-95713048_universidad-comunidad-e-industria-activity-7509210064034095105-4R9e"
+                                                },
+                                                {
+                                                        "network": "Instagram",
+                                                        "title": "Sin tendencia nueva verificable en Instagram",
+                                                        "author": "Sin publicación industrial seleccionable",
+                                                        "url": ""
+                                                },
+                                                {
+                                                        "network": "Facebook",
+                                                        "title": "Sin tendencia nueva verificable en Facebook",
+                                                        "author": "Sin publicación industrial seleccionable",
+                                                        "url": ""
+                                                }
+                                        ]
+                                },
+                                {
+                                        "date": "2026-10-16",
+                                        "posts": [
+                                                {
+                                                        "network": "X",
+                                                        "title": "Sin tendencia nueva verificable en X",
+                                                        "author": "Sin publicación industrial seleccionable",
+                                                        "url": ""
+                                                },
+                                                {
+                                                        "network": "LinkedIn",
+                                                        "title": "Cosmética y domisanitarios: calidad, regulación y materiales en la agenda técnica",
+                                                        "author": "Cámara ALPHA · LinkedIn",
+                                                        "url": "https://es.linkedin.com/posts/camaraalpha_jadta2026-industria-asuntosregulatorios-activity-7514359407896383489-PbfF"
+                                                },
+                                                {
+                                                        "network": "Instagram",
+                                                        "title": "Sin tendencia nueva verificable en Instagram",
+                                                        "author": "Sin publicación industrial seleccionable",
+                                                        "url": ""
+                                                },
+                                                {
+                                                        "network": "Facebook",
+                                                        "title": "Sin tendencia nueva verificable en Facebook",
+                                                        "author": "Sin publicación industrial seleccionable",
+                                                        "url": ""
+                                                }
+                                        ]
+                                },
+                                {
+                                        "date": "2026-10-15",
+                                        "posts": [
+                                                {
+                                                        "network": "X",
+                                                        "title": "Sin tendencia nueva verificable en X",
+                                                        "author": "Sin publicación industrial seleccionable",
+                                                        "url": ""
+                                                },
+                                                {
+                                                        "network": "LinkedIn",
+                                                        "title": "La IA aplicada a fábricas pone el foco en procesos, datos y equipos",
+                                                        "author": "Muestra Industrial Argentina – Rafaela 2026 · LinkedIn",
+                                                        "url": "https://es.linkedin.com/posts/muestra-industrial-argentina-rafaela-2026_inteligencia-artificial-moda-o-verdadera-activity-7511796543436390400-unNQ"
+                                                },
+                                                {
+                                                        "network": "Instagram",
+                                                        "title": "Sin tendencia nueva verificable en Instagram",
+                                                        "author": "Sin publicación industrial seleccionable",
+                                                        "url": ""
+                                                },
+                                                {
+                                                        "network": "Facebook",
+                                                        "title": "Sin tendencia nueva verificable en Facebook",
+                                                        "author": "Sin publicación industrial seleccionable",
+                                                        "url": ""
+                                                }
+                                        ]
+                                },
+                                {
+                                        "date": "2026-10-14",
+                                        "posts": [
+                                                {
+                                                        "network": "X",
+                                                        "title": "La electrificación transforma la cadena automotriz",
+                                                        "author": "EY Argentina — X",
+                                                        "url": "https://x.com/EY_Argentina/status/2110007655964012548"
+                                                },
+                                                {
+                                                        "network": "LinkedIn",
+                                                        "title": "La economía espacial busca articular industria, ciencia y nuevas cadenas de valor",
+                                                        "author": "Alejandro Temporetti Olivera — LinkedIn",
+                                                        "url": "https://es.linkedin.com/posts/alejandro-temporetti-olivera-108a8629_argentinaspace-argentinaspace2026-salta-activity-7508165423423623169-cM94"
+                                                },
+                                                {
+                                                        "network": "Instagram",
+                                                        "title": "Sin tendencia industrial nueva verificable en Instagram",
+                                                        "author": "Sin publicación industrial reciente verificable",
+                                                        "url": ""
+                                                },
+                                                {
+                                                        "network": "Facebook",
+                                                        "title": "Sin tendencia industrial nueva verificable en Facebook",
+                                                        "author": "Sin publicación industrial reciente verificable",
+                                                        "url": ""
+                                                }
+                                        ]
+                                },
+                                {
+                                        "date": "2026-10-10",
+                                        "posts": [
+                                                {
+                                                        "network": "X",
+                                                        "title": "Sin tendencia nueva verificable en X",
+                                                        "author": "Sin publicación industrial reciente verificable",
+                                                        "url": ""
+                                                },
+                                                {
+                                                        "network": "LinkedIn",
+                                                        "title": "Seguridad y continuidad de procesos en la industria química: tema destacado reciente en LinkedIn",
+                                                        "author": "Responsabilidad Integral | Colombia — LinkedIn",
+                                                        "url": "https://es.linkedin.com/pulse/summit-industria-qu%C3%ADmica-2026-una-nueva-4vkoe"
+                                                },
+                                                {
+                                                        "network": "Instagram",
+                                                        "title": "Sin tendencia nueva verificable en Instagram",
+                                                        "author": "Sin publicación industrial reciente verificable",
+                                                        "url": ""
+                                                },
+                                                {
+                                                        "network": "Facebook",
+                                                        "title": "Sin tendencia nueva verificable en Facebook",
+                                                        "author": "Sin publicación industrial reciente verificable",
+                                                        "url": ""
+                                                }
+                                        ]
+                                },
+                                {
+                                        "date": "2026-10-09",
+                                        "posts": [
+                                                {
+                                                        "network": "X",
+                                                        "title": "El lanzamiento de Kingdom Hearts Collection activó a la comunidad gamer en X",
+                                                        "author": "StellaNoxEclair — X",
+                                                        "url": "https://x.com/StellaNoxEclair/status/2108226593588146478"
+                                                },
+                                                {
+                                                        "network": "LinkedIn",
+                                                        "title": "Resistencia antimicrobiana y nuevas tecnologías: tema destacado reciente en LinkedIn",
+                                                        "author": "La Web de La Salud — LinkedIn",
+                                                        "url": "https://es.linkedin.com/posts/la-web-de-la-salud-_panam%C3%A1-reunir%C3%A1-a-expertos-nacionales-e-internacionales-activity-7512901226636754945-2epI"
+                                                },
+                                                {
+                                                        "network": "Instagram",
+                                                        "title": "Clairo concentró una señal fuerte de interacción musical en Instagram",
+                                                        "author": "Clairo — Instagram",
+                                                        "url": "https://www.instagram.com/p/DeP8xcHEfnI/"
+                                                },
+                                                {
+                                                        "network": "Facebook",
+                                                        "title": "El reconocimiento a Air Supply reunió conversación de fans en Facebook",
+                                                        "author": "SoCal Filipinos — Facebook",
+                                                        "url": "https://www.facebook.com/socalfilipinos/posts/today-is-a-pretty-special-day-for-air-supply-%EF%B8%8Fafter-50-years-of-timeless-music-a/1782943423353951/"
+                                                }
+                                        ]
+                                }
+                        ]
+                }
+        }
+,
         "2026-10-19":         {
             "analysisPeriod": {
                 "date": "2026-10-18",
