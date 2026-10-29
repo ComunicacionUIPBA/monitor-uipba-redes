@@ -115,7 +115,7 @@
                 </button>
                 <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
                     <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge">5 Sep 2026</span>
+                    <span id="current-date-badge">29 Oct 2026</span>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                     </button>
                     <button onclick="switchTab('tab-calle')" id="btn-tab-calle" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>2. La Calle Bonaerense</span>
-                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">4 Alertas</span>
+                        <span class="ml-2 bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-black">3 Alertas</span>
                     </button>
                     <button onclick="switchTab('tab-clipping')" id="btn-tab-clipping" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
                         <span>3. Clipping de Medios en Redes</span>
@@ -139,7 +139,8 @@
                 <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-09-05" selected>05/09/2026 (Hoy)</option>
+                        <option value="2026-10-29" selected>29/10/2026 (Hoy)</option>
+                        <option value="2026-09-05">05/09/2026</option>
                         <option value="2026-09-03">03/09/2026</option>
                         <option value="2026-09-02">02/09/2026</option>
                         <option value="2026-09-01">01/09/2026</option>
@@ -167,22 +168,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tema Top #1</span>
-                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">La industria vuelve a poner producción, inversión, empleo y competitividad en el centro de la agenda</span>
+                <span class="text-xs font-bold text-uipba-navy truncate block mt-0.5">La caída de la actividad y las paradas de planta (Stellantis) dominan la agenda industrial</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Temperatura Promedio</span>
                 <span class="text-xs font-extrabold text-amber-600 flex items-center justify-center space-x-1 mt-0.5">
-                    <span>4.6 / 5.0</span>
-                    <span>🔥🔥🔥🔥</span>
+                    <span>3.1 / 5.0</span>
+                    <span>🔥🔥🔥</span>
                 </span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volumen Relativo</span>
-                <span class="text-xs font-bold text-emerald-600 block mt-0.5">📈 Alto (industria, exportaciones, paro de transporte y clima)</span>
+                <span class="text-xs font-bold text-emerald-600 block mt-0.5">Moderado (actividad industrial, comercio exterior y alerta por tormentas)</span>
             </div>
             <div class="p-2 rounded-xl bg-slate-50 border border-slate-100">
                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Alertas de Impacto</span>
-                <span class="text-xs font-bold text-red-600 block mt-0.5">2 Críticas (seguridad / transporte) + 1 contexto (alerta climática)</span>
+                <span class="text-xs font-bold text-red-600 block mt-0.5">1 alerta climática (tormentas 28-30/10) + 2 de contexto social</span>
             </div>
         </div>
     </section>
@@ -292,6 +293,215 @@
     <script>
         // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
         const DASHBOARD_DATA = {
+    "2026-10-29": {
+        "sector": [
+            {
+                "id": "sec-20261029-1",
+                "network": "X",
+                "networkBadge": "bg-slate-900 text-white",
+                "hashtag": "#Industria #Autopartes #Stellantis",
+                "title": "La parada de la planta de Stellantis en El Palomar deja en pausa a unos 5.000 trabajadores y golpea a los talleres autopartistas",
+                "quote": "La producción en El Palomar se frenó el lunes y se retoma el 18 de enero. Alrededor de 5.000 trabajadores directos entre Buenos Aires y Córdoba quedan en pausa, y detrás de la terminal vienen los talleres que le fabrican piezas. Una encuesta Apyme-Unpaz del tercer trimestre indica que el 34% de las pymes redujo personal y el 46,9% no consiguió crédito en todo el año.",
+                "action": "Observar el impacto sobre la red de proveedores autopartistas bonaerenses y si aparecen líneas de capital de trabajo para pymes que mantengan el empleo. Es una publicación individual con poco alcance, no una tendencia comprobada.",
+                "source": {
+                    "name": "X @diegofenriques (Diego Enriques)",
+                    "link": "https://x.com/diegofenriques/status/2115548325802033196",
+                    "date": "28 Oct 2026"
+                },
+                "metrics": {
+                    "temp": 3,
+                    "volume": "Bajo",
+                    "variation": "28 vistas y 1 respuesta al momento de la verificación; ninguno de los 30 trending de X Argentina del día era industrial"
+                }
+            },
+            {
+                "id": "sec-20261029-2",
+                "network": "LinkedIn",
+                "networkBadge": "bg-uipba-navy text-white",
+                "hashtag": "#Pymes #Industria #Digitalización",
+                "title": "Kit 4.0: programa que financia hasta el 50% de consultoría digital en IA para pymes, con tope de AR$15 millones",
+                "quote": "La Secretaría de Industria, Comercio y Pymes habilitó un programa de incentivos para capacitación y consultoría digital enfocada en inteligencia artificial, financiado hasta el 50% por el Ministerio de Economía de la Nación, con un tope de AR$15 millones. Las consultoras deben estar certificadas por el Ministerio.",
+                "action": "Relevar si el programa alcanza a pymes industriales bonaerenses y difundirlo entre socios si corresponde. Es un post comercial de una consultora y su relevancia para UIPBA es limitada; no es una tendencia comprobada.",
+                "source": {
+                    "name": "LinkedIn — Marcelo Garcia Cisneros (Wego Digital Hub)",
+                    "link": "https://www.linkedin.com/in/mgarciacisneros/",
+                    "date": "28 Oct 2026 (publicado unas 20 h antes de la verificación; LinkedIn no expone el enlace directo del post, se enlaza el perfil)"
+                },
+                "metrics": {
+                    "temp": 2,
+                    "volume": "Bajo",
+                    "variation": "20 reacciones y 6 comentarios al momento de la verificación"
+                }
+            },
+            {
+                "id": "sec-20261029-3",
+                "network": "Facebook",
+                "networkBadge": "bg-blue-600 text-white",
+                "hashtag": "#Industria #Cámaras #Pymes",
+                "title": "Una cámara de comercio, industria y producción del interior bonaerense cumple 98 años acompañando a la industria local",
+                "quote": "La Cámara de Comercio, Industria y Producción de 25 de Mayo celebró 98 años de historia, esfuerzo y compromiso junto al comercio y la industria local de Veinticinco de Mayo.",
+                "action": "Registrar el rol de las cámaras locales como articuladoras de la industria en el interior de la Provincia. Es un post institucional y local, no una tendencia; no se verificó la conversación en comentarios.",
+                "source": {
+                    "name": "Facebook — Cámara de Comercio, Industria y Producción de 25 de Mayo",
+                    "link": "https://www.facebook.com/camara25/posts/pfbid033JzCJe6CV7KVnq2U7sD4knUwxxgWqSiYPLWTx3bNCEdm2jVA5WFPkRr4qmH1GK5Gl",
+                    "date": "28 Oct 2026"
+                },
+                "metrics": {
+                    "temp": 2,
+                    "volume": "Bajo",
+                    "variation": "9 reacciones y 5 comentarios al momento de la verificación"
+                }
+            },
+            {
+                "id": "sec-20261029-4",
+                "network": "Instagram",
+                "networkBadge": "bg-pink-600 text-white",
+                "hashtag": "#Industria #EnergíaSolar #Olavarría",
+                "title": "Jornada sobre energía solar para industrias: costos y tarifas, inversión, normativa y calidad de red, con casos de plantas locales",
+                "quote": "La jornada, el miércoles 4 de noviembre a las 10:00 en Coronel Suárez 2543 (Olavarría), repasará casos reales de industrias locales: Lácteos Luz Azul, Lácteos La Casiana y Alta Textil. Los temas de interés son costos y tarifas de energía, tipos de sistemas solares, calidad de red y cortes, inversión y recupero, normativa vigente y parques solares comunitarios.",
+                "action": "Seguir cómo las pymes industriales del interior abordan el costo de la energía y si el formato se replica en otros distritos. Es un post individual de una cámara local, no una tendencia comprobada.",
+                "source": {
+                    "name": "Instagram @unionindustrialolavarria",
+                    "link": "https://www.instagram.com/p/DfE_wsrvIZB/",
+                    "date": "29 Oct 2026 (publicado el día de la edición, unos 40 minutos antes de la verificación; fuera del período del 28/10)"
+                },
+                "metrics": {
+                    "temp": 2,
+                    "volume": "Bajo",
+                    "variation": "3 Me gusta al momento de la verificación; no se encontró un post industrial del 28/10 en Instagram"
+                }
+            }
+        ],
+        "calle": [
+            {
+                "id": "calle-20261029-1",
+                "region": "general",
+                "riskLevel": "Alerta Climática",
+                "badgeClass": "badge-alert-high",
+                "topicNumber": "Tema #1 en Agenda PBA",
+                "title": "1. Tres días de tormentas con alerta amarilla en gran parte de la Provincia",
+                "streetTalk": "El Servicio Meteorológico Nacional emitió alertas por tormentas fuertes con lluvias intensas, ráfagas y posible granizo. Para el AMBA se esperaba la mayor probabilidad (hasta 70%) entre la noche del miércoles 28 y la madrugada del jueves 29; también hay alertas en el interior y la Costa Atlántica (Azul, Tandil, Dolores, Chascomús, Pinamar, Villa Gesell). Se prevén entre 20 y 40 mm acumulados, inestabilidad el jueves 29 y el viernes 30 y mejoría el sábado 31.",
+                "connection": [
+                    "Posibles demoras en logística y transporte de carga y riesgo de cortes de energía en zonas industriales; no hay datos de afectación a plantas en la fuente."
+                ],
+                "uipbaPosition": "Seguimiento del impacto en logística y energía de los parques industriales; sin acción institucional directa por ahora.",
+                "source": {
+                    "name": "La Nación",
+                    "link": "https://www.lanacion.com.ar/clima/llega-una-tormenta-de-tres-dias-a-buenos-aires-con-posibilidad-de-granizo-nid28102026/",
+                    "date": "28 Oct 2026"
+                },
+                "metrics": {
+                    "temp": 4,
+                    "volume": "Alto",
+                    "variation": "Alerta amarilla SMN 28-30 Oct; 20 a 40 mm; posible granizo"
+                }
+            },
+            {
+                "id": "calle-20261029-2",
+                "region": "conurbano-norte",
+                "riskLevel": "Agenda Social",
+                "badgeClass": "badge-alert-medium",
+                "topicNumber": "Tema #2 en Agenda PBA",
+                "title": "2. San Isidro: vecinos reclaman por seguridad, salud y recolección de residuos",
+                "streetTalk": "Una nota de Letra P recoge críticas vecinales en San Isidro sobre seguridad, atención en los centros de salud municipales y recolección de residuos y otros servicios públicos. La nota casi no aporta cifras sobre los reclamos y su foco está en el debate político local, que esta ficha no releva.",
+                "connection": [],
+                "uipbaPosition": "Mantener en el radar como contexto de servicios municipales; sin acción directa por ahora.",
+                "source": {
+                    "name": "Letra P",
+                    "link": "https://www.letrap.com.ar/conurbano/san-isidro-ramon-lanus-enfrenta-reclamos-su-gestion-y-crece-la-disputa-la-intendencia-n5427774/amp",
+                    "date": "28 Oct 2026"
+                },
+                "metrics": {
+                    "temp": 2,
+                    "volume": "Moderado",
+                    "variation": "Reclamos de servicios en San Isidro; sin cifras en la fuente"
+                }
+            },
+            {
+                "id": "calle-20261029-3",
+                "region": "general",
+                "riskLevel": "Agenda Social",
+                "badgeClass": "badge-alert-info",
+                "topicNumber": "Tema #3 en Agenda PBA",
+                "title": "3. Salud bonaerense: la Provincia convoca a diez colegios profesionales para el Segundo Plan Quinquenal 2027-2032",
+                "streetTalk": "El ministro de Salud bonaerense, Nicolás Kreplak, reunió a diez colegios profesionales del sector sanitario para construir el Segundo Plan Quinquenal de Salud. Los ejes son la atención primaria como organizadora de la red, la digitalización con la Historia de Salud Integrada y una carrera sanitaria para el sector público. La semana anterior había convocado a los gremios.",
+                "connection": [],
+                "uipbaPosition": "Mantener en el radar como contexto de política pública provincial; sin acción directa por ahora.",
+                "source": {
+                    "name": "Provincia de Buenos Aires — Salud",
+                    "link": "https://www.gba.gob.ar/saludprovincia/noticias/kreplak_convoc%C3%B3_los_colegios_profesionales_al_segundo_plan_quinquenal",
+                    "date": "27 Oct 2026"
+                },
+                "metrics": {
+                    "temp": 2,
+                    "volume": "Moderado",
+                    "variation": "Plan 2027-2032; 10 colegios profesionales; nota oficial del 27/10, un día antes del período"
+                }
+            }
+        ],
+        "clipping": [
+            {
+                "id": "clip-20261029-1",
+                "category": "nacional",
+                "scopeTag": "Nacional • Cadena 3",
+                "badgeClass": "badge-alert-high",
+                "badgeText": "COMPETITIVIDAD INDUSTRIAL",
+                "title": "Rappallini (UIA): \"La verdadera política industrial es lograr que la industria sea competitiva\"",
+                "summary": "El presidente de la UIA señaló una caída de la industria de entre 3,5% y 4% interanual, una presión fiscal de unos 56 puntos y costos mayores que los de Paraguay, Brasil y México. Propuso un RIGI para pymes de la industria transable, la revisión de aportes patronales e IVA e incentivos a la formalización.",
+                "impact": "Vínculo industrial directo: caída de la actividad fabril, carga impositiva en las cadenas productivas y propuestas de incentivos para pymes manufactureras, con efecto sobre las fábricas bonaerenses.",
+                "source": {
+                    "name": "Cadena 3",
+                    "link": "https://www.cadena3.com/amp/noticia/la-argentina-hoy/martin-rappallini-la-verdadera-politica-industrial-es-lograr-que-la-industria-sea-competitiva_608123",
+                    "date": "28 Oct 2026"
+                },
+                "metrics": {
+                    "temp": 4,
+                    "volume": "Alto",
+                    "variation": "Entrevista del 28/10; caída industrial 3,5%-4% interanual según el entrevistado"
+                }
+            },
+            {
+                "id": "clip-20261029-2",
+                "category": "nacional",
+                "scopeTag": "Nacional • Ámbito",
+                "badgeClass": "badge-alert-high",
+                "badgeText": "INDUSTRIA ELECTRÓNICA",
+                "title": "La industria electrónica profundiza su caída: 42% de las empresas produce menos y solo el 19% planea invertir",
+                "summary": "Según un relevamiento de CADIEEL del tercer trimestre de 2026, el 35% de las compañías redujo su personal y el 65% trabajó con hasta el 60% de su capacidad instalada. La inversión prevista para el cuarto trimestre bajó al 19%, frente al 33% del segundo trimestre. La nota no informa el tamaño de la muestra.",
+                "impact": "Vínculo industrial directo: producción, empleo, capacidad instalada e inversión de fabricantes de electrónica, electromecánica e iluminación, con presencia en el conurbano bonaerense.",
+                "source": {
+                    "name": "Ámbito",
+                    "link": "https://www.ambito.com/negocios/la-industria-electronica-profundiza-su-caida-42-las-empresas-produce-menos-y-solo-el-19-planea-invertir-n6338897",
+                    "date": "28 Oct 2026"
+                },
+                "metrics": {
+                    "temp": 4,
+                    "volume": "Moderado",
+                    "variation": "42% produjo menos; 35% redujo personal; 19% planea invertir (CADIEEL, 3.er trimestre)"
+                }
+            },
+            {
+                "id": "clip-20261029-3",
+                "category": "nacional",
+                "scopeTag": "Nacional • Agencia NOVA",
+                "badgeClass": "badge-alert-medium",
+                "badgeText": "COMERCIO EXTERIOR",
+                "title": "Brasil pierde peso como destino de las exportaciones argentinas, con manufacturas industriales entre lo más vendido",
+                "summary": "Un informe de la Escuela de Gobierno de la Universidad Austral indica que entre enero y agosto de 2026 la participación de Brasil bajó del 14,9% al 12,8% de las exportaciones argentinas. Las ventas a Brasil sumaron USD 8.578 millones (+4,7%), con unos USD 5.583 millones de manufacturas de origen industrial. Crecieron las ventas a EE. UU. (+34,5%), China (+17,8%) e India (+25,5%).",
+                "impact": "Vínculo industrial directo: las manufacturas de origen industrial son cerca del 65% de lo exportado a Brasil, por lo que el cambio de destinos afecta a los exportadores industriales, incluidos los bonaerenses.",
+                "source": {
+                    "name": "Agencia NOVA",
+                    "link": "https://www.agencianova.com/nota.asp?n=2026_10_28&id=174507&id_tiponota=6",
+                    "date": "28 Oct 2026"
+                },
+                "metrics": {
+                    "temp": 3,
+                    "volume": "Moderado",
+                    "variation": "Brasil 12,8% de las exportaciones (14,9% antes); enero-agosto 2026"
+                }
+            }
+        ]
+    },
     "2026-09-05": {
     "sector": [
         {
@@ -3099,7 +3309,7 @@
 
         // Inicialización al cargar la página
         window.onload = function() {
-            renderDashboard("2026-09-05");
+            renderDashboard("2026-10-29");
         };
     </script>
 </body>
