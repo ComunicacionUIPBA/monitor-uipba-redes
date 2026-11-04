@@ -89,50 +89,121 @@
             .dashboard-card { page-break-inside: avoid; border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
         }
 
-        /* Presentación institucional para socios */
-        :root { --ink:#10243e; --muted:#5d6d7e; --surface:#fff; --soft:#f3f7fb; --line:#dce6ef; }
-        body { background:radial-gradient(circle at 100% 0%,rgba(18,187,255,.08),transparent 30rem),#f4f7fa; }
-        header { box-shadow:0 1px 0 rgba(13,68,146,.04); }
-        .report-context { position:relative; overflow:hidden; color:#fff; background:linear-gradient(120deg,#0D4492 0%,#075fb0 64%,#0089E7 100%); }
-        .report-context::after { content:""; position:absolute; width:22rem; height:22rem; right:-8rem; top:-12rem; border:1px solid rgba(255,255,255,.18); border-radius:50%; box-shadow:0 0 0 3rem rgba(255,255,255,.035),0 0 0 7rem rgba(255,255,255,.025); }
+        /* Radar por red · rediseño 2026-11-04 (paleta del Sistema de Marca) */
+        :root {
+            --navy:#042551; --mid:#1668CC; --bright:#0089E7; --sky:#86D0F4;
+            --text:#3D556F; --on-navy:#C6D8EC; --ink:#0b1b30;
+            --bg:#F1F4F8; --card:#ffffff; --line:#E1E8F0; --soft:#F6F8FB;
+            --st-trend:#08583A; --st-trend-bg:#E3F6EE;
+            --st-topic:#1668CC; --st-topic-bg:#E6F0FC; --st-topic-ink:#0F4C9E;
+            --st-none-bg:#EEF1F5; --st-none-ink:#3D556F;
+        }
+        body { background:var(--bg); color:var(--text); }
+        h1,h2,h3,h4 { color:var(--ink); }
+        .bg-uipba-navy { background-color:var(--navy); }
+        .text-uipba-navy { color:var(--navy); }
+        .tab-btn.active { background-color:var(--navy); color:#fff; box-shadow:none; }
+        .tab-btn:focus-visible, .clip-filter-btn:focus-visible, select:focus-visible, summary:focus-visible, .source-link:focus-visible, .strip-cell:focus-visible, .radar-link:focus-visible { outline:3px solid rgba(0,137,231,.5); outline-offset:2px; }
+        header { box-shadow:0 1px 0 rgba(4,37,81,.05); }
+
+        /* Portada: banda marino plana. El isotipo real, grande y cortado por el borde, es el recurso propio */
+        .report-context { position:relative; overflow:hidden; color:#fff; background:var(--navy); border-bottom:4px solid var(--bright); }
         .report-context-inner { position:relative; z-index:1; }
-        .report-kicker { display:inline-flex; align-items:center; gap:.5rem; color:#dff4ff; font-size:.75rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
-        .report-kicker::before { content:""; width:.5rem; height:.5rem; border-radius:50%; background:#1ED58E; box-shadow:0 0 0 .25rem rgba(30,213,142,.18); }
-        .report-date-card { min-width:15rem; padding:1rem 1.1rem; border:1px solid rgba(255,255,255,.22); border-radius:1rem; background:rgba(255,255,255,.12); backdrop-filter:blur(8px); }
-        .report-date-card span { display:block; }
-        .report-date-label { color:#dff4ff; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-        .report-date-value { margin-top:.2rem; font-size:1.1rem; font-weight:700; text-transform:capitalize; }
-        .report-date-note { margin-top:.55rem; color:#dbeafe; font-size:.75rem; line-height:1.45; }
-        .section-guide { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.75rem; margin-top:1.25rem; }
-        .section-guide-item { padding:.75rem .85rem; border:1px solid rgba(255,255,255,.16); border-radius:.85rem; background:rgba(255,255,255,.1); }
-        .section-guide-item strong { display:block; font-size:.82rem; }
-        .section-guide-item span { display:block; margin-top:.2rem; color:#dbeafe; font-size:.72rem; line-height:1.4; }
-        .dashboard-card { border-color:var(--line); border-radius:1.15rem; background:var(--surface); box-shadow:0 4px 18px rgba(13,68,146,.055); }
-        .dashboard-card:hover { box-shadow:0 16px 40px rgba(13,68,146,.1); }
-        .card-eyebrow { display:block; margin-bottom:.4rem; color:#8a5b00; font-size:.68rem; font-style:normal; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-        .source-row { display:flex; align-items:center; justify-content:space-between; gap:.9rem; margin-top:.75rem; padding:.8rem; border:1px solid var(--line); border-radius:.85rem; background:var(--soft); color:var(--muted); font-size:.72rem; }
+        .rc-iso { position:absolute; right:-7rem; top:50%; height:150%; aspect-ratio:265/290; transform:translateY(-50%); background:url(assets/uipba-logo-color.png) left center / auto 100% no-repeat; pointer-events:none; }
+        .report-kicker { display:inline-block; color:var(--sky); font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+        .rc-title { margin-top:.6rem; color:#fff; font-size:clamp(1.75rem,3.6vw,2.9rem); font-weight:700; line-height:1.08; letter-spacing:-.015em; max-width:22ch; }
+        .rc-date { margin-top:1rem; color:#fff; font-size:1.05rem; font-weight:700; }
+        .rc-date b { color:var(--sky); font-weight:700; }
+        .report-date-note { margin-top:.3rem; max-width:60ch; color:var(--on-navy); font-size:.82rem; line-height:1.5; }
+        .rc-meta { margin-top:.5rem; color:var(--on-navy); font-size:.82rem; }
+
+        /* Banda de radar: el estado de cada red, en grande y de un vistazo */
+        .radar-strip { display:grid; gap:.75rem; grid-template-columns:repeat(4,minmax(0,1fr)); }
+        .strip-cell { display:flex; flex-direction:column; justify-content:space-between; gap:.6rem; min-height:7rem; padding:.9rem 1rem 1rem; border-radius:.6rem; text-decoration:none; border:2px solid transparent; transition:transform .15s ease; }
+        .strip-cell:hover { transform:translateY(-2px); }
+        .strip-net { font-size:.95rem; font-weight:700; letter-spacing:.01em; }
+        .strip-state { font-size:clamp(1.15rem,2vw,1.45rem); font-weight:700; line-height:1.1; letter-spacing:-.005em; }
+        .strip-sub { font-size:.8rem; font-weight:500; line-height:1.3; }
+        .strip-cell.st-trend { background:var(--st-trend); color:#fff; }
+        .strip-cell.st-trend .strip-state::before { content:""; display:inline-block; width:1.15em; height:.5em; margin-right:.4em; vertical-align:.05em; background:radial-gradient(circle at 25% 50%, #fff 0 .2em, transparent .21em), radial-gradient(circle at 75% 50%, #fff 0 .2em, transparent .21em); }
+        .strip-cell.st-topic { background:var(--st-topic); color:#fff; }
+        .strip-cell.st-none  { background:#fff; color:var(--navy); border-color:var(--navy); }
+        .strip-cell.st-none .strip-state::before { content:""; display:inline-block; width:.7em; height:.7em; margin-right:.4em; border:2px solid var(--navy); border-radius:50%; vertical-align:-.02em; }
+        .strip-cell.st-pub   { background:#fff; color:var(--navy); border-color:var(--line); }
+
+        /* Columnas: encabezado simple, sin caja; el detalle va debajo */
+        .radar-grid { display:grid; gap:1.5rem 1.25rem; grid-template-columns:repeat(4,minmax(0,1fr)); align-items:start; }
+        .radar-col { display:flex; flex-direction:column; gap:.85rem; min-width:0; scroll-margin-top:9rem; }
+        .radar-others { grid-column:1 / -1; }
+        .col-head { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; padding-bottom:.5rem; border-bottom:2px solid var(--navy); color:var(--navy); font-size:1.15rem; font-weight:700; }
+        .chip { display:inline-flex; align-items:center; padding:.15rem .55rem; border-radius:999px; background:var(--st-none-bg); color:var(--st-none-ink); font-size:.72rem; font-weight:700; }
+        .chip.st-topic { background:var(--st-topic-bg); color:var(--st-topic-ink); }
+        .chip.st-trend { background:var(--st-trend-bg); color:var(--st-trend); }
+        .col-head.st-trend { border-bottom-color:var(--st-trend); } .col-head.st-topic { border-bottom-color:var(--st-topic); }
+        @media (min-width:768px) { .col-head .chip { display:none; } }
+        .chip.st-none  { background:#fff; color:var(--navy); box-shadow:inset 0 0 0 1.5px var(--navy); }
+        .radar-card { padding:1.1rem; border-radius:.9rem; background:var(--card); box-shadow:0 1px 2px rgba(4,37,81,.05), 0 6px 18px rgba(4,37,81,.05); display:flex; flex-direction:column; gap:.75rem; }
+        .radar-card.is-empty { background:#fff; box-shadow:none; border:2px solid var(--navy); }
+        .radar-tag { color:var(--mid); font-size:.74rem; font-weight:700; overflow-wrap:anywhere; }
+        .radar-title { font-size:1.25rem; font-weight:700; line-height:1.22; letter-spacing:-.005em; color:var(--ink); }
+        .radar-quote { font-size:.84rem; line-height:1.55; color:var(--text); display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:4; overflow:hidden; }
+        .radar-why { padding-top:.65rem; border-top:1px solid var(--line); }
+        .radar-why b { display:block; margin-bottom:.15rem; color:var(--navy); font-size:.8rem; }
+        .radar-why p { margin:0; font-size:.84rem; line-height:1.5; color:var(--ink); font-weight:500; }
+        .radar-empty-title { color:var(--navy); font-weight:700; font-size:1.05rem; }
+        .radar-empty-text { font-size:.84rem; line-height:1.55; color:var(--ink); }
+        details.more { border-top:1px solid var(--line); padding-top:.6rem; }
+        details.more summary { cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; color:var(--mid); font-size:.8rem; font-weight:700; }
+        details.more summary::-webkit-details-marker { display:none; }
+        details.more summary::after { content:"+"; font-size:1.15rem; line-height:1; }
+        details.more[open] summary::after { content:"–"; }
+        details.more .more-body { margin-top:.6rem; display:grid; gap:.6rem; font-size:.8rem; line-height:1.5; color:var(--text); overflow-wrap:anywhere; }
+        details.more .more-body b { color:var(--navy); }
+        .radar-source { display:flex; flex-direction:column; gap:.25rem; padding-top:.65rem; border-top:1px solid var(--line); font-size:.78rem; line-height:1.4; color:var(--text); overflow-wrap:anywhere; }
+        .radar-link { color:var(--mid); font-weight:700; text-decoration:underline; text-underline-offset:3px; font-size:.9rem; }
+        .radar-link:hover { color:var(--navy); }
+
+        /* Agenda y Clipping: sin borde, una sola sombra */
+        .dashboard-card { border:0; border-radius:.9rem; background:var(--card); box-shadow:0 1px 2px rgba(4,37,81,.05), 0 6px 18px rgba(4,37,81,.05); transition:box-shadow .2s ease; }
+        .dashboard-card:hover { transform:none; box-shadow:0 1px 2px rgba(4,37,81,.06), 0 12px 30px rgba(4,37,81,.1); }
+        .dashboard-card h3, .dashboard-card h4 { color:var(--ink); }
+        .source-row { display:flex; align-items:center; justify-content:space-between; gap:.9rem; margin-top:.75rem; padding:.75rem .85rem; border-radius:.7rem; background:var(--soft); color:var(--text); font-size:.76rem; }
         .source-meta { min-width:0; flex:1; }
-        .source-label { display:block; margin-bottom:.35rem; color:#60758a; font-size:.66rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; }
-        .source-link { display:inline-flex; max-width:100%; align-items:center; gap:.55rem; color:#0D4492; text-decoration:none; }
+        .source-label { display:block; margin-bottom:.3rem; color:#566b80; font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+        .source-link { display:inline-flex; max-width:100%; align-items:center; gap:.55rem; color:var(--navy); text-decoration:none; }
         .source-name { overflow:hidden; font-weight:700; text-overflow:ellipsis; white-space:nowrap; }
-        .source-cta { display:inline-flex; flex:none; align-items:center; justify-content:center; min-height:2.1rem; padding:.45rem .72rem; border:1px solid #0D4492; border-radius:.65rem; background:#0D4492; color:#fff; font-size:.7rem; font-weight:700; transition:.2s ease; }
-        .source-link:hover .source-cta,.source-link:focus-visible .source-cta { background:#0089E7; border-color:#0089E7; transform:translateY(-1px); }
-        .source-link:focus-visible { outline:3px solid rgba(0,137,231,.25); outline-offset:3px; border-radius:.7rem; }
-        .source-unavailable { color:#718096; font-weight:600; }
-        .source-date { flex:none; text-align:right; line-height:1.45; }
-        .intensity { display:inline-flex; align-items:center; padding:.2rem .45rem; border-radius:999px; background:#eef5fb; color:#264a6f; font-weight:700; }
+        .source-cta { display:inline-flex; flex:none; align-items:center; justify-content:center; min-height:2.1rem; padding:.45rem .8rem; border-radius:.55rem; background:var(--navy); color:#fff; font-size:.74rem; font-weight:700; transition:background .2s ease; }
+        .source-link:hover .source-cta, .source-link:focus-visible .source-cta { background:var(--mid); }
+        .source-unavailable { color:#566b80; font-weight:600; }
+        .source-date { flex:none; max-width:46%; text-align:right; line-height:1.45; overflow-wrap:anywhere; }
+        .intensity { display:inline-flex; align-items:center; padding:.15rem .45rem; border-radius:999px; background:var(--st-topic-bg); color:var(--st-topic-ink); font-weight:700; }
+
+        @media (max-width:1279px) { .radar-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+        @media (max-width:899px)  { .radar-strip { grid-template-columns:repeat(2,minmax(0,1fr)); } .rc-iso { right:-11rem; height:125%; } }
+        @media (max-width:599px)  { .rc-iso { display:none; } }
         @media (max-width:767px) {
-            .section-guide { grid-template-columns:1fr; }
-            .report-date-card { min-width:0; width:100%; }
-            .source-row,.source-link { align-items:stretch; flex-direction:column; }
+            .radar-grid { grid-template-columns:1fr; }
+            .strip-cell { min-height:6rem; padding:.8rem .85rem; }
+            .source-row, .source-link { align-items:stretch; flex-direction:column; }
             .source-name { white-space:normal; }
             .source-cta { width:100%; }
-            .source-date { text-align:left; }
+            .source-date { max-width:none; text-align:left; }
+        }
+        @media (max-width:639px) { .tab-btn { padding:.5rem .65rem; font-size:.7rem; letter-spacing:.02em; } #date-selector { max-width:8.25rem; } }
+        @media (max-width:639px) { header { position:static !important; } }
+        main .text-\[9px\], main .text-\[10px\] { font-size:.72rem !important; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition:none !important; animation:none !important; }
         }
         @media print {
-            .report-context { background:#fff!important; color:#10243e!important; border-bottom:2px solid #0D4492; }
-            .report-context * { color:#10243e!important; }
-            .source-cta { background:#fff!important; color:#0D4492!important; }
+            .report-context { background:#fff!important; color:var(--navy)!important; border-bottom:2px solid var(--navy); }
+            .report-context * { color:var(--navy)!important; }
+            .rc-iso { display:none; }
+            .radar-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .strip-cell { background:#fff!important; color:var(--navy)!important; border:2px solid var(--navy)!important; }
+            .radar-card { box-shadow:none!important; border:1px solid #cbd5e1; page-break-inside:avoid; }
+            .radar-quote { -webkit-line-clamp:unset; display:block; }
+            .source-cta { background:#fff!important; color:var(--navy)!important; border:1px solid var(--navy); }
         }
 
     </style>
@@ -144,11 +215,7 @@
             
             <!-- LOGOTIPO OFICIAL UIPBA (Tipografía Institucional) -->
             <div class="flex items-center space-x-3.5">
-                <div class="flex flex-col justify-center select-none">
-                    <span class="text-2xl sm:text-3xl font-extrabold text-uipba-navy tracking-tight leading-none" style="font-family: 'Ubuntu', sans-serif; font-weight: 700;">UIPBA</span>
-                    <span class="text-[9px] sm:text-[10px] font-normal text-uipba-navy tracking-wide leading-tight mt-1 uppercase">UNIÓN INDUSTRIAL DE LA</span>
-                    <span class="text-[9px] sm:text-[10px] font-normal text-uipba-navy tracking-wide leading-tight uppercase">PROVINCIA DE BUENOS AIRES</span>
-                </div>
+                <img src="assets/uipba-logo-color.png" alt="UIPBA · Unión Industrial de la Provincia de Buenos Aires" class="h-11 sm:h-12 w-auto select-none">
                 <div class="hidden lg:block border-l border-slate-300 pl-3.5">
                     <span class="text-xs font-bold text-slate-700 block leading-none">Monitor diario de inteligencia social y medios</span>
                     <span class="text-[9px] text-uipba-blue font-semibold uppercase tracking-wider">Síntesis informativa para socios</span>
@@ -161,29 +228,26 @@
                     <span class="hidden sm:inline">Descargar informe</span>
                     <span class="sm:hidden">PDF</span>
                 </button>
-                <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
-                    <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge" class="date-badge">22/10/2026</span>
+                <span id="current-date-badge" class="hidden"></span>
                 </div>
-            </div>
         </div>
 
         <div class="bg-slate-100/90 border-t border-slate-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between py-2 overflow-x-auto custom-scrollbar">
-                <div class="flex space-x-2">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-y-2 py-2">
+                <div class="flex flex-wrap gap-2">
                     <button onclick="switchTab('tab-sector')" id="btn-tab-sector" class="tab-btn active px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
-                        <span>Conversación en redes</span>
+                        <span class="hidden lg:inline">Conversación en redes</span><span class="lg:hidden">Redes</span>
                     </button>
                     <button onclick="switchTab('tab-calle')" id="btn-tab-calle" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
-                        <span>Agenda bonaerense</span>
+                        <span class="hidden lg:inline">Agenda bonaerense</span><span class="lg:hidden">Agenda</span>
                     </button>
                     <button onclick="switchTab('tab-clipping')" id="btn-tab-clipping" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
-                        <span>Clipping de medios</span>
+                        <span class="hidden lg:inline">Clipping de medios</span><span class="lg:hidden">Clipping</span>
                     </button>
                 </div>
 
                 <!-- Histórico de Fechas / Date Selector -->
-                <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
+                <div class="flex shrink-0 items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
                     <span>Fecha:</span>
                     <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
                         <option value="2026-10-22" selected>22/10/2026 (Último informe)</option>
@@ -243,24 +307,13 @@
 
 
     <section class="report-context">
-        <div class="report-context-inner max-w-7xl mx-auto px-4 sm:px-6 py-6">
-            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
-                <div class="max-w-3xl">
-                    <span class="report-kicker">Informe diario para socios</span>
-                    <h1 class="text-2xl sm:text-3xl font-bold mt-2 leading-tight">Qué se conversa en redes y qué pasa en la Provincia</h1>
-                    <p class="text-sm text-blue-100 mt-2 leading-relaxed">Conversaciones vinculadas directamente con la industria en cada red, junto con la agenda social bonaerense y noticias del sector productivo. Cada tema incluye fuentes y una lectura de su relevancia para UIPBA.</p>
-                </div>
-                <div class="report-date-card" aria-label="Fecha del informe">
-                    <span class="report-date-label">Informe del</span>
-                    <span id="analyzed-date" class="report-date-value">—</span>
-                    <span id="period-note" class="report-date-note">Cada edición releva el día calendario anterior. Las excepciones sociales muestran su fecha real.</span>
-                </div>
-            </div>
-            <div class="section-guide" aria-label="Contenido del monitor">
-                <div class="section-guide-item"><strong>Conversación en redes</strong><span>Un tema industrial por red, con evidencia pública y relevancia para UIPBA; las limitaciones se explicitan.</span></div>
-                <div class="section-guide-item"><strong>Agenda bonaerense</strong><span>Temas sociales relevantes para comprender el contexto provincial.</span></div>
-                <div class="section-guide-item"><strong>Clipping de medios</strong><span>Noticias industriales del día analizado, con acceso directo a la fuente original.</span></div>
-            </div>
+        <div class="rc-iso" aria-hidden="true"></div>
+        <div class="report-context-inner max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+            <span class="report-kicker">Informe diario para socios</span>
+            <h1 id="rc-title" class="rc-title">Qué se conversa en redes y qué pasa en la Provincia</h1>
+            <p class="rc-date" aria-label="Fecha del informe"><b>Informe del</b> <span id="analyzed-date">—</span></p>
+            <p id="period-note" class="report-date-note">Cada edición releva el día calendario anterior. Las excepciones sociales muestran su fecha real.</p>
+            <p id="rc-meta" class="rc-meta"></p>
         </div>
     </section>
 
@@ -269,12 +322,13 @@
         <!-- TAB 1: SECTOR INDUSTRIAL -->
         <section id="tab-sector" class="space-y-6">
             <div class="max-w-3xl">
-                <span class="text-xs font-bold text-uipba-navy uppercase tracking-widest bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">Voces verificadas</span>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Qué está generando conversación en cada red</h2>
-                <p class="text-slate-600 text-sm mt-1 leading-relaxed">X, LinkedIn, Instagram y Facebook: temas industriales, publicaciones específicas y señales comprobables. La selección distingue tendencias respaldadas, temas destacados y redes sin novedades verificables. Las ediciones anteriores conservan su enfoque original.</p>
+                <h2 class="text-2xl sm:text-3xl font-bold">Estado de cada red hoy</h2>
+                <p class="text-sm mt-2 leading-relaxed" style="color:var(--text)">Una red puede estar en <strong>tendencia respaldada</strong> (varias fuentes o métricas verificables), <strong>tema destacado</strong> (un post verificado, sin evidencia de tendencia) o <strong>sin novedad verificable</strong>. La cobertura pública es parcial.</p>
             </div>
 
-            <div id="container-sector" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div id="radar-strip" class="radar-strip" aria-label="Estado de cada red"></div>
+
+            <div id="container-sector" class="radar-grid">
                 <!-- Se renderiza dinámicamente desde el objeto JSON -->
             </div>
         </section>
@@ -352,7 +406,7 @@
             </div>
 
             <!-- Nota Metodológica Obligatoria -->
-            <div class="pt-3 border-t border-slate-100 text-[10px] text-slate-400 leading-relaxed text-center italic">
+            <div class="pt-3 border-t border-slate-100 text-xs leading-relaxed" style="color:#3D556F;max-width:90ch">
                 <strong>Nota metodológica:</strong> Relevamiento asistido por Inteligencia Artificial sobre fuentes públicas. Conversación en redes selecciona temas con vínculo industrial directo en X, LinkedIn, Instagram y Facebook; Clipping reúne noticias industriales del día analizado y Agenda bonaerense mantiene su alcance social provincial. Cada selección debe identificar la publicación, fecha real y evidencia disponible, distinguiendo una tendencia respaldada de un tema destacado o de la ausencia de novedades verificables. Las síntesis y la lectura para UIPBA son análisis editoriales, no citas textuales ni posiciones oficiales. Las excepciones temporales se señalan expresamente. Las ediciones históricas conservan su enfoque y contenido originales. La cobertura pública es parcial y no constituye una medición exhaustiva de tendencias.
             </div>
         </div>
@@ -13508,48 +13562,102 @@
         function renderDashboard(dateKey) {
             const data = DASHBOARD_DATA[dateKey] || DASHBOARD_DATA["2026-07-29"];
 
-            // 1. Render Sector
-            const sectorContainer = document.getElementById('container-sector');
-            sectorContainer.innerHTML = data.sector.map(item => `
-                <div class="dashboard-card bg-white rounded-2xl p-6 flex flex-col justify-between shadow-sm">
-                    <div>
-                        <!-- Metric Badges (Claude Suggestion: 3 Indices) -->
-                        <div class="flex flex-wrap justify-between items-center gap-2 mb-3 pb-3 border-b border-slate-100 text-[10px] font-bold">
-                            <div class="flex items-center space-x-2">
-                                <span class="px-2.5 py-1 rounded-md uppercase tracking-wider ${item.networkBadge}">${item.network}</span>
-                                <span class="text-slate-500">${item.hashtag}</span>
+            // 1. Render Sector (radar por red)
+            const RADAR_NETS = [
+                { id: 'x', label: 'X', test: n => /^x\b|twitter/i.test(n) },
+                { id: 'linkedin', label: 'LinkedIn', test: n => /linkedin/i.test(n) },
+                { id: 'instagram', label: 'Instagram', test: n => /instagram/i.test(n) },
+                { id: 'facebook', label: 'Facebook', test: n => /facebook/i.test(n) }
+            ];
+            const modern = !!(data.audit || data.sector.some(i => i.evidence));
+            const NEG = /tendencia no |no es (una )?tendencia|no constituye tendencia|sin tendencia|no (acreditad|comprobad|verificad|respaldad)/i;
+            const POS = /tendencia (respaldada|comprobada|verificada|acreditada)/i;
+            function itemState(item) {
+                if (!modern) return 'pub';
+                const t = [item.hashtag, item.metrics && item.metrics.variation, item.evidence].join(' ');
+                return POS.test(t) && !NEG.test(t) ? 'trend' : 'topic';
+            }
+            const STATE_TEXT = { none: 'Sin novedad verificable', topic: 'Tema destacado', trend: 'Tendencia respaldada', pub: 'Publicación citada' };
+            const used = new Set();
+            const cols = RADAR_NETS.map(net => {
+                const items = data.sector.filter(i => net.test(i.network || ''));
+                items.forEach(i => used.add(i));
+                const states = items.map(itemState);
+                const state = !items.length ? 'none' : (states.includes('trend') ? 'trend' : (states[0] === 'pub' ? 'pub' : 'topic'));
+                return { ...net, items, state, limit: data.audit && data.audit.limitations && data.audit.limitations[net.label] };
+            });
+            const others = data.sector.filter(i => !used.has(i));
+
+            // Banda de radar: el estado de cada red, de un vistazo
+            document.getElementById('radar-strip').innerHTML = cols.map(c => `
+                <a class="strip-cell st-${c.state}" href="#col-${c.id}">
+                    <span class="strip-net">${c.label}</span>
+                    <strong class="strip-state">${STATE_TEXT[c.state]}</strong>
+                    <span class="strip-sub">${c.items.length ? (c.items.length === 1 ? '1 post verificado' : c.items.length + ' posts') : 'Sin post industrial del período'}</span>
+                </a>`).join('');
+
+            // Titular que se arma con los datos del día
+            const nTrend = cols.filter(c => c.state === 'trend').length;
+            const nTopic = cols.filter(c => c.state === 'topic').length;
+            const nNone = cols.filter(c => c.state === 'none').length;
+            const titleEl = document.getElementById('rc-title');
+            if (modern) {
+                const parts = [];
+                if (nTrend) parts.push(`${nTrend} ${nTrend === 1 ? 'tendencia' : 'tendencias'}`);
+                if (nTopic) parts.push(`${nTopic} ${nTopic === 1 ? 'tema destacado' : 'temas destacados'}`);
+                if (nNone) parts.push(`${nNone} ${nNone === 1 ? 'red sin novedad' : 'redes sin novedad'}`);
+                if (!nTrend) parts.push('ninguna tendencia respaldada');
+                titleEl.textContent = 'Hoy: ' + parts.join(', ');
+            } else {
+                titleEl.textContent = 'Qué se conversa en redes y qué pasa en la Provincia';
+            }
+            document.getElementById('rc-meta').textContent = `${data.calle.length} temas de la agenda bonaerense · ${data.clipping.length} noticias industriales`;
+
+            function sourceLine(source) {
+                const has = source.link && source.link !== '#';
+                const name = escapeHtml(source.name);
+                return `<div class="radar-source">${has ? `<a class="radar-link" href="${source.link}" target="_blank" rel="noopener noreferrer" aria-label="Ver publicación: ${name}">Ver publicación ↗</a>` : '<span>Enlace no disponible</span>'}<span>${name} · ${source.date}</span></div>`;
+            }
+            function itemCard(item, limit) {
+                return `
+                    <article class="radar-card">
+                        <span class="radar-tag">${item.hashtag || ''}</span>
+                        <h3 class="radar-title">${item.title}</h3>
+                        <p class="radar-quote">${escapeHtml(item.quote)}</p>
+                        <div class="radar-why">
+                            <b>Por qué importa</b>
+                            <p>${escapeHtml(item.action)}</p>
+                        </div>
+                        <details class="more">
+                            <summary>Síntesis completa, evidencia y límites</summary>
+                            <div class="more-body">
+                                <p>${escapeHtml(item.quote)}</p>
+                                ${item.watch ? `<p><b>Qué observar:</b> ${escapeHtml(item.watch)}</p>` : ''}
+                                ${item.evidence ? `<p><b>Evidencia pública:</b> ${escapeHtml(item.evidence)}</p>` : ''}
+                                ${item.metrics && item.metrics.variation ? `<p><b>Alcance:</b> ${escapeHtml(item.metrics.variation)}</p>` : ''}
+                                ${limit ? `<p><b>Límite de la verificación:</b> ${escapeHtml(limit)}</p>` : ''}
+                                ${item.metrics && Number(item.metrics.temp) > 0 ? `<p><b>Relevancia:</b> ${renderStars(item.metrics.temp)}</p>` : ''}
                             </div>
-                            <div class="flex items-center space-x-3 text-slate-600">
-                                <span title="Temperatura (1-5)">Relevancia: ${renderStars(item.metrics.temp)}</span>
-                                <span class="bg-slate-100 px-2 py-0.5 rounded text-slate-700">${item.metrics.volume}</span>
-                            </div>
-                        </div>
-
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">${item.title}</h3>
-                        
-                        <div class="bg-amber-50/80 border-l-4 border-amber-500 p-3.5 rounded-r-xl mb-4 text-xs text-amber-950 italic">
-                            <span class="card-eyebrow">De qué se habla · síntesis</span>
-                            ${escapeHtml(item.quote)}
-                        </div>
-                    </div>
-
-                    <div>
-                        <!-- Acción Sugerida UIPBA -->
-                        <div class="pt-3 border-t border-slate-100 mb-3">
-                            <span class="text-[9px] font-bold uppercase text-uipba-blue tracking-wider">Por qué importa para UIPBA</span>
-                            <p class="text-xs text-slate-800 font-semibold mt-0.5">${escapeHtml(item.action)}</p>
-                            ${item.watch ? `<p class="text-xs text-slate-600 mt-2"><strong>Qué observar:</strong> ${escapeHtml(item.watch)}</p>` : ''}
-                            ${item.evidence ? `<p class="text-xs text-slate-600 mt-2"><strong>Evidencia pública:</strong> ${escapeHtml(item.evidence)}</p>` : ''}
-                        </div>
-
-                        <!-- Fuente Obligatoria (Claude Suggestion) -->
-                        <div class="source-row">
-                            <div class="source-meta"><span class="source-label">Fuente verificada</span>${linkedSource(item.source, "Ver publicación")}</div>
-                            <span class="source-date">${item.source.date}<br><span class="text-emerald-600 font-bold">${item.metrics.variation}</span></span>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
+                        </details>
+                        ${sourceLine(item.source)}
+                    </article>`;
+            }
+            function colHtml(c) {
+                const body = c.items.length ? c.items.map(i => itemCard(i, c.limit)).join('') : `
+                    <article class="radar-card is-empty">
+                        <span class="radar-empty-title">Sin novedad verificable hoy</span>
+                        <p class="radar-empty-text">${c.limit ? escapeHtml(c.limit) : 'No se encontró un post industrial verificable de esta red para el período.'}</p>
+                    </article>`;
+                return `<section class="radar-col" id="col-${c.id}" aria-label="${c.label}">
+                    <h3 class="col-head st-${c.state}">${c.label} <span class="chip st-${c.state}">${STATE_TEXT[c.state]}</span></h3>
+                    ${body}
+                </section>`;
+            }
+            let sectorHtml = cols.map(colHtml).join('');
+            if (others.length) {
+                sectorHtml += `<section class="radar-col radar-others" aria-label="Otras redes"><h3 class="col-head">Otras redes <span class="chip">Fuera de las cuatro principales</span></h3>${others.map(i => itemCard(i, null)).join('')}</section>`;
+            }
+            document.getElementById('container-sector').innerHTML = sectorHtml;
 
             // 2. Render Calle
             const calleContainer = document.getElementById('container-calle');
@@ -13560,7 +13668,7 @@
                             <span class="${item.badgeClass} px-2.5 py-1 rounded-md text-[10px] font-bold uppercase">${item.riskLevel}</span>
                             <div class="text-right">
                                 <span class="text-xs text-slate-500 font-bold block">${item.topicNumber}</span>
-                                <span class="text-[10px] text-amber-600 font-bold">${renderStars(item.metrics.temp)} (${item.metrics.volume})</span>
+                                <span class="text-[11px] font-bold" style="color:var(--text)">${Number(item.metrics.temp) > 0 ? renderStars(item.metrics.temp) + ' ' : ''}${item.metrics.volume}</span>
                             </div>
                         </div>
 
@@ -13623,7 +13731,7 @@
                         <!-- Fuente e Índices -->
                         <div class="source-row">
                             <div class="source-meta"><span class="source-label">Fuente original</span>${linkedSource(item.source, "Leer noticia")}</div>
-                            <span class="source-date">Relevancia ${renderStars(item.metrics.temp)}<br>${item.source.date}</span>
+                            <span class="source-date">${Number(item.metrics.temp) > 0 ? 'Relevancia ' + renderStars(item.metrics.temp) + '<br>' : ''}${item.source.date}</span>
                         </div>
                     </div>
                 </div>
@@ -13708,6 +13816,7 @@
 
             const element = document.querySelector('main').cloneNode(true);
             element.querySelectorAll('section').forEach(sec => sec.classList.remove('hidden'));
+            element.querySelectorAll('details').forEach(d => d.setAttribute('open', ''));
 
             const opt = {
                 margin:       [0.3, 0.3, 0.3, 0.3],
@@ -13725,6 +13834,8 @@
                 window.print();
             });
         }
+
+        window.addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
 
         // Inicialización al cargar la página
         window.onload = function() {
