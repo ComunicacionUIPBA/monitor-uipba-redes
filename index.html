@@ -5,361 +5,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Monitor diario de conversación en redes, agenda bonaerense y medios, con una lectura de relevancia para UIPBA.">
     <title>Monitor diario UIPBA | Redes, agenda bonaerense y medios</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,700&display=swap');
-        
+        @font-face { font-family:'Chillax'; font-weight:200 700; font-style:normal; font-display:swap; src:url(assets/fonts/chillax.woff2) format('woff2'); }
         :root {
-            --uipba-navy: #0D4492;
-            --uipba-blue: #0089E7;
-            --uipba-sky: #069EF3;
-            --uipba-light: #12BBFF;
-            --uipba-green: #1ED58E;
-            --uipba-slate: #82A2B9;
+            --navy:#042551; --ink:#021A3D; --mid:#1668CC; --bright:#0089E7; --sky:#86D0F4; --mist:#EAF6FD;
+            --slate:#3D556F; --on-navy:#C6D8EC; --line:#D7E6F2;
+            --st-trend:#08583A; --st-topic:#1668CC;
+            --f:'Chillax', system-ui, -apple-system, 'Segoe UI', sans-serif; --pad:clamp(20px,5vw,72px);
         }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        html { scroll-behavior:smooth; }
+        body { font-family:var(--f); color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; line-height:1.5; }
+        a { color:inherit; text-decoration:none; }
+        :focus-visible { outline:3px solid var(--bright); outline-offset:3px; border-radius:8px; }
+        .skip { position:absolute; left:-999px; top:8px; background:var(--navy); color:#fff; padding:10px 16px; border-radius:999px; z-index:50; }
+        .skip:focus { left:8px; }
+        .wrap { max-width:1180px; margin:0 auto; position:relative; }
 
-        body {
-            font-family: 'Ubuntu', sans-serif;
-            background-color: #f4f7fa;
-            color: #1e293b;
+        /* Barra superior */
+        .bar { background:var(--sky); padding:14px var(--pad); display:flex; align-items:center; justify-content:space-between; gap:12px 28px; flex-wrap:wrap; }
+        .brand img { height:46px; display:block; }
+        .bar nav { display:flex; gap:34px; font-weight:700; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; }
+        .bar nav a { padding-bottom:4px; border-bottom:3px solid transparent; }
+        .bar nav a:hover { border-bottom-color:var(--navy); }
+        .btns { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+        .pill { display:inline-flex; align-items:center; gap:10px; height:44px; padding:0 22px; border-radius:999px; font:700 14px var(--f); border:1.5px solid var(--navy); color:var(--navy); background:transparent; cursor:pointer; max-width:100%; }
+        .pill.fill { background:var(--navy); color:#fff; }
+        .pill.fill:hover { background:var(--ink); }
+        select.pill { padding:0 16px; }
+
+        /* Portada */
+        .hero { background:var(--navy); color:#fff; padding:52px var(--pad) 30px; position:relative; overflow:hidden; }
+        .hero:before { content:""; position:absolute; right:-11rem; top:50%; height:150%; aspect-ratio:265/290; transform:translateY(-50%); background:url(assets/uipba-logo-color.png) left center / auto 100% no-repeat; pointer-events:none; }
+        .ey { display:flex; align-items:center; gap:12px; font-weight:700; font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--sky); }
+        .ey:before { content:""; flex:none; width:28px; height:2px; border-radius:2px; background:var(--sky); }
+        .hero h1 { font-weight:700; letter-spacing:-.03em; line-height:1; font-size:clamp(44px,6vw,80px); margin:18px 0 12px; color:#fff; max-width:min(100%,9.5em); }
+        .hero h1 span { color:var(--sky); }
+        .hero h1 small { font-size:.4em; font-weight:500; letter-spacing:0; color:var(--on-navy); margin-left:.25em; white-space:nowrap; }
+        .hero .wrap > *:not(h1) { max-width:660px; }
+        .statline { margin-top:22px; display:flex; flex-wrap:wrap; gap:8px 30px; font-size:16px; color:var(--on-navy); }
+        .statline b { color:#fff; font-size:1.3em; margin-right:6px; font-variant-numeric:tabular-nums; }
+        .hero .l { font-size:clamp(17px,1.5vw,21px); color:var(--on-navy); max-width:32em; line-height:1.5; position:relative; }
+        .hgrid { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:48px; align-items:end; }
+        .units { display:grid; grid-template-columns:repeat(2,1fr); }
+        .u { padding:22px 26px; border-left:1px solid rgba(134,208,244,.35); }
+        .u:nth-child(-n+2) { border-bottom:1px solid rgba(134,208,244,.35); }
+        .u b { display:block; font-size:clamp(46px,5vw,72px); font-weight:700; letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums; }
+        .u span { display:block; margin-top:10px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--sky); font-weight:700; }
+        .foot { display:flex; gap:10px 36px; flex-wrap:wrap; align-items:center; margin-top:28px; padding-top:18px; border-top:1px solid rgba(134,208,244,.3); font-weight:500; font-size:15px; color:var(--on-navy); }
+        .foot b { color:#fff; }
+
+        /* Secciones */
+        .s { padding:64px var(--pad); }
+        .s.mist { background:var(--mist); }
+        .s.navy { background:var(--navy); color:#fff; }
+        .s .ey { color:var(--slate); } .s .ey:before { background:var(--slate); }
+        .s.navy .ey { color:var(--sky); } .s.navy .ey:before { background:var(--sky); }
+        .h { font-weight:700; letter-spacing:-.025em; line-height:1.02; font-size:clamp(32px,3.8vw,52px); margin:14px 0 32px; color:var(--navy); }
+        .s.navy .h { color:#fff; }
+        .grid { display:grid; gap:22px; grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr)); }
+        .g3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+        .g4 { grid-template-columns:repeat(4,minmax(0,1fr)); }
+
+        /* Tarjetas */
+        .tile { position:relative; display:flex; flex-direction:column; gap:14px; padding:28px; border-radius:24px; background:#fff; border:1.5px solid var(--line); color:var(--navy); min-width:0; }
+        .tile .num { position:absolute; top:28px; right:28px; font-weight:700; font-size:13px; letter-spacing:.14em; color:var(--mid); }
+        .tile .k { font-weight:700; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--slate); padding-right:44px; overflow-wrap:anywhere; }
+        .tile h3 { font-weight:700; font-size:clamp(21px,1.9vw,27px); line-height:1.14; letter-spacing:-.01em; color:var(--navy); }
+        .tile p { font-size:15px; line-height:1.55; color:var(--slate); }
+        .tile .why { font-size:14.5px; line-height:1.5; background:var(--mist); border-radius:14px; padding:12px 14px; color:var(--navy); }
+        .tile .why b { display:block; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--slate); margin-bottom:3px; }
+        .tf { margin-top:auto; display:flex; align-items:flex-end; justify-content:space-between; gap:14px; padding-top:6px; }
+        .tile .src { flex:1; font-size:13px; color:var(--slate); overflow-wrap:anywhere; }
+        .tile .ar { flex:none; width:46px; height:46px; border-radius:50%; border:1.5px solid var(--navy); display:grid; place-items:center; font-size:20px; color:var(--navy); transition:background .2s,color .2s; }
+        a.ar:hover { background:var(--navy); color:#fff; }
+        .tile .clamp { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:5; overflow:hidden; }
+        .clip-top { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); gap:22px; }
+        .clip-top.one { grid-template-columns:1fr; }
+        .clip-rest { margin-top:22px; }
+        .tile.feat { background:var(--navy); border-color:var(--navy); color:#fff; grid-row:span 2; padding:40px; gap:18px; }
+        .clip-top.one .tile.feat { grid-row:auto; }
+        .tile.feat h3 { color:#fff; font-size:clamp(30px,3.8vw,54px); line-height:1.06; }
+        .tile.feat p { font-size:clamp(16px,1.25vw,18px); line-height:1.65; }
+        .tile.feat .why { font-size:16px; padding:16px 18px; }
+        .tile.feat .k, .tile.feat .num { color:var(--sky); }
+        .tile.feat p, .tile.feat .src { color:var(--on-navy); }
+        .tile.feat .why { background:rgba(134,208,244,.14); color:#fff; }
+        .tile.feat .why b { color:var(--sky); }
+        .tile.feat .ar { border-color:var(--sky); color:var(--sky); }
+        .tile.feat a.ar:hover { background:var(--sky); color:var(--navy); }
+        .tile.feat details.more { border-top-color:rgba(134,208,244,.3); }
+        .tile.feat details.more summary { color:var(--sky); }
+        .tile.feat details.more .mb { color:var(--on-navy); }
+        .tile.sd h3 { font-size:clamp(19px,1.7vw,23px); }
+        .tile .clamp3 { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden; }
+        .tile .mob { display:none; }
+        .pill-out { display:table; margin:6px 0 0; padding:2px 10px; border-radius:999px; border:1.5px solid var(--navy); color:var(--navy); font-size:12.5px; font-weight:700; white-space:nowrap; }
+        .tile.feat .pill-out { border-color:var(--sky); color:var(--sky); }
+        .totop { position:fixed; right:18px; bottom:18px; width:48px; height:48px; border-radius:50%; background:var(--navy); color:#fff; border:2px solid var(--sky); font-size:20px; display:none; place-items:center; cursor:pointer; z-index:30; }
+        .totop.on { display:grid; }
+        .tags { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+        .net { display:inline-block; padding:6px 14px; border-radius:999px; background:var(--navy); color:#fff; font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; }
+        .st { display:inline-block; padding:5px 12px; border-radius:999px; font-weight:700; font-size:13px; border:1.5px solid var(--navy); color:var(--navy); }
+        .st.topic { background:#E6F0FC; border-color:#E6F0FC; color:#0F4C9E; }
+        .st.trend { background:var(--st-trend); border-color:var(--st-trend); color:#fff; }
+        .tag { font-size:13px; font-weight:700; color:var(--mid); overflow-wrap:anywhere; }
+        details.more { border-top:1px solid var(--line); padding-top:10px; }
+        details.more summary { cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; font-weight:700; font-size:14px; color:var(--mid); }
+        details.more summary::-webkit-details-marker { display:none; }
+        details.more summary::after { content:"+"; font-size:20px; line-height:1; }
+        details.more[open] summary::after { content:"–"; }
+        details.more .mb { margin-top:10px; display:grid; gap:10px; font-size:14px; line-height:1.55; color:var(--slate); overflow-wrap:anywhere; }
+        details.more .mb b { color:var(--navy); }
+        details.more ul { padding-left:18px; }
+        .empty { padding:22px 24px; border-radius:20px; border:1.5px solid var(--navy); background:#fff; font-size:15px; line-height:1.55; color:var(--navy); }
+        .empty b { display:block; margin-bottom:4px; }
+        .none-list { display:grid; gap:12px; margin-top:22px; }
+        .note { margin-top:26px; font-size:15px; color:var(--slate); max-width:62ch; }
+
+        footer { background:var(--ink); color:var(--on-navy); padding:44px var(--pad); font-size:14px; line-height:1.65; }
+        footer img { height:42px; display:block; margin-bottom:16px; }
+        footer p { max-width:90ch; }
+
+        @media (max-width:1100px) { .g4 { grid-template-columns:repeat(2,minmax(0,1fr)); } .g3 { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+        @media (max-width:1299px) { .hero:before { display:none; } }
+        @media (max-width:900px) { .clip-top { grid-template-columns:1fr; } .tile.feat { grid-row:auto; padding:30px; } .hero { padding-top:44px; } .s { padding:64px var(--pad); } .bar nav { order:3; width:100%; gap:26px; overflow-x:auto; } }
+        @media (max-width:700px) {
+            .g3, .g4 { grid-template-columns:1fr; }
+            .tile { padding:24px 22px; }
+            .brand img { height:40px; }
+            .pill { height:42px; padding:0 16px; }
+            .hero:before { display:none; }
+            .statline { font-size:14px; gap:4px 18px; }
+            .tile .desk { display:none; }
+            .tile .mob { display:block; }
         }
-
-        .bg-uipba-navy { background-color: #0D4492; }
-        .bg-uipba-blue { background-color: #0089E7; }
-        .text-uipba-navy { color: #0D4492; }
-        .text-uipba-blue { color: #0089E7; }
-        .border-uipba-navy { border-color: #0D4492; }
-        .border-uipba-blue { border-color: #0089E7; }
-
-        .dashboard-card {
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid #e2e8f0;
-        }
-
-        .dashboard-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px -6px rgba(13, 68, 146, 0.12);
-            border-color: #0089E7;
-        }
-
-        .tab-btn {
-            transition: all 0.2s ease;
-        }
-
-        .tab-btn.active {
-            background-color: #0D4492;
-            color: #ffffff;
-            box-shadow: 0 4px 12px rgba(13, 68, 146, 0.3);
-        }
-
-        .badge-alert-high {
-            background-color: #fef2f2;
-            color: #991b1b;
-            border: 1px solid #fecaca;
-        }
-
-        .badge-alert-medium {
-            background-color: #ebf3fc;
-            color: #0D4492;
-            border: 1px solid #bae0ff;
-        }
-
-        .badge-alert-info {
-            background-color: #eefcf6;
-            color: #0c6b45;
-            border: 1px solid #a3f2d0;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar {
-            height: 6px;
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #82A2B9;
-            border-radius: 10px;
-        }
-
+        @media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; scroll-behavior:auto !important; } }
         @media print {
-            body { background-color: #ffffff !important; }
-            header, .tab-btn, button, .no-print { display: none !important; }
-            section { display: block !important; page-break-after: always; }
-            .dashboard-card { page-break-inside: avoid; border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
+            .bar, .skip { display:none !important; }
+            .hero { background:#fff !important; color:var(--navy) !important; border-bottom:2px solid var(--navy); padding:24px 0; }
+            .hero:before { display:none; } .hero h1, .hero h1 span, .hero .l, .foot, .foot b, .u b, .u span, .ey { color:var(--navy) !important; }
+            .s { padding:28px 0 !important; background:#fff !important; } .s .h { color:var(--navy) !important; }
+            .tile .desk { display:block !important; } .tile .mob { display:none !important; }
+            .tile { break-inside:avoid; border:1px solid #cbd5e1; } .tile .clamp { -webkit-line-clamp:unset; display:block; }
+            footer { background:#fff; color:#3D556F; } footer img { display:none; }
         }
-
-        /* Presentación institucional para socios */
-        :root { --ink:#10243e; --muted:#5d6d7e; --surface:#fff; --soft:#f3f7fb; --line:#dce6ef; }
-        body { background:radial-gradient(circle at 100% 0%,rgba(18,187,255,.08),transparent 30rem),#f4f7fa; }
-        header { box-shadow:0 1px 0 rgba(13,68,146,.04); }
-        .report-context { position:relative; overflow:hidden; color:#fff; background:linear-gradient(120deg,#0D4492 0%,#075fb0 64%,#0089E7 100%); }
-        .report-context::after { content:""; position:absolute; width:22rem; height:22rem; right:-8rem; top:-12rem; border:1px solid rgba(255,255,255,.18); border-radius:50%; box-shadow:0 0 0 3rem rgba(255,255,255,.035),0 0 0 7rem rgba(255,255,255,.025); }
-        .report-context-inner { position:relative; z-index:1; }
-        .report-kicker { display:inline-flex; align-items:center; gap:.5rem; color:#dff4ff; font-size:.75rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
-        .report-kicker::before { content:""; width:.5rem; height:.5rem; border-radius:50%; background:#1ED58E; box-shadow:0 0 0 .25rem rgba(30,213,142,.18); }
-        .report-date-card { min-width:15rem; padding:1rem 1.1rem; border:1px solid rgba(255,255,255,.22); border-radius:1rem; background:rgba(255,255,255,.12); backdrop-filter:blur(8px); }
-        .report-date-card span { display:block; }
-        .report-date-label { color:#dff4ff; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-        .report-date-value { margin-top:.2rem; font-size:1.1rem; font-weight:700; text-transform:capitalize; }
-        .report-date-note { margin-top:.55rem; color:#dbeafe; font-size:.75rem; line-height:1.45; }
-        .section-guide { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.75rem; margin-top:1.25rem; }
-        .section-guide-item { padding:.75rem .85rem; border:1px solid rgba(255,255,255,.16); border-radius:.85rem; background:rgba(255,255,255,.1); }
-        .section-guide-item strong { display:block; font-size:.82rem; }
-        .section-guide-item span { display:block; margin-top:.2rem; color:#dbeafe; font-size:.72rem; line-height:1.4; }
-        .dashboard-card { border-color:var(--line); border-radius:1.15rem; background:var(--surface); box-shadow:0 4px 18px rgba(13,68,146,.055); }
-        .dashboard-card:hover { box-shadow:0 16px 40px rgba(13,68,146,.1); }
-        .card-eyebrow { display:block; margin-bottom:.4rem; color:#8a5b00; font-size:.68rem; font-style:normal; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-        .source-row { display:flex; align-items:center; justify-content:space-between; gap:.9rem; margin-top:.75rem; padding:.8rem; border:1px solid var(--line); border-radius:.85rem; background:var(--soft); color:var(--muted); font-size:.72rem; }
-        .source-meta { min-width:0; flex:1; }
-        .source-label { display:block; margin-bottom:.35rem; color:#60758a; font-size:.66rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; }
-        .source-link { display:inline-flex; max-width:100%; align-items:center; gap:.55rem; color:#0D4492; text-decoration:none; }
-        .source-name { overflow:hidden; font-weight:700; text-overflow:ellipsis; white-space:nowrap; }
-        .source-cta { display:inline-flex; flex:none; align-items:center; justify-content:center; min-height:2.1rem; padding:.45rem .72rem; border:1px solid #0D4492; border-radius:.65rem; background:#0D4492; color:#fff; font-size:.7rem; font-weight:700; transition:.2s ease; }
-        .source-link:hover .source-cta,.source-link:focus-visible .source-cta { background:#0089E7; border-color:#0089E7; transform:translateY(-1px); }
-        .source-link:focus-visible { outline:3px solid rgba(0,137,231,.25); outline-offset:3px; border-radius:.7rem; }
-        .source-unavailable { color:#718096; font-weight:600; }
-        .source-date { flex:none; text-align:right; line-height:1.45; }
-        .intensity { display:inline-flex; align-items:center; padding:.2rem .45rem; border-radius:999px; background:#eef5fb; color:#264a6f; font-weight:700; }
-        @media (max-width:767px) {
-            .section-guide { grid-template-columns:1fr; }
-            .report-date-card { min-width:0; width:100%; }
-            .source-row,.source-link { align-items:stretch; flex-direction:column; }
-            .source-name { white-space:normal; }
-            .source-cta { width:100%; }
-            .source-date { text-align:left; }
-        }
-        @media print {
-            .report-context { background:#fff!important; color:#10243e!important; border-bottom:2px solid #0D4492; }
-            .report-context * { color:#10243e!important; }
-            .source-cta { background:#fff!important; color:#0D4492!important; }
-        }
-
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
-
-    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-            
-            <!-- LOGOTIPO OFICIAL UIPBA (Tipografía Institucional) -->
-            <div class="flex items-center space-x-3.5">
-                <div class="flex flex-col justify-center select-none">
-                    <span class="text-2xl sm:text-3xl font-extrabold text-uipba-navy tracking-tight leading-none" style="font-family: 'Ubuntu', sans-serif; font-weight: 700;">UIPBA</span>
-                    <span class="text-[9px] sm:text-[10px] font-normal text-uipba-navy tracking-wide leading-tight mt-1 uppercase">UNIÓN INDUSTRIAL DE LA</span>
-                    <span class="text-[9px] sm:text-[10px] font-normal text-uipba-navy tracking-wide leading-tight uppercase">PROVINCIA DE BUENOS AIRES</span>
-                </div>
-                <div class="hidden lg:block border-l border-slate-300 pl-3.5">
-                    <span class="text-xs font-bold text-slate-700 block leading-none">Monitor diario de inteligencia social y medios</span>
-                    <span class="text-[9px] text-uipba-blue font-semibold uppercase tracking-wider">Síntesis informativa para socios</span>
-                </div>
-            </div>
-
-            <div class="flex items-center space-x-3">
-                <button onclick="exportToPDF()" class="bg-uipba-navy hover:bg-slate-900 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-sm flex items-center space-x-2 transition-all">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                    <span class="hidden sm:inline">Descargar informe</span>
-                    <span class="sm:hidden">PDF</span>
-                </button>
-                <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
-                    <span class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="current-date-badge" class="date-badge">22/10/2026</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-slate-100/90 border-t border-slate-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between py-2 overflow-x-auto custom-scrollbar">
-                <div class="flex space-x-2">
-                    <button onclick="switchTab('tab-sector')" id="btn-tab-sector" class="tab-btn active px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
-                        <span>Conversación en redes</span>
-                    </button>
-                    <button onclick="switchTab('tab-calle')" id="btn-tab-calle" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
-                        <span>Agenda bonaerense</span>
-                    </button>
-                    <button onclick="switchTab('tab-clipping')" id="btn-tab-clipping" class="tab-btn text-slate-600 hover:bg-slate-200 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center whitespace-nowrap">
-                        <span>Clipping de medios</span>
-                    </button>
-                </div>
-
-                <!-- Histórico de Fechas / Date Selector -->
-                <div class="hidden md:flex items-center space-x-2 text-xs text-slate-500 font-medium pl-4">
-                    <span>Fecha:</span>
-                    <select id="date-selector" onchange="loadDataForDate(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1 focus:outline-none focus:border-uipba-navy">
-                        <option value="2026-10-22" selected>22/10/2026 (Último informe)</option>
-                        <option value="2026-10-17">17/10/2026</option>
-                        <option value="2026-10-16">16/10/2026</option>
-                        <option value="2026-10-15">15/10/2026</option>
-                        <option value="2026-10-14">14/10/2026</option>
-                        <option value="2026-10-10">10/10/2026</option>
-                        <option value="2026-10-09">09/10/2026</option>
-                        <option value="2026-10-08">08/10/2026</option>
-                        <option value="2026-09-29">29/09/2026</option>
-                        <option value="2026-09-28">28/09/2026</option>
-                        <option value="2026-09-27">27/09/2026</option>
-                        <option value="2026-09-26">26/09/2026</option>
-                        <option value="2026-09-25">25/09/2026</option>
-                        <option value="2026-09-24">24/09/2026</option>
-                        <option value="2026-09-23">23/09/2026</option>
-                        <option value="2026-09-22">22/09/2026</option>
-                        <option value="2026-09-21">21/09/2026</option>
-                        <option value="2026-09-20">20/09/2026</option>
-                        <option value="2026-09-19">19/09/2026</option>
-                        <option value="2026-09-18">18/09/2026</option>
-                    <option value="2026-09-17">17/09/2026</option>
-                        <option value="2026-09-16">16/09/2026</option>
-                        <option value="2026-09-15">15/09/2026</option>
-                        <option value="2026-09-14">14/09/2026</option>
-                        <option value="2026-09-13">13/09/2026</option>
-                        <option value="2026-09-12">12/09/2026</option>
-                        <option value="2026-09-11">11/09/2026</option>
-                        <option value="2026-09-10">10/09/2026</option>
-                        <option value="2026-09-09">09/09/2026</option>
-                        <option value="2026-09-08">08/09/2026</option>
-                        <option value="2026-09-07">07/09/2026</option>\n                        <option value="2026-09-05">05/09/2026</option>
-                        <option value="2026-09-04">04/09/2026</option>
-                        <option value="2026-09-03">03/09/2026</option>
-                        <option value="2026-09-02">02/09/2026</option>
-                        <option value="2026-09-01">01/09/2026</option>
-                        <option value="2026-08-28">28/08/2026</option>
-                        <option value="2026-08-27">27/08/2026</option>
-                        <option value="2026-08-24">24/08/2026</option>
-                        <option value="2026-08-20">20/08/2026</option>
-                        <option value="2026-08-19">19/08/2026</option>
-                        <option value="2026-08-18">18/08/2026</option>
-                        <option value="2026-08-14">14/08/2026</option>
-                        <option value="2026-08-13">13/08/2026</option>
-                        <option value="2026-08-11">11/08/2026</option>
-                        <option value="2026-08-03">03/08/2026</option>
-                        <option value="2026-07-31">31/07/2026</option>
-                        <option value="2026-07-30">30/07/2026</option>
-                        <option value="2026-07-29">29/07/2026</option>
-                        <option value="2026-07-28">28/07/2026</option>
-                    </select>
-                </div>
-            </div>
+<body>
+    <a class="skip" href="#report">Ir al contenido</a>
+    <header class="bar">
+        <a class="brand" href="#" aria-label="UIPBA · Monitor diario"><img src="assets/uipba-logo-color.png" alt="UIPBA · Unión Industrial de la Provincia de Buenos Aires"></a>
+        <nav aria-label="Secciones"><a href="#clipping">Clipping</a><a href="#redes">En redes</a><a href="#agenda">Agenda</a></nav>
+        <div class="btns">
+            <select id="date-selector" class="pill" onchange="loadDataForDate(this.value)" aria-label="Fecha del informe"></select>
+            <button class="pill fill" type="button" onclick="exportToPDF()">Descargar PDF →</button>
         </div>
     </header>
+    <span id="current-date-badge" hidden></span>
 
-
-    <section class="report-context">
-        <div class="report-context-inner max-w-7xl mx-auto px-4 sm:px-6 py-6">
-            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
-                <div class="max-w-3xl">
-                    <span class="report-kicker">Informe diario para socios</span>
-                    <h1 class="text-2xl sm:text-3xl font-bold mt-2 leading-tight">Qué se conversa en redes y qué pasa en la Provincia</h1>
-                    <p class="text-sm text-blue-100 mt-2 leading-relaxed">Conversaciones vinculadas directamente con la industria en cada red, junto con la agenda social bonaerense y noticias del sector productivo. Cada tema incluye fuentes y una lectura de su relevancia para UIPBA.</p>
-                </div>
-                <div class="report-date-card" aria-label="Fecha del informe">
-                    <span class="report-date-label">Informe del</span>
-                    <span id="analyzed-date" class="report-date-value">—</span>
-                    <span id="period-note" class="report-date-note">Cada edición releva el día calendario anterior. Las excepciones sociales muestran su fecha real.</span>
-                </div>
-            </div>
-            <div class="section-guide" aria-label="Contenido del monitor">
-                <div class="section-guide-item"><strong>Conversación en redes</strong><span>Un tema industrial por red, con evidencia pública y relevancia para UIPBA; las limitaciones se explicitan.</span></div>
-                <div class="section-guide-item"><strong>Agenda bonaerense</strong><span>Temas sociales relevantes para comprender el contexto provincial.</span></div>
-                <div class="section-guide-item"><strong>Clipping de medios</strong><span>Noticias industriales del día analizado, con acceso directo a la fuente original.</span></div>
-            </div>
-        </div>
-    </section>
-
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full">
-
-        <!-- TAB 1: SECTOR INDUSTRIAL -->
-        <section id="tab-sector" class="space-y-6">
-            <div class="max-w-3xl">
-                <span class="text-xs font-bold text-uipba-navy uppercase tracking-widest bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">Voces verificadas</span>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Qué está generando conversación en cada red</h2>
-                <p class="text-slate-600 text-sm mt-1 leading-relaxed">X, LinkedIn, Instagram y Facebook: temas industriales, publicaciones específicas y señales comprobables. La selección distingue tendencias respaldadas, temas destacados y redes sin novedades verificables. Las ediciones anteriores conservan su enfoque original.</p>
-            </div>
-
-            <div id="container-sector" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Se renderiza dinámicamente desde el objeto JSON -->
+    <main id="report">
+        <section class="hero">
+            <div class="wrap">
+                <div class="ey">Monitor UIPBA · informe diario para socios</div>
+                <h1 id="rc-title"><span>Edición</span> del día</h1>
+                <p class="l">Qué se conversa en redes y qué pasa en la Provincia, con fuente y fecha verificables.</p>
+                <p class="statline" id="units" aria-label="Resumen de la edición"></p>
+                <div class="foot"><span><b>Edición del</b> <span id="analyzed-date">—</span></span><span id="period-note">Cada edición releva el día calendario anterior.</span></div>
             </div>
         </section>
 
-        <!-- TAB 2: LA CALLE BONAERENSE -->
-        <section id="tab-calle" class="hidden space-y-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-                <div class="max-w-2xl">
-                    <span class="text-xs font-extrabold text-amber-800 uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">Contexto provincial</span>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Qué pasa en la Provincia</h2>
-                    <p class="text-slate-600 text-sm mt-1 leading-relaxed">Los principales temas de conversación social en la Provincia de Buenos Aires. Ayuda a interpretar el contexto en el que operan las empresas y las comunidades bonaerenses.</p>
-                </div>
+        <section class="s" id="clipping"><div class="wrap">
+            <div class="ey">01 · Clipping industrial</div>
+            <h2 class="h">Lo que pasó hoy en la industria</h2>
+            <div id="container-clipping"></div>
+        </div></section>
 
-                <div class="flex items-center space-x-2 text-xs text-slate-500 font-medium">
-                    <span>Región:</span>
-                    <select id="calle-region-filter" onchange="filterCalle(this.value)" class="bg-white border border-slate-300 rounded-lg text-xs font-bold text-slate-700 px-2 py-1.5 focus:outline-none focus:border-uipba-navy">
-                        <option value="all">Todas las regiones</option>
-                        <option value="general">General / Toda la Provincia</option>
-                        <option value="conurbano-norte">Conurbano Norte</option>
-                        <option value="conurbano-oeste">Conurbano Oeste</option>
-                        <option value="conurbano-sur">Conurbano Sur</option>
-                        <option value="la-plata">La Plata y Región</option>
-                        <option value="costa-atlantica">Costa Atlántica</option>
-                        <option value="centro">Centro</option>
-                        <option value="noroeste">Noroeste</option>
-                        <option value="sudoeste">Sudoeste</option>
-                    </select>
-                </div>
-            </div>
+        <section class="s mist" id="redes"><div class="wrap">
+            <div class="ey">02 · En redes</div>
+            <h2 class="h">Qué se conversa en cada red</h2>
+            <div class="grid g4" id="container-sector"></div>
+            <div class="none-list" id="none-list"></div>
+            <p class="note">La cobertura pública es parcial. Cada tarjeta es una publicación individual y no una medición; se llama tendencia solo cuando hay varias fuentes o métricas verificables.</p>
+        </div></section>
 
-            <div id="container-calle" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Se renderiza dinámicamente desde el objeto JSON -->
-            </div>
-        </section>
-
-        <!-- TAB 3: CLIPPING DE MEDIOS EN REDES -->
-        <section id="tab-clipping" class="hidden space-y-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-                <div class="max-w-2xl">
-                    <span class="text-xs font-bold text-uipba-navy uppercase tracking-widest bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">Selección de medios</span>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Noticias para seguir</h2>
-                    <p class="text-slate-600 text-sm mt-1 leading-relaxed">
-                        Noticias nacionales, regionales y locales relevantes para la actividad industrial, con enlace directo al medio que publicó la información.
-                    </p>
-                </div>
-
-                <div class="flex bg-slate-200 p-1 rounded-xl text-xs font-bold space-x-1 w-full md:w-auto">
-                    <button onclick="filterClipping('all')" class="clip-filter-btn active bg-white text-slate-900 px-3 py-1.5 rounded-lg shadow-sm">Todos</button>
-                    <button onclick="filterClipping('nacional')" class="clip-filter-btn text-slate-600 px-3 py-1.5 rounded-lg">Nacional</button>
-                    <button onclick="filterClipping('regional')" class="clip-filter-btn text-slate-600 px-3 py-1.5 rounded-lg">Regional PBA</button>
-                    <button onclick="filterClipping('local')" class="clip-filter-btn text-slate-600 px-3 py-1.5 rounded-lg">Local / Municipal</button>
-                </div>
-            </div>
-
-            <div id="container-clipping" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Se renderiza dinámicamente desde el objeto JSON -->
-            </div>
-        </section>
-
+        <section class="s navy" id="agenda"><div class="wrap">
+            <div class="ey">03 · Agenda bonaerense</div>
+            <h2 class="h">Qué pasa en la Provincia</h2>
+            <div class="grid g3" id="container-calle" style="align-items:start"></div>
+        </div></section>
     </main>
 
-    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-4">
-            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-500">
-                <div class="flex items-center space-x-2">
-                    <span class="text-uipba-navy font-bold">&copy; 2026 UIPBA</span>
-                    <span>• Unión Industrial de la Provincia de Buenos Aires</span>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <button onclick="exportToPDF()" class="bg-uipba-navy hover:bg-slate-900 text-white px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center space-x-2 shadow-md">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012 0h5.586a2 2 0 01.707.293l5.414 5.414a2 2 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        <span>Descargar informe completo</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Nota Metodológica Obligatoria -->
-            <div class="pt-3 border-t border-slate-100 text-[10px] text-slate-400 leading-relaxed text-center italic">
-                <strong>Nota metodológica:</strong> Relevamiento asistido por Inteligencia Artificial sobre fuentes públicas. Conversación en redes selecciona temas con vínculo industrial directo en X, LinkedIn, Instagram y Facebook; Clipping reúne noticias industriales del día analizado y Agenda bonaerense mantiene su alcance social provincial. Cada selección debe identificar la publicación, fecha real y evidencia disponible, distinguiendo una tendencia respaldada de un tema destacado o de la ausencia de novedades verificables. Las síntesis y la lectura para UIPBA son análisis editoriales, no citas textuales ni posiciones oficiales. Las excepciones temporales se señalan expresamente. Las ediciones históricas conservan su enfoque y contenido originales. La cobertura pública es parcial y no constituye una medición exhaustiva de tendencias.
-            </div>
-        </div>
+    <footer>
+        <img src="assets/uipba-logo-blanco.png" alt="UIPBA">
+        <p><strong>Nota metodológica:</strong> relevamiento asistido por inteligencia artificial sobre fuentes públicas. Conversación en redes selecciona temas con vínculo industrial directo en X, LinkedIn, Instagram y Facebook; Clipping reúne noticias industriales del día analizado y Agenda bonaerense mantiene su alcance social provincial. Cada selección identifica la publicación, la fecha real y la evidencia disponible, y distingue una tendencia respaldada de un tema destacado o de la ausencia de novedades verificables. Las síntesis y la lectura para UIPBA son análisis editoriales, no citas textuales ni posiciones oficiales. Las excepciones temporales se señalan expresamente. Las ediciones históricas conservan su enfoque y contenido originales. La cobertura pública es parcial y no constituye una medición exhaustiva de tendencias.</p>
     </footer>
 
+    <button class="totop" id="totop" type="button" aria-label="Volver arriba" onclick="window.scrollTo({top:0})">↑</button>
+
     <script>
-        // DATASET DIARIO: Permite actualizar los contenidos de forma limpia en el futuro
+        // DATASET DIARIO: la tarea de las 10:00 agrega una clave nueva "AAAA-MM-DD" al principio.
         const DASHBOARD_DATA = {
         "2026-11-04": {
             "analysisPeriod": "Contenido relevado: 03/11/2026 (martes), 00:00–23:59 (America/Argentina/Buenos_Aires). Fecha del informe: 04/11/2026. El día estuvo dominado por la 32.ª Conferencia Industrial de la UIA y los anuncios de medidas para pymes; las 4 redes quedan cubiertas con un post cada una, todos del 03/11. Se aclara en cada ficha cuando una fuente es de otra fecha (calle: La Plata, 04/11; Movistar, 02/11).",
@@ -13486,200 +13332,153 @@
 
         function renderStars(temp) {
             const safeTemp = Math.max(0, Math.min(5, Number(temp) || 0));
-            return `<span class="intensity" aria-label="Relevancia ${safeTemp} sobre 5">${safeTemp}/5</span>`;
-        }
-
-        function linkedSource(source, actionLabel = 'Ver publicación') {
-            const hasLink = source.link && source.link !== '#';
-            const name = escapeHtml(source.name);
-            if (!hasLink) return `<span class="source-unavailable">${name} · enlace no disponible</span>`;
-            return `<a href="${source.link}" target="_blank" rel="noopener noreferrer" class="source-link" aria-label="${actionLabel}: ${name}">
-                <span class="source-name">${name}</span>
-                <span class="source-cta">${actionLabel} <span aria-hidden="true">↗</span></span>
-            </a>`;
+            return `<span aria-label="Relevancia ${safeTemp} sobre 5">${safeTemp}/5</span>`;
         }
 
         function escapeHtml(str) {
             const div = document.createElement('div');
-            div.textContent = str;
+            div.textContent = str == null ? '' : str;
             return div.innerHTML;
         }
 
+        function arrow(source, label) {
+            const has = source && source.link && source.link !== '#';
+            return has
+                ? `<a class="ar" href="${source.link}" target="_blank" rel="noopener noreferrer" aria-label="${label}: ${escapeHtml(source.name)}">↗</a>`
+                : '';
+        }
+
+        // Separa «texto principal (nota entre paréntesis)» para no cargar la línea de fuente
+        function splitNote(str) {
+            const m = String(str == null ? '' : str).match(/^(.*?)\s*\((.*)\)\s*$/);
+            return m ? { main: m[1], note: m[2] } : { main: String(str == null ? '' : str), note: '' };
+        }
+        function srcInfo(source) {
+            const nm = splitNote(source.name), dt = splitNote(source.date);
+            const out = /fuera del per[ií]odo/i.test(dt.note + ' ' + nm.note);
+            const notes = [nm.note, dt.note].filter(Boolean).join('. ');
+            return { line: `${escapeHtml(nm.main)} · ${escapeHtml(dt.main)}${out ? '<span class="pill-out">Fuera del período</span>' : ''}`, notes };
+        }
+        function longDate(dateVal) {
+            const d = new Date(dateVal + 'T12:00:00Z');
+            const wd = new Intl.DateTimeFormat('es-AR', { weekday: 'long', timeZone: 'UTC' }).format(d);
+            const rest = new Intl.DateTimeFormat('es-AR', { day: 'numeric', month: 'long', timeZone: 'UTC' }).format(d);
+            return { wd: wd.charAt(0).toUpperCase() + wd.slice(1), rest, year: d.getUTCFullYear() };
+        }
+        function splitAction(text) {
+            const parts = String(text || '').split(/(?<=\.)\s+/);
+            const keep = [], scope = [];
+            parts.forEach(t => (/(único|solo) post|no (es )?una tendencia|tendencia comprobada/i.test(t) ? scope : keep).push(t));
+            return { why: keep.join(' ') || parts.join(' '), scope: keep.length ? scope.join(' ') : '' };
+        }
+
+        const RADAR_NETS = [
+            { label: 'X', test: n => /^x\b|twitter/i.test(n) },
+            { label: 'LinkedIn', test: n => /linkedin/i.test(n) },
+            { label: 'Instagram', test: n => /instagram/i.test(n) },
+            { label: 'Facebook', test: n => /facebook/i.test(n) }
+        ];
+        const NEG = /tendencia no |no es (una )?tendencia|no constituye tendencia|sin tendencia|no (acreditad|comprobad|verificad|respaldad)/i;
+        const POS = /tendencia (respaldada|comprobada|verificada|acreditada)/i;
+        function sectorState(item, modern) {
+            if (!modern) return null;
+            const t = [item.hashtag, item.metrics && item.metrics.variation, item.evidence].join(' ');
+            return POS.test(t) && !NEG.test(t) ? 'trend' : 'topic';
+        }
+
         function renderDashboard(dateKey) {
-            const data = DASHBOARD_DATA[dateKey] || DASHBOARD_DATA["2026-07-29"];
+            const data = DASHBOARD_DATA[dateKey] || DASHBOARD_DATA[Object.keys(DASHBOARD_DATA).sort().reverse()[0]];
+            const pad = i => String(i + 1).padStart(2, '0');
+            const modern = !!(data.audit || data.sector.some(i => i.evidence));
+            const limits = (data.audit && data.audit.limitations) || {};
 
-            // 1. Render Sector
-            const sectorContainer = document.getElementById('container-sector');
-            sectorContainer.innerHTML = data.sector.map(item => `
-                <div class="dashboard-card bg-white rounded-2xl p-6 flex flex-col justify-between shadow-sm">
-                    <div>
-                        <!-- Metric Badges (Claude Suggestion: 3 Indices) -->
-                        <div class="flex flex-wrap justify-between items-center gap-2 mb-3 pb-3 border-b border-slate-100 text-[10px] font-bold">
-                            <div class="flex items-center space-x-2">
-                                <span class="px-2.5 py-1 rounded-md uppercase tracking-wider ${item.networkBadge}">${item.network}</span>
-                                <span class="text-slate-500">${item.hashtag}</span>
-                            </div>
-                            <div class="flex items-center space-x-3 text-slate-600">
-                                <span title="Temperatura (1-5)">Relevancia: ${renderStars(item.metrics.temp)}</span>
-                                <span class="bg-slate-100 px-2 py-0.5 rounded text-slate-700">${item.metrics.volume}</span>
-                            </div>
+            // Cifras de la portada
+            const states = data.sector.map(i => sectorState(i, modern));
+            const trends = states.filter(s => s === 'trend').length;
+            const pl = (n, one, many) => `${n}|${n === 1 ? one : many}`;
+            const units = modern
+                ? [pl(data.sector.length, 'post verificado', 'posts verificados'), ...(trends ? [pl(trends, 'tendencia respaldada', 'tendencias respaldadas')] : []), pl(data.calle.length, 'tema bonaerense', 'temas bonaerenses'), pl(data.clipping.length, 'noticia industrial', 'noticias industriales')]
+                : [pl(data.sector.length, 'publicación citada', 'publicaciones citadas'), pl(data.calle.length, 'tema bonaerense', 'temas bonaerenses'), pl(data.clipping.length, 'noticia industrial', 'noticias industriales')];
+            document.getElementById('units').innerHTML = units.map(u => { const [n, t] = u.split('|'); return `<span><b>${n}</b>${t}</span>`; }).join('');
+
+            // 1. Clipping industrial: una noticia manda, el resto acompaña
+            const clipTile = (x, i, cls) => {
+                const si = srcInfo(x.source);
+                const noteHtml = si.notes ? `<p><b>Sobre la fuente:</b> ${escapeHtml(si.notes)}</p>` : '';
+                const body = cls === 'feat'
+                    ? `<p class="desk">${x.summary}</p><details class="more mob"><summary>Resumen de la nota</summary><div class="mb"><p>${x.summary}</p>${noteHtml}</div></details>`
+                    : `<details class="more"><summary>Resumen de la nota</summary><div class="mb"><p>${x.summary}</p>${noteHtml}</div></details>`;
+                return `
+                <article class="tile ${cls}">
+                    <span class="num">${pad(i)}</span>
+                    <span class="k">${x.scopeTag || ''}</span>
+                    <h3>${x.title}</h3>
+                    <div class="why"><b>Por qué importa</b><span class="${cls === 'sd' ? 'clamp3' : ''}">${x.impact}</span></div>
+                    ${body}
+                    <div class="tf"><div class="src">${si.line}</div>${arrow(x.source, 'Leer noticia')}</div>
+                </article>`;
+            };
+            const cl = data.clipping;
+            document.getElementById('container-clipping').innerHTML = cl.length
+                ? `<div class="clip-top ${cl.length === 1 ? 'one' : ''}">${clipTile(cl[0], 0, 'feat')}${cl.slice(1, 3).map((x, j) => clipTile(x, j + 1, 'sd')).join('')}</div>` +
+                  (cl.length > 3 ? `<div class="grid g3 clip-rest">${cl.slice(3).map((x, j) => clipTile(x, j + 3, 'sd')).join('')}</div>` : '')
+                : '<div class="empty"><b>Sin noticias cargadas</b>Esta edición no incluye clipping industrial.</div>';
+
+            // 2. En redes
+            document.getElementById('container-sector').innerHTML = data.sector.length ? data.sector.map((x, i) => {
+                const st = states[i];
+                const lim = RADAR_NETS.find(n => n.test(x.network || ''));
+                const limit = lim && limits[lim.label];
+                const act = splitAction(x.action);
+                const nm = splitNote(x.source.name), dt = splitNote(x.source.date);
+                const notes = [nm.note, dt.note].filter(Boolean).join('. ');
+                return `
+                <article class="tile">
+                    <div class="tags"><span class="net">${escapeHtml(x.network)}</span>${st === 'trend' ? '<span class="st trend">Tendencia respaldada</span>' : ''}</div>
+                    <h3 style="font-size:clamp(19px,1.6vw,22px)">${x.title}</h3>
+                    <p class="clamp">${escapeHtml(x.quote)}</p>
+                    <div class="why"><b>Por qué importa</b>${escapeHtml(act.why)}</div>
+                    <details class="more">
+                        <summary>Evidencia y límites</summary>
+                        <div class="mb">
+                            ${x.hashtag ? `<span class="tag">${x.hashtag}</span>` : ''}
+                            <p>${escapeHtml(x.quote)}</p>
+                            ${act.scope ? `<p><b>Alcance:</b> ${escapeHtml(act.scope)}</p>` : ''}
+                            ${x.watch ? `<p><b>Qué observar:</b> ${escapeHtml(x.watch)}</p>` : ''}
+                            ${x.evidence ? `<p><b>Evidencia pública:</b> ${escapeHtml(x.evidence)}</p>` : ''}
+                            ${x.metrics && x.metrics.variation ? `<p><b>Métricas:</b> ${escapeHtml(x.metrics.variation)}</p>` : ''}
+                            ${notes ? `<p><b>Sobre la fuente:</b> ${escapeHtml(notes)}</p>` : ''}
+                            ${limit ? `<p><b>Límite de la verificación:</b> ${escapeHtml(limit)}</p>` : ''}
+                            ${x.metrics && Number(x.metrics.temp) > 0 ? `<p><b>Relevancia:</b> ${renderStars(x.metrics.temp)}</p>` : ''}
                         </div>
+                    </details>
+                    <div class="tf"><div class="src">${escapeHtml(nm.main)} · ${escapeHtml(dt.main)}</div>${arrow(x.source, 'Ver publicación')}</div>
+                </article>`;
+            }).join('') : '<div class="empty"><b>Sin publicaciones cargadas</b>Esta edición no incluye posts de redes.</div>';
 
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">${item.title}</h3>
-                        
-                        <div class="bg-amber-50/80 border-l-4 border-amber-500 p-3.5 rounded-r-xl mb-4 text-xs text-amber-950 italic">
-                            <span class="card-eyebrow">De qué se habla · síntesis</span>
-                            ${escapeHtml(item.quote)}
-                        </div>
-                    </div>
+            // Redes sin post verificado (solo ediciones con auditoría)
+            const missing = modern ? RADAR_NETS.filter(n => !data.sector.some(i => n.test(i.network || ''))) : [];
+            document.getElementById('none-list').innerHTML = missing.map(n =>
+                `<div class="empty"><b>${n.label}: sin novedad verificable hoy</b>${escapeHtml(limits[n.label] || 'No se encontró un post industrial verificable de esta red para el período.')}</div>`).join('');
 
-                    <div>
-                        <!-- Acción Sugerida UIPBA -->
-                        <div class="pt-3 border-t border-slate-100 mb-3">
-                            <span class="text-[9px] font-bold uppercase text-uipba-blue tracking-wider">Por qué importa para UIPBA</span>
-                            <p class="text-xs text-slate-800 font-semibold mt-0.5">${escapeHtml(item.action)}</p>
-                            ${item.watch ? `<p class="text-xs text-slate-600 mt-2"><strong>Qué observar:</strong> ${escapeHtml(item.watch)}</p>` : ''}
-                            ${item.evidence ? `<p class="text-xs text-slate-600 mt-2"><strong>Evidencia pública:</strong> ${escapeHtml(item.evidence)}</p>` : ''}
-                        </div>
-
-                        <!-- Fuente Obligatoria (Claude Suggestion) -->
-                        <div class="source-row">
-                            <div class="source-meta"><span class="source-label">Fuente verificada</span>${linkedSource(item.source, "Ver publicación")}</div>
-                            <span class="source-date">${item.source.date}<br><span class="text-emerald-600 font-bold">${item.metrics.variation}</span></span>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-
-            // 2. Render Calle
-            const calleContainer = document.getElementById('container-calle');
-            calleContainer.innerHTML = data.calle.map(item => `
-                <div class="calle-item ${item.region || 'general'} dashboard-card bg-white rounded-2xl p-6 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-start mb-3 pb-2 border-b border-slate-100">
-                            <span class="${item.badgeClass} px-2.5 py-1 rounded-md text-[10px] font-bold uppercase">${item.riskLevel}</span>
-                            <div class="text-right">
-                                <span class="text-xs text-slate-500 font-bold block">${item.topicNumber}</span>
-                                <span class="text-[10px] text-amber-600 font-bold">${renderStars(item.metrics.temp)} (${item.metrics.volume})</span>
-                            </div>
-                        </div>
-
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">${item.title}</h3>
-                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                            <strong>Qué está pasando:</strong> ${item.streetTalk}
-                        </p>
-
-                        ${item.connection && item.connection.length ? `
-                        <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-2 mb-4">
-                            <div class="flex items-center space-x-2 text-uipba-navy text-xs font-bold">
-                                <span class="w-2 h-2 bg-uipba-navy rounded-full"></span>
-                                <span>Impacto para el sector productivo</span>
-                            </div>
-                            <ul class="text-xs text-slate-700 space-y-1 pl-4 list-disc font-medium">
-                                ${item.connection.map(c => `<li>${c}</li>`).join('')}
-                            </ul>
-                        </div>
-                        ` : `
-                        <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl mb-4">
-                            <span class="text-[10px] text-slate-500 italic">Contexto de agenda social — sin conexión industrial directa detectada.</span>
-                        </div>
-                        `}
-                    </div>
-
-                    <div>
-                        <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs mb-3">
-                            <span class="font-bold text-slate-500">Lectura para UIPBA:</span>
-                            <span class="font-bold text-uipba-navy text-right">${item.uipbaPosition}</span>
-                        </div>
-
-                        <!-- Fuente Obligatoria -->
-                        <div class="source-row">
-                            <div class="source-meta"><span class="source-label">Fuente verificada</span>${linkedSource(item.source, "Ver publicación")}</div>
-                            <span class="source-date">${item.source.date}<br><span class="text-emerald-600 font-bold">${item.metrics.variation}</span></span>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-
-            // 3. Render Clipping
-            const clippingContainer = document.getElementById('container-clipping');
-            clippingContainer.innerHTML = data.clipping.map(item => `
-                <div class="clip-item ${item.category} dashboard-card bg-white rounded-2xl p-5 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-3 text-[9px] font-bold">
-                            <span class="uppercase tracking-wider bg-uipba-navy text-white px-2 py-0.5 rounded">${item.scopeTag}</span>
-                            <span class="${item.badgeClass} px-2 py-0.5 rounded">${item.badgeText}</span>
-                        </div>
-                        <h4 class="font-bold text-slate-900 text-sm mb-2 hover:text-uipba-blue cursor-pointer">${item.title}</h4>
-                        <p class="text-xs text-slate-500 mb-4 leading-relaxed">${item.summary}</p>
-                    </div>
-
-                    <div>
-                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs mb-3">
-                            <span class="font-bold text-uipba-navy block mb-0.5">Por qué importa para UIPBA</span>
-                            <p class="text-slate-700 font-medium">${item.impact}</p>
-                        </div>
-
-                        <!-- Fuente e Índices -->
-                        <div class="source-row">
-                            <div class="source-meta"><span class="source-label">Fuente original</span>${linkedSource(item.source, "Leer noticia")}</div>
-                            <span class="source-date">Relevancia ${renderStars(item.metrics.temp)}<br>${item.source.date}</span>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function switchTab(tabId) {
-            document.querySelectorAll('main > section').forEach(section => {
-                section.classList.add('hidden');
-            });
-
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-                btn.classList.add('text-slate-600');
-            });
-
-            const targetSection = document.getElementById(tabId);
-            if (targetSection) targetSection.classList.remove('hidden');
-
-            const targetBtn = document.getElementById('btn-' + tabId);
-            if (targetBtn) {
-                targetBtn.classList.add('active');
-                targetBtn.classList.remove('text-slate-600');
-            }
-        }
-
-        function filterClipping(category) {
-            const items = document.querySelectorAll('.clip-item');
-            const buttons = document.querySelectorAll('.clip-filter-btn');
-
-            buttons.forEach(btn => btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm', 'active'));
-
-            event.target.classList.add('bg-white', 'text-slate-900', 'shadow-sm', 'active');
-
-            items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        function filterCalle(region) {
-            const items = document.querySelectorAll('.calle-item');
-            items.forEach(item => {
-                if (region === 'all' || item.classList.contains(region)) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+            // 3. Agenda bonaerense (mismo molde que el clipping)
+            document.getElementById('container-calle').innerHTML = data.calle.length ? data.calle.map((x, i) => {
+                const si = srcInfo(x.source);
+                const conn = x.connection && x.connection.length ? `<p><b>Impacto para el sector productivo:</b></p><ul>${x.connection.map(c => `<li>${c}</li>`).join('')}</ul>` : '';
+                return `
+                <article class="tile sd">
+                    <span class="num">${pad(i)}</span>
+                    <span class="k">${x.riskLevel || ''}${x.topicNumber && !/^Tema #/.test(x.topicNumber) ? ' · ' + x.topicNumber : ''}</span>
+                    <h3>${String(x.title).replace(/^\d+\.\s*/, '')}</h3>
+                    <div class="why"><b>Por qué importa</b><span class="clamp3">${x.uipbaPosition}</span></div>
+                    <details class="more"><summary>Resumen de la nota</summary><div class="mb"><p>${x.streetTalk}</p>${conn}${si.notes ? `<p><b>Sobre la fuente:</b> ${escapeHtml(si.notes)}</p>` : ''}</div></details>
+                    <div class="tf"><div class="src">${si.line}</div>${arrow(x.source, 'Ver nota')}</div>
+                </article>`;
+            }).join('') : '<div class="empty"><b>Sin temas cargados</b>Esta edición no incluye agenda bonaerense.</div>';
         }
 
         function formatDate(dateVal) {
-            return new Intl.DateTimeFormat('es-AR', { day:'2-digit', month:'long', year:'numeric', timeZone:'UTC' }).format(new Date(dateVal + 'T12:00:00Z'));
+            return new Intl.DateTimeFormat('es-AR', { day:'numeric', month:'long', year:'numeric', timeZone:'UTC' }).format(new Date(dateVal + 'T12:00:00Z'));
         }
 
         function initDateSelector() {
@@ -13695,19 +13494,21 @@
             const formatted = formatDate(dateVal);
             document.getElementById('current-date-badge').innerText = formatted;
             document.getElementById('analyzed-date').innerText = formatted;
+            const ld = longDate(dateVal);
+            document.getElementById('rc-title').innerHTML = `<span>${ld.wd}</span> ${ld.rest} <small>${ld.year}</small>`;
             const analyzedDay = new Date(dateVal + 'T12:00:00Z');
             analyzedDay.setUTCDate(analyzedDay.getUTCDate() - 1);
-            document.getElementById('period-note').innerText = `Período analizado: ${formatDate(analyzedDay.toISOString().slice(0, 10))}, de 00:00 a 23:59 (Argentina). Las excepciones sociales indican su fecha real.`;
+            document.getElementById('period-note').innerText = `Período analizado: ${formatDate(analyzedDay.toISOString().slice(0, 10))} (00:00 a 23:59, Argentina)`;
             renderDashboard(dateVal);
         }
 
         function exportToPDF() {
-            const btn = event?.currentTarget;
+            const btn = event && event.currentTarget;
             const originalText = btn ? btn.innerHTML : '';
-            if (btn) btn.innerHTML = '<span class="animate-pulse">⌛ Generando PDF Ejecutivo...</span>';
+            if (btn) btn.innerHTML = 'Generando PDF…';
 
-            const element = document.querySelector('main').cloneNode(true);
-            element.querySelectorAll('section').forEach(sec => sec.classList.remove('hidden'));
+            const element = document.getElementById('report').cloneNode(true);
+            element.querySelectorAll('details').forEach(d => d.setAttribute('open', ''));
 
             const opt = {
                 margin:       [0.3, 0.3, 0.3, 0.3],
@@ -13725,6 +13526,9 @@
                 window.print();
             });
         }
+
+        window.addEventListener('scroll', () => document.getElementById('totop').classList.toggle('on', window.scrollY > 700), { passive: true });
+        window.addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
 
         // Inicialización al cargar la página
         window.onload = function() {
